@@ -1,0 +1,14 @@
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: anotherlife-wildcard-staging
+  namespace: cert-manager
+spec:
+  dnsNames:
+  - anotherlife.pl
+  - '*.anotherlife.pl'
+  issuerRef:
+    kind: ClusterIssuer
+    name: cert-manager-acme-issuer-staging
+  secretName: anotherlife-wildcard-certificate-staging

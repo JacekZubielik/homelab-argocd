@@ -1,0 +1,7 @@
+ingressClass:
+  isDefaultClass: false
+  name: cert-manager
+
+ingressRoute:
+  dashboard:
+    enabled: false

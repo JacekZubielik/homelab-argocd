@@ -1,0 +1,17 @@
+{
+  "appName": "cert-manager",
+  "userGivenName": "cert-manager",
+  "destNamespace": "cert-manager",
+  "chart": "cert-manager",
+  "repo": "https://charts.jetstack.io",
+  "version": "v1.13.3",
+  "additionalResources": true,
+  "destServer": "https://kubernetes.default.svc",
+  "srcPath": "build/apps/cert-manager/overlays",
+  "basePath": "build/apps/cert-manager/base",
+  "srcRepoURL": "https://github.com/jacekzubielik//homelab-argocd.git",
+  "srcTargetRevision": "",
+  "syncWave": "-2",
+  "labels": null,
+  "annotations": null
+}
