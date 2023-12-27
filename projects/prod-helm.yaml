@@ -52,7 +52,7 @@ spec:
             releaseName: '{{ chart }}'
             valueFiles:
             - '$src/{{ basePath }}/values.yaml'
-            - '$src/{{ srcPath }}/prod-helm/values.yaml'
+            - '$src/{{ srcPath }}/values.yaml'
         - repoURL: '{{ srcRepoURL }}'
           targetRevision: '{{ srcTargetRevision }}'
           path: '{{ srcPath }}'
