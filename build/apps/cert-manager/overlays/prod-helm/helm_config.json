@@ -9,7 +9,7 @@
   "destServer": "https://kubernetes.default.svc",
   "srcPath": "build/apps/cert-manager/overlays/prod-helm",
   "basePath": "build/apps/cert-manager/base",
-  "srcRepoURL": "https://github.com/jacekzubielik//homelab-argocd.git",
+  "srcRepoURL": "https://github.com/jacekzubielik/homelab-argocd.git",
   "srcTargetRevision": "",
   "syncWave": "-2",
   "labels": null,
