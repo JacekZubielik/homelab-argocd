@@ -84,7 +84,7 @@ spec:
         kind: Application
       project: dev
       source:
-        path: '{{ srcPath }}'
+        path: '{{ srcPath }}/dev'
         repoURL: '{{ srcRepoURL }}'
         targetRevision: '{{ srcTargetRevision }}'
       syncPolicy:
