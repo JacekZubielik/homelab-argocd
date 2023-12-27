@@ -92,6 +92,6 @@ spec:
       syncPolicy:
         automated:
           allowEmpty: true
-          prune: true
+          prune: false
           selfHeal: false
 status: {}
