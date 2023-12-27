@@ -55,7 +55,7 @@ spec:
             - '$src/{{ srcPath }}/prod-helm/values.yaml'
         - repoURL: '{{ srcRepoURL }}'
           targetRevision: '{{ srcTargetRevision }}'
-          path: '{{if additionalResources}}{{ srcPath }}/prod-helm{{end}}'
+          path: '{{if additionalResources}}{{ srcPath }}' #/prod-helm{{end}}'
           ref: 'src'
       syncPolicy:
         syncOptions:
