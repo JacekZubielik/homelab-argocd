@@ -7,7 +7,7 @@
   "version": "v1.13.3",
   "additionalResources": true,
   "destServer": "https://kubernetes.default.svc",
-  "srcPath": "build/apps/cert-manager/overlays",
+  "srcPath": "build/apps/cert-manager/overlays/prod-helm",
   "basePath": "build/apps/cert-manager/base",
   "srcRepoURL": "https://github.com/jacekzubielik//homelab-argocd.git",
   "srcTargetRevision": "",
