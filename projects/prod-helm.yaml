@@ -1,3 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  annotations:
+    argocd-autopilot.argoproj-labs.io/default-dest-server: https://kubernetes.default.svc
+    argocd.argoproj.io/sync-options: PruneLast=true
+    argocd.argoproj.io/sync-wave: "-5"
+  creationTimestamp: null
+  name: prod-helm
+  namespace: argocd
+spec:
+  clusterResourceWhitelist:
+  - group: '*'
+    kind: '*'
+  description: prod-helm project
+  destinations:
+  - namespace: '*'
+    server: '*'
+  namespaceResourceWhitelist:
+  - group: '*'
+    kind: '*'
+  sourceRepos:
+  - '*'
+status: {}
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
@@ -55,7 +79,7 @@ spec:
             - '$src/{{ srcPath }}/values.yaml'
         - repoURL: '{{ srcRepoURL }}'
           targetRevision: '{{ srcTargetRevision }}'
-          path: '{{ srcPath }}'
+          path: '{{ srcPath }}/prod-helm'
           ref: 'src'
       syncPolicy:
         syncOptions:
