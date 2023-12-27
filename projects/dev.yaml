@@ -92,6 +92,6 @@ spec:
         - CreateNamespace=true
         automated:
           allowEmpty: true
-          prune: false
-          selfHeal: false
+          prune: true
+          selfHeal: true
 status: {}
