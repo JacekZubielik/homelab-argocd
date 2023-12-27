@@ -32,7 +32,7 @@ spec:
       #   application-role: '{{ default "app" .appRole }}'
       # annotations:
       #   argocd.argoproj.io/sync-wave: '{{ default "5" syncWave }}'
-      name: prod-{{ userGivenName }}
+      name: prod-helm-{{ userGivenName }}
       namespace: argocd
     spec:
       destination:
