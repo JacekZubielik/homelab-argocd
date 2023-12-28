@@ -3,7 +3,7 @@
   "userGivenName": "treafik-helm",
   "destNamespace": "treafik-helm",
   "chart": "treafik",
-  "repo": "https://github.com/traefik/traefik-helm-chart/",
+  "repo": "https://traefik.github.io/charts/",
   "version": "v26.0.0",
   "additionalResources": true,
   "destServer": "https://kubernetes.default.svc",
