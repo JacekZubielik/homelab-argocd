@@ -7,7 +7,7 @@
   "version": "v26.0.0",
   "additionalResources": true,
   "destServer": "https://kubernetes.default.svc",
-  "srcPath": "build/apps/treafik-helm/overlays",
+  "srcPath": "build/apps/treafik-helm/overlays/prod-helm",
   "basePath": "build/apps/treafik-helm/base",
   "srcRepoURL": "https://github.com/JacekZubielik/homelab-argocd.git",
   "srcTargetRevision": "",
