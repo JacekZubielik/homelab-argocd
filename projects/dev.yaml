@@ -90,8 +90,8 @@ spec:
       syncPolicy:
         syncOptions:
         - CreateNamespace=true
-        automated:
-          allowEmpty: true
-          prune: true
-          selfHeal: true
+        # automated:
+        #   allowEmpty: true
+        #   prune: true
+        #   selfHeal: true
 status: {}
