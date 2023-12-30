@@ -4,7 +4,7 @@
   "destNamespace": "treafik-helm",
   "chart": "treafik",
   "repo": "https://traefik.github.io/charts/",
-  "version": "v26.0.0",
+  "version": "26.0.0",
   "additionalResources": true,
   "destServer": "https://kubernetes.default.svc",
   "srcPath": "build/apps/treafik-helm/overlays/prod-helm",
