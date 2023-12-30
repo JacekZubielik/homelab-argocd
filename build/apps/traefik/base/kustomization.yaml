@@ -6,3 +6,4 @@ resources:
 - cluster-roles.yaml
 - deployment.yaml
 - middlewares.yaml
+- chains.yaml
