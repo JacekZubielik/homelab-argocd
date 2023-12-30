@@ -1,9 +1,0 @@
-kind: PersistentVolumeClaim
-apiVersion: v1
-metadata:
-  name: traefik-ssl-certs
-spec:
-  accessModes: [ "ReadWriteMany" ]
-  resources:
-   requests:
-     storage: 128Mi
