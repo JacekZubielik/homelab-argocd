@@ -5,3 +5,4 @@ resources:
 - crds.yaml
 - cluster-roles.yaml
 - deployment.yaml
+- middlewares.yaml
