@@ -2,7 +2,7 @@
   "appName": "treafik-helm",
   "userGivenName": "treafik-helm",
   "destNamespace": "treafik-helm",
-  "chart": "treafik",
+  "chart": "traefik",
   "repo": "https://traefik.github.io/charts/",
   "version": "26.0.0",
   "additionalResources": true,
