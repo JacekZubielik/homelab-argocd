@@ -441,7 +441,7 @@ spec:
           value: memberlist
         - name: METALLB_DEPLOYMENT
           value: controller
-        image: quay.io/metallb/controller::v0.12.1
+        image: quay.io/metallb/controller::v0.13.12
         name: controller
         ports:
         - containerPort: 7472
@@ -470,11 +470,11 @@ spec:
             drop:
             - all
           readOnlyRootFilesystem: true
-      nodeSelector:
-        kubernetes.io/os: linux
-      securityContext:
-        runAsNonRoot: true
-        runAsUser: 65534
-        fsGroup: 65534
-      serviceAccountName: controller
-      terminationGracePeriodSeconds: 0
+      # nodeSelector:
+      #   kubernetes.io/os: linux
+      # securityContext:
+      #   runAsNonRoot: true
+      #   runAsUser: 65534
+      #   fsGroup: 65534
+      # serviceAccountName: controller
+      # terminationGracePeriodSeconds: 0
