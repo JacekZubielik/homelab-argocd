@@ -5,19 +5,14 @@ namespace: cert-manager
 helmCharts:
 - name: cert-manager
   includeCRDs: true
-  prometheus:
-    enabled: true
-    servicemonitor:
-      enabled: true
-
   releaseName: cert-manager
   version: v1.13.3
   repo: https://charts.jetstack.io
-  # valuesInline:
-  #   installCRDs: true
-    # namespace: "cert-manager"
-    # fullnameOverride: "cert-manager"
-    # global:
-    #   leaderElection:
-    #     namespace: "cert-manager"
+  valuesInline:
+    installCRDs: true
+    namespace: "cert-manager"
+    fullnameOverride: "cert-manager"
+    global:
+      leaderElection:
+        namespace: "cert-manager"
 
