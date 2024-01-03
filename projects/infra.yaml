@@ -90,8 +90,16 @@ spec:
         repoURL: '{{ srcRepoURL }}'
         targetRevision: '{{ srcTargetRevision }}'
       syncPolicy:
+        retry:
+          limit: 2
+        syncOptions:
+        - CreateNamespace=true
+        - preserveResourcesOnDeletion=false
+        - Replace=false
+        - ServerSideApply=true
+        # - Replace=false
         automated:
           allowEmpty: true
-          prune: false
-          selfHeal: false
+          prune: true
+          selfHeal: true
 status: {}
