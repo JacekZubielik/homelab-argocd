@@ -95,6 +95,7 @@ spec:
         - preserveResourcesOnDeletion=false
         - Replace=false
         - ServerSideApply=true
+        # - Replace=false
         automated:
           allowEmpty: true
           prune: true
