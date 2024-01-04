@@ -57,7 +57,7 @@ spec:
       annotations:
         argocd.argoproj.io/sync-wave: '{{ default "5" syncWave }}'
       #name: prod-helm-{{ userGivenName }}
-      name: prod-{{ userGivenName }}
+      name: prod-helm-{{ userGivenName }}
       namespace: argocd
     spec:
       destination:
