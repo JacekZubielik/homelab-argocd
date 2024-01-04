@@ -27,7 +27,7 @@ metadata:
 spec:
   generators:
     - git:
-        repoURL: https://github.com/diademiemi/argocd_project_homelab.git
+        repoURL: https://github.com/jacekzubielik/homelab-argocd.git
         revision: ""
         directories:
           - path: manifests/*/**/local
@@ -44,7 +44,7 @@ spec:
         namespace: '{{ path[1] }}'
         server: 'https://kubernetes.default.svc'
       source:
-        repoURL: https://github.com/diademiemi/argocd_project_homelab.git
+        repoURL: https://github.com/jacekzubielik/homelab-argocd.git
         targetRevision: 'main'
         path: '{{ path }}'
       syncPolicy:
@@ -63,7 +63,7 @@ metadata:
 spec:
   generators:
     - git:
-        repoURL: https://github.com/diademiemi/argocd_project_homelab.git
+        repoURL: https://github.com/jacekzubielik/homelab-argocd.git
         revision: ""
         files:
           - path: helm/*/**/values/local.yaml
@@ -80,7 +80,7 @@ spec:
         namespace: '{{ path[1] }}'
         server: 'https://kubernetes.default.svc'
       source:
-        repoURL: https://github.com/diademiemi/argocd_project_homelab.git
+        repoURL: https://github.com/jacekzubielik/homelab-argocd.git
         targetRevision: 'main'
         path: '{{ path }}/../chart'
         helm:
