@@ -7,7 +7,7 @@
     "version": "1.4.3",
     "additionalResources": true,
     "destServer": "https://kubernetes.default.svc",
-    "srcPath": "build/apps/longhorn/overlays",
+    "srcPath": "build/apps/longhorn/overlays/prod-helm",
     "basePath": "build/apps/longhorn/base",
     "srcRepoURL": "https://github.com/jacekzubielik/homelab-argocd.git",
     "srcTargetRevision": "",
