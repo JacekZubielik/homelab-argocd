@@ -52,16 +52,16 @@ spec:
     metadata:
       labels:
         app.kubernetes.io/managed-by: argocd-autopilot
-        app.kubernetes.io/name: '{{ .appName }}'
-        application-role: '{{ default "app" .appRole }}'
+        app.kubernetes.io/name: '{{ appName }}'
+        application-role: '{{ default "app" appRole }}'
       annotations:
-        argocd.argoproj.io/sync-wave: '{{ default "5" .syncWave }}'
-      name: prod-helm-{{ .userGivenName }}
+        argocd.argoproj.io/sync-wave: '{{ default "5" syncWave }}'
+      name: prod-helm-{{ userGivenName }}
       namespace: argocd
     spec:
       destination:
-        namespace: '{{ .destNamespace }}'
-        server: '{{ .destServer }}'
+        namespace: '{{ destNamespace }}'
+        server: '{{ destServer }}'
       ignoreDifferences:
       - group: argoproj.io
         jsonPointers:
@@ -69,21 +69,27 @@ spec:
         kind: Application
       project: prod-helm
       sources:
-        - chart: '{{ .chart }}'
-          repoURL: '{{ .repo }}'
-          targetRevision: '{{ .version }}'
+        - chart: '{{ chart }}'
+          repoURL: '{{ repo }}'
+          targetRevision: '{{ version }}'
           helm:
-            releaseName: '{{ .chart }}'
+            releaseName: '{{ chart }}'
             valueFiles:
-            - '$src/{{ .basePath }}/values.yaml'
-            - '$src/{{ .srcPath }}/prod-helm/values.yaml'
-        - repoURL: '{{ .srcRepoURL }}'
-          targetRevision: '{{ .srcTargetRevision }}'
-          path: '{{if .additionalResources}}{{ .srcPath }}/prod-helm{{end}}'
+            - '$src/{{ basePath }}/values.yaml'
+            - '$src/{{ srcPath }}/prod-helm/values.yaml'
+        - repoURL: '{{ srcRepoURL }}'
+          targetRevision: '{{ srcTargetRevision }}'
+          path: '{{if additionalResources}}{{ srcPath }}/prod-helm{{end}}'
           ref: 'src'
       syncPolicy:
+        retry:
+          limit: 2
         syncOptions:
         - CreateNamespace=true
+        - preserveResourcesOnDeletion=false
+        - Replace=false
+        - ServerSideApply=true
+        # - Replace=false
         automated:
           allowEmpty: true
           prune: true
