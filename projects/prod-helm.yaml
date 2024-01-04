@@ -32,7 +32,7 @@ metadata:
   name: prod-helm
   namespace: argocd
 spec:
-  goTemplate: true
+  goTemplate: false
   generators:
   - git:
       files:
