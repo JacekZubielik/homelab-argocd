@@ -3,7 +3,7 @@ name: longhorn
 description: Longhorn
 type: application
 version: 0.0.1
-appVersion: "0.0.1"
+appVersion: "1.5.3"
 
 dependencies:
   - name: longhorn
