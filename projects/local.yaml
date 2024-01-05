@@ -48,11 +48,18 @@ spec:
         targetRevision: 'main'
         path: '{{ path }}'
       syncPolicy:
-        automated:
-          prune: true
-          selfHeal: true
+        retry:
+          limit: 2
         syncOptions:
         - CreateNamespace=true
+        - preserveResourcesOnDeletion=false
+        - Replace=false
+        - ServerSideApply=true
+        # - Replace=false
+        automated:
+          allowEmpty: true
+          prune: true
+          selfHeal: true
 ...
 ---
 apiVersion: argoproj.io/v1alpha1
@@ -87,9 +94,16 @@ spec:
           valueFiles:
             - '../values/{{ path.filename }}'
       syncPolicy:
-        automated:
-          prune: true
-          selfHeal: true
+        retry:
+          limit: 2
         syncOptions:
         - CreateNamespace=true
+        - preserveResourcesOnDeletion=false
+        - Replace=false
+        - ServerSideApply=true
+        # - Replace=false
+        automated:
+          allowEmpty: true
+          prune: true
+          selfHeal: true
 ...
