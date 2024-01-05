@@ -2,7 +2,7 @@ apiVersion: v2
 name: longhorn
 description: Longhorn
 type: application
-version: 0.0.1
+version: 1.5.3
 appVersion: "1.5.3"
 
 dependencies:
