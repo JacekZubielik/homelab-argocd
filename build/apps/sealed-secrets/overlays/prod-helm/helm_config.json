@@ -7,7 +7,7 @@
     "version": "2.10.0",
     "destServer": "https://kubernetes.default.svc",
     "basePath": "build/apps/sealed-secrets/base",
-    "srcPath": "build/apps/sealed-secrets/overlays/prod",
+    "srcPath": "build/apps/sealed-secrets/overlays/prod-helm",
     "srcRepoURL": "https://github.com/JacekZubielik/homelab-argocd.git",
     "srcTargetRevision": "",
     "syncWave": "-2",
