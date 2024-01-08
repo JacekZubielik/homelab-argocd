@@ -4,7 +4,7 @@ namespace: argocd
 configMapGenerator:
 - behavior: merge
   literals:
-  #- kustomize.buildOptions="--enable-alpha-plugins --enable-helm"
+  - kustomize.buildOptions="--enable-helm" #"--enable-alpha-plugins --enable-helm"
   - |
     repository.credentials=- passwordSecret:
         key: git_token
