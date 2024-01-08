@@ -32,7 +32,7 @@ metadata:
   name: prod-helm
   namespace: argocd
 spec:
-  goTemplate: false
+  #goTemplate: false
   generators:
   - git:
       files:
@@ -52,8 +52,8 @@ spec:
     metadata:
       labels:
         app.kubernetes.io/managed-by: argocd-autopilot
-        app.kubernetes.io/name: '{{ appName }}'
-        application-role: '{{ default "app" appRole }}'
+        # app.kubernetes.io/name: '{{ appName }}'
+        # application-role: '{{ default "app" appRole }}'
       annotations:
         argocd.argoproj.io/sync-wave: '{{ default "5" syncWave }}'
       #name: prod-helm-{{ userGivenName }}
