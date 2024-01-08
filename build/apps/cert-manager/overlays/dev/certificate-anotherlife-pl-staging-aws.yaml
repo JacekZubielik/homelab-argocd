@@ -10,5 +10,9 @@ spec:
   - '*.anotherlife.pl'
   issuerRef:
     kind: ClusterIssuer
-    name: cert-manager-acme-issuer-staging
+    #name: cert-manager-acme-issuer-staging
+    name: route53-issuer-staging
   secretName: anotherlife-wildcard-certificate-staging
+
+
+

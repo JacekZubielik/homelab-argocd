@@ -2,7 +2,7 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
 - ../../base
-- secrets.yaml
-- certificates-anotherlife-pl-staging-aws.yaml
-- issuer-staging-anotherlife-aws.yaml
+- route53-credentials-secret.yaml
+- certificate-anotherlife-pl-staging-aws.yaml
+- route53-issuer-staging-anotherlife.yaml
 - selfsigned-issuer.yaml
