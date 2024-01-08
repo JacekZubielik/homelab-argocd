@@ -6,7 +6,7 @@ helmCharts:
 - name: longhorn
   includeCRDs: true
   releaseName: longhorn
-  version: v1.5.3
+  version: 1.5.3
   repo: https://charts.jetstack.io
   # valuesFile: values.yaml
   valuesInline:
