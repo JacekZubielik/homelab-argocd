@@ -2,7 +2,7 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: anotherlife-wildcard-staging
+  name: route53-certificate-anotherlife-pl-staging
   namespace: cert-manager
 spec:
   dnsNames:
@@ -12,7 +12,8 @@ spec:
     kind: ClusterIssuer
     #name: cert-manager-acme-issuer-staging
     name: route53-issuer-staging
-  secretName: anotherlife-wildcard-certificate-staging
-
+  secretName: route53-certificate-anotherlife-pl-tls-staging
+  duration: 2160h # 90d(if use helm chart 2160h0m0s)
+  renewBefore: 720h # 30d(if use helm chart 720h0m0s)
 
 
