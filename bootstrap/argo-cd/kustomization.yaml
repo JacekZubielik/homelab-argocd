@@ -26,3 +26,14 @@ resources:
 # - vs.yaml
 # patchesStrategicMerge:
 # - istio_patches.yaml
+
+
+patches:
+  # Copy binaries from ArgoCD-image
+  - path: patches/argocd-repo-copyutil-patch.yaml
+  # Plugin to enable Kustomize with Helm
+  - path: patches/argocd-repo-server-plugin-sidecar-patch.yaml
+  # Ignore CiliumIdentity CRDs
+  # - path: patches/argocd-cm-resource-exclusion-cilium-identity-patch.yaml
+  # Traefik handles TLS
+  - path: patches/argocd-cmd-params-cm-server-insecure-patch.yaml
