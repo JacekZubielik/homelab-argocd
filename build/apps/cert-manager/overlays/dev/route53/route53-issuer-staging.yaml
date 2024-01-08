@@ -5,8 +5,8 @@ metadata:
   name: route53-issuer-staging
   #name: cert-manager-acme-issuer-staging
   namespace: cert-manager
-  annotations:
-    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+  # annotations:
+  #   argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 spec:
   acme:
     email: zumbik@protonmail.com
