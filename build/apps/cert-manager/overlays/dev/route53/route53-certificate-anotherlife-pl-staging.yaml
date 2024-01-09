@@ -13,7 +13,7 @@ spec:
     #name: cert-manager-acme-issuer-staging
     name: route53-issuer-staging
   secretName: route53-certificate-anotherlife-pl-tls-staging
-  duration: 2160h # 90d(if use helm chart 2160h0m0s)
-  renewBefore: 720h # 30d(if use helm chart 720h0m0s)
+  duration: 2160h0m0s # 90d(if use helm chart 2160h0m0s)
+  renewBefore: 720h0m0s # 30d(if use helm chart 720h0m0s)
 
 
