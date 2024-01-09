@@ -11,6 +11,14 @@ helmCharts:
   includeCRDs: true
   valuesFile: values.yaml
 
+
+resources:
+- selfsigned-issuer.yaml
+
+#route53
+# - route53/route53-credentials-secret.yaml
+# - route53/route53-certificate-anotherlife-pl-staging.yaml
+# - route53/route53-issuer-staging.yaml
   # valuesInline:
   #   installCRDs: true
   #   namespace: "cert-manager"
