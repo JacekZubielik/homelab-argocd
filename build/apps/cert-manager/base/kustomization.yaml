@@ -4,15 +4,28 @@ namespace: cert-manager
 
 helmCharts:
 - name: cert-manager
-  includeCRDs: true
-  releaseName: cert-manager
-  version: v1.13.3
   repo: https://charts.jetstack.io
-  valuesInline:
-    installCRDs: true
-    namespace: "cert-manager"
-    fullnameOverride: "cert-manager"
-    global:
-      leaderElection:
-        namespace: "cert-manager"
+  version: v1.13.3
+  releaseName: cert-manager
+  includeCRDs: true
+  valuesFile: values.yaml
 
+  # valuesInline:
+  #   installCRDs: true
+  #   namespace: "cert-manager"
+  #   fullnameOverride: "cert-manager"
+  #   global:
+  #     leaderElection:
+  #       namespace: "cert-manager"
+
+# label app.kubernetes.io/instance=cert-manager causes warnings for all 6 Cert Manager CRDs in ArgoCD, eg:
+#
+#  SharedResourceWarning 	CustomResourceDefinition/certificaterequests.cert-manager.io is part of applications cert-manager-production and cert-manager
+#
+#   https://github.com/argoproj/argo-cd/issues/6728
+#
+patches:
+  - path: ./remove-instance-label.jsonpatch.yaml
+    target:
+      kind: CustomResourceDefinition
+      labelSelector: app.kubernetes.io/instance=cert-manager
