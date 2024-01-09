@@ -25,8 +25,8 @@ helmCharts:
 #
 #   https://github.com/argoproj/argo-cd/issues/6728
 #
-# patches:
-#   - path: ./remove-instance-label.jsonpatch.yaml
-#     target:
-#       kind: CustomResourceDefinition
-#       labelSelector: app.kubernetes.io/instance=cert-manager
+patches:
+  - path: ./remove-instance-label.jsonpatch.yaml
+    target:
+      kind: CustomResourceDefinition
+      labelSelector: app.kubernetes.io/instance=cert-manager
