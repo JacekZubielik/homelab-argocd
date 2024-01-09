@@ -36,7 +36,7 @@ spec:
   - git:
       files:
       - path: build/apps/**/infra/config.json
-      repoURL: https://github.com/JacekZubielik/homelab-argocd.git
+      repoURL: https://github.com/jacekzubielik/homelab-argocd.git
       requeueAfterSeconds: 20
       revision: ""
       template:
@@ -49,7 +49,7 @@ spec:
   - git:
       files:
       - path: build/apps/**/infra/config_dir.json
-      repoURL: https://github.com/JacekZubielik/homelab-argocd.git
+      repoURL: https://github.com/jacekzubielik/homelab-argocd.git
       requeueAfterSeconds: 20
       revision: ""
       template:
@@ -70,9 +70,6 @@ spec:
       labels:
         app.kubernetes.io/managed-by: argocd-autopilot
         app.kubernetes.io/name: '{{ appName }}'
-        #application-role: '{{ default "app" .appRole }}'
-      # annotations:
-      #   argocd.argoproj.io/sync-wave: '{{ default "5" .syncWave }}'
       name: infra-{{ userGivenName }}
       namespace: argocd
     spec:
@@ -91,7 +88,7 @@ spec:
         targetRevision: '{{ srcTargetRevision }}'
       syncPolicy:
         retry:
-          limit: 10
+          limit: 2
         syncOptions:
         - CreateNamespace=true
         - preserveResourcesOnDeletion=false
