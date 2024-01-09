@@ -91,7 +91,7 @@ spec:
         targetRevision: '{{ srcTargetRevision }}'
       syncPolicy:
         retry:
-          limit: 2
+          limit: 10
         syncOptions:
         - CreateNamespace=true
         - preserveResourcesOnDeletion=false
