@@ -87,8 +87,8 @@ spec:
         repoURL: '{{ srcRepoURL }}'
         targetRevision: '{{ srcTargetRevision }}'
       syncPolicy:
-        retry:
-          limit: 2
+        # retry:
+        #   limit: 2
         syncOptions:
         - CreateNamespace=true
         - preserveResourcesOnDeletion=false
