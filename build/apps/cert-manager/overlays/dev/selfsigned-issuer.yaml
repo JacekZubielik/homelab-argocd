@@ -15,5 +15,7 @@ kind: Issuer
 metadata:
   name: self-signed-issuer
   namespace: cert-manager
+  annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 spec:
   selfSigned: {}
