@@ -15,9 +15,11 @@ global:
 
   leaderElection:
     # Override the namespace used for the leader election lease
-    namespace: "kube-system"
-    #namespace: "cert-manager"
+    #namespace: "kube-system"
+    namespace: "cert-manager"
 
+
+fullnameOverride: "cert-manager"
 installCRDs: true
 namespace: "cert-manager"
 replicaCount: 1
