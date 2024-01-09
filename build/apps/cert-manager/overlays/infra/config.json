@@ -3,7 +3,7 @@
   "userGivenName": "cert-manager",
   "destNamespace": "cert-manager",
   "destServer": "https://kubernetes.default.svc",
-  "srcPath": "build/apps/cert-manager/overlays/dev",
+  "srcPath": "build/apps/cert-manager/overlays/infra",
   "srcRepoURL": "https://github.com/jacekzubielik/homelab-argocd.git",
   "srcTargetRevision": "",
   "syncWave": "-2",
