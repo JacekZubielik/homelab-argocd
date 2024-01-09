@@ -22,7 +22,6 @@ spec:
   sourceRepos:
   - '*'
 status: {}
-
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
@@ -95,7 +94,6 @@ spec:
         - preserveResourcesOnDeletion=false
         - Replace=false
         - ServerSideApply=true
-        # - Replace=false
         automated:
           allowEmpty: true
           prune: true
