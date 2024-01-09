@@ -4,7 +4,7 @@
   "destNamespace": "kube-prometheus-stack",
   "destServer": "https://kubernetes.default.svc",
   "srcPath": "build/apps/kube-prometheus-stack/overlays/dev",
-  "srcRepoURL": "https://github.com/jacekzubielik/homelab-argocd.git",
+  "srcRepoURL": "https://github.com/JacekZubielik/homelab-argocd.git",
   "srcTargetRevision": "",
   "syncWave": "-2",
   "labels": null,
