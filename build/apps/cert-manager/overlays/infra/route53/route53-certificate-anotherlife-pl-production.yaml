@@ -13,5 +13,5 @@ spec:
     #name: cert-manager-acme-issuer-production
     name: route53-issuer-production
   secretName: route53-certificate-anotherlife-pl-tls-production
-  duration: 2160h0m0s # 90d(if use helm chart 2160h0m0s)
-  renewBefore: 720h0m0s # 30d(if use helm chart 720h0m0s)
+  duration: 2160h0m0s # 90d
+  renewBefore: 720h0m0s # 30d
