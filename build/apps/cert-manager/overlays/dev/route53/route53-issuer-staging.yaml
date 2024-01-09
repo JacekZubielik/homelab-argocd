@@ -5,8 +5,8 @@ metadata:
   name: route53-issuer-staging
   #name: cert-manager-acme-issuer-staging
   namespace: cert-manager
-  annotations:
-    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+  # annotations:
+  #   argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 spec:
   acme:
     email: zumbik@protonmail.com
@@ -20,7 +20,7 @@ spec:
           accessKeyID: AKIATKAIYFFV34T22QYU
           region: eu-central-1
           hostedZoneID: Z08398941B204TVG99U4E
-          #role: arn:aws:iam::227651627371:user/certManagerIAMUser
+          role: arn:aws:iam::227651627371:user/certManagerIAMUser
           secretAccessKeySecretRef:
             name: route53-credentials-secret
             key: secret-access-key
