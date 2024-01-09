@@ -9,23 +9,15 @@ helmCharts:
   version: v1.13.3
   releaseName: cert-manager
   includeCRDs: true
-  valuesFile: values.yaml
+  #valuesFile: values.yaml
 
-
-resources:
-- selfsigned-issuer.yaml
-
-#route53
-# - route53/route53-credentials-secret.yaml
-# - route53/route53-certificate-anotherlife-pl-staging.yaml
-# - route53/route53-issuer-staging.yaml
-  # valuesInline:
-  #   installCRDs: true
-  #   namespace: "cert-manager"
-  #   fullnameOverride: "cert-manager"
-  #   global:
-  #     leaderElection:
-  #       namespace: "cert-manager"
+  valuesInline:
+    installCRDs: true
+    namespace: "cert-manager"
+    fullnameOverride: "cert-manager"
+    global:
+      leaderElection:
+        namespace: "cert-manager"
 
 # label app.kubernetes.io/instance=cert-manager causes warnings for all 6 Cert Manager CRDs in ArgoCD, eg:
 #
