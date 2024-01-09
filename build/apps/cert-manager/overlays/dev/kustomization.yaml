@@ -3,7 +3,7 @@ kind: Kustomization
 resources:
 - ../../base
 - selfsigned-issuer.yaml
-
+- namespace.yaml
 #route53
 - route53/route53-credentials-secret.yaml
 - route53/route53-certificate-anotherlife-pl-staging.yaml
