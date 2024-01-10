@@ -88,7 +88,7 @@ spec:
         targetRevision: '{{ srcTargetRevision }}'
       syncPolicy:
         retry:
-          limit: 2 #-1
+          limit: -1
           backoff:
             maxDuration: 10m
 

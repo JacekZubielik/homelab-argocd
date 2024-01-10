@@ -1,0 +1,16 @@
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: cloudflare-certificate-anotherlife-pl-staging
+  namespace: cert-manager
+spec:
+  dnsNames:
+  - anotherlife.pl
+  - '*.anotherlife.pl'
+  issuerRef:
+    kind: ClusterIssuer
+    name: cloudflare-issuer-staging
+  secretName: cloudflare-certificate-anotherlife-pl-tls-staging
+  duration: 2160h0m0s # 90d
+  renewBefore: 720h0m0s # 30d
