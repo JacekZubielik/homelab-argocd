@@ -4,7 +4,7 @@ metadata:
   annotations:
     argocd-autopilot.argoproj-labs.io/default-dest-server: https://kubernetes.default.svc
     argocd.argoproj.io/sync-options: PruneLast=true
-    argocd.argoproj.io/sync-wave: "-5"
+    argocd.argoproj.io/sync-wave: "0"
   creationTimestamp: null
   name: prod-helm
   namespace: argocd
@@ -55,7 +55,7 @@ spec:
         app.kubernetes.io/name: '{{ appName }}'
         # application-role: '{{ default "app" appRole }}'
       annotations:
-        argocd.argoproj.io/sync-wave: '{{ default "5" syncWave }}'
+        argocd.argoproj.io/sync-wave: '{{ default "0" syncWave }}'
       name: prod-helm-{{ userGivenName }}
       namespace: argocd
     spec:
