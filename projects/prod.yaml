@@ -1,0 +1,105 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  annotations:
+    argocd-autopilot.argoproj-labs.io/default-dest-server: https://kubernetes.default.svc
+    argocd.argoproj.io/sync-options: PruneLast=true
+    argocd.argoproj.io/sync-wave: "-5"
+  creationTimestamp: null
+  name: prod
+  namespace: argocd
+spec:
+  clusterResourceWhitelist:
+  - group: '*'
+    kind: '*'
+  description: prod project
+  destinations:
+  - namespace: '*'
+    server: '*'
+  namespaceResourceWhitelist:
+  - group: '*'
+    kind: '*'
+  sourceRepos:
+  - '*'
+status: {}
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "-3"
+  creationTimestamp: null
+  name: prod
+  namespace: argocd
+spec:
+  #goTemplate: true
+  generators:
+  - git:
+      files:
+      - path: build/apps/**/prod/config.json
+      repoURL: https://github.com/jacekzubielik/homelab-argocd.git
+      requeueAfterSeconds: 20
+      revision: ""
+      template:
+        metadata: {}
+        spec:
+          destination: {}
+          project: ""
+          source:
+            repoURL: ""
+  - git:
+      files:
+      - path: build/apps/**/prod/config_dir.json
+      repoURL: https://github.com/jacekzubielik/homelab-argocd.git
+      requeueAfterSeconds: 20
+      revision: ""
+      template:
+        metadata: {}
+        spec:
+          destination: {}
+          project: ""
+          source:
+            directory:
+              exclude: '{{ exclude }}'
+              include: '{{ include }}'
+              jsonnet: {}
+              recurse: true
+            repoURL: ""
+  syncPolicy: {}
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/managed-by: argocd-autopilot
+        app.kubernetes.io/name: '{{ appName }}'
+      #   application-role: '{{ default "app" appRole }}'
+      # annotations:
+      #   argocd.argoproj.io/sync-wave: '{{ default "5" syncWave }}'
+      name: prod-{{ userGivenName }}
+      namespace: argocd
+    spec:
+      destination:
+        namespace: '{{ destNamespace }}'
+        server: '{{ destServer }}'
+      ignoreDifferences:
+      - group: argoproj.io
+        jsonPointers:
+        - /status
+        kind: Application
+      project: prod
+      source:
+        path: '{{ srcPath }}/prod'
+        repoURL: '{{ srcRepoURL }}'
+        targetRevision: '{{ srcTargetRevision }}'
+      syncPolicy:
+        retry:
+          limit: 2
+        syncOptions:
+        - CreateNamespace=true
+        - preserveResourcesOnDeletion=false
+        - Replace=false
+        - ServerSideApply=true
+        automated:
+          allowEmpty: true
+          prune: true
+          selfHeal: true
+status: {}

@@ -1,0 +1,95 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  annotations:
+    argocd-autopilot.argoproj-labs.io/default-dest-server: https://kubernetes.default.svc
+    argocd.argoproj.io/sync-options: PruneLast=true
+    argocd.argoproj.io/sync-wave: "-5"
+  creationTimestamp: null
+  name: prod-helm
+  namespace: argocd
+spec:
+  clusterResourceWhitelist:
+  - group: '*'
+    kind: '*'
+  description: prod-helm project
+  destinations:
+  - namespace: '*'
+    server: '*'
+  namespaceResourceWhitelist:
+  - group: '*'
+    kind: '*'
+  sourceRepos:
+  - '*'
+status: {}
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "-3"
+  creationTimestamp: null
+  name: prod-helm
+  namespace: argocd
+spec:
+  #goTemplate: false
+  generators:
+  - git:
+      files:
+      - path: build/apps/**/prod-helm/helm_config.json
+      repoURL: https://github.com/jacekzubielik/homelab-argocd.git
+      requeueAfterSeconds: 20
+      revision: ""
+      template:
+        metadata: {}
+        spec:
+          destination: {}
+          project: ""
+          source:
+            repoURL: ""
+  syncPolicy: {}
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/managed-by: argocd-autopilot
+        app.kubernetes.io/name: '{{ appName }}'
+        # application-role: '{{ default "app" appRole }}'
+      annotations:
+        argocd.argoproj.io/sync-wave: '{{ default "5" syncWave }}'
+      name: prod-helm-{{ userGivenName }}
+      namespace: argocd
+    spec:
+      destination:
+        namespace: '{{ destNamespace }}'
+        server: '{{ destServer }}'
+      ignoreDifferences:
+      - group: argoproj.io
+        jsonPointers:
+        - /status
+        kind: Application
+      project: prod-helm
+      sources:
+        - chart: '{{ chart }}'
+          repoURL: '{{ repo }}'
+          targetRevision: '{{ version }}'
+          helm:
+            releaseName: '{{ chart }}'
+            valueFiles:
+            - '$src/{{ basePath }}/values.yaml'
+            - '$src/{{ srcPath }}/prod-helm/values.yaml'
+        - repoURL: '{{ srcRepoURL }}'
+          targetRevision: '{{ srcTargetRevision }}'
+          path: '{{if additionalResources}}{{ srcPath }}/prod-helm{{end}}'
+          ref: 'src'
+      syncPolicy:
+        retry:
+          limit: 2
+        syncOptions:
+        - CreateNamespace=true
+        - preserveResourcesOnDeletion=false
+        - Replace=false
+        - ServerSideApply=true
+        automated:
+          allowEmpty: true
+          prune: true
+          selfHeal: true
