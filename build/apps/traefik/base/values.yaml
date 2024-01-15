@@ -502,7 +502,7 @@ ports:
     #   insecure: false
     tls:
       enabled: true
-      certResolver: anotherlife-wildcard-certificate-staging #-production
+      certResolver: route53-issuer-staging #anotherlife-wildcard-certificate-staging #-production
       domains:
         - main: 'anotherlife.pl'
           sans:
