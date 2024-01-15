@@ -519,12 +519,12 @@ ports:
   web:
     # redirectTo:
     #     port: websecure
-    port: 80 #8000
+    port: 8000 #80 #8000
     expose: true
     exposedPort: 80
     protocol: TCP
   websecure:
-    port: 443 #8443
+    port: 8443 #443 #8443
     expose: true
     exposedPort: 443
     protocol: TCP
