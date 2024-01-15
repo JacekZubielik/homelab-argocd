@@ -352,32 +352,6 @@ tracing:
 #   debug: false
 #   globalTag: ""
 #   prioritySampling: false
-# jaeger:
-#   samplingServerURL: http://localhost:5778/sampling
-#   samplingType: const
-#   samplingParam: 1.0
-#   localAgentHostPort: 127.0.0.1:6831
-#   gen128Bit: false
-#   propagation: jaeger
-#   traceContextHeaderName: uber-trace-id
-#   disableAttemptReconnecting: true
-#   collector:
-#      endpoint: ""
-#      user: ""
-#      password: ""
-# zipkin:
-#   httpEndpoint: http://localhost:9411/api/v2/spans
-#   sameSpan: false
-#   id128Bit: true
-#   sampleRate: 1.0
-# haystack:
-#   localAgentHost: 127.0.0.1
-#   localAgentPort: 35000
-#   globalTag: ""
-#   traceIDHeaderName: ""
-#   parentIDHeaderName: ""
-#   spanIDHeaderName: ""
-#   baggagePrefixHeaderName: ""
   elastic:
     serverURL: http://localhost:8200
 #   secretToken: ""
@@ -539,17 +513,12 @@ service:
   # -- Cannot contain type, selector or ports entries.
   spec:
     loadBalancerIP: 192.168.40.180 # this should be an IP in the MetalLB range
-    # loadBalancerSourceRanges:
-    #     - 192.168.0.0/16
-    #     - 172.16.0.0/12
-    #     - 10.0.0.0/8
   loadBalancerSourceRanges: []
   # - 192.168.0.1/32
   # - 172.16.0.0/16
   ## -- Class of the load balancer implementation
   # loadBalancerClass: service.k8s.aws/nlb
   externalIPs: []
-
 
 autoscaling:
   # -- Create HorizontalPodAutoscaler object.
@@ -577,18 +546,18 @@ autoscaling:
 #         value: 1
 #         periodSeconds: 60
 
-persistence:
-  enabled: true
-  name: data
-  #  existingClaim: ""
-  accessMode: ReadWriteOnce
-  size: 128Mi
-  storageClass: "local-path"
-  volumeName: traefik-logs
-  path: /data
-  annotations: {}
-  # -- Only mount a subpath of the Volume into the pod
-  # subPath: ""
+# persistence:
+#   enabled: true
+#   name: data
+#   #  existingClaim: ""
+#   accessMode: ReadWriteOnce
+#   size: 128Mi
+#   storageClass: "local-path"
+#   volumeName: traefik-logs
+#   path: /data
+#   annotations: {}
+#   # -- Only mount a subpath of the Volume into the pod
+#   # subPath: ""
 
 # -- Certificates resolvers configuration
 certResolvers: {}
