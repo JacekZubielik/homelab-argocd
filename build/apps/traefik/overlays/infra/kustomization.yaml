@@ -5,13 +5,15 @@ namespace: traefik
 
 resources:
 - ../../base
-
 - chains.yaml
 - middlewares.yaml
-#- secrets.yaml
-#- traefik-dashboard-cert.yaml
+- secrets.yaml
+- traefik-dashboard-cert.yaml
+- traefik-tlsoption.yaml
+
+
 #- traefik-service-monitor.yaml
-#- traefik-tlsoption.yaml
+#
   # - namespace.yaml
   #- traefik-dashboard-service.yaml
   # - traefik-dashboard-basic-auth.yaml
