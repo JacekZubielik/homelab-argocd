@@ -111,7 +111,7 @@ providers:
     allowEmptyServices: true # 
     ingressClass: traefik-internal
     # labelSelector: environment=production,method=traefik
-    labelSelector: "app=traefik" # -- Array of namespaces to watch. If left empty, Traefik watches all namespaces.
+    #labelSelector: "app=traefik" # -- Array of namespaces to watch. If left empty, Traefik watches all namespaces.
     namespaces: []
     # - "default"
 
