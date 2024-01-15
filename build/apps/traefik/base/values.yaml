@@ -398,7 +398,8 @@ metrics:
 
 ## Tracing
 # -- https://doc.traefik.io/traefik/observability/tracing/overview/
-tracing: {}
+tracing:
+  serviceName: traefik
 #  openTelemetry: # traefik v3+ only
 #    grpc: true
 #    insecure: true
@@ -439,8 +440,8 @@ tracing: {}
 #   parentIDHeaderName: ""
 #   spanIDHeaderName: ""
 #   baggagePrefixHeaderName: ""
-# elastic:
-#   serverURL: http://localhost:8200
+  elastic:
+    serverURL: http://localhost:8200
 #   secretToken: ""
 #   serviceEnvironment: ""
 
