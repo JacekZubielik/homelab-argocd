@@ -551,18 +551,18 @@ autoscaling:
 #         value: 1
 #         periodSeconds: 60
 
-persistence:
-  enabled: true
-  name: data
-  #  existingClaim: ""
-  accessMode: ReadWriteOnce
-  size: 128Mi
-  storageClass: cert-storage #"local-path"
-  volumeName: traefik-logs
-  path: /data
-  annotations: {}
-  # -- Only mount a subpath of the Volume into the pod
-  # subPath: ""
+# persistence:
+#   enabled: true
+#   name: data
+#   #  existingClaim: ""
+#   accessMode: ReadWriteOnce
+#   size: 128Mi
+#   storageClass: cert-storage #"local-path"
+#   volumeName: traefik-logs
+#   path: /data
+#   annotations: {}
+#   # -- Only mount a subpath of the Volume into the pod
+#   # subPath: ""
 
 # -- Certificates resolvers configuration
 certResolvers: {}
