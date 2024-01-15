@@ -6,8 +6,8 @@ namespace: traefik
 resources:
 - ../../base
 
-#- chains.yaml
-#- middlewares.yaml
+- chains.yaml
+- middlewares.yaml
 #- secrets.yaml
 #- traefik-dashboard-cert.yaml
 #- traefik-service-monitor.yaml
