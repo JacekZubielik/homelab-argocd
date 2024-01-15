@@ -12,7 +12,7 @@ resources:
 - traefik-tlsoption.yaml
 
 
-#- traefik-service-monitor.yaml
+- traefik-service-monitor.yaml
 #
   # - namespace.yaml
   #- traefik-dashboard-service.yaml
