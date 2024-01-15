@@ -4,8 +4,10 @@
 
 
 global:
-  leaderElection:
-    namespace: "kube-system"
+leaderElection:
+  namespace: "kube-system"
+rbac:
+  create: true
 installCRDs: true
 fullnameOverride: "cert-manager"
 
