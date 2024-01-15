@@ -560,20 +560,9 @@ ports:
 
 
   metrics:
-    # -- When using hostNetwork, use another port to avoid conflict with node exporter:
-    # https://github.com/prometheus/prometheus/wiki/Default-port-allocations
     port: 9100
-    # hostPort: 9100
-    # Defines whether the port is exposed if service.type is LoadBalancer or
-    # NodePort.
-    #
-    # -- You may not want to expose the metrics port on production deployments.
-    # If you want to access it from outside your cluster,
-    # use `kubectl port-forward` or create a secure ingress
-    expose: false
-    # -- The exposed port for this service
+    expose: true
     exposedPort: 9100
-    # -- The port protocol (TCP/UDP)
     protocol: TCP
 
 # -- TLS Options are created as TLSOption CRDs
@@ -609,18 +598,23 @@ service:
   type: LoadBalancer
   # -- Additional annotations applied to both TCP and UDP services (e.g. for cloud provider specific config)
   annotations: {}
-  # -- Additional annotations for TCP service only
+  # annotations:
+  #   service.beta.kubernetes.io/aws-load-balancer-internal: "true"
+  #   service.beta.kubernetes.io/aws-load-balancer-type: nlb
+  #   service.beta.kubernetes.io/aws-load-balancer-backend-protocol: tcp
+  #   service.beta.kubernetes.io/aws-load-balancer-cross-zone-load-balancing-enabled: "true"
+  #   service.beta.kubernetes.io/aws-load-balancer-scheme: "internal"  # XXX: only available via VPN to internal networks
   annotationsTCP: {}
-  # -- Additional annotations for UDP service only
   annotationsUDP: {}
-  # -- Additional service labels (e.g. for filtering Service by custom labels)
   labels: {}
   # -- Additional entries here will be added to the service spec.
   # -- Cannot contain type, selector or ports entries.
-  spec: {}
-  # externalTrafficPolicy: Cluster
-  # loadBalancerIP: "1.2.3.4"
-  # clusterIP: "2.3.4.5"
+  spec:
+    loadBalancerIP: 192.168.40.180 # this should be an IP in the MetalLB range
+    # loadBalancerSourceRanges:
+    #     - 192.168.0.0/16
+    #     - 172.16.0.0/12
+    #     - 10.0.0.0/8
   loadBalancerSourceRanges: []
   # - 192.168.0.1/32
   # - 172.16.0.0/16
@@ -682,7 +676,7 @@ persistence:
   #  existingClaim: ""
   accessMode: ReadWriteOnce
   size: 128Mi
-  # storageClass: ""
+  storageClass: "local-path"
   # volumeName: ""
   path: /data
   annotations: {}
