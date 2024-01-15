@@ -38,6 +38,8 @@ ingressClass:
   isDefaultClass: true
   # name: my-custom-class
 
+
+##################################################  to do
 # Traefik experimental features
 # experimental:
 #   http3:
@@ -444,8 +446,8 @@ tracing: {}
 
 # -- Global command arguments to be passed to all traefik's pods
 globalArguments:
-- "--global.checknewversion"
-- "--global.sendanonymoususage"
+- "--global.checknewversion=false"
+- "--global.sendanonymoususage=false"
 
 #
 # Configure Traefik static configuration
