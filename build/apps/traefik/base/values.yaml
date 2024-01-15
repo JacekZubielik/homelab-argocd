@@ -2,9 +2,6 @@
 #
 # helm show values traefik/traefik  >> traefik-values.yaml
 
-
-# Configure the deployment
-#
 deployment:
   enabled: true
   kind: Deployment
@@ -17,7 +14,7 @@ deployment:
   podLabels: {}
   additionalContainers: []
   additionalVolumes:
-  #- name: plugins
+  - name: plugins
   - name: traefik-logs
   initContainers:
     - name: data-accesslog
@@ -54,7 +51,7 @@ ingressClass:
 
 experimental:
   http3:
-    enabled: false
+    enabled: true
   plugins:
     enabled: false
     # fail2ban:
