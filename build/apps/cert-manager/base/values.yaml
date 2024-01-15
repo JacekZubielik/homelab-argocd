@@ -8,6 +8,7 @@ global:
     namespace: "kube-system"
   rbac:
     create: true
+    aggregateClusterRoles: true
 installCRDs: true
 fullnameOverride: "cert-manager"
 
