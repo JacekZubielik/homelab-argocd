@@ -480,12 +480,12 @@ ports:
         port: websecure
     port: 80 #80 #8000
     expose: true
-    exposedPort: 8000
+    exposedPort: 80
     protocol: TCP
   websecure:
     port: 443 #443 #8443
     expose: true
-    exposedPort: 8443
+    exposedPort: 443
     protocol: TCP
     http3:
       enabled: true
