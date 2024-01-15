@@ -2,7 +2,6 @@
 #
 # helm show values jetstack/cert-manager >> cert-manager-values.yaml
 
-
 global:
   leaderElection:
     namespace: "kube-system"
@@ -43,8 +42,6 @@ serviceAccount:
 # When this flag is enabled, secrets will be automatically removed when the certificate resource is deleted
 enableCertificateOwnerRef: false
 
-
-
 dns01RecursiveNameservers: "1.1.1.1:53,1.0.0.1:53"
 dns01RecursiveNameserversOnly: true
 podDnsPolicy: None
@@ -53,17 +50,43 @@ podDnsConfig:
     - 1.1.1.1
     - 1.0.0.1
 
+extraArgs: []
+  # - --controllers=*,-certificaterequests-approver
 
+extraEnv: []
+# - name: SOME_VAR
+#   value: 'some value'
 
+resources: {}
+  # requests:
+  #   cpu: 10m
+  #   memory: 32Mi
 
+securityContext:
+  runAsNonRoot: true
+  seccompProfile:
+    type: RuntimeDefault
 
+# Container Security Context to be set on the controller component container
+# ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
+containerSecurityContext:
+  allowPrivilegeEscalation: false
+  capabilities:
+    drop:
+    - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
 
+nodeSelector:
+  kubernetes.io/os: linux
 
-
-
-
-
-
+livenessProbe:
+  enabled: false
+  initialDelaySeconds: 10
+  periodSeconds: 10
+  timeoutSeconds: 15
+  successThreshold: 1
+  failureThreshold: 8
 
 prometheus:
   enabled: true
@@ -90,24 +113,46 @@ prometheus:
     honorLabels: false
     endpointAdditionalProperties: {}
 
+####################################
+webhook:
+  replicaCount: 1
+  timeoutSeconds: 10
+
+  nodeSelector:
+    kubernetes.io/os: linux
+
+  updateStrategy:
+    type: RollingUpdate
+    rollingUpdate: {}
+
+  serviceAccount:
+    create: true
+    automountServiceAccountToken: true
+
+  serviceType: ClusterIP
+  loadBalancerIP:
+
+  serviceMonitor:
+    path: /metrics
+    targetPort: 9402
+    enabled: true
+    interval: 60s
+    scrapeTimeout: 30s
+    honorLabels: false
+
+  resources:
+    requests:
+      cpu: 50m
+      memory: 256Mi
+      ephemeral-storage: 500Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
+      ephemeral-storage: 500Mi
 
 
+####################################
 
-# webhook:
-#   replicaCount: 1
-  # resources:
-  #   requests:
-  #     cpu: 10m
-  #     memory: 32Mi
-  #   limits:
-  #     cpu: 200m
-  #     memory: 256Mi
-
-  # serviceType: ClusterIP
-  # loadBalancerIP:
-
-  # url: {}
-  #   # host:
 
 # cainjector:
 #   enabled: true
