@@ -454,9 +454,30 @@ globalArguments:
 # -- Additional arguments to be passed at Traefik's binary
 # All available options available on https://docs.traefik.io/reference/static-configuration/cli/
 ## Use curly braces to pass values: `helm install --set="additionalArguments={--providers.kubernetesingress.ingressclass=traefik-internal,--log.level=DEBUG}"`
-additionalArguments: []
+additionalArguments:
+- "--log.level=DEBUG"
+- --api.dashboard=true
+- --api.insecure=true
+  #- --accesslog.filepath=/data/access.log
+- --providers.kubernetesingress.ingressendpoint.publishedservice=traefik/traefik
+- --providers.kubernetesingress.ingressclass=traefik-internal
+- --entrypoints.websecure.http.tls=true
+- --serversTransport.insecureSkipVerify=true
+
 #  - "--providers.kubernetesingress.ingressclass=traefik-internal"
 #  - "--log.level=DEBUG"
+  #
+  # Shouldn't need this if you've got Cert Manager installed
+  #
+  #- "--certificatesresolvers.letsencrypt.acme.tlschallenge=true"
+  #- "--certificatesresolvers.letsencrypt.acme.email=<FIXME>"
+  #- "--certificatesresolvers.letsencrypt.acme.storage=/data/acme.json"
+  #- "--certificatesresolvers.letsencrypt-staging.acme.tlschallenge=true"
+  #- "--certificatesresolvers.letsencrypt-staging.acme.email=<FIXME>"
+  #- "--certificatesresolvers.letsencrypt-staging.acme.storage=/data/acme.json"
+  #- "--certificatesresolvers.letsencrypt-staging.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory"
+
+
 
 # -- Environment variables to be passed to Traefik's binary
 env:
