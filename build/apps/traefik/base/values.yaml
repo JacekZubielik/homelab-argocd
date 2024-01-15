@@ -557,7 +557,7 @@ persistence:
   #  existingClaim: ""
   accessMode: ReadWriteOnce
   size: 128Mi
-  storageClass: "local-path"
+  storageClass: cert-storage #"local-path"
   volumeName: traefik-logs
   path: /data
   annotations: {}
