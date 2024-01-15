@@ -266,6 +266,12 @@ prometheus-node-exporter:
             - __meta_kubernetes_pod_node_name
           targetLabel: kubernetes_node
 
+    resources:
+      requests:
+        memory: 512Mi
+        cpu: 250m
+      limits:
+        memory: 2048Mi
 
 
 
