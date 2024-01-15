@@ -516,14 +516,14 @@ ports:
         # mintls13:
         #   minVersion: VersionTLS13
     middlewares: []
-
-
-
   metrics:
     port: 9100
     expose: true
     exposedPort: 9100
     protocol: TCP
+
+
+
 
 # -- TLS Options are created as TLSOption CRDs
 # https://doc.traefik.io/traefik/https/tls/#tls-options
@@ -684,7 +684,7 @@ prometheus:
   servicemonitor:
     enabled: true
     prometheusInstance: default
-    targetPort: 9402
+    targetPort: 9100 #9402
     path: /metrics
     interval: 60s
     scrapeTimeout: 30s
