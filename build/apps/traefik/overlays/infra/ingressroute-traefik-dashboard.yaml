@@ -30,5 +30,5 @@ spec:
         - name: traefik-dashboard-auth  #chain-traefik-dashboard
           namespace: traefik
   tls:
-    secretName: anotherlife-wildcard-certificate-staging # -staging / -production
+    secretName: traefik-dashboard-tls #anotherlife-wildcard-certificate-staging # -staging / -production
 
