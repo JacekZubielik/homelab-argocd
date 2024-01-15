@@ -141,11 +141,11 @@ volumes: []
 #   type: configMap
 
 # -- Additional volumeMounts to add to the Traefik container
-additionalVolumeMounts:
-#- name: plugins
-#  mountPath: /plugins-storage
-- name: traefik-logs
-  mountPath: /var/log/traefik
+# additionalVolumeMounts:
+# - name: plugins
+#   mountPath: /plugins-storage
+# - name: traefik-logs
+#   mountPath: /var/log/traefik
 
 
 
