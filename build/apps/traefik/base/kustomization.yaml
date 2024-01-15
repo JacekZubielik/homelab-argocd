@@ -1,0 +1,15 @@
+# https://github.com/traefik/traefik-helm-chart
+
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: traefik
+
+helmCharts:
+- name: traefik
+  repo: https://helm.traefik.io/traefik
+  version: 26.0.0
+  releaseName: traefik
+  namespace: traefik
+  includeCRDs: true
+  valuesFile: traefik-values.yaml
