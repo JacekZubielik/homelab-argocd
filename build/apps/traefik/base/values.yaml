@@ -17,7 +17,7 @@ deployment:
   podLabels: {}
   additionalContainers: []
   additionalVolumes:
-  - name: plugins
+  #- name: plugins
   - name: traefik-logs
   initContainers:
     - name: data-accesslog
