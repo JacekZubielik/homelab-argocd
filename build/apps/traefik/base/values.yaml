@@ -622,25 +622,7 @@ service:
   ## -- Class of the load balancer implementation
   # loadBalancerClass: service.k8s.aws/nlb
   externalIPs: []
-  # - 1.2.3.4
-  ## One of SingleStack, PreferDualStack, or RequireDualStack.
-  # ipFamilyPolicy: SingleStack
-  ## List of IP families (e.g. IPv4 and/or IPv6).
-  ## ref: https://kubernetes.io/docs/concepts/services-networking/dual-stack/#services
-  # ipFamilies:
-  #   - IPv4
-  #   - IPv6
-  ##
-  ## -- An additionnal and optional internal Service.
-  ## Same parameters as external Service
-  # internal:
-  #   type: ClusterIP
-  #   # labels: {}
-  #   # annotations: {}
-  #   # spec: {}
-  #   # loadBalancerSourceRanges: []
-  #   # externalIPs: []
-  #   # ipFamilies: [ "IPv4","IPv6" ]
+
 
 autoscaling:
   # -- Create HorizontalPodAutoscaler object.
@@ -669,9 +651,6 @@ autoscaling:
 #         periodSeconds: 60
 
 persistence:
-  # -- Enable persistence using Persistent Volume Claims
-  # ref: http://kubernetes.io/docs/user-guide/persistent-volumes/
-  # It can be used to store TLS certificates, see `storage` in certResolvers
   enabled: false
   name: data
   #  existingClaim: ""
@@ -774,7 +753,7 @@ topologySpreadConstraints: []
 
 # -- Pods can have priority.
 # -- Priority indicates the importance of a Pod relative to other Pods.
-priorityClassName: ""
+priorityClassName: "system-cluster-critical"
 
 # -- Set the container security context
 # -- To run the container with ports below 1024 this will need to be adjusted to run as root
