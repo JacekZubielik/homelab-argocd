@@ -6,7 +6,6 @@
 # Configure the deployment
 #
 deployment:
-  # -- Enable deployment
   enabled: true
   kind: Deployment
   replicas: 1
@@ -17,8 +16,23 @@ deployment:
   podAnnotations: {}
   podLabels: {}
   additionalContainers: []
-  additionalVolumes: []
-  initContainers: []
+  additionalVolumes:
+  - name: plugins
+  - name: traefik-logs
+  initContainers:
+    - name: data-accesslog
+      image: busybox:latest
+      args:
+        - /bin/sh
+        - -c
+        - tail -n+1 -F /data/access.log
+      imagePullPolicy: Always
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - name: data
+        mountPath: /data
   shareProcessNamespace: false
   dnsConfig: {}
   imagePullSecrets: []
@@ -35,7 +49,7 @@ podDisruptionBudget:
 # -- Create a default IngressClass for Traefik
 ingressClass:
   enabled: true
-  isDefaultClass: true
+  isDefaultClass: false
   # name: my-custom-class
 
 
@@ -55,23 +69,23 @@ ingressClass:
 
 
 ## Create an IngressRoute for the dashboard
-# ingressRoute:
-#   dashboard:
-#     enabled: true
-#     annotations: {}
-#     labels: {}
-#     matchRule: PathPrefix(`/dashboard`) || PathPrefix(`/api`)
-#     entryPoints: ["traefik"]
-#     middlewares: []
-#     tls: {}
-#   healthcheck:
-#     enabled: false
-#     annotations: {}
-#     labels: {}
-#     matchRule: PathPrefix(`/ping`)
-#     entryPoints: ["traefik"]
-#     middlewares: []
-#     tls: {}
+ingressRoute:
+  dashboard:
+    enabled: true
+    annotations: {}
+    labels: {}
+    matchRule: PathPrefix(`/dashboard`) || PathPrefix(`/api`)
+    entryPoints: ["traefik"]
+    middlewares: []
+    tls: {}
+  healthcheck:
+    enabled: false
+    annotations: {}
+    labels: {}
+    matchRule: PathPrefix(`/ping`)
+    entryPoints: ["traefik"]
+    middlewares: []
+    tls: {}
 
 updateStrategy:
   # -- Customize updateStrategy: RollingUpdate or OnDelete
@@ -81,28 +95,17 @@ updateStrategy:
     maxSurge: 1
 
 readinessProbe:
-  # -- The number of consecutive failures allowed before considering the probe as failed.
   failureThreshold: 1
-  # -- The number of seconds to wait before starting the first probe.
   initialDelaySeconds: 2
-  # -- The number of seconds to wait between consecutive probes.
   periodSeconds: 10
-  # -- The minimum consecutive successes required to consider the probe successful.
   successThreshold: 1
-  # -- The number of seconds to wait for a probe response before considering it as failed.
   timeoutSeconds: 2
 livenessProbe:
-  # -- The number of consecutive failures allowed before considering the probe as failed.
   failureThreshold: 3
-  # -- The number of seconds to wait before starting the first probe.
   initialDelaySeconds: 2
-  # -- The number of seconds to wait between consecutive probes.
   periodSeconds: 10
-  # -- The minimum consecutive successes required to consider the probe successful.
   successThreshold: 1
-  # -- The number of seconds to wait for a probe response before considering it as failed.
   timeoutSeconds: 2
-
 
 startupProbe:
 
@@ -111,10 +114,11 @@ providers:
     enabled: true
     allowCrossNamespace: true
     allowExternalNameServices: true
-    allowEmptyServices: false
+    allowEmptyServices: true # 
     ingressClass: traefik-internal
     # labelSelector: environment=production,method=traefik
-    # -- Array of namespaces to watch. If left empty, Traefik watches all namespaces.
+    labelSelector: "app=traefik" # -- Array of namespaces to watch. If left empty, Traefik watches all namespaces.
+
     namespaces: []
     # - "default"
 
@@ -131,28 +135,9 @@ providers:
   file:
     # -- Create a file provider
     enabled: false
-    # -- Allows Traefik to automatically watch for file changes
     watch: true
-    # -- File content (YAML format, go template supported) (see https://doc.traefik.io/traefik/providers/file/)
     content: ""
-      # http:
-      #   routers:
-      #     router0:
-      #       entryPoints:
-      #       - web
-      #       middlewares:
-      #       - my-basic-auth
-      #       service: service-foo
-      #       rule: Path(`/foo`)
 
-#
-# -- Add volumes to the traefik pod. The volume name will be passed to tpl.
-# This can be used to mount a cert pair or a configmap that holds a config.toml file.
-# After the volume has been mounted, add the configs into traefik by using the `additionalArguments` list below, eg:
-# `additionalArguments:
-# - "--providers.file.filename=/config/dynamic.toml"
-# - "--ping"
-# - "--ping.entrypoint=web"`
 volumes: []
 # - name: public-cert
 #   mountPath: "/certs"
@@ -162,10 +147,13 @@ volumes: []
 #   type: configMap
 
 # -- Additional volumeMounts to add to the Traefik container
-additionalVolumeMounts: []
-# -- For instance when using a logshipper for access logs
-# - name: traefik-logs
-#   mountPath: /var/log/traefik
+additionalVolumeMounts:
+- name: plugins
+  mountPath: /plugins-storage
+- name: traefik-logs
+  mountPath: /var/log/traefik
+
+
 
 logs:
   general:
@@ -187,8 +175,6 @@ logs:
 
 
 metrics:
-  ## -- Prometheus is enabled by default.
-  ## -- It can be disabled by setting "prometheus: null"
   prometheus:
     addEntryPointsLabels: true
     addRoutersLabels: true
@@ -490,19 +476,10 @@ ports:
     http3:
       enabled: true
     # advertisedPort: 4443
-    #
-    ## -- Trust forwarded  headers information (X-Forwarded-*).
-    # forwardedHeaders:
-    #   trustedIPs: []
-    #   insecure: false
-    #
-    ## -- Enable the Proxy Protocol header parsing for the entry point
-    # proxyProtocol:
-    #   trustedIPs: []
-    #   insecure: false
+
     tls:
       enabled: true
-      certResolver: route53-certificate-anotherlife-pl-staging #route53-issuer-staging #-production
+      certResolver: route53-certificate-anotherlife-pl-staging #-production
       domains:
         - main: 'anotherlife.pl'
           sans:
@@ -616,7 +593,7 @@ persistence:
   accessMode: ReadWriteOnce
   size: 128Mi
   storageClass: "local-path"
-  # volumeName: ""
+  volumeName: traefik-logs
   path: /data
   annotations: {}
   # -- Only mount a subpath of the Volume into the pod

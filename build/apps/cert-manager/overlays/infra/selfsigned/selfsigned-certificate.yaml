@@ -8,20 +8,18 @@ metadata:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
     argocd.argoproj.io/sync-wave: "0"
 spec:
-  isCA: true
-  commonName: selfsigned-ca
-  secretName: selfsigned-certificate-tls
-  privateKey:
-    algorithm: ECDSA
-    size: 256
-  issuerRef:
-    kind: Issuer #ClusterIssuer
-    name: selfsigned-issuer
-    group: cert-manager.io
   dnsNames:
     - "*.default.svc"
     - "*.default"
+  issuerRef:
+    group: cert-manager.io
+    kind: ClusterIssuer
+    name: selfsigned-issuer
+  secretName: selfsigned-certificate-tls
   duration: 2160h0m0s # 90d
   renewBefore: 720h0m0s # 30d
-
-
+  isCA: true
+  commonName: selfsigned-ca
+  privateKey:
+    algorithm: ECDSA
+    size: 256

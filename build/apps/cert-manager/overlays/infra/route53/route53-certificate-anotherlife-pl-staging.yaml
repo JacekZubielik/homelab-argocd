@@ -4,14 +4,15 @@ kind: Certificate
 metadata:
   name: route53-certificate-anotherlife-pl-staging
   namespace: cert-manager
-  # annotations:
-  #   argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
-
+  annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+    argocd.argoproj.io/sync-wave: "0"
 spec:
   dnsNames:
   - anotherlife.pl
   - '*.anotherlife.pl'
   issuerRef:
+    group: cert-manager.io
     kind: ClusterIssuer
     name: route53-issuer-staging
   secretName: route53-certificate-anotherlife-pl-tls-staging
