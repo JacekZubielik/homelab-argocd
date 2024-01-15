@@ -521,7 +521,7 @@ ports:
     exposedPort: 443
     protocol: TCP
     http3:
-      enabled: false
+      enabled: true
     # advertisedPort: 4443
     #
     ## -- Trust forwarded  headers information (X-Forwarded-*).
