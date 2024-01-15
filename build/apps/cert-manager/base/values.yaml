@@ -102,16 +102,16 @@ prometheus:
     honorLabels: false
     endpointAdditionalProperties: {}
   # Note: Enabling both PodMonitor and ServiceMonitor is mutually exclusive, enabling both will result in a error.
-  podmonitor:
-    enabled: true
-    prometheusInstance: default
-    path: /metrics
-    interval: 60s
-    scrapeTimeout: 30s
-    labels: {}
-    annotations: {}
-    honorLabels: false
-    endpointAdditionalProperties: {}
+  # podmonitor:
+  #   enabled: true
+  #   prometheusInstance: default
+  #   path: /metrics
+  #   interval: 60s
+  #   scrapeTimeout: 30s
+  #   labels: {}
+  #   annotations: {}
+  #   honorLabels: false
+  #   endpointAdditionalProperties: {}
 
 ####################################
 webhook:
