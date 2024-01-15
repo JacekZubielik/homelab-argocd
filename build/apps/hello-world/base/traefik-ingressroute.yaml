@@ -1,0 +1,40 @@
+# ============================================================================ #
+#                   T r a e f i k   I n g r e s s   R o u t e
+# ============================================================================ #
+
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: hello-world
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    # See available matchers here:
+    #
+    #     https://doc.traefik.io/traefik/routing/routers/#rule
+    #
+    - kind: Rule
+      match: "Host(`anotherlife.pl`) &&  PathPrefix(`/dashboard`) || PathPrefix(`/api`)"
+      services:
+        # - kind: TraefikService
+        #   name: api@internal
+        - kind: Service
+          name: simple-service
+          namespace: dev
+          port: 80
+        # - kind: Service
+        #   name: whoamiv2
+        #   namespace: app
+        #   port: 80
+      # middlewares:
+      #   - name: default-test-auth@kubernetescrd
+  tls:
+    certResolver: route53-issuer-staging
+    domains:
+      - main: anotherlife.pl
+        sans:
+          - .anotherlife.pl
+    options:
+      name: tlsoptions
