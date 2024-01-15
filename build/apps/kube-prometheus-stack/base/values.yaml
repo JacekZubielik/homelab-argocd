@@ -1,11 +1,15 @@
-# ============================================================================ #
-#                       P r o m e t h e u s   V a l u e s
-# ============================================================================ #
-
 # helm repo add prometheus https://prometheus-community.github.io/helm-charts
 #
 # helm show values prometheus/kube-prometheus-stack >> kube-prometheus-stack-values.yaml
----
+
+
+
+
+
+
+
+
+
 alertmanager:
   enabled: true
   #baseURL: "http://localhost:9093"
