@@ -52,20 +52,17 @@ ingressClass:
   isDefaultClass: false
   # name: my-custom-class
 
-
-##################################################  to do
-# Traefik experimental features
-# experimental:
-#   http3:
-#     enabled: false
-#   plugins:
-#     enabled: false
-#     # fail2ban:
-#     #   moduleName: "github.com/tomMoulard/fail2ban"
-#     #   version: "v0.7.1"
-#   kubernetesGateway:
-#     # -- Enable traefik experimental GatewayClass CRD
-#     enabled: false
+experimental:
+  http3:
+    enabled: false
+  plugins:
+    enabled: false
+    # fail2ban:
+    #   moduleName: "github.com/tomMoulard/fail2ban"
+    #   version: "v0.7.1"
+  kubernetesGateway:
+    # -- Enable traefik experimental GatewayClass CRD
+    enabled: false
 
 
 ## Create an IngressRoute for the dashboard
@@ -107,7 +104,7 @@ livenessProbe:
   successThreshold: 1
   timeoutSeconds: 2
 
-startupProbe:
+#startupProbe:
 
 providers:
   kubernetesCRD:
@@ -394,9 +391,6 @@ globalArguments:
 - "--global.checknewversion=false"
 - "--global.sendanonymoususage=false"
 
-#
-# Configure Traefik static configuration
-# -- Additional arguments to be passed at Traefik's binary
 # All available options available on https://docs.traefik.io/reference/static-configuration/cli/
 ## Use curly braces to pass values: `helm install --set="additionalArguments={--providers.kubernetesingress.ingressclass=traefik-internal,--log.level=DEBUG}"`
 additionalArguments:
