@@ -10,9 +10,11 @@ resources:
 - secrets.yaml
 - traefik-dashboard-cert.yaml
 - traefik-tlsoption.yaml
-
-
 - traefik-service-monitor.yaml
+- ingressroute-traefik-dashboard.yaml
+
+
+
 #
   # - namespace.yaml
   #- traefik-dashboard-service.yaml
