@@ -112,7 +112,6 @@ providers:
     ingressClass: traefik-internal
     # labelSelector: environment=production,method=traefik
     labelSelector: "app=traefik" # -- Array of namespaces to watch. If left empty, Traefik watches all namespaces.
-
     namespaces: []
     # - "default"
 
@@ -124,7 +123,10 @@ providers:
     # - "default"
     publishedService:
       enabled: true
-
+      ####################################################
+      # Need to override path since otherwise the namespace is set as default
+      pathOverride: traefik-system/traefik
+      ####################################################
 
   file:
     # -- Create a file provider
@@ -490,7 +492,10 @@ tlsOptions: {}
 #   default:
 #     defaultCertificate:
 #       secretName: tls-cert
-tlsStore: {}
+tlsStore:
+  default:
+    defaultCertificate:
+      secretName: route53-certificate-anotherlife-pl-tls-staging
 
 service:
   enabled: true
@@ -546,18 +551,18 @@ autoscaling:
 #         value: 1
 #         periodSeconds: 60
 
-# persistence:
-#   enabled: true
-#   name: data
-#   #  existingClaim: ""
-#   accessMode: ReadWriteOnce
-#   size: 128Mi
-#   storageClass: "local-path"
-#   volumeName: traefik-logs
-#   path: /data
-#   annotations: {}
-#   # -- Only mount a subpath of the Volume into the pod
-#   # subPath: ""
+persistence:
+  enabled: true
+  name: data
+  #  existingClaim: ""
+  accessMode: ReadWriteOnce
+  size: 128Mi
+  storageClass: "local-path"
+  volumeName: traefik-logs
+  path: /data
+  annotations: {}
+  # -- Only mount a subpath of the Volume into the pod
+  # subPath: ""
 
 # -- Certificates resolvers configuration
 certResolvers: {}
