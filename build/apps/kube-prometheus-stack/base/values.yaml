@@ -2,6 +2,13 @@
 #
 # helm show values prometheus/kube-prometheus-stack >> kube-prometheus-stack-values.yaml
 
+global:
+  rbac:
+    create: true
+    createAggregateClusterRoles: false
+    pspEnabled: false
+
+
 
 
 
