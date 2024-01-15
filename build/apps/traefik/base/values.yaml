@@ -651,7 +651,7 @@ autoscaling:
 #         periodSeconds: 60
 
 persistence:
-  enabled: false
+  enabled: true
   name: data
   #  existingClaim: ""
   accessMode: ReadWriteOnce
@@ -665,41 +665,13 @@ persistence:
 
 # -- Certificates resolvers configuration
 certResolvers: {}
-#   letsencrypt:
-#     # for challenge options cf. https://doc.traefik.io/traefik/https/acme/
-#     email: email@example.com
-#     dnsChallenge:
-#       # also add the provider's required configuration under env
-#       # or expand then from secrets/configmaps with envfrom
-#       # cf. https://doc.traefik.io/traefik/https/acme/#providers
-#       provider: digitalocean
-#       # add futher options for the dns challenge as needed
-#       # cf. https://doc.traefik.io/traefik/https/acme/#dnschallenge
-#       delayBeforeCheck: 30
-#       resolvers:
-#         - 1.1.1.1
-#         - 8.8.8.8
-#     tlsChallenge: true
-#     httpChallenge:
-#       entryPoint: "web"
-#     # It has to match the path with a persistent volume
-#     storage: /data/acme.json
 
-# -- If hostNetwork is true, runs traefik in the host network namespace
-# To prevent unschedulabel pods due to port collisions, if hostNetwork=true
-# and replicas>1, a pod anti-affinity is recommended and will be set if the
-# affinity is left as default.
 hostNetwork: false
 
 # -- Whether Role Based Access Control objects like roles and rolebindings should be created
 rbac:
   enabled: true
-  # If set to false, installs ClusterRole and ClusterRoleBinding so Traefik can be used across namespaces.
-  # If set to true, installs Role and RoleBinding. Providers will only watch target namespace.
   namespaced: false
-  # Enable user-facing roles
-  # https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles
-  # aggregateTo: [ "admin" ]
 
 # -- Enable to create a PodSecurityPolicy and assign it to the Service Account via RoleBinding or ClusterRoleBinding
 podSecurityPolicy:
@@ -707,56 +679,21 @@ podSecurityPolicy:
 
 # -- The service account the pods will use to interact with the Kubernetes API
 serviceAccount:
-  # If set, an existing service account is used
-  # If not set, a service account is created automatically using the fullname template
   name: ""
 
-# -- Additional serviceAccount annotations (e.g. for oidc authentication)
 serviceAccountAnnotations: {}
-
-# -- The resources parameter defines CPU and memory requirements and limits for Traefik's containers.
 resources: {}
-# requests:
-#   cpu: "100m"
-#   memory: "50Mi"
-# limits:
-#   cpu: "300m"
-#   memory: "150Mi"
-
-# -- This example pod anti-affinity forces the scheduler to put traefik pods
-# -- on nodes where no other traefik pods are scheduled.
-# It should be used when hostNetwork: true to prevent port conflicts
 affinity: {}
-#  podAntiAffinity:
-#    requiredDuringSchedulingIgnoredDuringExecution:
-#      - labelSelector:
-#          matchLabels:
-#            app.kubernetes.io/name: '{{ template "traefik.name" . }}'
-#            app.kubernetes.io/instance: '{{ .Release.Name }}-{{ .Release.Namespace }}'
-#        topologyKey: kubernetes.io/hostname
-
-# -- nodeSelector is the simplest recommended form of node selection constraint.
 nodeSelector: {}
-# -- Tolerations allow the scheduler to schedule pods with matching taints.
 tolerations: []
-# -- You can use topology spread constraints to control
-# how Pods are spread across your cluster among failure-domains.
+
 topologySpreadConstraints: []
-# This example topologySpreadConstraints forces the scheduler to put traefik pods
-# on nodes where no other traefik pods are scheduled.
-#  - labelSelector:
-#      matchLabels:
-#        app: '{{ template "traefik.name" . }}'
-#    maxSkew: 1
-#    topologyKey: kubernetes.io/hostname
-#    whenUnsatisfiable: DoNotSchedule
+
 
 # -- Pods can have priority.
 # -- Priority indicates the importance of a Pod relative to other Pods.
 priorityClassName: "system-cluster-critical"
 
-# -- Set the container security context
-# -- To run the container with ports below 1024 this will need to be adjusted to run as root
 securityContext:
   capabilities:
     drop: [ALL]
@@ -764,17 +701,9 @@ securityContext:
   allowPrivilegeEscalation: false
 
 podSecurityContext:
-  # /!\ When setting fsGroup, Kubernetes will recursively change ownership and
-  # permissions for the contents of each volume to match the fsGroup. This can
-  # be an issue when storing sensitive content like TLS Certificates /!\
-  # fsGroup: 65532
-  # -- Specifies the policy for changing ownership and permissions of volume contents to match the fsGroup.
   fsGroupChangePolicy: "OnRootMismatch"
-  # -- The ID of the group for all containers in the pod to run as.
   runAsGroup: 65532
-  # -- Specifies whether the containers should run as a non-root user.
   runAsNonRoot: true
-  # -- The ID of the user for all containers in the pod to run as.
   runAsUser: 65532
 
 #
