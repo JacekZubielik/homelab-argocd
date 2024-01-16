@@ -61,8 +61,8 @@ persistence:
   accessMode: ReadWriteOnce
   size: 128Mi
   storageClass: "local-path"
-  #volumeName: traefik-logs
-  #path: /data
+  volumeName: traefik-logs
+  path: /data-logs
   annotations: {}
   # -- Only mount a subpath of the Volume into the pod
   # subPath: ""
