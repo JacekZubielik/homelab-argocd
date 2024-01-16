@@ -6,7 +6,7 @@ metadata:
   namespace: default
   labels:
     app: traefik
-    release: prometheus-stack
+    release: kube-prometheus-stack
 spec:
   jobLabel: traefik-metrics
   selector:

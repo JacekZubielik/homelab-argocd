@@ -29,7 +29,7 @@ spec:
       #   - name: traefik-dashboard-auth  #chain-traefik-dashboard
       #     namespace: traefik
   tls:
-    secretName: route53-certificate-anotherlife-pl-tls-staging #anotherlife-wildcard-certificate-staging # -staging / -production
+    secretName: route53-certificate-anotherlife-pl-tls-staging # -staging / -production
     options:
       name: tlsoptions
     domains:
