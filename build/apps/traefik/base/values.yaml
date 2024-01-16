@@ -171,7 +171,7 @@ providers:
 logs:
   general:
     # -- Alternative logging levels are DEBUG, PANIC, FATAL, ERROR, WARN, and INFO.
-    level: ERROR
+    level: DEBUG #ERROR
 
   access:
     enabled: true
