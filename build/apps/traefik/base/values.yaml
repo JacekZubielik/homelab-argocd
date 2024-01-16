@@ -243,7 +243,7 @@ globalArguments:
 # All available options available on https://docs.traefik.io/reference/static-configuration/cli/
 ## Use curly braces to pass values: `helm install --set="additionalArguments={--providers.kubernetesingress.ingressclass=traefik-internal,--log.level=DEBUG}"`
 additionalArguments:
-- "--log.level=DEBUG"
+# - "--log.level=DEBUG"
 # - "--log.level=INFO"
 - "--api.dashboard=true"
 - "--api.insecure=true"
