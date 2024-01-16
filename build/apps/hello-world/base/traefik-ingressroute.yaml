@@ -12,7 +12,7 @@ spec:
     - websecure
   routes:
     - kind: Rule
-      match: "Host(`anotherlife.pl`) &&  PathPrefix(`/dashboard`) || PathPrefix(`/api`)"
+      match: "Host(`anotherlife.pl`)" #&&  PathPrefix(`/dashboard`) || PathPrefix(`/api`)"
       services:
         - kind: TraefikService
           name: api@internal
@@ -24,8 +24,9 @@ spec:
         #   name: whoamiv2
         #   namespace: app
         #   port: 80
-      # middlewares:
-      #   - name: default-test-auth@kubernetescrd
+      middlewares:
+        - name: traefik-dashboard-auth  #chain-traefik-dashboard
+          namespace: traefik
   tls:
     store:
       name: tlsstore-route53-anotherlife-pl-tls-staging
