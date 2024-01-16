@@ -30,9 +30,9 @@ spec:
   tls:
     store:
       name: tlsstore-route53-anotherlife-pl-tls-staging
-    # options:
-    #   name: tlsoptions
-    #   namespace: dev
+    options:
+      name: tlsoptions
+      namespace: traefik
     domains:
       - main: anotherlife.pl
         sans:
