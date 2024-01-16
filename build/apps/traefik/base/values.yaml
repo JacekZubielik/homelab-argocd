@@ -16,20 +16,20 @@ deployment:
   # additionalVolumes:
   # #- name: plugins
   # - name: traefik-logs
-  initContainers:
-    - name: data-accesslog
-      image: busybox:latest
-      args:
-        - /bin/sh
-        - -c
-        - tail -n+1 -F /data/access.log
-      imagePullPolicy: Always
-      resources: {}
-      terminationMessagePath: /dev/termination-log
-      terminationMessagePolicy: File
-      # volumeMounts:
-      # - name: data
-      #   mountPath: /data
+  # initContainers:
+  #   - name: data-accesslog
+  #     image: busybox:latest
+  #     args:
+  #       - /bin/sh
+  #       - -c
+  #       - tail -n+1 -F /data/access.log
+  #     imagePullPolicy: Always
+  #     resources: {}
+  #     terminationMessagePath: /dev/termination-log
+  #     terminationMessagePolicy: File
+  #     # volumeMounts:
+  #     # - name: data
+  #     #   mountPath: /data
   shareProcessNamespace: false
   dnsConfig: {}
   imagePullSecrets: []
@@ -47,14 +47,25 @@ volumes:
 #   mountPath: "/config"
 #   type: configMap
 
-# -- Additional volumeMounts to add to the Traefik container
+### Additional volumeMounts to add to the Traefik container
 # additionalVolumeMounts:
 # - name: plugins
 #   mountPath: /plugins-storage
 # - name: traefik-logs
 #   mountPath: /var/log/traefik
 
-
+persistence:
+  enabled: true
+  name: data
+  #existingClaim: "data"
+  accessMode: ReadWriteOnce
+  size: 128Mi
+  storageClass: "local-path"
+  volumeName: traefik-logs
+  path: /data
+  annotations: {}
+  # -- Only mount a subpath of the Volume into the pod
+  # subPath: ""
 
 
 # -- Pod disruption budget
@@ -352,8 +363,6 @@ service:
   annotationsTCP: {}
   annotationsUDP: {}
   labels: {}
-  # -- Additional entries here will be added to the service spec.
-  # -- Cannot contain type, selector or ports entries.
   spec:
     loadBalancerIP: 192.168.40.180 # this should be an IP in the MetalLB range
       #loadBalancerSourceRanges: []
@@ -428,19 +437,6 @@ autoscaling:
 #       - type: Pods
 #         value: 1
 #         periodSeconds: 60
-
-persistence:
-  enabled: true
-  name: data
-  existingClaim: "data"
-  accessMode: ReadWriteOnce
-  size: 128Mi
-  storageClass: cert-storage #"local-path"
-  volumeName: traefik-logs
-  path: /data
-  annotations: {}
-  # -- Only mount a subpath of the Volume into the pod
-  # subPath: ""
 
 # -- Certificates resolvers configuration
 certResolvers: {}
