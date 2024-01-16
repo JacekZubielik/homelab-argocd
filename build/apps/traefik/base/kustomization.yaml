@@ -13,3 +13,15 @@ helmCharts:
   namespace: traefik
   includeCRDs: true
   valuesFile: values.yaml
+
+
+patches:
+  - target:
+      group: rbac.authorization.k8s.io
+      version: v1
+      kind: ClusterRoleBinding
+      name: traefik-role-binding
+    patch: |-
+      - op: add
+        path: /subjects/0/namespace
+        value: traefik
