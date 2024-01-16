@@ -31,7 +31,7 @@ spec:
       # middlewares:
       #   - name: default-test-auth@kubernetescrd
   tls:
-    certResolver: route53-issuer-staging
+    secretName: route53-certificate-anotherlife-pl-tls-staging
     domains:
       - main: anotherlife.pl
         sans:
