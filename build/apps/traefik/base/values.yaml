@@ -62,7 +62,7 @@ persistence:
   size: 128Mi
   storageClass: "local-path"
   volumeName: traefik-logs
-  path: /data
+  #path: /data
   annotations: {}
   # -- Only mount a subpath of the Volume into the pod
   # subPath: ""
