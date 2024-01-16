@@ -12,7 +12,7 @@ spec:
     - websecure
   routes:
     - kind: Rule
-      match: "Host(`anotherlife.pl`)" #&&  PathPrefix(`/dashboard`) || PathPrefix(`/api`)"
+      match: "Host(`ha.anotherlife.pl`)" #&&  PathPrefix(`/dashboard`) || PathPrefix(`/api`)"
       services:
         # - kind: TraefikService
         #   name: api@internal
