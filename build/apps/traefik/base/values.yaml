@@ -139,7 +139,7 @@ providers:
     allowCrossNamespace: true
     allowExternalNameServices: true
     allowEmptyServices: true # 
-    ingressClass: traefik-internal
+    ingressClass: traefik-external
     # labelSelector: environment=production,method=traefik
     #labelSelector: "app=traefik" # -- Array of namespaces to watch. If left empty, Traefik watches all namespaces.
     namespaces: []

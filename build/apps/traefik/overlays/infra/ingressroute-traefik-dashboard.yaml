@@ -7,7 +7,7 @@ metadata:
   labels:
     app.kubernetes.io/name: traefik
   annotations:
-    kubernetes.io/ingress.class: traefik-internal
+    kubernetes.io/ingress.class: traefik-external
     # gethomepage.dev/description: traefik test tool
     # gethomepage.dev/enabled: "true"
     # gethomepage.dev/group: Tools
