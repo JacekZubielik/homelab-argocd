@@ -169,7 +169,6 @@ logs:
   general:
     # -- Alternative logging levels are DEBUG, PANIC, FATAL, ERROR, WARN, and INFO.
     level: DEBUG #ERROR
-
   access:
     enabled: true
     format: json
@@ -246,7 +245,7 @@ additionalArguments:
 - "--api.insecure=true"
 - "--accesslog.filepath=/data/access.log"
 - "--providers.kubernetesingress.ingressendpoint.publishedservice=traefik/traefik"
-- "--providers.kubernetesingress.ingressclass=traefik-internal"
+#- "--providers.kubernetesingress.ingressclass=traefik-external"
 - "--entrypoints.websecure.http.tls=true"
 - "--serversTransport.insecureSkipVerify=true"
 
@@ -317,21 +316,21 @@ ports:
     #   enabled: false
     # advertisedPort: 4443
 
-    # tls:
-    #   enabled: true
-    #   certResolver: route53-certificate-anotherlife-pl-staging #-production
-    #   domains:
-    #     - main: 'anotherlife.pl'
-    #       sans:
-    #         - '*.anotherlife.pl'
-      # options:
-        # default:
-        #   cipherSuites:
-        #     - TLS_AES_128_GCM_SHA256 uint16 = 0x1301
-        #     - TLS_AES_256_GCM_SHA384       uint16 = 0x1302
-        #     - TLS_CHACHA20_POLY1305_SHA256 uint16 = 0x1303
-        # mintls13:
-        #   minVersion: VersionTLS13
+    tls:
+      enabled: true
+      certResolver: route53-certificate-anotherlife-pl-staging #-production
+      domains:
+        - main: 'anotherlife.pl'
+          sans:
+            - '*.anotherlife.pl'
+      options:
+        default-1:
+          cipherSuites:
+            - TLS_AES_128_GCM_SHA256 uint16 = 0x1301
+            - TLS_AES_256_GCM_SHA384       uint16 = 0x1302
+            - TLS_CHACHA20_POLY1305_SHA256 uint16 = 0x1303
+        mintls13:
+          minVersion: VersionTLS13
     middlewares: []
   metrics:
     port: 9100
