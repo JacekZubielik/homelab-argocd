@@ -13,33 +13,33 @@ deployment:
   podAnnotations: {}
   podLabels: {}
   additionalContainers: []
-  # additionalVolumes:
-  # #- name: plugins
-  # - name: traefik-logs
-  # initContainers:
-  #   - name: data-accesslog
-  #     image: busybox:latest
-  #     args:
-  #       - /bin/sh
-  #       - -c
-  #       - tail -n+1 -F /data/access.log
-  #     imagePullPolicy: Always
-  #     resources: {}
-  #     terminationMessagePath: /dev/termination-log
-  #     terminationMessagePolicy: File
-  #     # volumeMounts:
-  #     # - name: data
-  #     #   mountPath: /data
+  additionalVolumes:
+  #- name: plugins
+  - name: traefik-logs
+  initContainers:
+    - name: data-accesslog
+      image: busybox:latest
+      args:
+        - /bin/sh
+        - -c
+        - tail -n+1 -F /data/access.log
+      imagePullPolicy: Always
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - name: data
+        mountPath: /data
   shareProcessNamespace: false
   dnsConfig: {}
   imagePullSecrets: []
   lifecycle: {}
 
 
-volumes:
-  - mountPath: /data
-    name: traefik-logs
-    type: configMap
+# volumes:
+#   - mountPath: /data
+#     name: traefik-logs
+#     type: configMap
 # - name: public-cert
 #   mountPath: "/certs"
 #   type: secret
@@ -246,7 +246,7 @@ additionalArguments:
 # - "--log.level=INFO"
 - "--api.dashboard=true"
 - "--api.insecure=true"
-#- "--accesslog.filepath=/data/access.log"
+- "--accesslog.filepath=/data/access.log"
 - "--providers.kubernetesingress.ingressendpoint.publishedservice=traefik/traefik"
 - "--providers.kubernetesingress.ingressclass=traefik-internal"
 - "--entrypoints.websecure.http.tls=true"
