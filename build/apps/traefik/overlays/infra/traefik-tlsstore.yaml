@@ -4,4 +4,5 @@ kind: TLSStore
 metadata:
   name: tlsstore-route53-anotherlife-pl-tls-staging
 spec:
-  defaultCertificate: route53-certificate-anotherlife-pl-tls-staging
+  defaultCertificate: 
+    secretName: route53-certificate-anotherlife-pl-tls-staging
