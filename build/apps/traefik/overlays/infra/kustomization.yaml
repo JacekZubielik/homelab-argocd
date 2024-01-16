@@ -8,7 +8,7 @@ resources:
 - chains.yaml
 - middlewares.yaml
 - secrets.yaml
-- traefik-dashboard-certificate.yaml
+#- traefik-dashboard-certificate.yaml
 - traefik-tlsoption.yaml
 #- traefik-tlsstore.yaml
 - traefik-service-monitor.yaml
