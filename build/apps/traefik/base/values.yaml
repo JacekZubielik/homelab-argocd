@@ -441,7 +441,7 @@ ports:
     exposedPort: 443
     protocol: TCP
     http3:
-      enabled: true
+      enabled: false
     # advertisedPort: 4443
 
     tls:
