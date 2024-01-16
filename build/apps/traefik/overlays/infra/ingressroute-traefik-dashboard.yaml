@@ -30,10 +30,9 @@ spec:
       #     namespace: traefik
   tls:
     secretName: route53-certificate-anotherlife-pl-tls-staging # -staging / -production
-    # store:
-    #   name: store-anotherlife-pl-tls-staging
-    # options:
-    #   name: tlsoptions
+    namespace: cert-manager
+    options:
+      name: tlsoptions
     domains:
       - main: anotherlife.pl
         sans:
