@@ -1,5 +1,5 @@
 ---
-apiVersion: traefik.containo.us/v1alpha1
+apiVersion: traefik.io/v1alpha1
 kind: Middleware
 metadata:
   name: basicauth
@@ -9,7 +9,7 @@ spec:
     secret: basicauth
     removeHeader: true
 ---
-apiVersion: traefik.containo.us/v1alpha1
+apiVersion: traefik.io/v1alpha1
 kind: Middleware
 metadata:
   name: traefik-dashboard-auth
@@ -20,7 +20,7 @@ spec:
     removeHeader: true
 
 ---
-apiVersion: traefik.containo.us/v1alpha1
+apiVersion: traefik.io/v1alpha1
 kind: Middleware
 metadata:
   name: headers
@@ -37,7 +37,7 @@ spec:
     customRequestHeaders:
       X-Forwarded-Proto: https
 ---
-apiVersion: traefik.containo.us/v1alpha1
+apiVersion: traefik.io/v1alpha1
 kind: Middleware
 metadata:
     name: rate-limit
@@ -47,7 +47,7 @@ spec:
     average: 100
     burst: 50
 ---
-# apiVersion: traefik.containo.us/v1alpha1
+# apiVersion: traefik.io/v1alpha1
 # kind: Middleware
 # metadata:
 #   name: redirect-to-https
@@ -57,7 +57,7 @@ spec:
 #     scheme: https
 #     permanent: true
 ---
-apiVersion: traefik.containo.us/v1alpha1
+apiVersion: traefik.io/v1alpha1
 kind: Middleware
 metadata:
   name: whitelist
@@ -93,7 +93,7 @@ spec:
     - "fc00::/7"
 
 ---
-apiVersion: traefik.containo.us/v1alpha1
+apiVersion: traefik.io/v1alpha1
 kind: Middleware
 metadata:
   name: home-whitelist
@@ -107,7 +107,7 @@ spec:
     - 192.168.1.0/24
 
 ---
-apiVersion: traefik.containo.us/v1alpha1
+apiVersion: traefik.io/v1alpha1
 kind: Middleware
 metadata:
   name: security
