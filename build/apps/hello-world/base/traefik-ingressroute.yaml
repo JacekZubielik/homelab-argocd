@@ -13,7 +13,7 @@ spec:
     - websecure
   routes:
     - kind: Rule
-      match: "Host(`ha.anotherlife.pl`)" #&&  PathPrefix(`/dashboard`) || PathPrefix(`/api`)"
+      match: "Host(`ha.anotherlife.pl`) && PathPrefix(`/`)" #&&  PathPrefix(`/dashboard`) || PathPrefix(`/api`)"
       services:
         - kind: Service
           name: hello-world
