@@ -57,12 +57,15 @@ volumes:
 persistence:
   enabled: true
   name: data
-  #existingClaim: "data"
-  accessMode: ReadWriteOnce
+  existingClaim: "traefik-logs"
+  #accessMode: ReadWriteOnce
+  accessModes:
+  - ReadWriteMany # I needed both for rw
+  - ReadWriteOnce # I needed both for rw
   size: 128Mi
   storageClass: "local-path"
   volumeName: traefik-logs
-  path: /data-logs
+  #path: /data
   annotations: {}
   # -- Only mount a subpath of the Volume into the pod
   # subPath: ""
