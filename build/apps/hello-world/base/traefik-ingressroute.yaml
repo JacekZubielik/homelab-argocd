@@ -32,6 +32,7 @@ spec:
       name: tlsstore-route53-anotherlife-pl-tls-staging
     options:
       name: tlsoptions
+      namespace: dev
     domains:
       - main: anotherlife.pl
         sans:
