@@ -245,6 +245,9 @@ additionalArguments:
 - "--api.insecure=true"
 - "--ping=true"
 - "--accesslog.filepath=/data/access.log"
+
+
+
 - "--providers.kubernetesingress.ingressendpoint.publishedservice=traefik/traefik"
 #- "--providers.kubernetesingress.ingressclass=traefik-external"
 - "--entrypoints.websecure.http.tls=true"
