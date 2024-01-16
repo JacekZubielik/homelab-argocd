@@ -214,8 +214,8 @@ metrics:
 
 ## Tracing
 # -- https://doc.traefik.io/traefik/observability/tracing/overview/
-tracing:
-  serviceName: traefik
+# tracing:
+#   serviceName: traefik
 #  openTelemetry: # traefik v3+ only
 #    grpc: true
 #    insecure: true
@@ -230,8 +230,8 @@ tracing:
 #   debug: false
 #   globalTag: ""
 #   prioritySampling: false
-  elastic:
-    serverURL: http://localhost:8200
+  # elastic:
+  #   serverURL: http://localhost:8200
 #   secretToken: ""
 #   serviceEnvironment: ""
 
