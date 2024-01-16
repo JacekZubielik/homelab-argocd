@@ -30,7 +30,7 @@ deployment:
       volumeMounts:
       - name: data
         mountPath: /data
-  shareProcessNamespace: true #false
+  shareProcessNamespace: false #false
   dnsConfig: {}
   imagePullSecrets: []
   lifecycle: {}
