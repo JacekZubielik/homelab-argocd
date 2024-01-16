@@ -18,12 +18,12 @@ spec:
     - kind: Rule
       match: "Host(`anotherlife.pl`) &&  PathPrefix(`/dashboard`) || PathPrefix(`/api`)"
       services:
-        - kind: hello-world
+        - kind: TraefikService
           name: api@internal
-        # - kind: Service
-        #   name: simple-service
-        #   namespace: dev
-        #   port: 80
+        - kind: Service
+          name: simple-service
+          namespace: dev
+          port: 80
         # - kind: Service
         #   name: whoamiv2
         #   namespace: app
