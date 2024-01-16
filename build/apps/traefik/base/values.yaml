@@ -27,19 +27,19 @@ deployment:
       resources: {}
       terminationMessagePath: /dev/termination-log
       terminationMessagePolicy: File
-      volumeMounts:
-      - name: data
-        mountPath: /data
+      # volumeMounts:
+      # - name: data
+      #   mountPath: /data
   shareProcessNamespace: false
   dnsConfig: {}
   imagePullSecrets: []
   lifecycle: {}
 
 
-# volumes:
-#   - mountPath: /data
-#     name: traefik-logs
-#     type: configMap
+volumes:
+  - mountPath: /data
+    name: traefik-logs
+    type: configMap
 # - name: public-cert
 #   mountPath: "/certs"
 #   type: secret
