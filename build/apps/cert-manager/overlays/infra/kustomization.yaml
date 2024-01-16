@@ -22,6 +22,7 @@ resources:
 # selfsigned
 - selfsigned/selfsigned-certificate.yaml
 - selfsigned/selfsigned-issuer.yaml
+#- selfsigned/selfsigned-credentials-secret.yaml
 
 # label app.kubernetes.io/instance=cert-manager causes warnings for all 6 Cert Manager CRDs in ArgoCD, eg:
 #

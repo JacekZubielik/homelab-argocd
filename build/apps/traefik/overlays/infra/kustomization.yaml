@@ -10,7 +10,7 @@ resources:
 - secrets.yaml
 - traefik-dashboard-certificate.yaml
 - traefik-tlsoption.yaml
-- traefik-tlsstore.yaml
+#- traefik-tlsstore.yaml
 - traefik-service-monitor.yaml
 - ingressroute-traefik-dashboard.yaml
 #- pvc.yaml

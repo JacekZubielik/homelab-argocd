@@ -6,7 +6,7 @@
   "srcPath": "build/apps/metallb2/overlays/dev",
   "srcRepoURL": "https://github.com/jacekzubielik/homelab-argocd.git",
   "srcTargetRevision": "",
-  "syncWave": "-2",
+  "syncWave": "1",
   "labels": null,
   "annotations": null
 }
