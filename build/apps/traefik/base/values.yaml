@@ -16,17 +16,17 @@ deployment:
   additionalVolumes:
   #- name: plugins
   - name: traefik-logs
-  initContainers:
-    - name: data-accesslog
-      image: busybox:latest
-      args:
-        - /bin/sh
-        - -c
-        - tail -n+1 -F /data/access.log
-      imagePullPolicy: Always
-      resources: {}
-      terminationMessagePath: /dev/termination-log
-      terminationMessagePolicy: File
+  # initContainers:
+  #   - name: data-accesslog
+  #     image: busybox:latest
+  #     args:
+  #       - /bin/sh
+  #       - -c
+  #       - tail -n+1 -F /data/access.log
+  #     imagePullPolicy: Always
+  #     resources: {}
+  #     terminationMessagePath: /dev/termination-log
+  #     terminationMessagePolicy: File
       # volumeMounts:
       # - name: data
       #   mountPath: /data
@@ -48,11 +48,12 @@ deployment:
 #   type: configMap
 
 ### Additional volumeMounts to add to the Traefik container
-# additionalVolumeMounts:
+additionalVolumeMounts:
+- name: traefik-logs
+  mountPath: /var/log/traefik
 # - name: plugins
 #   mountPath: /plugins-storage
-# - name: traefik-logs
-#   mountPath: /var/log/traefik
+
 
 persistence:
   enabled: true
