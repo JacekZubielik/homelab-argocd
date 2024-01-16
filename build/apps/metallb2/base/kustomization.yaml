@@ -3,4 +3,4 @@ kind: Kustomization
 resources:
 - github.com/metallb/metallb/config/native?ref=v0.13.12
 - ip-pool.yaml
-- configmap.yaml
+#- configmap.yaml
