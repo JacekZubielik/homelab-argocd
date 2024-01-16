@@ -65,7 +65,7 @@ ingressClass:
 ## Create an IngressRoute for the dashboard
 ingressRoute:
   dashboard:
-    enabled: true
+    enabled: false
     annotations: {}
     labels: {}
     matchRule: PathPrefix(`/dashboard`) || PathPrefix(`/api`)

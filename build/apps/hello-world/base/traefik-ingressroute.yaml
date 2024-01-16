@@ -15,8 +15,6 @@ spec:
     - kind: Rule
       match: "Host(`ha.anotherlife.pl`)" #&&  PathPrefix(`/dashboard`) || PathPrefix(`/api`)"
       services:
-        # - kind: TraefikService
-        #   name: api@internal
         - kind: Service
           name: hello-world
           namespace: dev
@@ -26,7 +24,7 @@ spec:
       #     namespace: traefik
   tls:
     store:
-      name: tlsstore-route53-anotherlife-pl-tls-staging
+      name: store-anotherlife-pl-tls-staging
     # options:
     #   name: tlsoptions
     #   namespace: traefik

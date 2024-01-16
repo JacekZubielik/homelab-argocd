@@ -2,7 +2,7 @@
 apiVersion: traefik.io/v1alpha1
 kind: TLSStore
 metadata:
-  name: tlsstore-route53-anotherlife-pl-tls-staging
+  name: store-anotherlife-pl-tls-staging
 spec:
   defaultCertificate: 
     secretName: route53-certificate-anotherlife-pl-tls-staging
@@ -10,7 +10,7 @@ spec:
 apiVersion: traefik.io/v1alpha1
 kind: TLSStore
 metadata:
-  name: tlsstore-route53-anotherlife-pl-tls-production
+  name: store-anotherlife-pl-tls-production
 spec:
   defaultCertificate: 
     secretName: route53-certificate-anotherlife-pl-tls-production
