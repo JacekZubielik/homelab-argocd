@@ -190,151 +190,12 @@ metrics:
   #    # addRoutersLabels: true
   #    ## Enable metrics on services. Default=true
   #    # addServicesLabels: false
-  #  influxdb:
-  #    ## Address instructs exporter to send metrics to influxdb at this address.
-  #    address: localhost:8089
-  #    ## InfluxDB's address protocol (udp or http). Default="udp"
-  #    protocol: udp
-  #    ## InfluxDB database used when protocol is http. Default=""
-  #    # database: ""
-  #    ## InfluxDB retention policy used when protocol is http. Default=""
-  #    # retentionPolicy: ""
-  #    ## InfluxDB username (only with http). Default=""
-  #    # username: ""
-  #    ## InfluxDB password (only with http). Default=""
-  #    # password: ""
-  #    ## The interval used by the exporter to push metrics to influxdb. Default=10s
-  #    # pushInterval: 30s
-  #    ## Additional labels (influxdb tags) on all metrics.
-  #    # additionalLabels:
-  #    #   env: production
-  #    #   foo: bar
-  #    ## Enable metrics on entry points. Default=true
-  #    # addEntryPointsLabels: false
-  #    ## Enable metrics on routers. Default=false
-  #    # addRoutersLabels: true
-  #    ## Enable metrics on services. Default=true
-  #    # addServicesLabels: false
-  #  influxdb2:
-  #    ## Address instructs exporter to send metrics to influxdb v2 at this address.
-  #    address: localhost:8086
-  #    ## Token with which to connect to InfluxDB v2.
-  #    token: xxx
-  #    ## Organisation where metrics will be stored.
-  #    org: ""
-  #    ## Bucket where metrics will be stored.
-  #    bucket: ""
-  #    ## The interval used by the exporter to push metrics to influxdb. Default=10s
-  #    # pushInterval: 30s
-  #    ## Additional labels (influxdb tags) on all metrics.
-  #    # additionalLabels:
-  #    #   env: production
-  #    #   foo: bar
-  #    ## Enable metrics on entry points. Default=true
-  #    # addEntryPointsLabels: false
-  #    ## Enable metrics on routers. Default=false
-  #    # addRoutersLabels: true
-  #    ## Enable metrics on services. Default=true
-  #    # addServicesLabels: false
-  #  statsd:
-  #    ## Address instructs exporter to send metrics to statsd at this address.
-  #    address: localhost:8125
-  #    ## The interval used by the exporter to push metrics to influxdb. Default=10s
-  #    # pushInterval: 30s
-  #    ## The prefix to use for metrics collection. Default="traefik"
-  #    # prefix: traefik
-  #    ## Enable metrics on entry points. Default=true
-  #    # addEntryPointsLabels: false
-  #    ## Enable metrics on routers. Default=false
-  #    # addRoutersLabels: true
-  #    ## Enable metrics on services. Default=true
-  #    # addServicesLabels: false
-  #  openTelemetry:
-  #    ## Address of the OpenTelemetry Collector to send metrics to.
-  #    address: "localhost:4318"
-  #    ## Enable metrics on entry points.
-  #    addEntryPointsLabels: true
-  #    ## Enable metrics on routers.
-  #    addRoutersLabels: true
-  #    ## Enable metrics on services.
-  #    addServicesLabels: true
-  #    ## Explicit boundaries for Histogram data points.
-  #    explicitBoundaries:
-  #      - "0.1"
-  #      - "0.3"
-  #      - "1.2"
-  #      - "5.0"
-  #    ## Additional headers sent with metrics by the reporter to the OpenTelemetry Collector.
-  #    headers:
-  #      foo: bar
-  #      test: test
-  #    ## Allows reporter to send metrics to the OpenTelemetry Collector without using a secured protocol.
-  #    insecure: true
-  #    ## Interval at which metrics are sent to the OpenTelemetry Collector.
-  #    pushInterval: 10s
-  #    ## Allows to override the default URL path used for sending metrics. This option has no effect when using gRPC transport.
-  #    path: /foo/v1/traces
-  #    ## Defines the TLS configuration used by the reporter to send metrics to the OpenTelemetry Collector.
-  #    tls:
-  #      ## The path to the certificate authority, it defaults to the system bundle.
-  #      ca: path/to/ca.crt
-  #      ## The path to the public certificate. When using this option, setting the key option is required.
-  #      cert: path/to/foo.cert
-  #      ## The path to the private key. When using this option, setting the cert option is required.
-  #      key: path/to/key.key
-  #      ## If set to true, the TLS connection accepts any certificate presented by the server regardless of the hostnames it covers.
-  #      insecureSkipVerify: true
-  #    ## This instructs the reporter to send metrics to the OpenTelemetry Collector using gRPC.
-  #    grpc: true
+
 
   ## -- enable optional CRDs for Prometheus Operator
   ##
   ## Create a dedicated metrics service for use with ServiceMonitor
-service:
-  enabled: true
-  labels: {}
-  annotations: {}
-# When set to true, it won't check if Prometheus Operator CRDs are deployed
-disableAPICheck: false
-serviceMonitor:
-  metricRelabelings:
-    - sourceLabels: [__name__]
-      separator: ;
-      regex: ^fluentd_output_status_buffer_(oldest|newest)_.+
-      replacement: $1
-      action: drop
-  relabelings:
-    - sourceLabels: [__meta_kubernetes_pod_node_name]
-      separator: ;
-      regex: ^(.*)$
-      targetLabel: nodename
-      replacement: $1
-      action: replace
-  jobLabel: traefik
-  interval: 30s
-  honorLabels: true
-  # (Optional)
-  # scrapeTimeout: 5s
-  # honorTimestamps: true
-  # enableHttp2: true
-  # followRedirects: true
-  # additionalLabels:
-  #   foo: bar
-  # namespace: "another-namespace"
-  # namespaceSelector: {}
-prometheusRule:
-  additionalLabels: {}
-  namespace: "another-namespace"
-  rules:
-    - alert: TraefikDown
-      expr: up{job="traefik"} == 0
-      for: 5m
-      labels:
-        context: traefik
-        severity: warning
-      annotations:
-        summary: "Traefik Down"
-        description: "{{ $labels.pod }} on {{ $labels.nodename }} is down"
+
 
 ## Tracing
 # -- https://doc.traefik.io/traefik/observability/tracing/overview/
@@ -440,17 +301,17 @@ ports:
     expose: true
     exposedPort: 443
     protocol: TCP
-    http3:
-      enabled: false
+    # http3:
+    #   enabled: false
     # advertisedPort: 4443
 
-    tls:
-      enabled: true
-      certResolver: route53-certificate-anotherlife-pl-staging #-production
-      domains:
-        - main: 'anotherlife.pl'
-          sans:
-            - '*.anotherlife.pl'
+    # tls:
+    #   enabled: true
+    #   certResolver: route53-certificate-anotherlife-pl-staging #-production
+    #   domains:
+    #     - main: 'anotherlife.pl'
+    #       sans:
+    #         - '*.anotherlife.pl'
       # options:
         # default:
         #   cipherSuites:
@@ -467,22 +328,6 @@ ports:
     protocol: TCP
 
 
-
-
-# -- TLS Options are created as TLSOption CRDs
-# https://doc.traefik.io/traefik/https/tls/#tls-options
-# When using `labelSelector`, you'll need to set labels on tlsOption accordingly.
-# Example:
-# tlsOptions:
-#   default:
-#     labels: {}
-#     sniStrict: true
-#     preferServerCipherSuites: true
-#   customOptions:
-#     labels: {}
-#     curvePreferences:
-#       - CurveP521
-#       - CurveP384
 tlsOptions: {}
 
 tlsStore:
@@ -514,6 +359,50 @@ service:
   ## -- Class of the load balancer implementation
   # loadBalancerClass: service.k8s.aws/nlb
   externalIPs: []
+
+
+# serviceMonitor:
+#   metricRelabelings:
+#     - sourceLabels: [__name__]
+#       separator: ;
+#       regex: ^fluentd_output_status_buffer_(oldest|newest)_.+
+#       replacement: $1
+#       action: drop
+#   relabelings:
+#     - sourceLabels: [__meta_kubernetes_pod_node_name]
+#       separator: ;
+#       regex: ^(.*)$
+#       targetLabel: nodename
+#       replacement: $1
+#       action: replace
+#   jobLabel: traefik
+#   interval: 30s
+#   honorLabels: true
+#   # (Optional)
+#   # scrapeTimeout: 5s
+#   # honorTimestamps: true
+#   # enableHttp2: true
+#   # followRedirects: true
+#   # additionalLabels:
+#   #   foo: bar
+#   # namespace: "another-namespace"
+#   # namespaceSelector: {}
+# prometheusRule:
+#   additionalLabels: {}
+#   namespace: "another-namespace"
+#   rules:
+#     - alert: TraefikDown
+#       expr: up{job="traefik"} == 0
+#       for: 5m
+#       labels:
+#         context: traefik
+#         severity: warning
+#       annotations:
+#         summary: "Traefik Down"
+#         description: "{{ $labels.pod }} on {{ $labels.nodename }} is down"
+
+
+
 
 autoscaling:
   # -- Create HorizontalPodAutoscaler object.
@@ -635,3 +524,4 @@ prometheus:
   #   annotations: {}
   #   honorLabels: false
   #   endpointAdditionalProperties: {}
+
