@@ -243,6 +243,7 @@ additionalArguments:
 # - "--log.level=INFO"
 - "--api.dashboard=true"
 - "--api.insecure=true"
+- "--ping=true"
 - "--accesslog.filepath=/data/access.log"
 - "--providers.kubernetesingress.ingressendpoint.publishedservice=traefik/traefik"
 #- "--providers.kubernetesingress.ingressclass=traefik-external"
@@ -323,14 +324,14 @@ ports:
         - main: 'anotherlife.pl'
           sans:
             - '*.anotherlife.pl'
-      options:
-        default:
-          cipherSuites:
-            - TLS_AES_128_GCM_SHA256 uint16 = 0x1301
-            - TLS_AES_256_GCM_SHA384       uint16 = 0x1302
-            - TLS_CHACHA20_POLY1305_SHA256 uint16 = 0x1303
-        mintls13:
-          minVersion: VersionTLS13
+      # options:
+      #   default:
+      #     cipherSuites:
+      #       - TLS_AES_128_GCM_SHA256 uint16 = 0x1301
+      #       - TLS_AES_256_GCM_SHA384       uint16 = 0x1302
+      #       - TLS_CHACHA20_POLY1305_SHA256 uint16 = 0x1303
+      #   mintls13:
+      #     minVersion: VersionTLS13
     middlewares: []
   metrics:
     port: 9100
