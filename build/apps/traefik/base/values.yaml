@@ -36,10 +36,10 @@ deployment:
   lifecycle: {}
 
 
-# volumes:
-#   - mountPath: /data-logs
-#     name: traefik-logs
-#     type: configMap
+volumes:
+  - mountPath: /data-logs
+    name: traefik-logs
+    type: configMap
 # - name: public-cert
 #   mountPath: "/certs"
 #   type: secret
