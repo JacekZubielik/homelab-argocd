@@ -328,12 +328,12 @@ ports:
     protocol: TCP
 
 
-tlsOptions: {}
+# tlsOptions: {}
 
-tlsStore:
-  default:
-    defaultCertificate:
-      secretName: route53-certificate-anotherlife-pl-tls-staging
+# tlsStore:
+#   default:
+#     defaultCertificate:
+#       secretName: route53-certificate-anotherlife-pl-tls-staging
 
 service:
   enabled: true
