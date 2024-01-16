@@ -14,7 +14,7 @@ deployment:
   podLabels: {}
   additionalContainers: []
   additionalVolumes:
-  #- name: plugins
+  - name: plugins
   - name: traefik-logs
   initContainers:
     - name: data-accesslog
@@ -51,8 +51,8 @@ deployment:
 additionalVolumeMounts:
 - name: traefik-logs
   mountPath: /var/log/traefik
-# - name: plugins
-#   mountPath: /plugins-storage
+- name: plugins
+  mountPath: /plugins-storage
 
 
 persistence:
