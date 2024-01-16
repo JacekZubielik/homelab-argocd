@@ -318,7 +318,7 @@ ports:
 
     tls:
       enabled: true
-      certResolver: route53-certificate-anotherlife-pl-staging #-production
+      certResolver: route53-certificate-anotherlife-pl-tls-staging #route53-certificate-anotherlife-pl-staging #-production
       domains:
         - main: 'anotherlife.pl'
           sans:
