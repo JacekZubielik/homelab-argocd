@@ -3,6 +3,7 @@ apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
   name: hello-world
+  namespace: dev
   labels:
     app.kubernetes.io/name: traefik
   annotations:
@@ -20,13 +21,9 @@ spec:
           name: hello-world
           namespace: dev
           port: 80
-        # - kind: Service
-        #   name: whoamiv2
-        #   namespace: app
-        #   port: 80
-      middlewares:
-        - name: traefik-dashboard-auth  #chain-traefik-dashboard
-          namespace: traefik
+      # middlewares:
+      #   - name: traefik-dashboard-auth  #chain-traefik-dashboard
+      #     namespace: traefik
   tls:
     store:
       name: tlsstore-route53-anotherlife-pl-tls-staging
