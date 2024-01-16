@@ -57,7 +57,7 @@ volumes:
 persistence:
   enabled: true
   name: data
-  existingClaim: "traefik-logs"
+  #existingClaim: "traefik-logs"
   accessMode: ReadWriteOnce
   size: 128Mi
   storageClass: "local-path"
