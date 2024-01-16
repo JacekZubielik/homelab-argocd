@@ -7,14 +7,14 @@ apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
   name: hello-world
+  labels:
+    app.kubernetes.io/name: traefik
+  annotations:
+    kubernetes.io/ingress.class: traefik-internal
 spec:
   entryPoints:
     - websecure
   routes:
-    # See available matchers here:
-    #
-    #     https://doc.traefik.io/traefik/routing/routers/#rule
-    #
     - kind: Rule
       match: "Host(`anotherlife.pl`) &&  PathPrefix(`/dashboard`) || PathPrefix(`/api`)"
       services:
