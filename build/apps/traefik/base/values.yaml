@@ -58,10 +58,7 @@ persistence:
   enabled: true
   name: data
   existingClaim: "traefik-logs"
-  #accessMode: ReadWriteOnce
-  accessModes:
-  - ReadWriteMany # I needed both for rw
-  - ReadWriteOnce # I needed both for rw
+  accessMode: ReadWriteOnce
   size: 128Mi
   storageClass: "local-path"
   volumeName: traefik-logs
