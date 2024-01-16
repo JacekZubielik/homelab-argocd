@@ -26,7 +26,7 @@ spec:
         #   port: 80
       middlewares:
         - name: traefik-dashboard-auth  #chain-traefik-dashboard
-          namespace: dev
+          namespace: traefik
   tls:
     store:
       name: tlsstore-route53-anotherlife-pl-tls-staging
