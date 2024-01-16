@@ -235,7 +235,7 @@ additionalArguments:
 # - "--log.level=INFO"
 - "--api.dashboard=true"
 - "--api.insecure=true"
-- "--accesslog.filepath=/data/access.log"
+#- "--accesslog.filepath=/data/access.log"
 - "--providers.kubernetesingress.ingressendpoint.publishedservice=traefik/traefik"
 - "--providers.kubernetesingress.ingressclass=traefik-internal"
 - "--entrypoints.websecure.http.tls=true"
