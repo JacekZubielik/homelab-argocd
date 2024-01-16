@@ -16,24 +16,46 @@ deployment:
   # additionalVolumes:
   # #- name: plugins
   # - name: traefik-logs
-  # initContainers:
-  #   - name: data-accesslog
-  #     image: busybox:latest
-  #     args:
-  #       - /bin/sh
-  #       - -c
-  #       - tail -n+1 -F /data/access.log
-  #     imagePullPolicy: Always
-  #     resources: {}
-  #     terminationMessagePath: /dev/termination-log
-  #     terminationMessagePolicy: File
-  #     volumeMounts:
-  #     - name: data
-  #       mountPath: /data
+  initContainers:
+    - name: data-accesslog
+      image: busybox:latest
+      args:
+        - /bin/sh
+        - -c
+        - tail -n+1 -F /data/access.log
+      imagePullPolicy: Always
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - name: data
+        mountPath: /data
   shareProcessNamespace: false
   dnsConfig: {}
   imagePullSecrets: []
   lifecycle: {}
+
+
+volumes:
+  - mountPath: /data
+    name: traefik-logs
+    type: configMap
+# - name: public-cert
+#   mountPath: "/certs"
+#   type: secret
+# - name: '{{ printf "%s-configs" .Release.Name }}'
+#   mountPath: "/config"
+#   type: configMap
+
+# -- Additional volumeMounts to add to the Traefik container
+# additionalVolumeMounts:
+# - name: plugins
+#   mountPath: /plugins-storage
+# - name: traefik-logs
+#   mountPath: /var/log/traefik
+
+
+
 
 # -- Pod disruption budget
 podDisruptionBudget:
@@ -60,7 +82,6 @@ ingressClass:
 #   kubernetesGateway:
 #     # -- Enable traefik experimental GatewayClass CRD
 #     enabled: false
-
 
 ## Create an IngressRoute for the dashboard
 ingressRoute:
@@ -134,22 +155,6 @@ providers:
     watch: true
     content: ""
 
-volumes: []
-# - name: public-cert
-#   mountPath: "/certs"
-#   type: secret
-# - name: '{{ printf "%s-configs" .Release.Name }}'
-#   mountPath: "/config"
-#   type: configMap
-
-# -- Additional volumeMounts to add to the Traefik container
-# additionalVolumeMounts:
-# - name: plugins
-#   mountPath: /plugins-storage
-# - name: traefik-logs
-#   mountPath: /var/log/traefik
-
-
 
 logs:
   general:
@@ -167,8 +172,6 @@ logs:
       headers:
         defaultmode: drop
         names: {}
-
-
 
 metrics:
   prometheus:
@@ -360,7 +363,6 @@ service:
   # loadBalancerClass: service.k8s.aws/nlb
   externalIPs: []
 
-
 # serviceMonitor:
 #   metricRelabelings:
 #     - sourceLabels: [__name__]
@@ -401,9 +403,6 @@ service:
 #         summary: "Traefik Down"
 #         description: "{{ $labels.pod }} on {{ $labels.nodename }} is down"
 
-
-
-
 autoscaling:
   # -- Create HorizontalPodAutoscaler object.
   enabled: false
@@ -430,18 +429,18 @@ autoscaling:
 #         value: 1
 #         periodSeconds: 60
 
-# persistence:
-#   enabled: true
-#   name: data
-#   #  existingClaim: ""
-#   accessMode: ReadWriteOnce
-#   size: 128Mi
-#   storageClass: cert-storage #"local-path"
-#   volumeName: traefik-logs
-#   path: /data
-#   annotations: {}
-#   # -- Only mount a subpath of the Volume into the pod
-#   # subPath: ""
+persistence:
+  enabled: true
+  name: data
+  existingClaim: "data"
+  accessMode: ReadWriteOnce
+  size: 128Mi
+  storageClass: cert-storage #"local-path"
+  volumeName: traefik-logs
+  path: /data
+  annotations: {}
+  # -- Only mount a subpath of the Volume into the pod
+  # subPath: ""
 
 # -- Certificates resolvers configuration
 certResolvers: {}
