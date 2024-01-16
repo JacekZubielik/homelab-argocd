@@ -158,7 +158,7 @@ providers:
       enabled: true
       ####################################################
       # Need to override path since otherwise the namespace is set as default
-      pathOverride: traefik-system/traefik
+      #pathOverride: traefik-system/traefik
       ####################################################
 
   file:
