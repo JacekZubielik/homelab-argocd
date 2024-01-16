@@ -54,18 +54,18 @@ deployment:
 # - name: traefik-logs
 #   mountPath: /var/log/traefik
 
-# persistence:
-#   enabled: true
-#   name: data
-#   #existingClaim: "traefik-logs"
-#   accessMode: ReadWriteOnce
-#   size: 128Mi
-#   storageClass: "local-path"
-#   volumeName: traefik-logs
-#   #path: /data
-#   annotations: {}
-#   # -- Only mount a subpath of the Volume into the pod
-#   # subPath: ""
+persistence:
+  enabled: true
+  name: data
+  #existingClaim: "traefik-logs"
+  accessMode: ReadWriteOnce
+  size: 128Mi
+  #storageClass: "local-path"
+  #volumeName: traefik-logs
+  path: /data
+  annotations: {}
+  # -- Only mount a subpath of the Volume into the pod
+  # subPath: ""
 
 
 # -- Pod disruption budget
