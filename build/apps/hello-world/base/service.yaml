@@ -4,7 +4,7 @@ metadata:
   name: hello-world
 spec:
   selector:
-    app: trivial-go-web-app
+    app: hello-world
   ports:
     - protocol: TCP
       port: 80
