@@ -6,7 +6,7 @@
   "srcPath": "build/apps/kube-prometheus-stack/overlays/infra",
   "srcRepoURL": "https://github.com/JacekZubielik/homelab-argocd.git",
   "srcTargetRevision": "",
-  "syncWave": "1",
+  "syncWave": "0",
   "appRole": "infra",
   "labels": null,
   "annotations": null,
