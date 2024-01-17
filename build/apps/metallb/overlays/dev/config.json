@@ -3,10 +3,10 @@
   "userGivenName": "metallb",
   "destNamespace": "metallb-system",
   "destServer": "https://kubernetes.default.svc",
-  "srcPath": "build/apps/metallb2/overlays/dev",
+  "srcPath": "build/apps/metallb/overlays/dev",
   "srcRepoURL": "https://github.com/jacekzubielik/homelab-argocd.git",
   "srcTargetRevision": "",
-  "syncWave": "1",
+  "syncWave": "0",
   "labels": null,
   "annotations": null
 }
