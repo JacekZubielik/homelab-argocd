@@ -15,7 +15,8 @@ commonLabels:
   app.kubernetes.io/name: metallb
   app: metallb
 
-
+resources:
+- namespace.yaml
 
 
 
