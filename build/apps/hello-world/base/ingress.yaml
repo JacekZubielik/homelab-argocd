@@ -21,8 +21,8 @@ spec:
             backend:
               service:
                 name: hello-world
-                port: 80
-                  name: https
+                port:
+                  name: http
   tls:
   - hosts:
     - ha.anotherlife.pl
