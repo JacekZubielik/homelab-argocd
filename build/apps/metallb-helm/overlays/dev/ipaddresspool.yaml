@@ -9,7 +9,7 @@ metadata:
     pod-security.kubernetes.io/warn: privileged
 spec:
   addresses:
-  - 192.168.40.180-192.168.40.220
+  - 192.168.40.180-192.168.40.200
   autoAssign: true
   avoidBuggyIPs: true
 ---
