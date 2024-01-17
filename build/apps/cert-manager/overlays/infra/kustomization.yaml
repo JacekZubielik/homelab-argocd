@@ -10,7 +10,7 @@ resources:
 - route53/route53-certificate-anotherlife-pl-staging.yaml
 - route53/route53-issuer-staging.yaml
 # - route53/route53-certificate-anotherlife-pl-production.yaml
-# - route53/route53-issuer-production.yaml
+- route53/route53-issuer-production.yaml
 
 # cloudflare
 # - cloudflare/cloudflare-api-token-secret.yaml
