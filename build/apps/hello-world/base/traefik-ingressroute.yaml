@@ -23,7 +23,7 @@ spec:
       #   - name: traefik-dashboard-auth  #chain-traefik-dashboard
       #     namespace: traefik
   tls:
-    certResolver: route53-certificate-anotherlife-pl-tls-staging
+    certResolver: route53-certificate-anotherlife-pl-staging
     #secretName: route53-certificate-anotherlife-pl-tls-staging # -staging / -production
   #   # options:
   #   #   name: tlsoptions
