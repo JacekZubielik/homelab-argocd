@@ -1,0 +1,15 @@
+{
+  "appName": "metallb",
+  "userGivenName": "metallb",
+  "destNamespace": "metallb-system",
+  "destServer": "https://kubernetes.default.svc",
+  "srcPath": "build/apps/metallb-helm/overlays/dev",
+  "srcRepoURL": "https://github.com/jacekzubielik/homelab-argocd.git",
+  "srcTargetRevision": "",
+  "syncWave": "0",
+  "appRole": "infra",
+  "labels": null,
+  "annotations": null,
+  "exclude": "",
+  "include": ""
+}
