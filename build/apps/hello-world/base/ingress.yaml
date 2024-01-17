@@ -9,7 +9,7 @@ metadata:
     #nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-    - host: anotherlife.pl
+    - host: ha.anotherlife.pl
       http:
         paths:
           - path: /
@@ -21,5 +21,5 @@ spec:
                   name: https
   tls:
   - hosts:
-    - hello-world
+    - .anotherlife.pl
     secretName: route53-certificate-anotherlife-pl-tls-staging
