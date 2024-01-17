@@ -6,7 +6,7 @@
   "srcPath": "build/apps/hello-world/overlays/dev",
   "srcRepoURL": "https://github.com/jacekzubielik/homelab-argocd.git",
   "srcTargetRevision": "",
-  "syncWave": "-2",
+  "syncWave": "1",
   "labels": null,
   "annotations": null
 }
