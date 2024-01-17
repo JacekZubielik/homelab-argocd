@@ -3,8 +3,8 @@ kind: Kustomization
 namespace: metallb-system
 
 resources:
-#- github.com/metallb/metallb/config/native?ref=v0.13.12
-- https://raw.githubusercontent.com/metallb/metallb/v0.13.12/config/manifests/metallb-native.yaml
+- github.com/metallb/metallb/config/native?ref=v0.13.12
+#- https://raw.githubusercontent.com/metallb/metallb/v0.13.12/config/manifests/metallb-native.yaml
 - ipaddresspool.yaml
 #- configmap.yaml
 
