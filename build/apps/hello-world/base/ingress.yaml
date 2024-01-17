@@ -2,7 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: hello-world
-  namespace: dev
+  #namespace: dev
   annotations:
     cert-manager.io/cluster-issuer: route53-issuer-staging
     kubernetes.io/ingress.class: traefik-external
