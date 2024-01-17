@@ -22,7 +22,7 @@ spec:
               service:
                 name: hello-world
                 port:
-                  name: https
+                  name: 8080
   tls:
   - hosts:
     - ha.anotherlife.pl
