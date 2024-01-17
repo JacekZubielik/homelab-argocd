@@ -25,14 +25,14 @@ resources:
 #- selfsigned/selfsigned-credentials-secret.yaml
 
 
-commonLabels:
-  app.kubernetes.io/name: cert-manager
-  app: cert-manager
+# commonLabels:
+#   app.kubernetes.io/name: cert-manager
+#   app: cert-manager
 
-configMapGenerator:
-- name: cert-manager-config
-  literals:
-  - TZ="Europe/Warsaw"
+# configMapGenerator:
+# - name: cert-manager-config
+#   literals:
+#   - TZ="Europe/Warsaw"
 
 # label app.kubernetes.io/instance=cert-manager causes warnings for all 6 Cert Manager CRDs in ArgoCD, eg:
 #
