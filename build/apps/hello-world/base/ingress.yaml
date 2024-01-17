@@ -4,9 +4,13 @@ metadata:
   name: hello-world
   namespace: dev
   annotations:
+    cert-manager.io/cluster-issuer: route53-issuer-staging
     kubernetes.io/ingress.class: traefik-external
     #kubernetes.io/ingress.class: "nginx"
     #nginx.ingress.kubernetes.io/rewrite-target: /
+  labels:
+    app: hello-world
+
 spec:
   rules:
     - host: ha.anotherlife.pl
