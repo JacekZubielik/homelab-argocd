@@ -7,8 +7,8 @@ resources:
 
 - https://raw.githubusercontent.com/metallb/metallb/v0.13.12/config/manifests/metallb-native.yaml
 
-- ip-pool.yaml
-#- configmap.yaml
+#- ip-pool.yaml
+- configmap.yaml
 
 # patches:
 #   - target:
