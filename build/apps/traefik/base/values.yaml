@@ -51,7 +51,6 @@ additionalVolumeMounts:
 - name: plugins
   mountPath: /plugins-storage
 
-
 persistence:
   enabled: true
   name: data
@@ -64,7 +63,6 @@ persistence:
   annotations: {}
   # -- Only mount a subpath of the Volume into the pod
   # subPath: ""
-
 
 # -- Pod disruption budget
 podDisruptionBudget:
@@ -152,8 +150,8 @@ providers:
     ingressClass: traefik-external
     namespaces: []
     # - "default"
-    publishedService:
-      enabled: true
+    ingressEndpoint:
+      publishedService: "traefik/traefik"
       ####################################################
       # Need to override path since otherwise the namespace is set as default
       pathOverride: traefik-system/traefik
@@ -246,11 +244,6 @@ additionalArguments:
 - "--api.insecure=true"
 - "--ping=true"
 - "--accesslog.filepath=/data/access.log"
-
-
-
-- "--providers.kubernetesingress.ingressendpoint.publishedservice=traefik/traefik"
-#- "--providers.kubernetesingress.ingressclass=traefik-external"
 - "--entrypoints.websecure.http.tls=true"
 - "--serversTransport.insecureSkipVerify=true"
 
