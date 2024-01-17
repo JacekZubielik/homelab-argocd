@@ -21,5 +21,5 @@ spec:
                   name: https
   tls:
   - hosts:
-    - .anotherlife.pl
+    - ha.anotherlife.pl
     secretName: route53-certificate-anotherlife-pl-tls-staging
