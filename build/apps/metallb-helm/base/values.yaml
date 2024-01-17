@@ -1,6 +1,15 @@
+# helm repo add metallb https://metallb.github.io/metallb
+#
+# helm show values https://metallb.github.io/metallb >> metallb-values.yaml
+
+
 metallb:
   labels:
     pod-security.kubernetes.io/enforce: privileged
     pod-security.kubernetes.io/audit: privileged
     pod-security.kubernetes.io/warn: privileged  
   existingConfigMap: metallb-config
+
+speaker:
+  frr:
+    enabled: false
