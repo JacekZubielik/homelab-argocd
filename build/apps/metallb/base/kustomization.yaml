@@ -10,28 +10,28 @@ resources:
 - ip-pool.yaml
 #- configmap.yaml
 
-patches:
-  - target:
-      version: v1
-      group: apps
-      kind: DaemonSet
-      namespace: metallb-system
-      name: speaker
-    patch: |-
-      - op: add
-        path: /spec/template/spec/tolerations/-
-        value: {"effect":"NoSchedule","key":"example.com/some-taint","operator":"Exists"}
-
 # patches:
-#   - |-
-#       apiVersion: apps/v1
-#       kind: Deployment
-#       metadata:
-#         name: controller
-#         namespace: metallb-system
-#       spec:
-#         template:
-#           spec:
-#             securityContext:
-#               $patch: replace
-#               runAsNonRoot: true
+#   - target:
+#       version: v1
+#       group: apps
+#       kind: DaemonSet
+#       namespace: metallb-system
+#       name: speaker
+#     patch: |-
+#       - op: add
+#         path: /spec/template/spec/tolerations/-
+#         value: {"effect":"NoSchedule","key":"example.com/some-taint","operator":"Exists"}
+
+patches:
+  - |-
+      apiVersion: apps/v1
+      kind: Deployment
+      metadata:
+        name: controller
+        namespace: metallb-system
+      spec:
+        template:
+          spec:
+            securityContext:
+              $patch: replace
+              runAsNonRoot: true
