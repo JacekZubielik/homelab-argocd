@@ -148,7 +148,7 @@ providers:
     allowExternalNameServices: true
     allowEmptyServices: true
     ingressClass: traefik-external
-    labelSelector: "app=traefik,dev"
+    #labelSelector: "app=traefik"
     namespaces: []
     # - "default"
     ingressEndpoint:
