@@ -77,8 +77,8 @@ podDisruptionBudget:
 # -- Create a default IngressClass for Traefik
 ingressClass:
   enabled: true
-  isDefaultClass: false
-  # name: my-custom-class
+  isDefaultClass: true
+  name: traefik-external
 
 # experimental:
 #   http3:
