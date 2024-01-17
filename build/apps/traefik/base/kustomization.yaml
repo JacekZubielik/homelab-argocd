@@ -1,0 +1,27 @@
+# https://github.com/traefik/traefik-helm-chart
+
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: traefik
+
+helmCharts:
+- name: traefik
+  repo: https://helm.traefik.io/traefik
+  version: 26.0.0
+  releaseName: traefik
+  namespace: traefik
+  includeCRDs: true
+  valuesFile: values.yaml
+
+
+patches:
+  - target:
+      group: rbac.authorization.k8s.io
+      version: v1
+      kind: ClusterRoleBinding
+      name: traefik-role-binding
+    patch: |-
+      - op: add
+        path: /subjects/0/namespace
+        value: traefik

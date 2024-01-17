@@ -8,7 +8,7 @@ helmCharts:
   version: v1.13.3
   releaseName: cert-manager
   namespace: cert-manager
-  includeCRDs: true
+  ###includeCRDs: true
   valuesFile: values.yaml
 
   # valuesInline:
@@ -20,11 +20,6 @@ helmCharts:
 
 # resources:
 #   - hpa.yaml
-
-
-
-
-
 
 # label app.kubernetes.io/instance=cert-manager causes warnings for all 6 Cert Manager CRDs in ArgoCD, eg:
 #
