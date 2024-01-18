@@ -32,7 +32,7 @@ spec:
       #     namespace: traefik
   tls:
     #certResolver: route53-issuer-staging # route53-certificate-anotherlife-pl-staging
-    secretName: route53-certificate-anotherlife-pl-tls-production #route53-issuer-staging #route53-certificate-anotherlife-pl-staging # -staging / -production
+    secretName: route53-certificate-traefik-dashboard-tls-production #route53-issuer-staging #route53-certificate-anotherlife-pl-staging # -staging / -production
     # options:
     #   name: tlsoptions
     domains:
