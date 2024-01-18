@@ -10,9 +10,9 @@ metadata:
 spec:
   acme:
     email: zumbik@protonmail.com
+    server: https://acme-v02.api.letsencrypt.org/directory
     privateKeySecretRef:
       name: route53-access-key
-    server: https://acme-v02.api.letsencrypt.org/directory
     solvers:
     - dns01:
         route53:
@@ -23,3 +23,5 @@ spec:
           secretAccessKeySecretRef:
             name: route53-credentials-secret
             key: secret-access-key
+        ingress:
+          class: traefik
