@@ -25,5 +25,5 @@ spec:
   tls:
   - hosts:
     - ha.anotherlife.pl
-    #secretName: route53-certificate-anotherlife-pl-tls-production
-    secretName: route53-certificate-hello-world-tls-production
+    secretName: route53-certificate-anotherlife-pl-tls-production
+    #secretName: route53-certificate-hello-world-tls-production
