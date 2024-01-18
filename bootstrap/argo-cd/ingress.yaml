@@ -3,7 +3,7 @@ kind: Ingress
 metadata:
   name: argocd-ui
   annotations:
-    traefik.ingress.kubernetes.io/router.entrypoints: websecure
+    #traefik.ingress.kubernetes.io/router.entrypoints: websecure
     kubernetes.io/ingress.class: traefik-external
     # gethomepage.dev/enabled: "true"
     # gethomepage.dev/description: ArgoCD Dashboard
