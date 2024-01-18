@@ -9,6 +9,7 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: traefik-external
     #cert-manager.io/cluster-issuer: route53-issuer-staging
+    cert-manager.io/cluster-issuer: route53-issuer-production
     # gethomepage.dev/description: traefik test tool
     # gethomepage.dev/enabled: "true"
     # gethomepage.dev/group: Tools
