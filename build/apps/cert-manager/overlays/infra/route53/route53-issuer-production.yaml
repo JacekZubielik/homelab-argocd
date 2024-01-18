@@ -23,5 +23,4 @@ spec:
           secretAccessKeySecretRef:
             name: route53-credentials-secret
             key: secret-access-key
-        ingress:
-          class: traefik
+
