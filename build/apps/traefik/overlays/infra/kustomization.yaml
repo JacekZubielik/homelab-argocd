@@ -12,7 +12,7 @@ resources:
 - traefik-tlsoption.yaml
 #- traefik-tlsstore.yaml
 - traefik-service-monitor.yaml
-- ingressroute-traefik-dashboard.yaml
+#- ingressroute-traefik-dashboard.yaml
 #- pvc.yaml
 
 
