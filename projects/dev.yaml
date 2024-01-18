@@ -98,10 +98,10 @@ spec:
         - CreateNamespace=true
         - preserveResourcesOnDeletion=false
         - SkipDryRunOnMissingResource=true
-        #- Replace=true
+        - Replace=true
         - ServerSideApply=true
         - ApplyOutOfSyncOnly=true
-        #- Validate=true
+        - Validate=true
         - PruneLast=true
         automated:
           allowEmpty: true
