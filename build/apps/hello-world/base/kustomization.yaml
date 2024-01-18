@@ -4,8 +4,8 @@ kind: Kustomization
 resources:
 - deployment.yaml
 - service.yaml
-- traefik-ingressroute.yaml
-#- ingress.yaml
+#- traefik-ingressroute.yaml
+- ingress.yaml
 #- namespace.yaml
 
 commonLabels:
