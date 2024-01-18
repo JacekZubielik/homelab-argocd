@@ -17,10 +17,10 @@ commonLabels:
   app.kubernetes.io/name: traefik
   app: traefik
 
-configMapGenerator:
-- name: traefik-config
-  literals:
-  - TZ="Europe/Warsaw"
+# configMapGenerator:
+# - name: traefik-config
+#   literals:
+#   - TZ="Europe/Warsaw"
 
 patches:
   - target:
