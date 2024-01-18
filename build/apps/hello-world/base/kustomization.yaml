@@ -4,9 +4,8 @@ kind: Kustomization
 resources:
 - deployment.yaml
 - service.yaml
-#- traefik-ingressroute.yaml
 - ingress.yaml
-#- namespace.yaml
+#- ingressroute.yaml
 
 commonLabels:
   app.kubernetes.io/name: hello-world

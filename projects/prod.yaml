@@ -92,12 +92,21 @@ spec:
         targetRevision: '{{ srcTargetRevision }}'
       syncPolicy:
         retry:
+          backoff:
+            duration: 5s
+            factor: 2
+            maxDuration: 5m0s
           limit: 2
+
         syncOptions:
         - CreateNamespace=true
         - preserveResourcesOnDeletion=false
-        - Replace=false
-        - ServerSideApply=true
+        - SkipDryRunOnMissingResource=true
+        #- Replace=true
+        #- ServerSideApply=true
+        - ApplyOutOfSyncOnly=true
+        #- Validate=true
+        - PruneLast=true
         automated:
           allowEmpty: true
           prune: true

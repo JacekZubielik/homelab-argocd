@@ -15,7 +15,10 @@ commonLabels:
   app.kubernetes.io/name: sealed-secrets
   app: sealed-secrets
 
-
+configMapGenerator:
+- name: cert-manager-config
+  literals:
+  - TZ="Europe/Warsaw"
 
 # Workaround for:
 #

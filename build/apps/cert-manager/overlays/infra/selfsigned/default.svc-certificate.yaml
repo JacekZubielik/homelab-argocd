@@ -2,7 +2,7 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: selfsigned-certificate
+  name: default.svc
   namespace: cert-manager
   annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
@@ -14,8 +14,8 @@ spec:
   issuerRef:
     group: cert-manager.io
     kind: ClusterIssuer
-    name: selfsigned-issuer
-  secretName: selfsigned-certificate-tls
+    name: default.svc
+  secretName: default.svc
   duration: 2160h0m0s # 90d
   renewBefore: 720h0m0s # 30d
   isCA: true

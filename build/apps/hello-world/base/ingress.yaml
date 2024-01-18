@@ -4,11 +4,14 @@ metadata:
   name: hello-world
   #namespace: dev
   annotations:
-    cert-manager.io/cluster-issuer: route53-issuer-production
+    cert-manager.io/cluster-issuer: route53-letsencrypt-staging
     kubernetes.io/ingress.class: traefik-external
     #kubernetes.io/ingress.class: "nginx"
     #nginx.ingress.kubernetes.io/rewrite-target: /
-
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
+    traefik.ingress.kubernetes.io/router.tls: "true"
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+    argocd.argoproj.io/sync-wave: "3"
 spec:
   ingressClassName: traefik-external
   rules:
@@ -25,5 +28,4 @@ spec:
   tls:
   - hosts:
     - ha.anotherlife.pl
-    secretName: route53-certificate-anotherlife-pl-tls-production
-    #secretName: route53-certificate-hello-world-tls-production
+    secretName: anotherlife-letsencrypt-staging

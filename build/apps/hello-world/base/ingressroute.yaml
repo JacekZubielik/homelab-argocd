@@ -3,10 +3,11 @@ apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
   name: hello-world
-  namespace: traefik
+  #namespace: dev
   labels:
     app.kubernetes.io/name: hello-world
   annotations:
+    cert-manager.io/cluster-issuer: route53-letsencrypt-staging
     kubernetes.io/ingress.class: traefik-external
 spec:
   entryPoints:
@@ -23,10 +24,10 @@ spec:
       #   - name: traefik-dashboard-auth  #chain-traefik-dashboard
       #     namespace: traefik
   tls:
-    #certResolver: route53-certificate-anotherlife-pl-staging
-    secretName: route53-certificate-hello-world-tls-production #route53-certificate-anotherlife-pl-tls-staging # -staging / -production
-  #   # options:
-  #   #   name: tlsoptions
+    #certResolver: anotherlife-letsencrypt-staging
+    secretName: anotherlife-letsencrypt-staging # -staging / -production
+    options:
+      name: tlsoptions
     domains:
       - main: anotherlife.pl
         sans:

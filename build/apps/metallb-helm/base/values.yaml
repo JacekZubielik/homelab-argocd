@@ -2,7 +2,6 @@
 #
 # helm show values https://metallb.github.io/metallb >> metallb-values.yaml
 
-
 metallb:
   labels:
     pod-security.kubernetes.io/enforce: privileged

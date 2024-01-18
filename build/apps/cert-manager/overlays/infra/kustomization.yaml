@@ -6,11 +6,11 @@ resources:
 #- namespace.yaml # Do not set this - it will override roles for kube-system needed for leader election of cainjector
 
 # route53
-- route53/route53-credentials-secret.yaml
-- route53/route53-certificate-anotherlife-pl-staging.yaml
-- route53/route53-issuer-staging.yaml
-- route53/route53-certificate-anotherlife-pl-production.yaml
-- route53/route53-issuer-production.yaml
+- route53/certificate-anotherlife-pl-production.yaml
+- route53/certificate-anotherlife-staging.yaml
+- route53/letsencrypt-production.yaml
+- route53/letsencrypt-staging.yaml
+- route53/secret.yaml
 
 # cloudflare
 # - cloudflare/cloudflare-api-token-secret.yaml
@@ -20,28 +20,23 @@ resources:
 # - cloudflare/cloudflare-issuer-production.yaml
 
 # selfsigned
-- selfsigned/selfsigned-certificate.yaml
-- selfsigned/selfsigned-issuer.yaml
-#- selfsigned/selfsigned-credentials-secret.yaml
+- selfsigned/default.svc-certificate.yaml
+- selfsigned/default.svc-issuer.yaml
 
+commonLabels:
+  app.kubernetes.io/name: cert-manager
+  app: cert-manager
 
-# commonLabels:
-#   app.kubernetes.io/name: cert-manager
-#   app: cert-manager
-
-# configMapGenerator:
-# - name: cert-manager-config
-#   literals:
-#   - TZ="Europe/Warsaw"
-
-# label app.kubernetes.io/instance=cert-manager causes warnings for all 6 Cert Manager CRDs in ArgoCD, eg:
-#
-#  SharedResourceWarning 	CustomResourceDefinition/certificaterequests.cert-manager.io is part of applications cert-manager-production and cert-manager
-#
-#   https://github.com/argoproj/argo-cd/issues/6728
-#
+configMapGenerator:
+- name: cert-manager-config
+  literals:
+  - TZ="Europe/Warsaw"
 
 patches:
+# label app.kubernetes.io/instance=cert-manager causes warnings for all 6 Cert Manager CRDs in ArgoCD, eg:
+#  SharedResourceWarning 	CustomResourceDefinition/certificaterequests.cert-manager.io is part of applications cert-manager-production and cert-manager
+#   https://github.com/argoproj/argo-cd/issues/6728
+
   - path: patches/remove-instance-label.jsonpatch.yaml
     target:
       kind: CustomResourceDefinition
@@ -50,6 +45,7 @@ patches:
 # This overlay includes a patch for the Helm chart base that adds the client.lifecycle.config.k8s.io/mutation: ignore 
 # annotation to all Deployment objects. The annotation causes Config Sync to ignore any conflicting changes to this object 
 # in the cluster after you have created it.
+
   - path: patches/ignore-deployment-mutation-patch.yaml
     target:
       kind: Deployment

@@ -15,8 +15,14 @@ commonLabels:
   app.kubernetes.io/name: metallb
   app: metallb
 
-resources:
-- namespace.yaml
+configMapGenerator:
+- name: metallb-config
+  literals:
+  - TZ="Europe/Warsaw"
+
+
+# resources:
+# - namespace.yaml
 
 # patches:
 #   - target:

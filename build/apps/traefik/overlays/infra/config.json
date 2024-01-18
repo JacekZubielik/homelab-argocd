@@ -6,7 +6,7 @@
   "srcPath": "build/apps/traefik/overlays/infra",
   "srcRepoURL": "https://github.com/jacekzubielik/homelab-argocd.git",
   "srcTargetRevision": "",
-  "syncWave": "0",
+  "syncWave": "1",
   "appRole": "infra",
   "labels": null,
   "annotations": null,

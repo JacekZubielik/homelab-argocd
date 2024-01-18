@@ -5,31 +5,22 @@ namespace: traefik
 
 resources:
 - ../../base
+#- certificate-dashboard-staging.yaml
 - chains.yaml
+#- ingressroute-dashboard.yaml
 - middlewares.yaml
 - secrets.yaml
-#- traefik-dashboard-certificate.yaml
-- traefik-tlsoption.yaml
-#- traefik-tlsstore.yaml
-- traefik-service-monitor.yaml
-#- ingressroute-traefik-dashboard.yaml
-#- pvc.yaml
+- servicemonitor.yaml
+- tlsoption.yaml
 
+commonLabels:
+  app.kubernetes.io/name: traefik
+  app: traefik
 
-#
-  # - namespace.yaml
-  #- traefik-dashboard-service.yaml
-  # - traefik-dashboard-basic-auth.yaml
-  # - traefik-dashboard-add-prefix.yaml
-  # - traefik-middleware-redirect-https.yaml
-  #- traefik-dashboard-external-secret.yaml
-
-
-  # - traefik-dashboard-api-ingress.yaml
-  # =======
-  # or use more advanced ingressroute and cert-manager generated cert due to lack of integration
-  # - traefik-dashboard-ingressroute.yaml
-  # - traefik-dashboard-ingressroute-http-redirect.yaml
+configMapGenerator:
+- name: traefik-config
+  literals:
+  - TZ="Europe/Warsaw"
 
 patches:
   - target:
