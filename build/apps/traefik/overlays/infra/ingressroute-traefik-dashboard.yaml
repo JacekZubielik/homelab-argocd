@@ -31,8 +31,8 @@ spec:
       #   - name: traefik-dashboard-auth  #chain-traefik-dashboard
       #     namespace: traefik
   tls:
-    certResolver: route53-issuer-production # route53-certificate-anotherlife-pl-staging
-    #secretName: route53-certificate-traefik-dashboard-tls-production #route53-issuer-staging #route53-certificate-anotherlife-pl-staging # -staging / -production
+    #certResolver: route53-certificate-anotherlife-pl-production # route53-certificate-anotherlife-pl-staging
+    secretName: route53-certificate-traefik-dashboard-production #route53-issuer-staging #route53-certificate-anotherlife-pl-staging # -staging / -production
     options:
       name: tlsoptions
     domains:
