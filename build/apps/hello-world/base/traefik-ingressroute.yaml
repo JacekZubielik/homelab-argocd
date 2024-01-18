@@ -10,7 +10,7 @@ metadata:
     kubernetes.io/ingress.class: traefik-external
 spec:
   entryPoints:
-    - websecure
+    - web #secure
   routes:
     - kind: Rule
       match: "Host(`ha.anotherlife.pl`) && PathPrefix(`/`)" #&&  PathPrefix(`/dashboard`) || PathPrefix(`/api`)"
