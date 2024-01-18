@@ -103,7 +103,7 @@ spec:
         - preserveResourcesOnDeletion=false
         - SkipDryRunOnMissingResource=true
         #- Replace=true
-        - ServerSideApply=true
+        #- ServerSideApply=true
         - ApplyOutOfSyncOnly=true
         #- Validate=true
         - PruneLast=true
