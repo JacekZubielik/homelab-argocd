@@ -28,10 +28,6 @@ patches:
         path: /subjects/0/namespace
         value: traefik
 
-commonLabels:
-  app.kubernetes.io/name: traefik
-  app: traefik
-
 configMapGenerator:
 - name: traefik-config
   literals:
