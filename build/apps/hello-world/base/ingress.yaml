@@ -3,8 +3,6 @@ kind: Ingress
 metadata:
   name: hello-world
   namespace: dev
-  labels:
-    app.kubernetes.io/name: traefik
   annotations:
     cert-manager.io/cluster-issuer: route53-issuer-production
     kubernetes.io/ingress.class: traefik-external
