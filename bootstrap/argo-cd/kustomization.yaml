@@ -22,7 +22,7 @@ configMapGenerator:
 resources:
   - github.com/argoproj-labs/argocd-autopilot/manifests/base?ref=v0.4.17
   #- argocd-cm-cmp-kustomize-build-with-helm.yaml
-#- ingress.yaml
+  - ingress.yaml
 # - vs.yaml
 # patchesStrategicMerge:
 # - istio_patches.yaml

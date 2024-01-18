@@ -5,12 +5,12 @@ metadata:
   annotations:
     traefik.ingress.kubernetes.io/router.entrypoints: websecure
     kubernetes.io/ingress.class: traefik-external
-    gethomepage.dev/enabled: "true"
-    gethomepage.dev/description: ArgoCD Dashboard
-    gethomepage.dev/group: Operations
-    gethomepage.dev/icon: argocd.png
-    gethomepage.dev/name: ArgoCD
-    gethomepage.dev/pod-selector: " "
+    # gethomepage.dev/enabled: "true"
+    # gethomepage.dev/description: ArgoCD Dashboard
+    # gethomepage.dev/group: Operations
+    # gethomepage.dev/icon: argocd.png
+    # gethomepage.dev/name: ArgoCD
+    # gethomepage.dev/pod-selector: " "
   labels:
     name: argocd-ui
 spec:
