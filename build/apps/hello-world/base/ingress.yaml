@@ -29,4 +29,4 @@ spec:
   tls:
   - hosts:
     - ha.anotherlife.pl
-    secretName: anotherlife-letsencrypt-staging
+    secretName: ha.anotherlife-letsencrypt-staging
