@@ -4,6 +4,7 @@ metadata:
   name: whoami
   labels:
     name: whoami
+
   annotations:
     cert-manager.io/cluster-issuer: route53-letsencrypt-staging
     kubernetes.io/ingress.class: traefik-external
@@ -13,6 +14,7 @@ metadata:
     traefik.ingress.kubernetes.io/router.tls: "true"
     #argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
     argocd.argoproj.io/sync-wave: "4"
+
 spec:
   ingressClassName: traefik-external 
   rules:
