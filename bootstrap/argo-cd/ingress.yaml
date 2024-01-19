@@ -34,5 +34,5 @@ spec:
               number: 8080
   tls:
   - hosts:
-    - ha.anotherlife.pl
+    - argocd.anotherlife.pl
     secretName: anotherlife-letsencrypt-staging
