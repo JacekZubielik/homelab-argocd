@@ -166,7 +166,7 @@ providers:
 logs:
   general:
     # -- Alternative logging levels are DEBUG, PANIC, FATAL, ERROR, WARN, and INFO.
-    level: DEBUG #ERROR
+    level: DEBUG
   access:
     enabled: true
     format: json
@@ -237,8 +237,6 @@ globalArguments:
 # All available options available on https://docs.traefik.io/reference/static-configuration/cli/
 ## Use curly braces to pass values: `helm install --set="additionalArguments={--providers.kubernetesingress.ingressclass=traefik-internal,--log.level=DEBUG}"`
 additionalArguments:
-# - "--log.level=DEBUG"
-# - "--log.level=INFO"
 - "--api.dashboard=true"
 - "--api.insecure=true"
 - "--ping=true"
@@ -256,8 +254,6 @@ additionalArguments:
   #- "--certificatesresolvers.letsencrypt-staging.acme.email=<FIXME>"
   #- "--certificatesresolvers.letsencrypt-staging.acme.storage=/data/acme.json"
   #- "--certificatesresolvers.letsencrypt-staging.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory"
-
-
 
 # -- Environment variables to be passed to Traefik's binary
 env: []
@@ -335,7 +331,6 @@ ports:
     expose: true
     exposedPort: 9100
     protocol: TCP
-
 
 # tlsOptions: {}
 
@@ -459,7 +454,6 @@ tolerations: []
 
 topologySpreadConstraints: []
 
-
 # -- Pods can have priority.
 # -- Priority indicates the importance of a Pod relative to other Pods.
 priorityClassName: "system-cluster-critical"
@@ -478,8 +472,6 @@ securityContext:
   runAsGroup: 0
   runAsNonRoot: false
   runAsUser: 0
-
-
 
 podSecurityContext:
   fsGroupChangePolicy: "OnRootMismatch"
@@ -500,7 +492,7 @@ extraObjects: []
 # instanceLabelOverride: traefik
 
 prometheus:
-  enabled: false
+  enabled: true
   servicemonitor:
     enabled: true
     prometheusInstance: default
@@ -512,6 +504,7 @@ prometheus:
     annotations: {}
     honorLabels: false
     endpointAdditionalProperties: {}
+
   # Note: Enabling both PodMonitor and ServiceMonitor is mutually exclusive, enabling both will result in a error.
   # podmonitor:
   #   enabled: false
