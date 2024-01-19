@@ -313,13 +313,13 @@ ports:
     #   enabled: false
     # advertisedPort: 4443
 
-    # tls:
-    #   enabled: true
-    #   certResolver: route53-certificate-anotherlife-pl-production #route53-certificate-anotherlife-pl-staging #-production
-    #   domains:
-    #     - main: 'anotherlife.pl'
-    #       sans:
-    #         - '*.anotherlife.pl'
+    tls:
+      enabled: true
+      certResolver: anotherlife-letsencrypt-production  # -staging / -production
+      domains:
+        - main: 'anotherlife.pl'
+          sans:
+            - '*.anotherlife.pl'
       # options:
       #   default:
       #     cipherSuites:
