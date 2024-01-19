@@ -31,8 +31,8 @@ spec:
                 name: whoami
                 port:
                   number: 80
-  tls:
-  - hosts:
-    - whoami.anotherlife.pl
-    secretName: anotherlife-letsencrypt-production
+  # tls:
+  # - hosts:
+  #   - whoami.anotherlife.pl
+  #   secretName: anotherlife-letsencrypt-production
 
