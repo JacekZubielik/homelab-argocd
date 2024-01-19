@@ -14,7 +14,7 @@ metadata:
     #argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
     argocd.argoproj.io/sync-wave: "4"
 spec:
-  #ingressClassName: traefik-external
+  ingressClassName: traefik-external
   rules:
     - host: whoami.anotherlife.pl
       http:
