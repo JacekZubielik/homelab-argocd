@@ -35,4 +35,4 @@ spec:
   tls:
   - hosts:
     - argocd.anotherlife.pl
-    secretName: anotherlife-letsencrypt-staging
+    secretName: argocd.anotherlife-letsencrypt-staging
