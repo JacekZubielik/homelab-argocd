@@ -19,7 +19,7 @@ metadata:
     argocd.argoproj.io/sync-wave: "4"
 
 spec:
-  ingressClassName: traefik-external 
+  #ingressClassName: traefik-external 
   rules:
     - host: whoami.anotherlife.pl
       http:
@@ -34,5 +34,5 @@ spec:
   tls:
   - hosts:
     - whoami.anotherlife.pl
-  #   secretName: anotherlife-letsencrypt-production
+    secretName: whoami.anotherlife-letsencrypt-production
 
