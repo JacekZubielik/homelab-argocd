@@ -8,10 +8,8 @@ metadata:
     name: argocd-server
 
   annotations:
-    cert-manager.io/cluster-issuer: route53-letsencrypt-staging
+    cert-manager.io/cluster-issuer: route53-letsencrypt-production
     kubernetes.io/ingress.class: traefik-external
-    #kubernetes.io/ingress.class: "nginx"
-    #nginx.ingress.kubernetes.io/rewrite-target: /
     traefik.ingress.kubernetes.io/router.entrypoints: websecure
     traefik.ingress.kubernetes.io/router.tls: "true"
     traefik.ingress.kubernetes.io/router.middlewares: "traefik-chain-basic-auth@kubernetescrd"
@@ -40,7 +38,7 @@ spec:
             name: argocd-server
             port: 
               number: 443
-  # tls:
-  # - hosts:
-  #   - argocd.anotherlife.pl
-  #   secretName: argocd.anotherlife-letsencrypt-staging
+  tls:
+  - hosts:
+    - argocd.anotherlife.pl
+    secretName: argocd.anotherlife-letsencrypt-production
