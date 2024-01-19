@@ -6,7 +6,7 @@ resources:
 #- namespace.yaml # Do not set this - it will override roles for kube-system needed for leader election of cainjector
 
 # route53
-#- route53/certificate-anotherlife-production.yaml
+- route53/certificate-anotherlife-production.yaml
 - route53/certificate-anotherlife-staging.yaml
 - route53/letsencrypt-production.yaml
 - route53/letsencrypt-staging.yaml
