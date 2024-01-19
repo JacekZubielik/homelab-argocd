@@ -33,5 +33,5 @@ spec:
                   number: 80
   tls:
   - hosts:
-    - .anotherlife.pl
+    - anotherlife.pl
     secretName: anotherlife-letsencrypt-staging
