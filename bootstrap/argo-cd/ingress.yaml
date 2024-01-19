@@ -21,7 +21,7 @@ metadata:
     # gethomepage.dev/pod-selector: " "
 
 spec:
-  ingressClassName: traefik-external
+  #ingressClassName: traefik-external
   rules:
   - host: argocd.anotherlife.pl
     http:
@@ -33,7 +33,7 @@ spec:
             name: argocd-server
             port: 
               number: 443
-  tls:
-  - hosts:
-    - argocd.anotherlife.pl
-    secretName: argocd.anotherlife-letsencrypt-staging
+  # tls:
+  # - hosts:
+  #   - argocd.anotherlife.pl
+  #   secretName: argocd.anotherlife-letsencrypt-staging
