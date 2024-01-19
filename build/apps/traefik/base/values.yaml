@@ -315,7 +315,8 @@ ports:
 
     tls:
       enabled: true
-      certResolver: anotherlife-letsencrypt-production  # -staging / -production
+      secretName: anotherlife-letsencrypt-production
+      #certResolver: anotherlife-letsencrypt-production  # -staging / -production
       domains:
         - main: 'anotherlife.pl'
           sans:
