@@ -6,7 +6,7 @@
   "srcPath": "build/apps/sealed-secrets/overlays/infra",
   "srcRepoURL": "https://github.com/jacekzubielik/homelab-argocd.git",
   "srcTargetRevision": "",
-  "syncWave": "0",
+  "syncWave": "3",
   "appRole": "infra",
   "labels": null,
   "annotations": null,
