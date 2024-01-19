@@ -2,7 +2,8 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: hello-world
-  #namespace: dev
+  labels:
+    name: hello-world
   annotations:
     cert-manager.io/cluster-issuer: route53-letsencrypt-staging
     kubernetes.io/ingress.class: traefik-external
@@ -11,7 +12,7 @@ metadata:
     traefik.ingress.kubernetes.io/router.entrypoints: websecure
     traefik.ingress.kubernetes.io/router.tls: "true"
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
-    argocd.argoproj.io/sync-wave: "3"
+    argocd.argoproj.io/sync-wave: "4"
 spec:
   ingressClassName: traefik-external
   rules:
