@@ -15,7 +15,7 @@ metadata:
     traefik.ingress.kubernetes.io/router.entrypoints: websecure
     traefik.ingress.kubernetes.io/router.tls: "true"
     traefik.ingress.kubernetes.io/router.middlewares: "traefik-chain-basic-auth@kubernetescrd"
-    #traefik.ingress.kubernetes.io/router.tls.options: tlsoptions@kubernetescrd
+    traefik.ingress.kubernetes.io/router.tls.options: traefik-tlsoptions@kubernetescrd
 
     #argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
     argocd.argoproj.io/sync-wave: "3"
