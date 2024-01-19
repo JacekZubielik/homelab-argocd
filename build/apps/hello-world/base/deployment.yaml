@@ -4,6 +4,8 @@ metadata:
   name: hello-world
   labels:
     app.kubernetes.io/name: hello-world
+    app: hello-world
+    name: hello-world
 spec:
   revisionHistoryLimit: 3
   replicas: 2
