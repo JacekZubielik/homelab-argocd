@@ -28,8 +28,8 @@ spec:
       #   - name: traefik-dashboard-auth  #chain-traefik-dashboard
       #     namespace: traefik
   tls:
-    #certResolver: anotherlife-letsencrypt-staging
-    secretName: whoami.letsencrypt-staging # -staging / -production
+    #certResolver: route53-letsencrypt-staging
+    secretName: whoami.letsencrypt-staging
     # options:
     #   name: tls-ver13
     domains:
