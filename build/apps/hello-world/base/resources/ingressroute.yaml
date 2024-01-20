@@ -6,18 +6,19 @@ metadata:
   #namespace: dev
   labels:
     app.kubernetes.io/name: hello-world
+
   annotations:
     cert-manager.io/cluster-issuer: route53-letsencrypt-staging
     kubernetes.io/ingress.class: traefik-external
-    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
-    argocd.argoproj.io/sync-wave: "4"
+    #argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+    #argocd.argoproj.io/sync-wave: "4"
 
 spec:
   entryPoints:
     - web #secure
   routes:
     - kind: Rule
-      match: "Host(`ha.anotherlife.pl`) && PathPrefix(`/`)" #&&  PathPrefix(`/dashboard`) || PathPrefix(`/api`)"
+      match: "Host(`hello.dev.anotherlife.pl`)" #" && PathPrefix(`/`)"
       services:
         - kind: Service
           name: hello-world
@@ -28,9 +29,9 @@ spec:
       #     namespace: traefik
   tls:
     #certResolver: anotherlife-letsencrypt-staging
-    secretName: anotherlife-letsencrypt-staging # -staging / -production
+    secretName: letsencrypt-staging # -staging / -production
     options:
-      name: tlsoptions
+      name: tls-ver12
     domains:
       - main: anotherlife.pl
         sans:
