@@ -19,7 +19,7 @@ spec:
           accessKeyID: AKIATKAIYFFV34T22QYU
           region: eu-central-1
           hostedZoneID: Z08398941B204TVG99U4E
-          role: arn:aws:iam::227651627371:user/certManagerIAMUser
+          #role: arn:aws:iam::227651627371:user/certManagerIAMUser
           secretAccessKeySecretRef:
             name: route53-credentials
             key: secret-access-key
