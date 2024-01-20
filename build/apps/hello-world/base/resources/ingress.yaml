@@ -14,7 +14,7 @@ metadata:
     traefik.ingress.kubernetes.io/router.tls: "true"
     #traefik.ingress.kubernetes.io/router.middlewares: traefik-chain-basic-auth@kubernetescrd
     traefik.ingress.kubernetes.io/router.middlewares: traefik-headers@kubernetescrd
-    traefik.ingress.kubernetes.io/router.tls.options: traefik-tls-ver12@kubernetescrd
+    traefik.ingress.kubernetes.io/router.tls.options: traefik-tls-ver13@kubernetescrd
     traefik.ingress.kubernetes.io/ingressEndpoint.hostname: {{ .Values.ingress.host }}
 
     #argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
