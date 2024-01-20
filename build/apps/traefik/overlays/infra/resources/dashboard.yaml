@@ -26,7 +26,7 @@ spec:
   tls:
     secretName: letsencrypt-production
     options:
-      name: tls-ver13
+      name: tls-ver12
     # domains:
     #   - main: anotherlife.pl
     #     sans:
