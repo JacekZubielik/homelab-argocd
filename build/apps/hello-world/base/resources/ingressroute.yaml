@@ -31,7 +31,7 @@ spec:
     #certResolver: anotherlife-letsencrypt-staging
     secretName: letsencrypt-staging # -staging / -production
     options:
-      name: tls-ver12
+      name: tls-ver13
     domains:
       - main: anotherlife.pl
         sans:
