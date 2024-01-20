@@ -6,18 +6,10 @@ metadata:
   namespace: traefik
   labels:
     app.kubernetes.io/name: traefik
+
   annotations:
     kubernetes.io/ingress.class: traefik-external
-
-    #cert-manager.io/cluster-issuer: route53-issuer-staging
-    #cert-manager.io/cluster-issuer: route53-issuer-production
-    # gethomepage.dev/description: traefik test tool
-    # gethomepage.dev/enabled: "true"
-    # gethomepage.dev/group: Tools
-    # gethomepage.dev/icon: homepage.png
-    # gethomepage.dev/name: traefik
-    # gethomepage.dev/widget.type: "traefik"
-    # gethomepage.dev/widget.url: "https://traefik.anotherlife.pl"
+    cert-manager.io/cluster-issuer: route53-letsencrypt-production
 
 spec:
   entryPoints:
@@ -33,10 +25,18 @@ spec:
       #   - name: traefik-dashboard-auth  #chain-traefik-dashboard
       #     namespace: traefik
   tls:
-    secretName: letsencrypt-production
-    # options:
-    #   name: tlsoptions
+    secretName: traefik.infra.letsencrypt-production
+    options:
+      name: tls-ver13
     # domains:
     #   - main: anotherlife.pl
     #     sans:
     #       - .anotherlife.pl
+
+    # gethomepage.dev/description: traefik test tool
+    # gethomepage.dev/enabled: "true"
+    # gethomepage.dev/group: Tools
+    # gethomepage.dev/icon: homepage.png
+    # gethomepage.dev/name: traefik
+    # gethomepage.dev/widget.type: "traefik"
+    # gethomepage.dev/widget.url: "https://traefik.anotherlife.pl"
