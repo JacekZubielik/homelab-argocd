@@ -10,7 +10,6 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: traefik-external
     cert-manager.io/cluster-issuer: route53-letsencrypt-production
-
 spec:
   entryPoints:
     - websecure
