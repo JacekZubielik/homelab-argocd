@@ -29,7 +29,7 @@ spec:
       #     namespace: traefik
   tls:
     #certResolver: route53-letsencrypt-staging
-    secretName: whoami.letsencrypt-staging
+    #secretName: whoami.letsencrypt-staging
     # options:
     #   name: tls-ver13
     domains:

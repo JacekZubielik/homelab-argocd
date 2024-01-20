@@ -29,7 +29,7 @@ spec:
   tls:
     #certResolver: route53-letsencrypt-production
     #secretName: hello.letsencrypt-production
-    stores: letsencrypt-production
+    #stores: letsencrypt-production
 
     # options:
     #   name: tls-ver13
