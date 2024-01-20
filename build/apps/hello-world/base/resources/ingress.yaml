@@ -36,4 +36,5 @@ spec:
   tls:
   - hosts:
     - hello.dev.anotherlife.pl
-    secretName: hello.dev.letsencrypt-production
+    #secretName: hello.dev.letsencrypt-production
+    secretName: letsencrypt-production
