@@ -27,10 +27,10 @@ spec:
     secretName: letsencrypt-production
     options:
       name: tls-ver12
-    # domains:
-    #   - main: anotherlife.pl
-    #     sans:
-    #       - .anotherlife.pl
+    domains:
+      - main: anotherlife.pl
+        sans:
+          - .anotherlife.pl
 
     # gethomepage.dev/description: traefik test tool
     # gethomepage.dev/enabled: "true"
