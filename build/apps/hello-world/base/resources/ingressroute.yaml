@@ -29,7 +29,7 @@ spec:
       #     namespace: traefik
   tls:
     #certResolver: anotherlife-letsencrypt-staging
-    secretName: letsencrypt-staging # -staging / -production
+    secretName: hello.dev.letsencrypt-staging # -staging / -production
     # options:
     #   name: tls-ver13
     domains:
