@@ -30,7 +30,7 @@ spec:
     #certResolver: anotherlife-letsencrypt-staging
     secretName: hello.letsencrypt-staging # -staging / -production
     options:
-      name: tls-ver13
+      name: traefik-tls-ver13
     domains:
       - main: anotherlife.pl
         sans:
