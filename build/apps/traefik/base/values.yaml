@@ -221,7 +221,7 @@ globalArguments:
 ## Use curly braces to pass values: `helm install --set="additionalArguments={--providers.kubernetesingress.ingressclass=traefik-internal,--log.level=DEBUG}"`
 additionalArguments:
 - "--api.dashboard=true"
-- "--api.insecure=false"
+- "--api.insecure=true"
 - "--ping=true"
 - "--accesslog.filepath=/data/access.log"
 - "--entrypoints.websecure.http.tls=true"
