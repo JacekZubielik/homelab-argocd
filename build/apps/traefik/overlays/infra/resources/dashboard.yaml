@@ -25,7 +25,7 @@ spec:
       #   - name: traefik-dashboard-auth  #chain-traefik-dashboard
       #     namespace: traefik
   tls:
-    secretName: traefik.infra.letsencrypt-production
+    secretName: letsencrypt-production
     options:
       name: tls-ver13
     # domains:
