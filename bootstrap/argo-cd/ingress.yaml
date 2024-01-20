@@ -8,15 +8,15 @@ metadata:
     name: argocd-server
 
   annotations:
-    cert-manager.io/cluster-issuer: route53-letsencrypt-production
+    cert-manager.io/cluster-issuer: route53-letsencrypt-staging
     kubernetes.io/ingress.class: traefik-external
     traefik.ingress.kubernetes.io/router.entrypoints: websecure
     traefik.ingress.kubernetes.io/router.tls: "true"
     traefik.ingress.kubernetes.io/router.middlewares: "traefik-chain-basic-auth@kubernetescrd"
-    traefik.ingress.kubernetes.io/router.tls.options: traefik-tlsoptions@kubernetescrd
+    traefik.ingress.kubernetes.io/router.tls.options: traefik-tls-ver12@kubernetescrd
 
     #argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
-    argocd.argoproj.io/sync-wave: "3"
+    argocd.argoproj.io/sync-wave: "0"
 
     # gethomepage.dev/enabled: "true"
     # gethomepage.dev/description: ArgoCD Dashboard
@@ -28,11 +28,11 @@ metadata:
 spec:
   #ingressClassName: traefik-external
   rules:
-  - host: argocd.anotherlife.pl
+  - host: argo.infra.anotherlife.pl
     http:
       paths:
       - pathType: Prefix
-        path: "/"
+        path: /
         backend:
           service:
             name: argocd-server
@@ -40,5 +40,5 @@ spec:
               number: 443
   tls:
   - hosts:
-    - argocd.anotherlife.pl
-    secretName: argocd.anotherlife-letsencrypt-production
+    - argo.infra.anotherlife.pl
+    secretName: argo.infra.letsencrypt-staging

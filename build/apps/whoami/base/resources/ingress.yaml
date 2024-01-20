@@ -22,7 +22,7 @@ metadata:
 spec:
   #ingressClassName: traefik-external 
   rules:
-    - host: whoami.anotherlife.pl
+    - host: whoami.dev.anotherlife.pl
       http:
         paths:
           - path: /
@@ -34,6 +34,6 @@ spec:
                   number: 80
   tls:
   - hosts:
-    - whoami.anotherlife.pl
-    secretName: whoami.anotherlife-letsencrypt-production
+    - whoami.dev.anotherlife.pl
+    secretName: whoami.dev.letsencrypt-staging
 
