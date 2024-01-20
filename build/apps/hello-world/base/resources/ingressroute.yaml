@@ -27,11 +27,14 @@ spec:
       #   - name: traefik-dashboard-auth  #chain-traefik-dashboard
       #     namespace: traefik
   tls:
-    #certResolver: anotherlife-letsencrypt-staging
-    secretName: hello.letsencrypt-staging # -staging / -production
-    options:
-      name: tls-ver13
-      #namespace: dev
+    #certResolver: route53-letsencrypt-staging
+    secretName: hello.letsencrypt-staging
+    stores: 
+      name: letsencrypt-production
+
+    # options:
+    #   name: tls-ver13
+    #   #namespace: dev
     domains:
       - main: anotherlife.pl
         sans:
