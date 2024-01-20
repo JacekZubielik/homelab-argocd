@@ -35,5 +35,5 @@ spec:
   tls:
   - hosts:
     - whoami.dev.anotherlife.pl
-    secretName: whoami.dev.letsencrypt-staging
+    secretName: whoami.dev.letsencrypt-production
 
