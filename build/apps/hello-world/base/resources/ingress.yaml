@@ -14,15 +14,15 @@ metadata:
     traefik.ingress.kubernetes.io/router.tls: "true"
     #traefik.ingress.kubernetes.io/router.middlewares: traefik-chain-basic-auth@kubernetescrd
     traefik.ingress.kubernetes.io/router.middlewares: traefik-headers@kubernetescrd
-    traefik.ingress.kubernetes.io/router.tls.options: traefik-tlsoptions@kubernetescrd
-    
+    traefik.ingress.kubernetes.io/router.tls.options: traefik-tls-ver12@kubernetescrd
+    traefik.ingress.kubernetes.io/ingressEndpoint.hostname: {{ .Values.ingress.host }}
     #argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
     argocd.argoproj.io/sync-wave: "4"
 
 spec:
   #ingressClassName: traefik-external
   rules:
-    - host: ha.anotherlife.pl
+    - host: hello.dev.anotherlife.pl
       http:
         paths:
           - path: /
@@ -34,5 +34,5 @@ spec:
                   number: 80
   tls:
   - hosts:
-    - ha.anotherlife.pl
-    secretName: ha.anotherlife-letsencrypt-production
+    - hello.anotherlife.pl
+    secretName: hello.letsencrypt-production

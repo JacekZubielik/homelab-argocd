@@ -64,7 +64,6 @@ persistence:
   # -- Only mount a subpath of the Volume into the pod
   # subPath: ""
 
-# -- Pod disruption budget
 podDisruptionBudget:
   enabled: false
   # maxUnavailable: 1
@@ -90,7 +89,6 @@ ingressClass:
 #     # -- Enable traefik experimental GatewayClass CRD
 #     enabled: false
 
-## Create an IngressRoute for the dashboard
 ingressRoute:
   dashboard:
     enabled: false
@@ -110,7 +108,6 @@ ingressRoute:
     tls: {}
 
 updateStrategy:
-  # -- Customize updateStrategy: RollingUpdate or OnDelete
   type: RollingUpdate
   rollingUpdate:
     maxUnavailable: 0
@@ -165,19 +162,12 @@ providers:
 
 logs:
   general:
-    # -- Alternative logging levels are DEBUG, PANIC, FATAL, ERROR, WARN, and INFO.
-    level: DEBUG
+    level: DEBUG # -- DEBUG, PANIC, FATAL, ERROR, WARN, and INFO.
   access:
     enabled: true
-    format: json
-    filters: {}
-    fields:
-      general:
-        defaultmode: keep
-        names: {}
-      headers:
-        defaultmode: drop
-        names: {}
+    filters:
+      statuscodes: "400-405,500"
+      minDuration: "10ms"
 
 metrics:
   prometheus:
@@ -200,14 +190,7 @@ metrics:
   #    ## Enable metrics on services. Default=true
   #    # addServicesLabels: false
 
-
-  ## -- enable optional CRDs for Prometheus Operator
-  ##
-  ## Create a dedicated metrics service for use with ServiceMonitor
-
-
-## Tracing
-# -- https://doc.traefik.io/traefik/observability/tracing/overview/
+## Tracing -- https://doc.traefik.io/traefik/observability/tracing/overview/
 # tracing:
 #   serviceName: traefik
 #  openTelemetry: # traefik v3+ only
@@ -309,35 +292,12 @@ ports:
     #   enabled: false
     # advertisedPort: 4443
 
-    tls:
-      enabled: true
-      secretName: anotherlife-letsencrypt-production
-      #certResolver: anotherlife-letsencrypt-production  # -staging / -production
-      domains:
-        - main: 'anotherlife.pl'
-          sans:
-            - '*.anotherlife.pl'
-      # options:
-      #   default:
-      #     cipherSuites:
-      #       - TLS_AES_128_GCM_SHA256 uint16 = 0x1301
-      #       - TLS_AES_256_GCM_SHA384       uint16 = 0x1302
-      #       - TLS_CHACHA20_POLY1305_SHA256 uint16 = 0x1303
-      #   mintls13:
-      #     minVersion: VersionTLS13
     middlewares: []
   metrics:
     port: 9100
     expose: true
     exposedPort: 9100
     protocol: TCP
-
-# tlsOptions: {}
-
-# tlsStore:
-#   default:
-#     defaultCertificate:
-#       secretName: anotherlife-letsencrypt-staging
 
 service:
   enabled: true
@@ -346,17 +306,12 @@ service:
   annotations:
     metallb.universe.tf/loadBalancerIPs: "192.168.40.180"
 
+    # service.beta.kubernetes.io/aws-load-balancer-internal: "true"
+    # service.beta.kubernetes.io/aws-load-balancer-type: nlb
+    # service.beta.kubernetes.io/aws-load-balancer-backend-protocol: tcp
+    # service.beta.kubernetes.io/aws-load-balancer-cross-zone-load-balancing-enabled: "true"
+    # service.beta.kubernetes.io/aws-load-balancer-scheme: "internal"  # only available via VPN to internal networks
 
-
-
-
-
-  # annotations:
-  #   service.beta.kubernetes.io/aws-load-balancer-internal: "true"
-  #   service.beta.kubernetes.io/aws-load-balancer-type: nlb
-  #   service.beta.kubernetes.io/aws-load-balancer-backend-protocol: tcp
-  #   service.beta.kubernetes.io/aws-load-balancer-cross-zone-load-balancing-enabled: "true"
-  #   service.beta.kubernetes.io/aws-load-balancer-scheme: "internal"  # only available via VPN to internal networks
   annotationsTCP: {}
   annotationsUDP: {}
   labels: {}

@@ -4,24 +4,11 @@ kind: Kustomization
 resources:
 - ../../base
 #- namespace.yaml # Do not set this - it will override roles for kube-system needed for leader election of cainjector
-
-# route53
-- route53/certificate-anotherlife-production.yaml
-- route53/certificate-anotherlife-staging.yaml
-- route53/letsencrypt-production.yaml
-- route53/letsencrypt-staging.yaml
-- route53/secret.yaml
-
-# cloudflare
-# - cloudflare/cloudflare-api-token-secret.yaml
-# - cloudflare/cloudflare-certificate-anotherlife-pl-staging.yaml
-# - cloudflare/cloudflare-issuer-staging.yaml
-# - cloudflare/cloudflare-certificate-anotherlife-pl-production.yaml
-# - cloudflare/cloudflare-issuer-production.yaml
-
-# selfsigned
-- selfsigned/default.svc-certificate.yaml
-- selfsigned/default.svc-issuer.yaml
+- resources/letsencrypt-production.yaml
+- resources/letsencrypt-staging.yaml
+- resources/secret.yaml
+- resources/default.svc-certificate.yaml
+- resources/default.svc-issuer.yaml
 
 commonLabels:
   app.kubernetes.io/name: cert-manager

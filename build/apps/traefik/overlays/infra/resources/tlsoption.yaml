@@ -2,13 +2,12 @@
 apiVersion: traefik.io/v1alpha1
 kind: TLSOption
 metadata:
-  name: tlsoptions
+  name: tls-ver13
   namespace: traefik
   labels:
     app.kubernetes.io/name: traefik
     app: traefik
     name: traefik
-
 spec:
   minVersion: VersionTLS13
   cipherSuites:
@@ -27,3 +26,20 @@ spec:
     - CurveP521
     - CurveP384
   sniStrict: true
+---
+apiVersion: traefik.io/v1alpha1
+kind: TLSOption
+metadata:
+  name: tls-ver12
+  namespace: traefik
+  labels:
+    app.kubernetes.io/name: traefik
+    app: traefik
+    name: traefik
+spec:
+  minVersion: VersionTLS12
+  cipherSuites:
+    - TLS_AES_128_GCM_SHA256 uint16 = 0x1301
+    - TLS_AES_256_GCM_SHA384       uint16 = 0x1302
+    - TLS_CHACHA20_POLY1305_SHA256 uint16 = 0x1303
+  sniStrict: false
