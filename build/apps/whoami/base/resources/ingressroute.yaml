@@ -6,6 +6,7 @@ metadata:
   #namespace: dev
   labels:
     app.kubernetes.io/name: whoami
+
   annotations:
     cert-manager.io/cluster-issuer: route53-letsencrypt-staging
     kubernetes.io/ingress.class: traefik-external
@@ -17,7 +18,7 @@ spec:
     - websecure
   routes:
     - kind: Rule
-      match: "Host(`whoami.dev.anotherlife.pl`) && PathPrefix(`/`)"
+      match: Host(`whoami.anotherlife.pl`) # && PathPrefix(`/`)"
       services:
         - kind: Service
           name: whoami
@@ -28,7 +29,7 @@ spec:
       #     namespace: traefik
   tls:
     #certResolver: anotherlife-letsencrypt-staging
-    secretName: whoami.dev.letsencrypt-staging # -staging / -production
+    secretName: whoami.letsencrypt-staging # -staging / -production
     # options:
     #   name: tls-ver13
     domains:

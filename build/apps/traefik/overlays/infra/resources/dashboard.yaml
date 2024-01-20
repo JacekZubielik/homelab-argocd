@@ -15,7 +15,7 @@ spec:
     - websecure
   routes:
     #- match: Host(`traefik.<secret:private-domain>`) && (PathPrefix(`/dashboard`) || PathPrefix(`/api`))
-    - match: Host(`traefik.infra.anotherlife.pl`) && (PathPrefix(`/dashboard`) || PathPrefix(`/api`))
+    - match: Host(`traefik.anotherlife.pl`) && (PathPrefix(`/dashboard`) || PathPrefix(`/api`))
       kind: Rule
       services:
         - name: api@internal

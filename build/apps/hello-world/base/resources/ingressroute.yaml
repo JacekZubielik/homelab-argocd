@@ -18,7 +18,7 @@ spec:
     - websecure
   routes:
     - kind: Rule
-      match: Host(`hello.dev.anotherlife.pl`)
+      match: Host(`hello.anotherlife.pl`)
       services:
         - kind: Service
           name: hello-world
@@ -29,7 +29,7 @@ spec:
       #     namespace: traefik
   tls:
     #certResolver: anotherlife-letsencrypt-staging
-    secretName: hello.dev.letsencrypt-staging # -staging / -production
+    secretName: hello.letsencrypt-staging # -staging / -production
     # options:
     #   name: tls-ver13
     domains:
