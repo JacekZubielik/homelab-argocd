@@ -15,7 +15,7 @@ metadata:
 
 spec:
   entryPoints:
-    - web #secure
+    - secure
   routes:
     - kind: Rule
       match: "Host(`hello.dev.anotherlife.pl`)" #" && PathPrefix(`/`)"
