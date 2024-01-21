@@ -23,17 +23,13 @@ spec:
           name: hello-world
           #namespace: dev
           port: 80
-      # middlewares:
-      #   - name: traefik-dashboard-auth  #chain-traefik-dashboard
-      #     namespace: traefik
+      middlewares:
+        - name: traefik-headers #traefik-dashboard-auth  #chain-traefik-dashboard
+          #namespace: traefik
   tls:
-    #certResolver: route53-letsencrypt-production
-    #secretName: hello.letsencrypt-production
-    #stores: letsencrypt-production
-
-    # options:
-    #   name: tls-ver13
-    #   #namespace: dev
+    #secretName: letsencrypt-production
+    options:
+      name: tls-ver13
     domains:
       - main: anotherlife.pl
         sans:

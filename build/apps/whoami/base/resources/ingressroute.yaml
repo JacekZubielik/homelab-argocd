@@ -24,14 +24,13 @@ spec:
           name: whoami
           #namespace: dev
           port: 80
-      # middlewares:
-      #   - name: traefik-dashboard-auth  #chain-traefik-dashboard
-      #     namespace: traefik
+      middlewares:
+        - name: traefik-headers #traefik-dashboard-auth  #chain-traefik-dashboard
+          #namespace: traefik
   tls:
-    #certResolver: route53-letsencrypt-staging
-    #secretName: whoami.letsencrypt-staging
-    # options:
-    #   name: tls-ver13
+    #secretName: letsencrypt-production
+    options:
+      name: tls-ver13
     domains:
       - main: anotherlife.pl
         sans:
