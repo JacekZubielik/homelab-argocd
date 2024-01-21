@@ -38,7 +38,7 @@ spec:
             name: argocd-server
             port: 
               number: 443
-  tls:
-  - hosts:
-    - argo.infra.anotherlife.pl
-    secretName: argo.infra.letsencrypt-production
+  # tls:
+  # - hosts:
+  #   - argo.infra.anotherlife.pl
+  #   secretName: argo.infra.letsencrypt-production
