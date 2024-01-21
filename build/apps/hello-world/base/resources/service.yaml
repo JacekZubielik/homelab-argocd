@@ -12,3 +12,4 @@ spec:
       name: http
   selector:
     app: hello-world
+    task: hello-world

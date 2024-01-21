@@ -5,8 +5,9 @@ metadata:
 
 spec:
   ports:
-    - name: http
-      port: 80
+    - port: 80
+      protocol: TCP
+      name: http
   selector:
     app: traefik
     task: whoami
