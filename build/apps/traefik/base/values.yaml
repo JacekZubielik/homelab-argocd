@@ -324,6 +324,11 @@ service:
   # loadBalancerClass: service.k8s.aws/nlb
   externalIPs: []
 
+tls:
+  stores:
+    default:
+      defaultCertificate:
+        secretName: letsencrypt-production
 # serviceMonitor:
 #   metricRelabelings:
 #     - sourceLabels: [__name__]
