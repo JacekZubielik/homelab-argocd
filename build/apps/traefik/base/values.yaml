@@ -145,8 +145,8 @@ providers:
     allowEmptyServices: true
     ingressClass: traefik-external
     labelSelector: "" 
-    namespaces: []
-    # - "default"
+    namespaces:
+    - "default,dev,traefik,prod,infra"
     ingressEndpoint:
       publishedService: "traefik/traefik"
       ####################################################
