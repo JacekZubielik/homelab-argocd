@@ -136,8 +136,8 @@ providers:
     allowEmptyServices: true # 
     ingressClass: traefik-external
     labelSelector: "" #labelSelector: "app=traefik" # environment=production,method=traefik # -- Array of namespaces to watch. If left empty, Traefik watches all namespaces.
-    namespaces: []
-    # - "default"
+    namespaces:
+    - "default,dev,traefik,prod,infra"
 
   kubernetesIngress:
     enabled: true
