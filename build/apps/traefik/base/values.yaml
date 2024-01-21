@@ -329,6 +329,11 @@ tls:
     default:
       defaultCertificate:
         secretName: letsencrypt-production
+  options:
+    name: tls-ver13
+
+
+
 # serviceMonitor:
 #   metricRelabelings:
 #     - sourceLabels: [__name__]
