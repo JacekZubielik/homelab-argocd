@@ -26,7 +26,7 @@ spec:
           port: 80
       middlewares:
         - name: headers #traefik-dashboard-auth  #chain-traefik-dashboard
-          #namespace: traefik
+          namespace: traefik
   tls:
     #secretName: letsencrypt-production
     # options:
