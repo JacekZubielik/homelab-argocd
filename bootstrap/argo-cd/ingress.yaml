@@ -28,7 +28,7 @@ metadata:
 spec:
   #ingressClassName: traefik-external
   rules:
-  - host: argo.infra.anotherlife.pl
+  - host: argo.anotherlife.pl
     http:
       paths:
       - pathType: Prefix
