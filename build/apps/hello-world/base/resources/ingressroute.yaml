@@ -1,7 +1,7 @@
 ---
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
-namespace: traefik
+#namespace: traefik
 metadata:
   name: hello-world
   labels:

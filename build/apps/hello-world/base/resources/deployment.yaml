@@ -19,6 +19,7 @@ spec:
     metadata:
       labels:
         app.kubernetes.io/name: hello-world
+        task: hello-world
     spec:
       containers:
       - name: webserver-simple
