@@ -4,8 +4,8 @@ metadata:
   name: argocd-server
   labels:
     app.kubernetes.io/name: argocd-server
-    app: argocd-server
-    name: argocd-server
+    # app: argocd-server
+    # name: argocd-server
 
   annotations:
     cert-manager.io/cluster-issuer: route53-letsencrypt-production

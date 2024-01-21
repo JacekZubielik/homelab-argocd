@@ -3,7 +3,6 @@ apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
   name: whoami
-  #namespace: dev
   labels:
     app.kubernetes.io/name: whoami
 
@@ -18,11 +17,10 @@ spec:
     - websecure
   routes:
     - kind: Rule
-      match: Host(`whoami.anotherlife.pl`) # && PathPrefix(`/`)"
+      match: Host(`whoami.anotherlife.pl`)
       services:
         - kind: Service
           name: whoami
-          #namespace: dev
           port: 80
       middlewares:
         - name: headers #traefik-dashboard-auth  #chain-traefik-dashboard

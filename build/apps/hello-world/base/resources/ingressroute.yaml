@@ -1,7 +1,6 @@
 ---
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
-#namespace: traefik
 metadata:
   name: hello-world
   labels:
@@ -22,7 +21,6 @@ spec:
       services:
         - kind: Service
           name: hello-world
-          #namespace: dev
           port: 80
       middlewares:
         - name: headers #traefik-dashboard-auth  #chain-traefik-dashboard
