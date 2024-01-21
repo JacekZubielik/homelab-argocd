@@ -415,8 +415,8 @@ podSecurityPolicy:
   enabled: false
 
 # -- The service account the pods will use to interact with the Kubernetes API
-# serviceAccount:
-#   name: "traefik-ingress-controller"
+serviceAccount:
+  name: "traefik-ingress-controller"
 
 serviceAccountAnnotations: {}
 resources: {}
