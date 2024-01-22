@@ -12,7 +12,7 @@ fullnameOverride: sealed-secrets-controller
 
 serviceAccount:
   create: true
-  name: {allocated-service-account: ''}
+  name: sealed-secrets
 rbac:
   create: true
   clusterRole: true
