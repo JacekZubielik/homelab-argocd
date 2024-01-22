@@ -6,7 +6,7 @@ helmCharts:
   repo: https://bitnami-labs.github.io/sealed-secrets
   version: 2.14.2 #2.10.0
   releaseName: sealed-secrets
-  namespace: kube-system # kubeseal expects kube-system namespace, otherwise you'd have to use --controller-namespace in every command
+  namespace: kube-system
   includeCRDs: true
   valuesFile: values.yaml
 
@@ -32,5 +32,5 @@ configMapGenerator:
 #     E0728 21:19:14.949888       1 reflector.go:138] pkg/mod/k8s.io/client-go@v0.23.4/tools/cache/reflector.go:167: Failed to watch *v1alpha1.SealedSecret: failed to list *v1alpha1.SealedSecret: the server could not find the requested resource (get sealedsecrets.bitnami.com)
 #
 # XXX: superceded via 'includeCRDs: true' in helmCharts section above
-# resources:
-#   - https://raw.githubusercontent.com/bitnami-labs/sealed-secrets/main/helm/sealed-secrets/crds/sealedsecret-crd.yaml
+resources:
+- https://raw.githubusercontent.com/bitnami-labs/sealed-secrets/main/helm/sealed-secrets/crds/sealedsecret-crd.yaml
