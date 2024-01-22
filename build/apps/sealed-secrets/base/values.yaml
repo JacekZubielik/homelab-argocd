@@ -12,7 +12,7 @@ fullnameOverride: sealed-secrets-controller
 
 serviceAccount:
   create: true
-  name: kube-system
+  name: sealed-secrets
 rbac:
   create: true
   clusterRole: true
