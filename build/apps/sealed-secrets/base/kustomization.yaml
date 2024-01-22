@@ -4,11 +4,11 @@ kind: Kustomization
 helmCharts:
 - name: sealed-secrets
   repo: https://bitnami-labs.github.io/sealed-secrets
-  version: 2.10.0
+  version: 2.14.2 #2.10.0
   releaseName: sealed-secrets
   namespace: kube-system # kubeseal expects kube-system namespace, otherwise you'd have to use --controller-namespace in every command
   includeCRDs: true
-  valuesFile: values.yaml # overrides name to sealed-secrets-controller as kubeseal expects this, otherwise you'd have to specify --controller-name in every command
+  valuesFile: values.yaml
 
 commonLabels:
   app.kubernetes.io/name: sealed-secrets
