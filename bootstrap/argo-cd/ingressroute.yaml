@@ -22,7 +22,7 @@ spec:
           name: argocd-server
           port: 80
       middlewares:
-        - name: traefik-dashboard-auth  #chain-traefik-dashboard
+        - name: chain-traefik-dashboard #traefik-dashboard-auth  #chain-traefik-dashboard
           namespace: traefik
   tls:
     #secretName: letsencrypt-production
