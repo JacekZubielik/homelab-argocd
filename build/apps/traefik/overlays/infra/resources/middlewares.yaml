@@ -93,6 +93,7 @@ spec:
     - 10.43.0.0/32
     - 172.2.0.0/16
     - 192.168.40.0/24
+    - 109.241.78.235
 ---
 apiVersion: traefik.io/v1alpha1
 kind: Middleware
