@@ -17,7 +17,7 @@ spec:
   routes:
     - kind: Rule
       match: Host(`hello.<secret:private-domain>`)
-      #match: Host(`hello.anotherlife.pl`) <secret:private-domain>
+      #match: Host(`hello.anotherlife.pl`)
       services:
         - kind: Service
           name: hello-world
