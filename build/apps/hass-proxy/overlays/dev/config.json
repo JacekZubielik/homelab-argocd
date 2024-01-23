@@ -1,0 +1,12 @@
+{
+  "appName": "hass-proxy",
+  "userGivenName": "hass-proxy",
+  "destNamespace": "dev",
+  "destServer": "https://kubernetes.default.svc",
+  "srcPath": "build/apps/hass-proxy/overlays/dev",
+  "srcRepoURL": "https://github.com/jacekzubielik/homelab-argocd.git",
+  "srcTargetRevision": "",
+  "syncWave": "4",
+  "labels": null,
+  "annotations": null
+}
