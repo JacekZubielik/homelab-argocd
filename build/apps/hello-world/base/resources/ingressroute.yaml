@@ -5,7 +5,6 @@ metadata:
   name: hello-world
   labels:
     app.kubernetes.io/name: hello-world
-
   annotations:
     cert-manager.io/cluster-issuer: route53-letsencrypt-production
     kubernetes.io/ingress.class: traefik-external
