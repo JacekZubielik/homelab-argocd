@@ -7,6 +7,7 @@ resources:
 - resources/ingressroute.yaml
 - resources/service.yaml
 - resources/sealed-sec.yaml
+- resources/secret-domain.yaml
 
 commonLabels:
   app.kubernetes.io/name: hello-world
