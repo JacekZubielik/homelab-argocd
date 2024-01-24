@@ -32,7 +32,7 @@ spec:
               service:
                 name: grafana
                 port:
-                  number: 9093
+                  number: 3000
   # tls:
   # - hosts:
   #   - grafana.anotherlife.pl
