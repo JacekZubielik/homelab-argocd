@@ -21,7 +21,7 @@ spec:
       services:
         - kind: Service
           name: monitoring-grafana
-          port: 80 #http-web # 80
+          port: http-web #http-web # 80
     #   middlewares:
     #     - name: headers #traefik-dashboard-auth  #chain-traefik-dashboard
     #       namespace: traefik
