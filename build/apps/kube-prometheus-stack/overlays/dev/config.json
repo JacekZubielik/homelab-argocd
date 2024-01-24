@@ -3,7 +3,7 @@
   "userGivenName": "kube-prometheus-stack",
   "destNamespace": "monitoring",
   "destServer": "https://kubernetes.default.svc",
-  "srcPath": "build/apps/kube-prometheus-stack/overlays/infra",
+  "srcPath": "build/apps/kube-prometheus-stack/overlays/dev",
   "srcRepoURL": "https://github.com/JacekZubielik/homelab-argocd.git",
   "srcTargetRevision": "",
   "syncWave": "0",
