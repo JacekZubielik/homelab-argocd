@@ -30,8 +30,8 @@ resources:
 
 patches:
 #   # Copy binaries from ArgoCD-image
-  - path: patches/argocd-repo-copyutil-patch.yaml
+  # - path: patches/argocd-repo-copyutil-patch.yaml
 #   # Plugin to enable Kustomize with Helm
-#   - path: patches/argocd-repo-server-plugin-sidecar-patch.yaml
+  - path: patches/argocd-repo-server-plugin-sidecar-patch.yaml
   # Traefik handles TLS
   - path: patches/argocd-cmd-params-cm-server-insecure-patch.yaml
