@@ -21,9 +21,9 @@ spec:
         - kind: Service
           name: kube-prometheus-stack-prometheus
           port: 9090 # 9090 http-web
-      # middlewares:
-      #   - name: traefik-forward-auth
-      #     namespace: kube-system
+      middlewares:
+        - name: headers #traefik-dashboard-auth  #chain-traefik-dashboard
+          namespace: traefik
     # - match: Host(`grafana.anotherlife.pl`)
     #   kind: Rule
     #   services:
