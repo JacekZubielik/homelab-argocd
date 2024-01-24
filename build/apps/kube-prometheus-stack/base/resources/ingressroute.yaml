@@ -16,15 +16,15 @@ spec:
     - web #websecure
   routes:
 
-    # - kind: Rule
-    #   match: Host(`prometheus.anotherlife.pl`)
-    #   services:
-    #     - kind: Service
-    #       name: prometheus-operated
-    #       port: 9090 # 9090 http-web
-    #   middlewares:
-    #     - name: headers #traefik-dashboard-auth  #chain-traefik-dashboard
-    #       namespace: traefik
+    - kind: Rule
+      match: Host(`prometheus.anotherlife.pl`)
+      services:
+        - kind: Service
+          name: prometheus-operated
+          port: 9090 # 9090 http-web
+      middlewares:
+        - name: headers #traefik-dashboard-auth  #chain-traefik-dashboard
+          namespace: traefik
 
     # - kind: Rule
     #   match: Host(`grafana.anotherlife.pl`)
@@ -36,22 +36,22 @@ spec:
     #     - name: headers #traefik-dashboard-auth  #chain-traefik-dashboard
     #       namespace: traefik
 
-    - kind: Rule
-      match: Host(`alertmanager.anotherlife.pl`)
-      services:
-        - kind: Service
-          name: alertmanager-operated
-          port: http-web # 9093
-          namespace: prometheus
-      middlewares:
-        - name: headers #traefik-dashboard-auth  #chain-traefik-dashboard
-          namespace: traefik
+    # - kind: Rule
+    #   match: Host(`alertmanager.anotherlife.pl`)
+    #   services:
+    #     - kind: Service
+    #       name: alertmanager-operated
+    #       port: http-web # 9093
+    #       namespace: prometheus
+    #   middlewares:
+    #     - name: headers #traefik-dashboard-auth  #chain-traefik-dashboard
+    #       namespace: traefik
 
   tls:
     #secretName: letsencrypt-production
-    options:
-      name: tls-ver13
-      namespace: traefik
+    # options:
+    #   name: tls-ver13
+    #   namespace: traefik
     domains:
       - main: anotherlife.pl
         sans:
