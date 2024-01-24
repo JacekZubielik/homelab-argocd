@@ -2,13 +2,15 @@
 #
 # helm show values jetstack/cert-manager >> cert-manager-values.yaml
 
+installCRDs: true
+
 global:
   leaderElection:
     namespace: "kube-system"
   rbac:
     create: true
     aggregateClusterRoles: true
-installCRDs: true
+
 fullnameOverride: "cert-manager"
 
 #namespace: "cert-manager"
