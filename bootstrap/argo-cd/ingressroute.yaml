@@ -9,7 +9,7 @@ metadata:
     cert-manager.io/cluster-issuer: route53-letsencrypt-production
     kubernetes.io/ingress.class: traefik-external
     #argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
-    #argocd.argoproj.io/sync-wave: "4"
+    argocd.argoproj.io/sync-wave: "4"
 
 spec:
   entryPoints:
