@@ -32,7 +32,7 @@ spec:
               service:
                 name: monitoring-grafana
                 port:
-                  number: 3000
+                  name: http-web
   # tls:
   # - hosts:
   #   - grafana.anotherlife.pl
