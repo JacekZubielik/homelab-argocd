@@ -13,7 +13,7 @@ metadata:
 
 spec:
   entryPoints:
-    - web #websecure
+    - websecure
   routes:
 
     - kind: Rule
