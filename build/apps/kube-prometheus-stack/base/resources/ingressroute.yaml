@@ -14,14 +14,14 @@ metadata:
 
 spec:
   entryPoints:
-    - web #websecure
+    - websecure
   routes:
     - kind: Rule
       match: Host(`grafana.anotherlife.pl`) && (PathPrefix(`/dashboard`)
       services:
         - kind: Service
           name: monitoring-grafana
-          port: 8080
+          port: 80
 
     #   middlewares:
     #     - name: headers #traefik-dashboard-auth  #chain-traefik-dashboard
