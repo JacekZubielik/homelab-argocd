@@ -12,7 +12,7 @@ helmCharts:
   releaseName: kube-prometheus-stack
   namespace: prometheus
   includeCRDs: true
-  valuesFile: values2.yaml
+  valuesFile: values3.yaml
 
 # resources:
 # - resources/ingressroute.yaml
