@@ -16,22 +16,22 @@ spec:
     - websecure
   routes:
 
-    - kind: Rule
-      match: Host(`prometheus.anotherlife.pl`)
-      services:
-        - kind: Service
-          name: prometheus-operated
-          port: 9090 # 9090 http-web
-      middlewares:
-        - name: headers #traefik-dashboard-auth  #chain-traefik-dashboard
-          namespace: traefik
-
     # - kind: Rule
-    #   match: Host(`grafana.anotherlife.pl`)
+    #   match: Host(`prometheus.anotherlife.pl`)
     #   services:
     #     - kind: Service
-    #       name: kube-prometheus-stack-grafana
-    #       port: http-web # 80
+    #       name: prometheus-operated
+    #       port: 9090 # 9090 http-web
+    #   middlewares:
+    #     - name: headers #traefik-dashboard-auth  #chain-traefik-dashboard
+    #       namespace: traefik
+
+    - kind: Rule
+      match: Host(`grafana.anotherlife.pl`)
+      services:
+        - kind: Service
+          name: kube-prometheus-stack-grafana
+          port: 3000 #http-web # 80
     #   middlewares:
     #     - name: headers #traefik-dashboard-auth  #chain-traefik-dashboard
     #       namespace: traefik
