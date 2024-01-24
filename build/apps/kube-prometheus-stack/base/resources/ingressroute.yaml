@@ -17,7 +17,7 @@ spec:
     - web #websecure
   routes:
     - kind: Rule
-      match: Host(`grafana.anotherlife.pl`)
+      match: Host(`grafana.anotherlife.pl`) && (PathPrefix(`/dashboard`)
       services:
         - kind: Service
           name: monitoring-grafana
