@@ -1,3 +1,4 @@
+---
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
@@ -22,22 +23,22 @@ spec:
       # middlewares:
       #   - name: traefik-forward-auth
       #     namespace: kube-system
-    - match: Host(`grafana.anotherlife.pl`)
-      kind: Rule
-      services:
-        - name: kube-prometheus-stack-grafana
-          port: http-web # 80
-      # middlewares:
-      #   - name: traefik-forward-auth
-      #     namespace: kube-system
-    - match: Host(`alertmanager.anotherlife.pl`)
-      kind: Rule
-      services:
-        - name: kube-prometheus-stack-alertmanager
-          port: http-web # 9093
-      # middlewares:
-      #   - name: traefik-forward-auth
-      #     namespace: kube-system
+    # - match: Host(`grafana.anotherlife.pl`)
+    #   kind: Rule
+    #   services:
+    #     - name: kube-prometheus-stack-grafana
+    #       port: http-web # 80
+    #   # middlewares:
+    #   #   - name: traefik-forward-auth
+    #   #     namespace: kube-system
+    # - match: Host(`alertmanager.anotherlife.pl`)
+    #   kind: Rule
+    #   services:
+    #     - name: kube-prometheus-stack-alertmanager
+    #       port: http-web # 9093
+    #   # middlewares:
+    #   #   - name: traefik-forward-auth
+    #   #     namespace: kube-system
   tls:
     #secretName: letsencrypt-production
     options:
