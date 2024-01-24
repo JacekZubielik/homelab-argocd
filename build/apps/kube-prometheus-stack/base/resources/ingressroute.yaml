@@ -31,7 +31,7 @@ spec:
       match: Host(`grafana.anotherlife.pl`)
       services:
         - kind: Service
-          name: kube-prometheus-stack-grafana
+          name: monitoring-grafana
           port: 3000 #http-web # 80
     #   middlewares:
     #     - name: headers #traefik-dashboard-auth  #chain-traefik-dashboard
