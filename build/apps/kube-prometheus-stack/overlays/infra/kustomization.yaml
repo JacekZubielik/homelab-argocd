@@ -6,6 +6,7 @@ metadata:
 
 resources:
 - ../../base
+- resources/ingressroute.yaml
 
 commonLabels:
   app.kubernetes.io/name: kube-prometheus-stack
