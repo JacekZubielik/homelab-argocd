@@ -53,7 +53,7 @@ extraEnv: []
 # - name: SOME_VAR
 #   value: 'some value'
 
-resources: {}
+# resources:
   # requests:
   #   cpu: 10m
   #   memory: 32Mi
@@ -136,15 +136,15 @@ webhook:
     scrapeTimeout: 30s
     honorLabels: false
 
-  resources:
-    requests:
-      cpu: 50m
-      memory: 256Mi
-      ephemeral-storage: 500Mi
-    limits:
-      cpu: 500m
-      memory: 512Mi
-      ephemeral-storage: 500Mi
+  # resources:
+  #   requests:
+  #     cpu: 50m
+  #     memory: 256Mi
+  #     ephemeral-storage: 500Mi
+  #   limits:
+  #     cpu: 500m
+  #     memory: 512Mi
+  #     ephemeral-storage: 500Mi
 
 
 ####################################
