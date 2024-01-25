@@ -56,10 +56,10 @@ patches:
               runAsNonRoot: true
 
 #patches:
-  - target:
-      kind: Deployment
-      name: controller
-      namespace: metallb-system
-    patch: |-
-      - op: remove
-        path: /spec/template/spec/securityContext/runAsUser
+  # - target:
+  #     kind: Deployment
+  #     name: controller
+  #     namespace: metallb-system
+  #   patch: |-
+  #     - op: remove
+  #       path: /spec/template/spec/securityContext/runAsUser
