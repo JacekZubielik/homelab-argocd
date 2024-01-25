@@ -20,7 +20,7 @@ spec:
       match: Host(`grafana.anotherlife.pl`) && (PathPrefix(`/`)
       services:
         - kind: Service
-          name: monitoring-grafana
+          name: grafana #monitoring-grafana
           port: http-web
 
     #   middlewares:
