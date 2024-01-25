@@ -1,0 +1,25 @@
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: traefik
+  namespace: traefik
+  annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+    argocd.argoproj.io/sync-wave: "2"
+  labels:
+    app.kubernetes.io/name: traefik
+    app: traefik
+    release: kube-prometheus-stack
+spec:
+  jobLabel: traefik-metrics
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: traefik-traefik  # doubled up because of helm kustomize name
+      app.kubernetes.io/name: traefik-dashboard
+  namespaceSelector:
+    matchNames:
+      - prometheus
+  endpoints:
+    - port: traefik
+      path: /metrics
