@@ -17,8 +17,8 @@ helmCharts:
   includeCRDs: true
   valuesFile: values.yaml
 
-#resources:
-#- resources/ingressroute.yaml
+resources:
+- resources/ingressroute.yaml
 #- resources/ingress.yaml
 
 # ArgoCD specific workaround for:
