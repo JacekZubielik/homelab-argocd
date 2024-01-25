@@ -233,10 +233,10 @@ prometheus-windows-exporter:
   ##
   prometheus:
     monitor:
-      enabled: false
+      enabled: false # <---------- argo sync problem: 
       jobLabel: jobLabel
 
-  releaseLabel: false
+  releaseLabel: false # <---------- argo sync problem: 
 
   ## Set job label to 'windows-exporter' as required by the default Prometheus rules and Grafana dashboards
   ##

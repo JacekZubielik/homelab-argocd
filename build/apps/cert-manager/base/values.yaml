@@ -150,9 +150,9 @@ webhook:
 ####################################
 
 
-# cainjector:
-#   enabled: true
-#   replicaCount: 1
+cainjector:
+  enabled: true
+  replicaCount: 1
 
   # resources:
   #   requests:
