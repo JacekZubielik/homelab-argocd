@@ -3,7 +3,7 @@
   "userGivenName": "metallb",
   "destNamespace": "metallb-system",
   "destServer": "https://kubernetes.default.svc",
-  "srcPath": "build/apps/metallb-helm/overlays/dev",
+  "srcPath": "build/apps/metallb-helm/overlays/infra",
   "srcRepoURL": "https://github.com/jacekzubielik/homelab-argocd.git",
   "srcTargetRevision": "",
   "syncWave": "0",
