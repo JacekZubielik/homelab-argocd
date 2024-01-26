@@ -946,12 +946,11 @@ grafana:
   grafana.ini:
     server:
       domain: grafana.anotherlife.pl
-      root_url: "%(protocol)s://%(domain)s/grafana"
-      #root_url: https://grafana.anotherlife.pl
+      #root_url: "%(protocol)s://%(domain)s/grafana"
+      root_url: https://grafana.anotherlife.pl
       serve_from_sub_path: true
     security:
       cookie_secure: false
-
 
   rbac:
     pspEnabled: false
@@ -1044,7 +1043,7 @@ grafana:
   ## Passed to grafana subchart and used by servicemonitor below
   ##
   service:
-    portName: http-web
+    portName: web
 
   serviceMonitor:
     # If true, a ServiceMonitor CRD is created for a prometheus operator

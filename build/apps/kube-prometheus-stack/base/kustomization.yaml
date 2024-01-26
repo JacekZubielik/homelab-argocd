@@ -18,9 +18,9 @@ helmCharts:
   valuesFile: values.yaml
 
 resources:
-- resources/ingressroute.yaml
+# - resources/ingressroute.yaml
 #- resources/service.yaml
-#- resources/ingress.yaml
+- resources/ingress.yaml
 
 # ArgoCD specific workaround for:
 # CustomResourceDefinition.apiextensions.k8s.io "prometheuses.monitoring.coreos.com" is invalid: metadata.annotations: Too long: must have at most 262144 bytes
