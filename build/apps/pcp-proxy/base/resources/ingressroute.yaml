@@ -7,6 +7,7 @@ metadata:
     app.kubernetes.io/name: pcp-proxy
   annotations:
     cert-manager.io/cluster-issuer: route53-letsencrypt-staging
+    #external-dns.alpha.kubernetes.io/target: infra.anotherlife.pl
     kubernetes.io/ingress.class: traefik-external
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
     argocd.argoproj.io/sync-wave: "4"

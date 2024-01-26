@@ -929,72 +929,18 @@ alertmanager:
 grafana:
   enabled: true
   namespaceOverride: ""
-
-  ## ForceDeployDatasources Create datasource configmap even if grafana deployment has been disabled
-  ##
   forceDeployDatasources: false
-
-  ## ForceDeployDashboard Create dashboard configmap even if grafana deployment has been disabled
-  ##
   forceDeployDashboards: false
-
-  ## Deploy default dashboards
-  ##
   defaultDashboardsEnabled: true
-
-  ## Timezone for the default dashboards
-  ## Other options are: browser or a specific timezone, i.e. Europe/Luxembourg
-  ##
-  defaultDashboardsTimezone: utc
-
-  ## Editable flag for the default dashboards
-  ##
+  defaultDashboardsTimezone: Europe/Warsaw
   defaultDashboardsEditable: true
-
   adminPassword: prom-operator
 
   rbac:
-    ## If true, Grafana PSPs will be created
-    ##
     pspEnabled: false
 
   ingress:
-    ## If true, Grafana Ingress will be created
-    ##
     enabled: false
-
-    ## IngressClassName for Grafana Ingress.
-    ## Should be provided if Ingress is enable.
-    ##
-    # ingressClassName: nginx
-
-    ## Annotations for Grafana Ingress
-    ##
-    annotations: {}
-      # kubernetes.io/ingress.class: nginx
-      # kubernetes.io/tls-acme: "true"
-
-    ## Labels to be added to the Ingress
-    ##
-    labels: {}
-
-    ## Hostnames.
-    ## Must be provided if Ingress is enable.
-    ##
-    # hosts:
-    #   - grafana.domain.com
-    hosts: []
-
-    ## Path for grafana ingress
-    path: /
-
-    ## TLS configuration for grafana Ingress
-    ## Secret must be manually created in the namespace
-    ##
-    tls: []
-    # - secretName: grafana-general-tls
-    #   hosts:
-    #   - grafana.example.com
 
   sidecar:
     dashboards:
@@ -1003,9 +949,6 @@ grafana:
       labelValue: "1"
       # Allow discovery in all namespaces for dashboards
       searchNamespace: ALL
-
-      ## Annotations for Grafana dashboard configmaps
-      ##
       annotations: {}
       multicluster:
         global:
@@ -1022,7 +965,6 @@ grafana:
       uid: prometheus
 
       ## URL of prometheus datasource
-      ##
       # url: http://prometheus-stack-prometheus:9090/
 
       ## Prometheus request timeout in seconds
@@ -1032,7 +974,6 @@ grafana:
       # defaultDatasourceScrapeInterval: 15s
 
       ## Annotations for Grafana datasource configmaps
-      ##
       annotations: {}
 
       ## Set method for HTTP to send query to datasource
@@ -1091,7 +1032,6 @@ grafana:
   serviceMonitor:
     # If true, a ServiceMonitor CRD is created for a prometheus operator
     # https://github.com/coreos/prometheus-operator
-    #
     enabled: true
 
     # Path to use for scraping metrics. Might be different if server.root_url is set
@@ -1674,31 +1614,24 @@ kubeEtcd:
   serviceMonitor:
     enabled: true
     ## Scrape interval. If not set, the Prometheus default scrape interval is used.
-    ##
     interval: ""
 
     ## SampleLimit defines per-scrape limit on number of scraped samples that will be accepted.
-    ##
     sampleLimit: 0
 
     ## TargetLimit defines a limit on the number of scraped targets that will be accepted.
-    ##
     targetLimit: 0
 
     ## Per-scrape limit on number of labels that will be accepted for a sample. Only valid in Prometheus versions 2.27.0 and newer.
-    ##
     labelLimit: 0
 
     ## Per-scrape limit on length of labels name that will be accepted for a sample. Only valid in Prometheus versions 2.27.0 and newer.
-    ##
     labelNameLengthLimit: 0
 
     ## Per-scrape limit on length of labels value that will be accepted for a sample. Only valid in Prometheus versions 2.27.0 and newer.
-    ##
     labelValueLengthLimit: 0
 
     ## proxyUrl: URL of a proxy that should be used for scraping.
-    ##
     proxyUrl: ""
     scheme: http
     insecureSkipVerify: false
@@ -1709,7 +1642,6 @@ kubeEtcd:
 
     ## MetricRelabelConfigs to apply to samples after scraping, but before ingestion.
     ## ref: https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/api.md#relabelconfig
-    ##
     metricRelabelings: []
     # - action: keep
     #   regex: 'kube_(daemonset|deployment|pod|namespace|node|statefulset).+'
