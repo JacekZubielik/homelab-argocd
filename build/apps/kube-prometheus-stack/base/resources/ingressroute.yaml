@@ -2,9 +2,9 @@
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
-  name: monitoring-grafana #monitoring #kube-prometheus-stack
+  name: monitoring #monitoring #kube-prometheus-stack
   labels:
-    app.kubernetes.io/name: monitoring-grafana #kube-prometheus-stack
+    #app.kubernetes.io/name: monitoring-grafana #kube-prometheus-stack
     app.kubernetes.io/instance: dev-kube-prometheus-stack
 
 
@@ -24,32 +24,27 @@ spec:
         - kind: Service
           name: monitoring-grafana
           port: 80
-
     #   middlewares:
     #     - name: headers #traefik-dashboard-auth  #chain-traefik-dashboard
     #       namespace: traefik
 
-
-
-    # - kind: Rule
-    #   match: Host(`prometheus.anotherlife.pl`)
-    #   services:
-    #     - kind: Service
-    #       name: prometheus-operated
-    #       port: 9090 # 9090 http-web
+    - kind: Rule
+      match: Host(`prometheus.anotherlife.pl`)
+      services:
+        - kind: Service
+          name: prometheus-operated
+          port: 9090 # 9090 http-web
     #   middlewares:
     #     - name: headers #traefik-dashboard-auth  #chain-traefik-dashboard
     #       namespace: traefik
 
-
-
-    # - kind: Rule
-    #   match: Host(`alertmanager.anotherlife.pl`)
-    #   services:
-    #     - kind: Service
-    #       name: alertmanager-operated
-    #       port: http-web # 9093
-    #       namespace: prometheus
+    - kind: Rule
+      match: Host(`alertmanager.anotherlife.pl`)
+      services:
+        - kind: Service
+          name: alertmanager-operated
+          port: 9093 #http-web # 9093
+          namespace: prometheus
     #   middlewares:
     #     - name: headers #traefik-dashboard-auth  #chain-traefik-dashboard
     #       namespace: traefik
