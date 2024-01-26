@@ -936,6 +936,13 @@ grafana:
   defaultDashboardsEditable: true
   adminPassword: prom-operator
 
+  fullnameOverride: grafana
+  # admin:
+  #   existingSecret: grafana-admin-credentials
+  #   userKey: admin-user
+  #   passwordKey: admin-password
+
+
   grafana.ini:
     server:
       domain: grafana.anotherlife.pl

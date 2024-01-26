@@ -2,8 +2,8 @@
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
-  name: monitoring #monitoring #kube-prometheus-stack
-  #namespace: ${kubernetes_namespace.monitoring-ns.metadata.0.name}
+  name: grafana #kube-prometheus-stack
+  namespace: monitoring
   # labels:
   #   #app.kubernetes.io/name: monitoring-grafana #kube-prometheus-stack
   #   app.kubernetes.io/instance: dev-kube-prometheus-stack
@@ -24,7 +24,7 @@ spec:
       match: Host(`grafana.anotherlife.pl`) && (PathPrefix(`/`)
       services:
         - kind: Service
-          name: kube-prometheus-stack-grafana
+          name: grafana
           port: 80
           sticky:
             cookie:
@@ -35,6 +35,17 @@ spec:
     #   middlewares:
     #     - name: headers #traefik-dashboard-auth  #chain-traefik-dashboard
     #       namespace: traefik
+
+  tls:
+    #secretName: letsencrypt-production
+    options:
+      name: tls-ver13
+      #namespace: traefik
+    domains:
+      - main: anotherlife.pl
+        sans:
+          - .anotherlife.pl
+
 
 
     # - kind: Rule
@@ -59,12 +70,4 @@ spec:
     # #     - name: headers #traefik-dashboard-auth  #chain-traefik-dashboard
     # #       namespace: traefik
 
-  tls:
-    #secretName: letsencrypt-production
-    options:
-      name: tls-ver13
-      #namespace: traefik
-    domains:
-      - main: anotherlife.pl
-        sans:
-          - .anotherlife.pl
+
