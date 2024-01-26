@@ -24,6 +24,7 @@ spec:
         - kind: Service
           name: monitoring-grafana
           port: 80
+          namespace: monitoring
     #   middlewares:
     #     - name: headers #traefik-dashboard-auth  #chain-traefik-dashboard
     #       namespace: traefik
@@ -34,6 +35,7 @@ spec:
         - kind: Service
           name: prometheus-operated
           port: 9090 # 9090 http-web
+          namespace: monitoring
     #   middlewares:
     #     - name: headers #traefik-dashboard-auth  #chain-traefik-dashboard
     #       namespace: traefik
@@ -44,7 +46,7 @@ spec:
         - kind: Service
           name: alertmanager-operated
           port: 9094 #http-web # 9093
-          namespace: prometheus
+          namespace: monitoring
     #   middlewares:
     #     - name: headers #traefik-dashboard-auth  #chain-traefik-dashboard
     #       namespace: traefik
