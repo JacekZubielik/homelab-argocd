@@ -226,7 +226,7 @@ additionalArguments:
 - "--accesslog.filepath=/data/access.log"
 - "--entrypoints.websecure.http.tls=true"
 - "--serversTransport.insecureSkipVerify=true"
-- "--metrics.prometheus=true"
+
   #
   # Shouldn't need this if you've got Cert Manager installed
   #
