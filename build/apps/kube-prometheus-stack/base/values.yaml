@@ -946,7 +946,7 @@ grafana:
   grafana.ini:
     server:
       domain: grafana.anotherlife.pl
-      root_url: "%(protocol)s://%(domain)s:%(http_port)s/grafana/"
+      root_url: "%(protocol)s://%(domain)s/grafana"
       #root_url: https://grafana.anotherlife.pl
       serve_from_sub_path: true
     security:

@@ -3,7 +3,7 @@ apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
   name: grafana #kube-prometheus-stack
-  #namespace: monitoring
+  namespace: monitoring
   labels:
   #   #app.kubernetes.io/name: monitoring-grafana #kube-prometheus-stack
   #   app.kubernetes.io/instance: dev-kube-prometheus-stack
@@ -21,17 +21,17 @@ spec:
     - websecure
   routes:
     - kind: Rule
-      match: Host(`grafana.anotherlife.pl`) && (PathPrefix(`/`)
+      match: Host(`grafana.anotherlife.pl`) # && (PathPrefix(`/`)
       services:
         - kind: Service
           name: grafana
-          port: 80
-          sticky:
-            cookie:
-              httpOnly: true
-              name: grafana
-              secure: true
-              sameSite: none
+          port: 3000
+          # sticky:
+          #   cookie:
+          #     httpOnly: true
+          #     name: grafana
+          #     secure: true
+          #     sameSite: none
     #   middlewares:
     #     - name: headers #traefik-dashboard-auth  #chain-traefik-dashboard
     #       namespace: traefik
