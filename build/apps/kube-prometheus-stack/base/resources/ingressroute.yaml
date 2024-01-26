@@ -5,8 +5,8 @@ metadata:
   name: monitoring #monitoring #kube-prometheus-stack
   labels:
     #app.kubernetes.io/name: monitoring-grafana #kube-prometheus-stack
-    #app.kubernetes.io/instance: dev-kube-prometheus-stack
-    app.kubernetes.io/instance: monitoring
+    app.kubernetes.io/instance: dev-kube-prometheus-stack
+    #app.kubernetes.io/instance: monitoring
     app.kubernetes.io/name: grafana
 
   annotations:
