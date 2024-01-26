@@ -30,7 +30,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: monitoring-grafana
+                name: grafana
                 port:
                   name: web
   # tls:
