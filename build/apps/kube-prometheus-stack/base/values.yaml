@@ -1043,7 +1043,7 @@ grafana:
   ## Passed to grafana subchart and used by servicemonitor below
   ##
   service:
-    portName: web
+    portName: http-web
 
   serviceMonitor:
     # If true, a ServiceMonitor CRD is created for a prometheus operator
