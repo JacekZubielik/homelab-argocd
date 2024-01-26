@@ -3,7 +3,7 @@ apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
   name: monitoring #monitoring #kube-prometheus-stack
-  namespace: ${kubernetes_namespace.monitoring-ns.metadata.0.name}
+  #namespace: ${kubernetes_namespace.monitoring-ns.metadata.0.name}
   # labels:
   #   #app.kubernetes.io/name: monitoring-grafana #kube-prometheus-stack
   #   app.kubernetes.io/instance: dev-kube-prometheus-stack
