@@ -55,7 +55,7 @@ spec:
     #secretName: letsencrypt-production
     options:
       name: tls-ver13
-      namespace: traefik
+      #namespace: traefik
     domains:
       - main: anotherlife.pl
         sans:
