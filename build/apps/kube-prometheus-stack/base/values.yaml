@@ -936,6 +936,15 @@ grafana:
   defaultDashboardsEditable: true
   adminPassword: prom-operator
 
+  grafana.ini:
+    server:
+      domain: grafana.anotherlife.pl
+      #root_url: "%(protocol)s://%(domain)s/"
+      root_url: https://grafana.anotherlife.pl
+      serve_from_sub_path: true
+
+
+
   rbac:
     pspEnabled: false
 
