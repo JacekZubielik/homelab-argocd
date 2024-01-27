@@ -89,23 +89,23 @@ ingressClass:
 #     # -- Enable traefik experimental GatewayClass CRD
 #     enabled: false
 
-ingressRoute:
-  dashboard:
-    enabled: false
-    annotations: {}
-    labels: {}
-    matchRule: PathPrefix(`/dashboard`) || PathPrefix(`/api`)
-    entryPoints: ["traefik"]
-    middlewares: []
-    tls: {}
-  healthcheck:
-    enabled: false
-    annotations: {}
-    labels: {}
-    matchRule: PathPrefix(`/ping`)
-    entryPoints: ["traefik"]
-    middlewares: []
-    tls: {}
+# ingressRoute:
+#   dashboard:
+#     enabled: false
+#     annotations: {}
+#     labels: {}
+#     matchRule: PathPrefix(`/dashboard`) || PathPrefix(`/api`)
+#     entryPoints: ["traefik"]
+#     middlewares: []
+#     tls: {}
+#   healthcheck:
+#     enabled: false
+#     annotations: {}
+#     labels: {}
+#     matchRule: PathPrefix(`/ping`)
+#     entryPoints: ["traefik"]
+#     middlewares: []
+#     tls: {}
 
 updateStrategy:
   type: RollingUpdate
@@ -169,6 +169,11 @@ logs:
       statuscodes: "400-405,500"
       minDuration: "10ms"
 
+entryPoints:
+  metrics:
+    address: :8082
+
+
 metrics:
   prometheus:
     addEntryPointsLabels: true
@@ -176,6 +181,11 @@ metrics:
     addServicesLabels: true
     entryPoint: metrics
     buckets: "0.5,1.0,5"
+    headerLabels:
+      label: headerKey
+      useragent: User-Agent
+
+
   #  datadog:
   #    ## Address instructs exporter to send metrics to datadog-agent at this address.
   #    address: "127.0.0.1:8125"
