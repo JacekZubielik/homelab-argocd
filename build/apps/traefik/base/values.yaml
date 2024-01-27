@@ -146,7 +146,7 @@ providers:
     ingressClass: traefik-external
     labelSelector: "" 
     namespaces:
-    - "dev,traefik,prod,infra,argocd"
+    - "dev,traefik,prod,infra,argocd,monitoring"
     ingressEndpoint:
       publishedService: "traefik/traefik"
       ####################################################
