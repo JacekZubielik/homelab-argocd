@@ -27,6 +27,7 @@ configMapGenerator:
 
 resources:
 - resources/ingressroute.yaml
+#- resources/ingress.yaml
 
 patches:
 # label app.kubernetes.io/instance=cert-manager causes warnings for all 6 Cert Manager CRDs in ArgoCD, eg:
