@@ -12,7 +12,7 @@ helmCharts:
   includeCRDs: true
   releaseName: longhorn
   version: v1.5.3
-  repo: https://charts.jetstack.io
+  repo: https://charts.longhorn.io #https://charts.jetstack.io
   # valuesFile: values.yaml
   valuesInline:
     installCRDs: true
