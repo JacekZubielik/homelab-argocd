@@ -7,7 +7,7 @@ defaultRules:
 
 alertmanager:
   alertmanagerSpec:
-    replicas: 2
+    replicas: 1
 
     useExistingSecret: true
 
