@@ -53,10 +53,10 @@ grafana:
   defaultDashboardsTimezone: cet
 
   # needed for loading initial datasources
-  admin:
-    existingSecret: grafana-admin-secret
-    userKey: username
-    passwordKey: password
+  # admin:
+  #   existingSecret: grafana-admin-secret
+  #   userKey: username
+  #   passwordKey: password
 
   # ingress:
   #   enabled: true

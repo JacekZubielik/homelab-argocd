@@ -25,11 +25,11 @@ helmCharts:
   #   valuesFile: smartctl-exporter-values.yaml
   #   version: 0.7.0
 
-resources:
+#resources:
   # - resources/alertmanager-secret.yaml
   # - resources/alertmanager-telegram-template.yaml
   # - resources/blackbox-exporter-dashboard-configmap.yaml
-  - resources/grafana-admin-secret.yaml
+  #- resources/grafana-admin-secret.yaml
   #- resources/grafana-secret.yaml
   # - resources/long-term-metrics/datasource-configmap.yaml
   # - resources/long-term-metrics/ingress.yaml
