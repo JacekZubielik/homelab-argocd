@@ -109,6 +109,11 @@ grafana:
       annotations:
         grafana.grafana.com/dashboards.target-directory: "/tmp/dashboards/kubernetes"
       searchNamespace: ALL
+    custom-dashboard:
+      # This is a path to a file inside the dashboards directory inside the chart directory
+      file: dashboards/router.json
+
+
 
   #envFromSecret: grafana-secret
 
