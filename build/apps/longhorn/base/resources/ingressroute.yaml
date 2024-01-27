@@ -19,7 +19,7 @@ spec:
       #match: Host(`hello.<secret:private-domain>`)
     match: Host(`longhorn.anotherlife.pl`)
     services:
-      - kind: Service
+      - kind: TraefikService #Service
         name: longhorn-frontend
         port: 80
         namespace: longhorn-system
