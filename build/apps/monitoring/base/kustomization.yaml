@@ -10,7 +10,6 @@ helmCharts:
     valuesFile: values.yaml
     version: 56.0.3 #55.5.0
 
-    
   - name: prometheus-blackbox-exporter
     namespace: monitoring
     releaseName: monitoring
@@ -30,7 +29,10 @@ resources:
   - resources/blackbox-exporter-dashboard-configmap.yaml
   - resources/smartctl-exporter-dashboard-configmap.yaml
   - resources/smartctl-exporter-prometheus-rules.yaml
-  # - resources/alertmanager-secret.yaml
+  - resources/temperature-dashboard-configmap.yaml
+  - resources/temperature-prometheus-rules.yaml
+
+# - resources/alertmanager-secret.yaml
   # - resources/alertmanager-telegram-template.yaml
   #- resources/grafana-admin-secret.yaml
   #- resources/grafana-secret.yaml
@@ -41,9 +43,6 @@ resources:
   # - resources/pfsense-darkstat-scrape-config.yaml
   # - resources/pfsense-node-exporter-dashboard-configmap.yaml
   # - resources/pfsense-node-exporter-scrape-config.yaml
-
-  # - resources/temperature-dashboard-configmap.yaml
-  # - resources/temperature-prometheus-rules.yaml
 
 patches:
   - patch: |-
