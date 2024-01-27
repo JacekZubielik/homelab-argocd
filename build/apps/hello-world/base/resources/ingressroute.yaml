@@ -19,7 +19,7 @@ spec:
       #match: Host(`hello.<secret:private-domain>`)
       match: Host(`hello.anotherlife.pl`)
       services:
-        - kind: Service
+        - kind: TraefikService #Service
           name: hello-world-frontend
           port: 80
       middlewares:
