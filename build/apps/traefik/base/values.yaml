@@ -171,7 +171,7 @@ logs:
 
 entryPoints:
   metrics:
-    address: :8082
+    address: :9100
 
 
 metrics:
