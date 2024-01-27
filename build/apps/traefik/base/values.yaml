@@ -136,7 +136,7 @@ providers:
     ingressClass: traefik-external
     labelSelector: "" #labelSelector: "app=traefik" # environment=production,method=traefik # -- Array of namespaces to watch. If left empty, Traefik watches all namespaces.
     namespaces:
-    - "dev,traefik,prod,infra,argocd,monitoring"
+    - "dev,traefik,prod,infra,argocd,monitoring,longhorn-system"
 
   kubernetesIngress:
     enabled: true
@@ -145,7 +145,7 @@ providers:
     ingressClass: traefik-external
     labelSelector: "" 
     namespaces:
-    - "dev,traefik,prod,infra,argocd,monitoring"
+    - "dev,traefik,prod,infra,argocd,monitoring,longhorn-system"
     ingressEndpoint:
       publishedService: "traefik/traefik"
       ####################################################
