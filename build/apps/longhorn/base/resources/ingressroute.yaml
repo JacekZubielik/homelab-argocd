@@ -20,7 +20,7 @@ spec:
       match: Host(`longhorn.anotherlife.pl`)
       services:
         - kind: Service
-          name: longhorn
+          name: longhorn-frontend
           port: 80
       middlewares:
         - name: headers #traefik-dashboard-auth  #chain-traefik-dashboard
