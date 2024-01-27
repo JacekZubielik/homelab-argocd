@@ -21,12 +21,12 @@ spec:
         - kind: Service
           name: monitoring-grafana
           port: 80
-          # sticky:
-          #   cookie:
-          #     httpOnly: true
-          #     name: grafana
-          #     secure: true
-          #     sameSite: none
+          sticky:
+            cookie:
+              httpOnly: true
+              name: grafana
+              secure: true
+              sameSite: none
       middlewares:
         - name: headers #traefik-dashboard-auth  #chain-traefik-dashboard
           namespace: traefik
