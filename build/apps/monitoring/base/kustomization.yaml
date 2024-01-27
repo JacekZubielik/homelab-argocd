@@ -25,7 +25,9 @@ helmCharts:
     valuesFile: smartctl-exporter-values.yaml
     version: 0.7.0
 
-#resources:
+resources:
+- resources/ingressroute.yaml
+
   # - resources/alertmanager-secret.yaml
   # - resources/alertmanager-telegram-template.yaml
   # - resources/blackbox-exporter-dashboard-configmap.yaml
