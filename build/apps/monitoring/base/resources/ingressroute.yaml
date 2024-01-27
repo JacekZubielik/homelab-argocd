@@ -27,13 +27,9 @@ spec:
           #     name: grafana
           #     secure: true
           #     sameSite: none
-    #   middlewares:
-    #     - name: headers #traefik-dashboard-auth  #chain-traefik-dashboard
-    #       namespace: traefik
-
-
-
-
+      middlewares:
+        - name: headers #traefik-dashboard-auth  #chain-traefik-dashboard
+          namespace: traefik
 
     - kind: Rule
       match: Host(`prometheus.anotherlife.pl`)
@@ -42,21 +38,20 @@ spec:
           name: prometheus-operated
           port: 9090 # 9090 http-web
           namespace: monitoring
-    #   middlewares:
-    #     - name: headers #traefik-dashboard-auth  #chain-traefik-dashboard
-    #       namespace: traefik
+      middlewares:
+        - name: chain-traefik-dashboard
+          namespace: traefik
 
     - kind: Rule
       match: Host(`alertmanager.anotherlife.pl`)
       services:
         - kind: Service
           name: alertmanager-operated
-          port: 9094 #http-web # 9093
+          port: 9093 #http-web # 9093
           namespace: monitoring
-    #   middlewares:
-    #     - name: headers #traefik-dashboard-auth  #chain-traefik-dashboard
-    #       namespace: traefik
-
+      middlewares:
+        - name: chain-traefik-dashboard
+          namespace: traefik
 
   tls:
     #secretName: letsencrypt-production
