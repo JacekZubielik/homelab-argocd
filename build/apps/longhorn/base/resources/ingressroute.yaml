@@ -4,7 +4,7 @@ kind: IngressRoute
 metadata:
   name: longhorn
   labels:
-    app.kubernetes.io/name: longhorn-ui
+    app.kubernetes.io/name: longhorn-frontend #longhorn-ui
   annotations:
     cert-manager.io/cluster-issuer: route53-letsencrypt-staging
     kubernetes.io/ingress.class: traefik-external
