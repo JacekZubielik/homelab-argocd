@@ -110,7 +110,7 @@ grafana:
         grafana.grafana.com/dashboards.target-directory: "/tmp/dashboards/kubernetes"
       searchNamespace: ALL
 
-  envFromSecret: grafana-secret
+  #envFromSecret: grafana-secret
 
   grafana.ini:
     server:
