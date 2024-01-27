@@ -1,5 +1,4 @@
 # helm repo add traefik https://helm.traefik.io/traefik
-#
 # helm show values traefik/traefik  >> traefik-values.yaml
 
 deployment:
