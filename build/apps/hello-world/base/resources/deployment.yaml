@@ -26,9 +26,3 @@ spec:
         image: docker.io/kostiscodefresh/simple-web-app:3d9b390
         ports:
         - containerPort: 8080
-
-
-metadata:
-  name: hello-world
-  labels:
-    app.kubernetes.io/name: hello-world-frontend
