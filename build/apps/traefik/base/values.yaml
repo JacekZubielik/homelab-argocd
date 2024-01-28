@@ -60,7 +60,7 @@ persistence:
   size: 128Mi
 
 
-  storageClass: "longhorn"
+  #storageClass: "longhorn"
   #volumeName: traefik-logs
   path: /data
   annotations: {}
