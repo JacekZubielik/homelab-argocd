@@ -218,7 +218,7 @@ prometheus:
     storageSpec:
       volumeClaimTemplate:
         spec:
-          storageClassName: local-path #zfs-local-dataset
+          storageClassName: longhorn #local-path #zfs-local-dataset
           accessModes: ["ReadWriteOnce"]
           resources:
             requests:
