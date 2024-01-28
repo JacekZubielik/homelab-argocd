@@ -23,7 +23,7 @@ spec:
           name: monitoring-grafana
           port: 80
       middlewares:
-        - name: headers #traefik-dashboard-auth  #chain-traefik-dashboard
+        - name: chain-traefik-dashboard
           namespace: traefik
   tls:
     #secretName: letsencrypt-staging
@@ -70,7 +70,7 @@ spec:
           name: prometheus-operated
           port: 9090
       middlewares:
-        - name: headers #traefik-dashboard-auth  #chain-traefik-dashboard
+        - name: chain-traefik-dashboard
           namespace: traefik
   tls:
     #secretName: letsencrypt-staging
@@ -117,7 +117,7 @@ spec:
           name: alertmanager-operated
           port: 9093
       middlewares:
-        - name: headers #traefik-dashboard-auth  #chain-traefik-dashboard
+        - name: chain-traefik-dashboard
           namespace: traefik
   tls:
     #secretName: letsencrypt-staging
