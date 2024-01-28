@@ -35,3 +35,16 @@ spec:
       - main: anotherlife.pl
         sans:
           - .anotherlife.pl
+---
+apiVersion: traefik.io/v1alpha1
+kind: TraefikService
+metadata:
+  name: pcp-proxy
+spec:
+  weighted:
+    services:
+      - name: pcp-proxy
+        port: 80
+        weight: 1
+
+
