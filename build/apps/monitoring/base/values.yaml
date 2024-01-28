@@ -84,13 +84,13 @@ grafana:
     ##
     sizeLimit: 256Mi
 
-  # additionalDataSources:
-  #   - name: Loki
-  #     type: loki
-  #     url: http://loki.loki:3100
-  #     access: proxy
-  #     isDefault: false
-  #     version: 1
+  additionalDataSources:
+    - name: Loki
+      type: loki
+      url: http://loki.loki:3100
+      access: proxy
+      isDefault: false
+      version: 1
 
   sidecar:
     # resources:
