@@ -193,25 +193,25 @@ spec:
 
 ##################################
 
-    - kind: Rule
-      match: Host(`alertmanager.anotherlife.pl`)
-      services:
-        - kind: Service
-          name: alertmanager-operated
-          port: 9093 #http-web # 9093
-          namespace: monitoring
-      middlewares:
-        - name: chain-traefik-dashboard
-          namespace: traefik
+    # - kind: Rule
+    #   match: Host(`alertmanager.anotherlife.pl`)
+    #   services:
+    #     - kind: Service
+    #       name: alertmanager-operated
+    #       port: 9093 #http-web # 9093
+    #       namespace: monitoring
+    #   middlewares:
+    #     - name: chain-traefik-dashboard
+    #       namespace: traefik
 
 ##################################
 
-  tls:
-    #secretName: letsencrypt-production
-    options:
-      name: tls-ver13
-      namespace: traefik
-    domains:
-      - main: anotherlife.pl
-        sans:
-          - .anotherlife.pl
+  # tls:
+  #   #secretName: letsencrypt-production
+  #   options:
+  #     name: tls-ver13
+  #     namespace: traefik
+  #   domains:
+  #     - main: anotherlife.pl
+  #       sans:
+  #         - .anotherlife.pl
