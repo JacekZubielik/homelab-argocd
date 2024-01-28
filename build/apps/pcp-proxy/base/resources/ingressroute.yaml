@@ -20,7 +20,7 @@ spec:
       #match: Host(`hello.<secret:private-domain>`)
       match: Host(`pcp-proxy.anotherlife.pl`)
       services:
-        - kind: Service
+        - kind: TraefikService #Service
           name: pcp-proxy
           port: 80
       middlewares:
