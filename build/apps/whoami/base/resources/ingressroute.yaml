@@ -59,7 +59,7 @@ spec:
           name: whoami-frontend
           port: 80
       middlewares:
-        - name: headers chain-traefik-dashboard
+        - name: chain-traefik-dashboard
           namespace: traefik
   tls:
     #secretName: letsencrypt-staging
