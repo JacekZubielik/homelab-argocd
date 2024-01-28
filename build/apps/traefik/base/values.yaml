@@ -53,10 +53,14 @@ additionalVolumeMounts:
 persistence:
   enabled: true
   name: data
+
   #existingClaim: "traefik-logs"
+
   accessMode: ReadWriteOnce
   size: 128Mi
-  #storageClass: "local-path"
+
+
+  storageClass: "longhorn"
   #volumeName: traefik-logs
   path: /data
   annotations: {}
