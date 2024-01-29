@@ -26,10 +26,10 @@ spec:
       #     claimName: lh-pvc-1
       containers:
         - name: webserver-simple
-            image: docker.io/kostiscodefresh/simple-web-app:3d9b390
-            ports:
-            - containerPort: 80
-              # volumeMounts:
-              #   name: lh-storage-volume
-              #     mountPath: /usr/share/nginx/html
+          image: docker.io/kostiscodefresh/simple-web-app:3d9b390
+          ports:
+          - containerPort: 80
+            # volumeMounts:
+            #   name: lh-storage-volume
+            #     mountPath: /usr/share/nginx/html
 
