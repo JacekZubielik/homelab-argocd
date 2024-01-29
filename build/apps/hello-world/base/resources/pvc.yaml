@@ -5,7 +5,7 @@ metadata:
   name: lh-pvc-1
   #namespace: dev
 spec:
-  storageClassName: longhorn-retain
+  storageClassName: longhorn #-retain
   accessModes:
     - ReadWriteOnce #ReadWriteMany #ReadWriteOnce
   resources:
