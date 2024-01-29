@@ -12,9 +12,9 @@ deployment:
   podAnnotations: {}
   podLabels: {}
   additionalContainers: []
-  additionalVolumes:
-  - name: plugins
-  - name: traefik-logs
+  # additionalVolumes:
+  # - name: plugins
+  # - name: traefik-logs
 
   # initContainers:
   #   - name: data-accesslog
@@ -46,24 +46,24 @@ deployment:
 #   type: secret
 
 ### Additional volumeMounts to add to the Traefik container
-additionalVolumeMounts:
-- name: traefik-logs
-  mountPath: /var/log/traefik
-- name: plugins
-  mountPath: /plugins-storage
+# additionalVolumeMounts:
+# - name: traefik-logs
+#   mountPath: /var/log/traefik
+# - name: plugins
+#   mountPath: /plugins-storage
 
-persistence:
-  enabled: true
-  name: data
-  #existingClaim: "traefik-logs"
-  accessMode: ReadWriteOnce
-  size: 128Mi
-  #storageClass: "local-path"
-  #volumeName: traefik-logs
-  path: /data
-  annotations: {}
-  # -- Only mount a subpath of the Volume into the pod
-  # subPath: ""
+# persistence:
+#   enabled: true
+#   name: data
+#   #existingClaim: "traefik-logs"
+#   accessMode: ReadWriteOnce
+#   size: 128Mi
+#   #storageClass: "local-path"
+#   #volumeName: traefik-logs
+#   path: /data
+#   annotations: {}
+#   # -- Only mount a subpath of the Volume into the pod
+#   # subPath: ""
 
 podDisruptionBudget:
   enabled: false
