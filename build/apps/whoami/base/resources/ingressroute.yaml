@@ -1,39 +1,3 @@
-# ---
-# apiVersion: traefik.io/v1alpha1
-# kind: IngressRoute
-# metadata:
-#   name: whoami
-#   labels:
-#     app.kubernetes.io/name: whoami
-
-#   annotations:
-#     cert-manager.io/cluster-issuer: route53-letsencrypt-staging
-#     kubernetes.io/ingress.class: traefik-external
-#     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
-#     argocd.argoproj.io/sync-wave: "4"
-
-# spec:
-#   entryPoints:
-#     - websecure
-#   routes:
-#     - kind: Rule
-#       match: Host(`whoami.anotherlife.pl`)
-#       services:
-#         - kind: Service
-#           name: whoami
-#           port: 80
-#       middlewares:
-#         - name: headers #traefik-dashboard-auth  #chain-traefik-dashboard
-#           namespace: traefik
-#   tls:
-#     #secretName: letsencrypt-production
-#     options:
-#       name: tls-ver13
-#       namespace: traefik
-#     domains:
-#       - main: anotherlife.pl
-#         sans:
-#           - .anotherlife.pl
 ---
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
@@ -55,7 +19,7 @@ spec:
       #match: Host(`hello.<secret:private-domain>`)
       match: Host(`whoami.anotherlife.pl`)
       services:
-        - kind: TraefikService #Service
+        - kind: TraefikService
           name: whoami-frontend
           port: 80
       middlewares:
