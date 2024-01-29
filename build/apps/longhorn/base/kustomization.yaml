@@ -13,11 +13,11 @@ helmCharts:
   releaseName: longhorn
   version: v1.5.3
   repo: https://charts.longhorn.io
-  # valuesFile: values.yaml
-  valuesInline:
-    installCRDs: true
-    namespace: longhorn-system
-    fullnameOverride: longhorn-system
+  valuesFile: values.yaml
+  # valuesInline:
+  #   installCRDs: true
+  #   namespace: longhorn-system
+  #   fullnameOverride: longhorn-system
 
 
 configMapGenerator:
