@@ -1,6 +1,7 @@
 enableRbac: true
 serviceAccount:
   create: true
+
 config:
   bookmarks:
   services:
