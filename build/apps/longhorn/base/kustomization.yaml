@@ -29,7 +29,7 @@ configMapGenerator:
 resources:
   - resources/ingressroute.yaml
 #- resources/ingress.yaml
-
+  - resources/storageclass.yaml
 # patchesStrategicMerge:
 #   - resources/storageclass.yaml
 
@@ -37,6 +37,6 @@ patches:
   - path: patches/ignore-deployment-mutation-patch.yaml
     target:
       kind: Deployment
-  - path: storageclass.yaml
-    target:
-      kind: StorageClass
+  # - path: storageclass.yaml
+  #   target:
+  #     kind: StorageClass
