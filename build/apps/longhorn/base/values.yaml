@@ -5,6 +5,9 @@ longhorn:
   defaultSettings:
     nodeDownPodDeletionPolicy: delete-both-statefulset-and-deployment-pod
     priorityClass: system-cluster-critical
+    storageOverProvisioningPercentage: 50
+    storageMinimalAvailablePercentage: 5
+    storageReservedPercentageForDefaultDisk: 10
 
   persistence:
     defaultClassReplicaCount: 1    
