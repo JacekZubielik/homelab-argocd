@@ -4,7 +4,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: lh-pvc-1
 spec:
-  storageClassName: driver.longhorn.io #longhorn
+  storageClassName: longhorn
   accessModes:
     - ReadWriteOnce
   resources:
