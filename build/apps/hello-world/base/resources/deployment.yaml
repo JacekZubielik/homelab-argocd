@@ -30,6 +30,6 @@ spec:
           ports:
           - containerPort: 80
           volumeMounts:
-            - name:  lh-storage-volume
-            mountPath: /usr/share/nginx/html
+            name: lh-storage-volume
+              mountPath: /usr/share/nginx/html
 
