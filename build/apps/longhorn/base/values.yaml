@@ -5,8 +5,30 @@ longhorn:
   defaultSettings:
     nodeDownPodDeletionPolicy: delete-both-statefulset-and-deployment-pod
     priorityClass: system-cluster-critical
+
   persistence:
     defaultClassReplicaCount: 1    
     defaultClass: true
     defaultFsType: ext4
     reclaimPolicy: Delete
+
+  longhornUI:
+    replicas: 2
+    priorityClass: ~
+    tolerations: []
+    ## If you want to set tolerations for Longhorn UI Deployment, delete the `[]` in the line above
+    ## and uncomment this example block
+    # - key: "key"
+    #   operator: "Equal"
+    #   value: "value"
+    #   effect: "NoSchedule"
+    nodeSelector: {}
+    ## If you want to set node selector for Longhorn UI Deployment, delete the `{}` in the line above
+    ## and uncomment this example block
+    #  label-key1: "label-value1"
+    #  label-key2: "label-value2"
+
+  networkPolicies:
+    enabled: true
+    # Available types: k3s, rke2, rke1
+    type: "k3s"
