@@ -11,7 +11,6 @@ spec:
   replicas: 2
   strategy:
     type: Recreate
-
   selector:
     matchLabels:
       app.kubernetes.io/name: hello-world
@@ -21,8 +20,16 @@ spec:
         app.kubernetes.io/name: hello-world
         task: hello-world
     spec:
+      volumes:
+        - name: lh-storage-volume
+          persistentVolumeClaim:
+          claimName: lh-pvc-1
       containers:
-      - name: webserver-simple
-        image: docker.io/kostiscodefresh/simple-web-app:3d9b390
-        ports:
-        - containerPort: 8080
+        - name: webserver-simple
+          image: nginx/nginx #"docker.io/kostiscodefresh/simple-web-app:3d9b390"
+          ports:
+          - containerPort: 8080
+          volumeMounts:
+            - name:  lh-storage-volume
+            mountPath: /usr/share/nginx/html
+
