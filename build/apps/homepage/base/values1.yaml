@@ -76,7 +76,11 @@ config:
     providers:
       longhorn:
         #url: http://longhorn-frontend.longhorn-system.svc
-        url: http://longhorn-frontend.default.svc
+        #url: http://longhorn-frontend.default.svc
+        url: http://longhorn-frontend.kubernetes.default.svc
+
+
+
 
   docker:
 

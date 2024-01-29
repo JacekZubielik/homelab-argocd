@@ -12,7 +12,7 @@ helmCharts:
   repo: https://jameswynn.github.io/helm-charts
   version: 1.2.3
   releaseName: homepage
-  namespace: homepage
+  namespace: dev
   #includeCRDs: true
   valuesFile: values1.yaml
 
