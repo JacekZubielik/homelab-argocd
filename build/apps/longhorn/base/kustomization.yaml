@@ -14,6 +14,9 @@ helmCharts:
   version: v1.5.3
   repo: https://charts.longhorn.io
   valuesFile: values.yaml
+  namespace: longhorn-system
+  fullnameOverride: longhorn-system
+
   # valuesInline:
   #   installCRDs: true
   #   namespace: longhorn-system
