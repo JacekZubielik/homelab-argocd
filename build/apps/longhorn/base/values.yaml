@@ -1,3 +1,8 @@
 # helm repo add longhorn https://charts.longhorn.io
 # helm show values longhorn/longhorn  >> longhorn-values.yaml
 
+longhorn:
+  defaultSettings:
+    nodeDownPodDeletionPolicy: delete-both-statefulset-and-deployment-pod
+  persistence:
+    defaultClassReplicaCount: 3
