@@ -2,23 +2,31 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: uptime-kuma
+  labels:
+    app.kubernetes.io/name: uptime-kuma
+    app: uptime-kuma
+    name: uptime-kuma
+
 spec:
-  selector:
-    matchLabels:
-      app: uptime-kuma
+  revisionHistoryLimit: 2
   replicas: 1
   progressDeadlineSeconds: 600
-  revisionHistoryLimit: 2
   strategy:
     type: Recreate
+
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: uptime-kuma
+
   template:
     metadata:
       labels:
-        app: uptime-kuma
+        app.kubernetes.io/name: uptime-kuma
+        task: uptime-kuma
     spec:
       containers:
       - name: uptime-kuma
-        image: louislam/uptime-kuma:1-alpine
+        image: louislam/uptime-kuma:latest
         #resources:
           # requests:
           #   memory: "256Mi"
