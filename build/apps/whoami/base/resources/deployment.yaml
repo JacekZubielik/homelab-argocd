@@ -1,11 +1,11 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: whoami
+  name: whoami-frontend
   labels:
-    app: traefiklabs
-    name: whoami
-
+    app.kubernetes.io/name: whoami-frontend
+    app: whoami-frontend
+    name: whoami-frontend
 spec:
   revisionHistoryLimit: 3
   replicas: 2
@@ -14,13 +14,13 @@ spec:
 
   selector:
     matchLabels:
-      app: traefiklabs
-      task: whoami
+      app.kubernetes.io/name: whoami-frontend
+
   template:
     metadata:
       labels:
-        app: traefiklabs
-        task: whoami
+        app.kubernetes.io/name: whoami-frontend
+        task: whoami-frontend
     spec:
       containers:
         - name: whoami
