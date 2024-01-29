@@ -20,7 +20,7 @@ spec:
       match: Host(`homepage.anotherlife.pl`)
       services:
         - kind: TraefikService
-          name: homepage
+          name: homepage-frontend
           port: 3000
       middlewares:
         - name: headers #traefik-dashboard-auth  #chain-traefik-dashboard
@@ -42,7 +42,7 @@ metadata:
 spec:
   weighted:
     services:
-      - name: homepage-frontend
+      - name: homepage
         port: 3000
         weight: 1
 
