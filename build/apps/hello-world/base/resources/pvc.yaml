@@ -1,3 +1,4 @@
+---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -5,7 +6,7 @@ metadata:
 spec:
   resources:
     requests:
-      storage: 10Mi
-  volumeMode: Filesystem
+      storage: 1G
+  #volumeMode: ext4
   accessModes:
     - ReadWriteMany

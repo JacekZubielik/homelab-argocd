@@ -1,11 +1,11 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: hello-world
+  name: hello-world-frontend
   labels:
     app.kubernetes.io/name: hello-world-frontend
-    app: hello-world
-    name: hello-world
+    app: hello-world-frontend
+    name: hello-world-frontend
 spec:
   revisionHistoryLimit: 3
   replicas: 2
@@ -13,12 +13,12 @@ spec:
     type: Recreate
   selector:
     matchLabels:
-      app.kubernetes.io/name: hello-world
+      app.kubernetes.io/name: hello-world-frontend
   template:
     metadata:
       labels:
-        app.kubernetes.io/name: hello-world
-        task: hello-world
+        app.kubernetes.io/name: hello-world-frontend
+        task: hello-world-frontend
     spec:
       volumes:
         - name: lh-storage-volume
@@ -28,7 +28,7 @@ spec:
         - name: webserver-simple
           image: nginx/nginx #"docker.io/kostiscodefresh/simple-web-app:3d9b390"
           ports:
-          - containerPort: 8080
+          - containerPort: 80
           volumeMounts:
             - name:  lh-storage-volume
             mountPath: /usr/share/nginx/html

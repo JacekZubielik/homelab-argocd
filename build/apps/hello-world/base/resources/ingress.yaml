@@ -1,11 +1,11 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: hello-world
+  name: hello-world-frontend
   labels:
-    app.kubernetes.io/name: hello-world
-    app: hello-world
-    name: hello-world
+    app.kubernetes.io/name: hello-world-frontend
+    app: hello-world-frontend
+    name: hello-world-frontend
 
   annotations:
     cert-manager.io/cluster-issuer: route53-letsencrypt-production

@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: hello-world-frontend
   # labels:
-  #   app: hello-world
+  #   app: hello-world-frontend
 spec:
   ports:
     - port: 80
@@ -12,4 +12,4 @@ spec:
       name: http
   selector:
     app: traefik
-    task: hello-world
+    task: hello-world-frontend
