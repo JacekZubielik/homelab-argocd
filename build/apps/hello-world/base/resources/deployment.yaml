@@ -28,10 +28,13 @@ spec:
         ports:
           - containerPort: 80
         volumeMounts:
-        - mountPath: /app/data
-          name: lh-storage-volume
+        - name: lh-storage-volume
+          mountPath: "/app/data"
 
       volumes:
-        - name: lh-storage-volume
-          persistentVolumeClaim:
+      - name: lh-storage-volume
+        persistentVolumeClaim:
           claimName: lh-pvc-1
+
+
+
