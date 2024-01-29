@@ -24,10 +24,6 @@ config:
   # To use an existing ConfigMap uncomment this line and specify the name
   # useExistingConfigMap: existing-homepage-configmap
 
-  providers:
-    openweathermap: openweathermapapikey
-    weatherapi: weatherapiapikey
-
   title: AnotherHomePage
   iconStyle: theme
   layout:
@@ -64,22 +60,209 @@ quicklaunch:
     - Developer:
         - Github:
             - abbr: GH
-              href: https://github.com/
+              href: https://github.com/JacekZubielik?tab=repositories/
+              icon: mdi mdi-git
+        - mxToolbox:
+            - abbr: MX
+              href: https://mxtoolbox.com/
+
+        - ITTools:
+            - abbr: IT
+              href: https://tools.anotherlife.pl/
+
+    - Social:
+        - Reddit:
+            - abbr: RE
+              href: https://reddit.com/
+
+    - Entertainment:
+        - YouTube:
+            - abbr: YT
+              href: https://youtube.com/
+
+
   services:
-    - My First Group:
-        - My First Service:
-            href: http://localhost/
-            description: Homepage is awesome
+    - Apps:
+        - LMS-Dac:
+            icon: mdi-speaker
+            href: https://lms.anotherlife.pl
+            description: Logitech Media Server
+            server: lms
+            container: lms
+            showStats: false
+            hideErrors: true
 
-    - My Second Group:
-        - My Second Service:
-            href: http://localhost/
-            description: Homepage is the best
+        - YouTubeDL:
+            icon: mdi-youtube
+            href: https://ytdl.anotherlife.pl
+            description: YouTubeDL
+            server: youtubedl
+            container: youtubedl
+            showStats: false
+            hideErrors: true
 
-    - My Third Group:
-        - My Third Service:
-            href: http://localhost/
-            description: Homepage is 😎
+    - Tools:
+        - Treafik:
+            icon: mdi-play-network-outline
+            href: https://dash.anotherlife.pl
+            description: Reverse Proxy
+            server: traefik
+            container: traefik
+            showStats: false
+            hideErrors: true
+            widget:
+                type: traefik
+                url: http://192.168.0.13:8080
+
+        - Portainer:
+            icon: mdi-play-network-outline
+            href: https://port.anotherlife.pl
+            description: Portainer
+            server: portainer
+            container: portainer
+            showStats: false
+            hideErrors: true
+            widget:
+                type: portainer
+                url: http://192.168.0.13:9001
+                env: 1
+                key: ptr_My0/9fDm3NgSf1XvA8tMk1eKL+9jxrs7hry/ajflb9U=
+
+        - Pi-hole:
+            icon: mdi-play-network-outline
+            href: https://dns.anotherlife.pl
+            description: Pi-hole
+            server: pihole
+            container: pihole
+            showStats: false
+            hideErrors: true
+            widget:
+                type: pihole
+                url: http://192.168.0.13:8001
+                key: b7752b819a1f2982e45cb1831bffe36bef5363de6e197b1eb17978b3fea396b1
+
+        - Code:
+            icon: mdi-microsoft-visual-studio-code
+            href: https://code.anotherlife.pl
+            description: VS Code
+            server: code-server
+            container: code-server
+            showStats: false
+            hideErrors: true
+
+        - Authelia:
+            icon: mdi-play-network-outline
+            href: https://auth.anotherlife.pl
+            description: Authelia
+            server: authelia
+            container: authelia
+            showStats: false
+            hideErrors: true
+
+
+        - SyncThing:
+            icon: mdi-sync-circle
+            href: https://sync.hq.anotherlife.pl
+            description: SyncThing
+            server: SyncThing
+            container: SyncThing
+            showStats: false
+            hideErrors: true
+
+        - phpMyAdmin:
+            icon: mdi-play-network-outline
+            href: https://dbadmim.anotherlife.pl
+            description: phpMyAdmin
+            server: phpMyAdmin
+            container: phpMyAdmin
+            showStats: false
+            hideErrors: true
+
+    - Metrics:
+        - Alertmanager:
+            icon: mdi-home-assistant
+            href: https://alertmanager.anotherlife.pl
+            description: Alertmanager
+            server: alertmanager
+            container: alertmanager
+            showStats: false
+            hideErrors: true
+
+        - Prometheus:
+            icon: mdi-home-assistant
+            href: https://prom.anotherlife.pl
+            description: Prometheus
+            server: prometheus
+            container: prometheus
+            showStats: false
+            hideErrors: true
+            widget:
+                type: prometheus
+                url: http://192.168.0.13:9098
+
+        - Grafana:
+            icon: mdi-home-assistant
+            href: https://grafana.anotherlife.pl
+            description: Grafana
+            server: grafana
+            container: grafana
+            showStats: false
+            hideErrors: true
+
+        - Log:
+            icon: mdi-play-network-outline
+            href: https://log.anotherlife.pl
+            description: Docker Log
+            server: dozzle
+            container: dozzle
+            showStats: false
+            hideErrors: true
+
+        - Uptime:
+            icon: mdi-play-network-outline
+            href: https://uptime.anotherlife.pl
+            description: Uptime
+            server: uptime-kuma
+            container: uptime-kuma
+            showStats: false
+            hideErrors: true
+            widget:
+                type: uptimekuma
+                url: http://192.168.0.13:3001
+                slug: test
+                hideErrors: false
+
+    - Automation:
+        - Hass:
+            icon: mdi-home-assistant
+            href: https://hass.anotherlife.pl
+            description: Home Assistant
+            server: hass
+            container: hass
+            showStats: false
+            hideErrors: true
+
+        - zigbee2mqtt:
+            icon: mdi-zigbee
+            href: https://zigbee2mqtt.anotherlife.pl
+            description: zigbee2mqtt
+            server: zigbee2mqtt
+            container: zigbee2mqtt
+            showStats: false
+            hideErrors: true
+
+        - MqttExplorer:
+            icon: mdi-play-network-outline
+            href: https://mqttexplorer.anotherlife.pl
+            description: MqttExplorer
+            server: mqtt-explorer
+            container: mqtt-explorer
+            showStats: false
+            hideErrors: true
+
+
+
+
   widgets:
     - resources:
         # change backend to 'kubernetes' to use Kubernetes integration. Requires RBAC.
@@ -134,7 +317,39 @@ quicklaunch:
     providers:
       longhorn:
         url: http://longhorn-frontend.kubernetes.default.svc
+      openweathermap: openweathermapapikey
+      weatherapi: weatherapiapikey
 
+    title: AnotherHomePage
+    iconStyle: theme
+    layout:
+      Apps:
+        style: row
+        columns: 3
+        icon: mdi-wrench-clock
+      Tools:
+        style: row
+        columns: 3
+        icon: mdi-wrench-clock
+      Automation:
+        style: row
+        columns: 3
+        icon: mdi-wrench-clock
+      Metrics:
+        style: row
+        columns: 3
+        icon: mdi-wrench-clock
+      Zapas:
+        style: row
+        columns: 3
+        icon: mdi-wrench-clock
+    headerStyle: boxed
+    language: pl
+
+    quicklaunch:
+        searchDescriptions: true
+        hideInternetSearch: true
+        hideVisitURL: true
 
 
 
