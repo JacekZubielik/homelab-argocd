@@ -27,14 +27,14 @@ spec:
         image: docker.io/kostiscodefresh/simple-web-app:3d9b390
         ports:
           - containerPort: 80
-        volumeMounts:
-        - name: lh-storage-volume
-          mountPath: "/app/data"
+      #   volumeMounts:
+      #   - name: lh-storage-volume
+      #     mountPath: "/app/data"
 
-      volumes:
-      - name: lh-storage-volume
-        persistentVolumeClaim:
-          claimName: lh-pvc-1
+      # volumes:
+      # - name: lh-storage-volume
+      #   persistentVolumeClaim:
+      #     claimName: lh-pvc-1
 
 
 
