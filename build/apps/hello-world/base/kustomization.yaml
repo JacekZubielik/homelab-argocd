@@ -8,7 +8,7 @@ resources:
 - resources/service.yaml
 #- resources/sealed-sec.yaml
 #- resources/secret-test.yaml
-- resources/pvc.yaml
+#- resources/pvc.yaml
 
 commonLabels:
   app.kubernetes.io/name: hello-world-frontend
