@@ -8,6 +8,10 @@ spec:
     - port: 80
       protocol: TCP
       name: http
+  # selector:
+  #   app: traefik
+  #   task: whoami
   selector:
-    app: traefik
-    task: whoami
+    #app: traefik
+    app.kubernetes.io/name: traefik
+    task: whoami-frontend
