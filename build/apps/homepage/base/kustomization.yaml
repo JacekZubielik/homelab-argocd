@@ -14,7 +14,7 @@ helmCharts:
   releaseName: homepage
   namespace: homepage
   #includeCRDs: true
-  valuesFile: values.yaml
+  valuesFile: values1.yaml
 
   # valuesInline:
   #   installCRDs: true
