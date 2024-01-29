@@ -26,7 +26,7 @@ spec:
       #     claimName: lh-pvc-1
       containers:
         - name: webserver-simple
-          image: nginx/nginx #"docker.io/kostiscodefresh/simple-web-app:3d9b390"
+          image: "docker.io/kostiscodefresh/simple-web-app:3d9b390" #nginx/nginx #
           ports:
           - containerPort: 80
           # volumeMounts:
