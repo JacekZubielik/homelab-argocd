@@ -10,7 +10,7 @@ metadata:
 helmCharts:
 - name: homepage
   repo: https://jameswynn.github.io/helm-charts
-  version: 1.2.0
+  version: 1.2.3
   releaseName: homepage
   namespace: homepage
   #includeCRDs: true
