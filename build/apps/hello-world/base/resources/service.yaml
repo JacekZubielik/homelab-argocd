@@ -14,7 +14,6 @@ spec:
   #   app: traefik
   #   task: hello-world-frontend
   selector:
-    app: traefik
-    app.kubernetes.io/instance: infra-traefik
+    #app: traefik
     app.kubernetes.io/name: traefik
     task: hello-world-frontend
