@@ -28,6 +28,37 @@ config:
     openweathermap: openweathermapapikey
     weatherapi: weatherapiapikey
 
+  title: AnotherHomePage
+  iconStyle: theme
+  layout:
+    Apps:
+      style: row
+      columns: 3
+      icon: mdi-wrench-clock
+    Tools:
+      style: row
+      columns: 3
+      icon: mdi-wrench-clock
+    Automation:
+      style: row
+      columns: 3
+      icon: mdi-wrench-clock
+    Metrics:
+      style: row
+      columns: 3
+      icon: mdi-wrench-clock
+    Zapas:
+      style: row
+      columns: 3
+      icon: mdi-wrench-clock
+  headerStyle: boxed
+  language: pl
+
+quicklaunch:
+    searchDescriptions: true
+    hideInternetSearch: true
+    hideVisitURL: true
+
 
   bookmarks:
     - Developer:
