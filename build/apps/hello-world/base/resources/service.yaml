@@ -10,6 +10,9 @@ spec:
       protocol: TCP
       targetPort: 8080
       name: http
+  # selector:
+  #   app: traefik
+  #   task: hello-world-frontend
   selector:
-    app: traefik
-    task: hello-world-frontend
+    app.kubernetes.io/instance: traefik
+    app.kubernetes.io/name: traefik
