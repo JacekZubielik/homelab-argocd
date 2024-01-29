@@ -22,7 +22,7 @@ spec:
       services:
         - kind: TraefikService #Service
           name: prox-proxy
-          port: 80
+          port: 8006
       middlewares:
         - name: chain-traefik-dashboard #home-whitelist #headers #traefik-dashboard-auth  #chain-traefik-dashboard
           namespace: traefik
@@ -44,7 +44,7 @@ spec:
   weighted:
     services:
       - name: prox-proxy
-        port: 80
+        port: 8006
         weight: 1
 
 
