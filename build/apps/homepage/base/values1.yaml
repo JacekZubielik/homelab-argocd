@@ -68,45 +68,45 @@ config:
             showStats: false
             hideErrors: true
 
-    - Tools:
-        - Treafik:
-            icon: mdi-play-network-outline
-            href: https://dash.anotherlife.pl
-            description: Reverse Proxy
-            server: traefik
-            container: traefik
-            showStats: false
-            hideErrors: true
-            widget:
-                type: traefik
-                url: http://192.168.0.13:8080
+    # - Tools:
+    #     - Treafik:
+    #         icon: mdi-play-network-outline
+    #         href: https://dash.anotherlife.pl
+    #         description: Reverse Proxy
+    #         server: traefik
+    #         container: traefik
+    #         showStats: false
+    #         hideErrors: true
+    #         widget:
+    #             type: traefik
+    #             url: http://192.168.0.13:8080
 
-        - Portainer:
-            icon: mdi-play-network-outline
-            href: https://port.anotherlife.pl
-            description: Portainer
-            server: portainer
-            container: portainer
-            showStats: false
-            hideErrors: true
-            widget:
-                type: portainer
-                url: http://192.168.0.13:9001
-                env: 1
-                key: ptr_My0/9fDm3NgSf1XvA8tMk1eKL+9jxrs7hry/ajflb9U=
+        # - Portainer:
+        #     icon: mdi-play-network-outline
+        #     href: https://port.anotherlife.pl
+        #     description: Portainer
+        #     server: portainer
+        #     container: portainer
+        #     showStats: false
+        #     hideErrors: true
+        #     widget:
+        #         type: portainer
+        #         url: http://192.168.0.13:9001
+        #         env: 1
+        #         key: ptr_My0/9fDm3NgSf1XvA8tMk1eKL+9jxrs7hry/ajflb9U=
 
-        - Pi-hole:
-            icon: mdi-play-network-outline
-            href: https://dns.anotherlife.pl
-            description: Pi-hole
-            server: pihole
-            container: pihole
-            showStats: false
-            hideErrors: true
-            widget:
-                type: pihole
-                url: http://192.168.0.13:8001
-                key: b7752b819a1f2982e45cb1831bffe36bef5363de6e197b1eb17978b3fea396b1
+        # - Pi-hole:
+        #     icon: mdi-play-network-outline
+        #     href: https://dns.anotherlife.pl
+        #     description: Pi-hole
+        #     server: pihole
+        #     container: pihole
+        #     showStats: false
+        #     hideErrors: true
+        #     widget:
+        #         type: pihole
+        #         url: http://192.168.0.13:8001
+        #         key: b7752b819a1f2982e45cb1831bffe36bef5363de6e197b1eb17978b3fea396b1
 
         - Code:
             icon: mdi-microsoft-visual-studio-code
@@ -155,17 +155,17 @@ config:
             showStats: false
             hideErrors: true
 
-        - Prometheus:
-            icon: mdi-home-assistant
-            href: https://prom.anotherlife.pl
-            description: Prometheus
-            server: prometheus
-            container: prometheus
-            showStats: false
-            hideErrors: true
-            widget:
-                type: prometheus
-                url: http://192.168.0.13:9098
+        # - Prometheus:
+        #     icon: mdi-home-assistant
+        #     href: https://prom.anotherlife.pl
+        #     description: Prometheus
+        #     server: prometheus
+        #     container: prometheus
+        #     showStats: false
+        #     hideErrors: true
+        #     widget:
+        #         type: prometheus
+        #         url: http://192.168.0.13:9098
 
         - Grafana:
             icon: mdi-home-assistant
@@ -185,19 +185,19 @@ config:
             showStats: false
             hideErrors: true
 
-        - Uptime:
-            icon: mdi-play-network-outline
-            href: https://uptime.anotherlife.pl
-            description: Uptime
-            server: uptime-kuma
-            container: uptime-kuma
-            showStats: false
-            hideErrors: true
-            widget:
-                type: uptimekuma
-                url: http://192.168.0.13:3001
-                slug: test
-                hideErrors: false
+        # - Uptime:
+        #     icon: mdi-play-network-outline
+        #     href: https://uptime.anotherlife.pl
+        #     description: Uptime
+        #     server: uptime-kuma
+        #     container: uptime-kuma
+        #     showStats: false
+        #     hideErrors: true
+        #     widget:
+        #         type: uptimekuma
+        #         url: http://192.168.0.13:3001
+        #         slug: test
+        #         hideErrors: false
 
     - Automation:
         - Hass:
