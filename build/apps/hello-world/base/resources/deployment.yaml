@@ -27,9 +27,9 @@ spec:
         image: docker.io/kostiscodefresh/simple-web-app:3d9b390
         ports:
           - containerPort: 80
-        volumeMounts:
-        - mountPath: /app/data
-          name: lh-storage-volume
+        # volumeMounts:
+        # - mountPath: /app/data
+        #   name: lh-storage-volume
 
       volumes:
         - name: lh-storage-volume
