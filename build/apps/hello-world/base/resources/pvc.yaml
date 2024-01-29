@@ -4,9 +4,10 @@ kind: PersistentVolumeClaim
 metadata:
   name: lh-pvc-1
 spec:
+  storageClassName: longhorn
+  accessModes:
+    - ReadWriteOnce
   resources:
     requests:
-      storage: 1G
-  #volumeMode: ext4
-  accessModes:
-    - ReadWriteMany
+      storage: 1Gi
+
