@@ -52,7 +52,24 @@ config:
         memory: true
     - search:
         provider: duckduckgo
+        focus: true
         target: _blank
+    - datetime:
+        text_size: xl
+        locale: pl
+        format:
+          dateStyle: long
+          timeStyle: short
+    - openmeteo:
+        label: Gdańsk # optional
+        latitude: 54.345112
+        longitude: 18.600742
+        timezone: Europe/Warsaw # optional
+        units: metric # or imperial
+        cache: 5 # Time in minutes to cache API responses, to stay within limits
+
+
+
     ## Uncomment to enable Kubernetes integration
     - kubernetes:
         cluster:
