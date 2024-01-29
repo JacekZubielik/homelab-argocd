@@ -23,6 +23,12 @@ controller:
 config:
   # To use an existing ConfigMap uncomment this line and specify the name
   # useExistingConfigMap: existing-homepage-configmap
+
+  providers:
+    openweathermap: openweathermapapikey
+    weatherapi: weatherapiapikey
+
+
   bookmarks:
     - Developer:
         - Github:
