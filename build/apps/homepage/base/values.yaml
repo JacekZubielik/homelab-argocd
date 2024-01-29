@@ -1,0 +1,40 @@
+enableRbac: true
+serviceAccount:
+  create: true
+config:
+  bookmarks:
+  services:
+    - Streaming:
+      - Twitch:
+          href: https://dashboard.twitch.tv/u/graytonio/home
+          icon: twitch
+      - YouTube:
+          href: https://studio.youtube.com/channel/UCYVRYd86F-3zLtyIIyyfrWQ
+          icon: youtube
+    - Operations:
+      - Flagsmith:
+          href: https://app.flagsmith.com/
+  widgets:
+    - kubernetes:
+        cluster:
+          show: true
+          cpu: true
+          memory: true
+          showLabel: true
+          label: "cluster"
+        nodes:
+          show: true
+          cpu: true
+          memory: true
+          showLabel: true
+    - longhorn:
+        expanded: true
+        total: true
+        labels: true
+        nodes: true
+  kubernetes:
+    mode: cluster
+  settings:
+    providers:
+      longhorn:
+        url: http://longhorn-frontend.longhorn-system.svc
