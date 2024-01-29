@@ -14,7 +14,7 @@ metadata:
 
 spec:
   entryPoints:
-    - web #websecure
+    - websecure
   routes:
     - kind: Rule
       #match: Host(`hello.<secret:private-domain>`)
