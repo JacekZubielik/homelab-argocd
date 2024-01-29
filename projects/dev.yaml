@@ -96,13 +96,13 @@ spec:
 
         syncOptions:
         - CreateNamespace=true
-        - preserveResourcesOnDeletion=false
-        - SkipDryRunOnMissingResource=true
+        #- preserveResourcesOnDeletion=false
+        #- SkipDryRunOnMissingResource=true
         #- Replace=true
         #- ServerSideApply=true
         #- ApplyOutOfSyncOnly=true
         #- Validate=true
-        - PruneLast=true
+        #- PruneLast=true
         automated:
           allowEmpty: true
           prune: false
