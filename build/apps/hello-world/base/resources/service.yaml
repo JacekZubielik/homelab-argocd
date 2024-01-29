@@ -17,3 +17,4 @@ spec:
     app: traefik
     app.kubernetes.io/instance: traefik
     app.kubernetes.io/name: traefik
+    task: hello-world-frontend
