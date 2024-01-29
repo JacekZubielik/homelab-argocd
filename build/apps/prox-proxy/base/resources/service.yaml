@@ -8,7 +8,7 @@ spec:
   type: ExternalName
   ports:
     - name: prox-proxy
-      port: 8006  #80
+      port: 80  #80
       targetPort: 8006
   externalName: 192.168.40.18
   selector:
