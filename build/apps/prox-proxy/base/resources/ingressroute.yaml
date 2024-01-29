@@ -44,7 +44,7 @@ spec:
   weighted:
     services:
       - name: prox-proxy
-        port: 8006 #80
+        port: 80 #80
         weight: 1
 
 
