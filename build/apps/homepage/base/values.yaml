@@ -95,36 +95,36 @@ config:
         #         env: 1
         #         key: ptr_My0/9fDm3NgSf1XvA8tMk1eKL+9jxrs7hry/ajflb9U=
 
-        # - Pi-hole:
-        #     icon: mdi-play-network-outline
-        #     href: https://dns.anotherlife.pl
-        #     description: Pi-hole
-        #     server: pihole
-        #     container: pihole
+        - Pi-hole:
+            icon: mdi-play-network-outline
+            href: https://dns.anotherlife.pl
+            description: Pi-hole
+            server: pihole
+            container: pihole
+            showStats: false
+            hideErrors: true
+            widget:
+                type: pihole
+                url: http://192.168.0.13:8001
+                key: b7752b819a1f2982e45cb1831bffe36bef5363de6e197b1eb17978b3fea396b1
+
+        # - Code:
+        #     icon: mdi-microsoft-visual-studio-code
+        #     href: https://code.anotherlife.pl
+        #     description: VS Code
+        #     server: code-server
+        #     container: code-server
         #     showStats: false
         #     hideErrors: true
-        #     widget:
-        #         type: pihole
-        #         url: http://192.168.0.13:8001
-        #         key: b7752b819a1f2982e45cb1831bffe36bef5363de6e197b1eb17978b3fea396b1
 
-        - Code:
-            icon: mdi-microsoft-visual-studio-code
-            href: https://code.anotherlife.pl
-            description: VS Code
-            server: code-server
-            container: code-server
-            showStats: false
-            hideErrors: true
-
-        - Authelia:
-            icon: mdi-play-network-outline
-            href: https://auth.anotherlife.pl
-            description: Authelia
-            server: authelia
-            container: authelia
-            showStats: false
-            hideErrors: true
+        # - Authelia:
+        #     icon: mdi-play-network-outline
+        #     href: https://auth.anotherlife.pl
+        #     description: Authelia
+        #     server: authelia
+        #     container: authelia
+        #     showStats: false
+        #     hideErrors: true
 
 
         - SyncThing:
@@ -136,14 +136,14 @@ config:
             showStats: false
             hideErrors: true
 
-        - phpMyAdmin:
-            icon: mdi-play-network-outline
-            href: https://dbadmim.anotherlife.pl
-            description: phpMyAdmin
-            server: phpMyAdmin
-            container: phpMyAdmin
-            showStats: false
-            hideErrors: true
+        # - phpMyAdmin:
+        #     icon: mdi-play-network-outline
+        #     href: https://dbadmim.anotherlife.pl
+        #     description: phpMyAdmin
+        #     server: phpMyAdmin
+        #     container: phpMyAdmin
+        #     showStats: false
+        #     hideErrors: true
 
     - Metrics:
         - Alertmanager:
@@ -318,7 +318,7 @@ config:
 
 
 
-  docker:
+  #docker:
 
 persistence:
   logs:
