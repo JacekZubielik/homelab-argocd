@@ -104,22 +104,22 @@ grafana:
       # This is a path to a file inside the dashboards directory inside the chart directory
       file: dashboards/router.json
 
-    extra:
-      pihole-overview:
-        gnetId: 10176
-        datasource: Prometheus
-      argocd-overview:
-        gnetId: 14584
-        datasource: Prometheus
-      cert-manager-overview:
-        gnetId: 11001
-        datasource: Prometheus
-      external-dns-overview:
-        gnetId: 15038
-        datasource: Prometheus
-      blackbox-exporter-overview:
-        gnetId: 5345
-        datasource: Prometheus
+    # extra:
+    #   pihole-overview:
+    #     gnetId: 10176
+    #     datasource: Prometheus
+    #   argocd-overview:
+    #     gnetId: 14584
+    #     datasource: Prometheus
+    #   cert-manager-overview:
+    #     gnetId: 11001
+    #     datasource: Prometheus
+    #   external-dns-overview:
+    #     gnetId: 15038
+    #     datasource: Prometheus
+    #   blackbox-exporter-overview:
+    #     gnetId: 5345
+    #     datasource: Prometheus
 
 
   #envFromSecret: grafana-secret
@@ -225,23 +225,9 @@ prometheus:
     storageSpec:
       volumeClaimTemplate:
         spec:
-          storageClassName: longhorn #local-path #zfs-local-dataset
+          storageClassName: longhorn-retain #local-path #zfs-local-dataset
           accessModes: ["ReadWriteOnce"]
           resources:
             requests:
               storage: 5Gi
 
-  # ingress:
-  #   enabled: true
-  #   ingressClassName: nginx-internal
-  #   annotations:
-  #     cert-manager.io/cluster-issuer: letsencrypt-prod-dns
-  #     external-dns.alpha.kubernetes.io/enabled: "true"
-  #   hosts:
-  #     - prometheus.internal.grigri.cloud
-  #   paths:
-  #     - /
-  #   tls:
-  #     - secretName: prometheus-general-tls
-  #       hosts:
-  #         - prometheus.internal.grigri.cloud
