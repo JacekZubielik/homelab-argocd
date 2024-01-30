@@ -22,7 +22,7 @@ spec:
     metadata:
       labels:
         app.kubernetes.io/name: uptime-kuma
-        task: uptime-kuma
+        #task: uptime-kuma
     spec:
       containers:
       - name: uptime-kuma
