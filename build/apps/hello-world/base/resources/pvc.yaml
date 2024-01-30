@@ -12,6 +12,6 @@ spec:
   resources:
     requests:
       storage: 2Gi
-  selector:
-    matchLabels:
-      volume: hello-world-frontend
+  # selector:
+  #   matchLabels:
+  #     volume: hello-world-frontend
