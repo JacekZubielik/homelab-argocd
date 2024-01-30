@@ -15,7 +15,7 @@ parameters:
   staleReplicaTimeout: "30"
   fromBackup: ""
   fsType: "ext4"
-  #dataLocality: "disabled"
+  dataLocality: "disabled"
 # ---
 # kind: StorageClass
 # apiVersion: storage.k8s.io/v1
