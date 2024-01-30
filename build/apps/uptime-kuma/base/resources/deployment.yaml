@@ -19,10 +19,10 @@ spec:
   #     app.kubernetes.io/name: uptime-kuma
 
   template:
-    # metadata:
-    #   labels:
-    #     app.kubernetes.io/name: uptime-kuma
-    #     task: uptime-kuma
+    metadata:
+      labels:
+        app.kubernetes.io/name: uptime-kuma
+        task: uptime-kuma
     spec:
       containers:
       - name: uptime-kuma
