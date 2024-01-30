@@ -58,22 +58,10 @@ grafana:
   #   userKey: username
   #   passwordKey: password
 
-  # ingress:
-  #   enabled: true
-  #   ingressClassName: nginx-external
-  #   annotations:
-  #     external-dns.alpha.kubernetes.io/enabled: "true"
-  #     external-dns.alpha.kubernetes.io/target: grigri.cloud
-  #     cert-manager.io/cluster-issuer: letsencrypt-prod-dns
-  #   hosts:
-  #     - &host grafana.grigri.cloud
-  #   tls:
-  #     - secretName: grafana-general-tls
-  #       hosts:
-  #         - *host
 
   plugins:
     - grafana-piechart-panel
+
   persistence:
     enabled: false
   inMemory:
@@ -99,20 +87,39 @@ grafana:
     #   requests:
     #     cpu: 10m
     #     memory: 64Mi
-    dashboards:
-      enabled: true
-      label: grafana_dashboard
-      resource: configmap
-      folderAnnotation: grafana.grafana.com/dashboards.target-directory
-      provider:
-        foldersFromFilesStructure: true
-      annotations:
-        grafana.grafana.com/dashboards.target-directory: "/tmp/dashboards/kubernetes"
-      searchNamespace: ALL
+
+  dashboards:
+    enabled: true
+    label: grafana_dashboard
+    resource: configmap
+    folderAnnotation: grafana.grafana.com/dashboards.target-directory
+    provider:
+      foldersFromFilesStructure: true
+    annotations:
+      grafana.grafana.com/dashboards.target-directory: "/tmp/dashboards/kubernetes"
+    searchNamespace: ALL
+
+
     custom-dashboard:
       # This is a path to a file inside the dashboards directory inside the chart directory
       file: dashboards/router.json
 
+    extra:
+      pihole-overview:
+        gnetId: 10176
+        datasource: Prometheus
+      argocd-overview:
+        gnetId: 14584
+        datasource: Prometheus
+      cert-manager-overview:
+        gnetId: 11001
+        datasource: Prometheus
+      external-dns-overview:
+        gnetId: 15038
+        datasource: Prometheus
+      blackbox-exporter-overview:
+        gnetId: 5345
+        datasource: Prometheus
 
 
   #envFromSecret: grafana-secret
