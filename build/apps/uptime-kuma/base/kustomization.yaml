@@ -10,9 +10,9 @@ resources:
 #- resources/secret-test.yaml
 #- resources/claim.yaml
 
-# commonLabels:
-#   app.kubernetes.io/name: uptime-kuma
-#   app: uptime-kuma
+commonLabels:
+  app.kubernetes.io/name: uptime-kuma
+  app: uptime-kuma
 
 configMapGenerator:
 - name: uptime-kuma-config
