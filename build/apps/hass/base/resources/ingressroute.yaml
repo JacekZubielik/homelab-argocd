@@ -13,7 +13,7 @@ metadata:
 
 spec:
   entryPoints:
-    - websecure
+    - web #secure
   routes:
     - kind: Rule
       #match: Host(`hello.<secret:private-domain>`)
@@ -21,7 +21,7 @@ spec:
       services:
         - kind: TraefikService
           name: home-assistant
-          port: 80
+          port: 8123
       # middlewares:
       #   - name: headers #traefik-dashboard-auth  #chain-traefik-dashboard
       #     namespace: traefik
@@ -43,6 +43,6 @@ spec:
   weighted:
     services:
       - name: home-assistant
-        port: 80
+        port: 8123
         weight: 1
 
