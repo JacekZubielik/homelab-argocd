@@ -4,7 +4,7 @@ kind: Service
 metadata:
   name: home-assistant
 spec:
-  type: ClusterIP
+  #type: ClusterIP
   ports:
     - name: http
       protocol: TCP
