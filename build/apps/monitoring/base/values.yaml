@@ -52,12 +52,6 @@ alertmanager:
             - alertname="PrometheusOperatorRejectedResources"
           receiver: empty
 
-
-
-
-
-
-
     # resources:
     #   requests:
     #     cpu: 10m
@@ -66,12 +60,20 @@ alertmanager:
     #     cpu: 200m
     #     memory: 250Mi
 
+# ===========================================================================================
+# Grafana
+# Default values: https://github.com/grafana/helm-charts/blob/main/charts/grafana/values.yaml
+# ===========================================================================================
+
 grafana:
   enabled: true
   defaultDashboardsTimezone: cet
   deploymentStrategy:
     type: Recreate
   revisionHistoryLimit: 2
+  serviceMonitor:
+    scrapeTimeout: 5s
+
   # needed for loading initial datasources
   # admin:
   #   existingSecret: grafana-admin-secret
@@ -88,7 +90,6 @@ grafana:
       - ReadWriteOnce
     finalizers:
       - kubernetes.io/pvc-protection
-
 
   inMemory:
     enabled: true
@@ -120,9 +121,7 @@ grafana:
           url: http://loki-stack:3100
           access: proxy
 
-
-
-  sidecar:
+  #sidecar:
     # resources:
     #   limits:
     #     memory: 128Mi
@@ -142,26 +141,26 @@ grafana:
       searchNamespace: ALL
 
 
-  custom-dashboard:
-    # This is a path to a file inside the dashboards directory inside the chart directory
-    file: dashboards/router.json
+  # custom-dashboard:
+  #   # This is a path to a file inside the dashboards directory inside the chart directory
+  #   file: dashboards/router.json
 
-    # extra:
-    #   pihole-overview:
-    #     gnetId: 10176
-    #     datasource: Prometheus
-    #   argocd-overview:
-    #     gnetId: 14584
-    #     datasource: Prometheus
-    #   cert-manager-overview:
-    #     gnetId: 11001
-    #     datasource: Prometheus
-    #   external-dns-overview:
-    #     gnetId: 15038
-    #     datasource: Prometheus
-    #   blackbox-exporter-overview:
-    #     gnetId: 5345
-    #     datasource: Prometheus
+      extra:
+        pihole-overview:
+          gnetId: 10176
+          datasource: Prometheus
+        argocd-overview:
+          gnetId: 14584
+          datasource: Prometheus
+        cert-manager-overview:
+          gnetId: 11001
+          datasource: Prometheus
+        external-dns-overview:
+          gnetId: 15038
+          datasource: Prometheus
+        blackbox-exporter-overview:
+          gnetId: 5345
+          datasource: Prometheus
 
 
   #envFromSecret: grafana-secret
