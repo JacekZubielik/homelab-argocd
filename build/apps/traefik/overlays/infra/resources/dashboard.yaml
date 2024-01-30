@@ -12,6 +12,16 @@ metadata:
     cert-manager.io/cluster-issuer: route53-letsencrypt-staging
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
     argocd.argoproj.io/sync-wave: "2"
+    gethomepage.dev/description: traefik test tool
+    gethomepage.dev/enabled: "true"
+    gethomepage.dev/group: Tools
+    gethomepage.dev/icon: homepage.png
+    gethomepage.dev/name: traefik
+    gethomepage.dev/widget.type: "traefik"
+    gethomepage.dev/widget.url: "https://traefik.anotherlife.pl"
+
+
+
 spec:
   entryPoints:
     - websecure
@@ -34,10 +44,3 @@ spec:
         sans:
           - .anotherlife.pl
 
-    # gethomepage.dev/description: traefik test tool
-    # gethomepage.dev/enabled: "true"
-    # gethomepage.dev/group: Tools
-    # gethomepage.dev/icon: homepage.png
-    # gethomepage.dev/name: traefik
-    # gethomepage.dev/widget.type: "traefik"
-    # gethomepage.dev/widget.url: "https://traefik.anotherlife.pl"
