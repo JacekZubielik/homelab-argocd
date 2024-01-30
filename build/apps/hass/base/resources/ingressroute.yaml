@@ -21,7 +21,7 @@ spec:
       services:
         - kind: TraefikService
           name: home-assistant
-          port: 8123
+          port: 80
       middlewares:
         - name: headers #traefik-dashboard-auth  #chain-traefik-dashboard
           namespace: traefik
@@ -43,6 +43,6 @@ spec:
   weighted:
     services:
       - name: home-assistant
-        port: 8123
+        port: 80
         weight: 1
 
