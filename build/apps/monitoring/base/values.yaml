@@ -44,7 +44,14 @@ grafana:
     - grafana-piechart-panel
 
   persistence:
-    enabled: false
+    enabled: true
+    size: 10Gi
+    accessModes:
+      - ReadWriteOnce
+    finalizers:
+      - kubernetes.io/pvc-protection
+
+
   inMemory:
     enabled: true
     ## The maximum usage on memory medium EmptyDir would be
@@ -53,13 +60,29 @@ grafana:
     ##
     sizeLimit: 256Mi
 
-  additionalDataSources:
-    - name: Loki
-      type: loki
-      url: http://loki.loki:3100
-      access: proxy
-      isDefault: false
-      version: 1
+  # additionalDataSources:
+  #   - name: Loki
+  #     type: loki
+  #     url: http://loki.loki:3100
+  #     access: proxy
+  #     isDefault: false
+  #     version: 1
+
+  datasources:
+    datasources.yaml:
+      apiVersion: 1
+      datasources:
+        - name: Prometheus
+          type: prometheus
+          url: http://kube-prometheus-stack-prometheus:9090
+          access: proxy
+          # isDefault: true
+        - name: Loki
+          type: loki
+          url: http://loki-stack:3100
+          access: proxy
+
+
 
   sidecar:
     # resources:
