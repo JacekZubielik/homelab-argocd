@@ -8,14 +8,10 @@ defaultRules:
 alertmanager:
   alertmanagerSpec:
     replicas: 1
-
     useExistingSecret: true
-
     # configMaps:
     #   - alertmanager-telegram-template
-
     configSecret: alertmanager-secret
-
     topologySpreadConstraints:
       - maxSkew: 1
         topologyKey: kubernetes.io/hostname
@@ -23,6 +19,7 @@ alertmanager:
         labelSelector:
           matchLabels:
             app: alertmanager
+
     # resources:
     #   requests:
     #     cpu: 10m
@@ -31,33 +28,17 @@ alertmanager:
     #     cpu: 200m
     #     memory: 250Mi
 
-  # ingress:
-  #   enabled: true
-  #   ingressClassName: nginx-internal
-  #   annotations:
-  #     cert-manager.io/cluster-issuer: letsencrypt-prod-dns
-  #     external-dns.alpha.kubernetes.io/enabled: "true"
-  #   hosts:
-  #     - alertmanager.internal.grigri.cloud
-  #   paths:
-  #     - /
-  #   tls:
-  #     - secretName: alertmanager-general-tls
-  #       hosts:
-  #         - alertmanager.internal.grigri.cloud
-
-
 grafana:
   enabled: true
-
   defaultDashboardsTimezone: cet
+  deploymentStrategy:
+    type: Recreate
 
   # needed for loading initial datasources
   # admin:
   #   existingSecret: grafana-admin-secret
   #   userKey: username
   #   passwordKey: password
-
 
   plugins:
     - grafana-piechart-panel
