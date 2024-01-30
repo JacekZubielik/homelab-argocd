@@ -88,21 +88,21 @@ grafana:
     #     cpu: 10m
     #     memory: 64Mi
 
-  dashboards:
-    enabled: true
-    label: grafana_dashboard
-    resource: configmap
-    folderAnnotation: grafana.grafana.com/dashboards.target-directory
-    provider:
-      foldersFromFilesStructure: true
-    annotations:
-      grafana.grafana.com/dashboards.target-directory: "/tmp/dashboards/kubernetes"
-    searchNamespace: ALL
+    dashboards:
+      enabled: true
+      label: grafana_dashboard
+      resource: configmap
+      folderAnnotation: grafana.grafana.com/dashboards.target-directory
+      provider:
+        foldersFromFilesStructure: true
+      annotations:
+        grafana.grafana.com/dashboards.target-directory: "/tmp/dashboards/kubernetes"
+      searchNamespace: ALL
 
 
-    custom-dashboard:
-      # This is a path to a file inside the dashboards directory inside the chart directory
-      file: dashboards/router.json
+  custom-dashboard:
+    # This is a path to a file inside the dashboards directory inside the chart directory
+    file: dashboards/router.json
 
     # extra:
     #   pihole-overview:
