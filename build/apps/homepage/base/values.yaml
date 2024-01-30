@@ -195,7 +195,7 @@ config:
             hideErrors: true
             widget:
                 type: uptimekuma
-                url: http://uptime-kuma.default.svc:3001 #http://192.168.0.13:3001
+                url: http://dev-uptime-kuma.default.svc:3001 #http://192.168.0.13:3001
                 slug: test
                 hideErrors: false
 
