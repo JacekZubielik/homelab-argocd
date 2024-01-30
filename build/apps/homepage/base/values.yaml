@@ -68,18 +68,18 @@ config:
             showStats: false
             hideErrors: true
 
-    # - Tools:
-    #     - Treafik:
-    #         icon: mdi-play-network-outline
-    #         href: https://dash.anotherlife.pl
-    #         description: Reverse Proxy
-    #         server: traefik
-    #         container: traefik
-    #         showStats: false
-    #         hideErrors: true
-    #         widget:
-    #             type: traefik
-    #             url: http://192.168.0.13:8080
+    - Tools:
+        - Treafik:
+            icon: mdi-play-network-outline
+            href: https://traefik.anotherlife.pl
+            description: Reverse Proxy
+            server: traefik
+            container: traefik
+            showStats: false
+            hideErrors: true
+            widget:
+                type: traefik
+                url: https://traefik.anotherlife.pl
 
         # - Portainer:
         #     icon: mdi-play-network-outline
@@ -185,19 +185,19 @@ config:
             showStats: false
             hideErrors: true
 
-        # - Uptime:
-        #     icon: mdi-play-network-outline
-        #     href: https://uptime.anotherlife.pl
-        #     description: Uptime
-        #     server: uptime-kuma
-        #     container: uptime-kuma
-        #     showStats: false
-        #     hideErrors: true
-        #     widget:
-        #         type: uptimekuma
-        #         url: http://192.168.0.13:3001
-        #         slug: test
-        #         hideErrors: false
+        - Uptime:
+            icon: mdi-play-network-outline
+            href: https://uptime.anotherlife.pl
+            description: Uptime
+            server: uptime-kuma
+            container: uptime-kuma
+            showStats: false
+            hideErrors: true
+            widget:
+                type: uptimekuma
+                url: http://192.168.0.13:3001
+                slug: test
+                hideErrors: false
 
     - Automation:
         - Hass:
@@ -226,9 +226,6 @@ config:
             container: mqtt-explorer
             showStats: false
             hideErrors: true
-
-
-
 
   widgets:
     - resources:
