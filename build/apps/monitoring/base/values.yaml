@@ -10,7 +10,7 @@ defaultRules:
     kubeApiserverBurnrate: true
     kubeApiserverHistogram: true
     kubeApiserverSlos: true
-    kubelet: true
+    #kubelet: true
     kubeProxy: true
     kubePrometheusGeneral: true
     kubePrometheusNodeRecording: true
@@ -28,6 +28,7 @@ defaultRules:
     prometheusOperator: true
 
 alertmanager:
+  fullnameOverride: alertmanager
   alertmanagerSpec:
     replicas: 1
     useExistingSecret: true
@@ -89,6 +90,7 @@ alertmanager:
 
 grafana:
   enabled: true
+  fullnameOverride: grafana
   defaultDashboardsTimezone: cet
   defaultDashboardsEnabled: true
   deploymentStrategy:
@@ -210,13 +212,25 @@ grafana:
     #   name_attribute_path: preferred_username
     #   role_attribute_path: contains(scopes[*], 'admin') && 'Admin' || 'Viewer'
 
-
-
   serviceMonitor:
     enabled: true
     path: /metrics
     labels:
       release: monitoring
+
+
+
+kubelet:
+  enabled: true
+  serviceMonitor:
+    metricRelabelings:
+      - action: replace
+        sourceLabels:
+          - node
+        targetLabel: instance
+
+kubeApiServer:
+  enabled: true
 
 coreDns:
   enabled: true
@@ -225,16 +239,61 @@ coreDns:
       k8s-app: kube-dns
 
 kubeEtcd:
-  enabled: false
+  enabled: true
+  endpoints: # ips of servers
+    - 192.168.40.100
+  service:
+    enabled: true
+    port: 2381
+    targetPort: 2381
 
 kubeScheduler:
-  enabled: false
+  enabled: true
+  # endpoints: # ips of servers
+  #   - 192.168.30.38
+  #   - 192.168.30.39
+  #   - 192.168.30.40
 
 kubeProxy:
-  enabled: false
+  enabled: true
+  # endpoints: # ips of servers
+  #   - 192.168.30.38
+  #   - 192.168.30.39
+  #   - 192.168.30.40
+
+kube-state-metrics:
+  fullnameOverride: kube-state-metrics
+  selfMonitor:
+    enabled: true
+  prometheus:
+    monitor:
+      enabled: true
+      relabelings:
+        - action: replace
+          regex: (.*)
+          replacement: $1
+          sourceLabels:
+            - __meta_kubernetes_pod_node_name
+          targetLabel: kubernetes_node
+
+nodeExporter:
+  enabled: true
+  serviceMonitor:
+    relabelings:
+      - action: replace
+        regex: (.*)
+        replacement: $1
+        sourceLabels:
+          - __meta_kubernetes_pod_node_name
+        targetLabel: kubernetes_node
+
 
 kubeControllerManager:
-  enabled: false
+  enabled: true
+  # endpoints: # ips of servers 
+  #   - 192.168.30.38
+  #   - 192.168.30.39
+  #   - 192.168.30.40
 
 prometheusOperator:
   admissionWebhooks:
@@ -293,11 +352,6 @@ prometheus-node-exporter:
   #     cpu: 250m
   #   limits:
   #     memory: 2048Mi
-
-
-
-
-
 
 prometheus:
   prometheusSpec:
