@@ -5,10 +5,13 @@ metadata:
   name: lh-pvc-1
 spec:
   storageClassName: longhorn-retain
+  volumeName: hello-world-frontend
   accessModes:
     - ReadWriteOnce #ReadWriteMany #ReadWriteOnce
   #volumeMode: Block
   resources:
     requests:
       storage: 2Gi
-
+  selector:
+    matchLabels:
+      volume: hello-world-frontend
