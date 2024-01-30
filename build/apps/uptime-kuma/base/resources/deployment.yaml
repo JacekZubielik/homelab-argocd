@@ -14,9 +14,9 @@ spec:
   strategy:
     type: Recreate
 
-  selector:
-    matchLabels:
-      app.kubernetes.io/name: uptime-kuma
+  # selector:
+  #   matchLabels:
+  #     app.kubernetes.io/name: uptime-kuma
 
   template:
     metadata:
