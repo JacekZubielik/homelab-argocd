@@ -5,6 +5,8 @@ metadata:
   name: longhorn-retain
   annotations:
     storageclass.kubernetes.io/is-default-class: "true"
+    #node.longhorn.io/default-node-tags: '["fast","media-pvc"]'
+    node.longhorn.io/create-default-disk: 'media-pvc'
 
 provisioner: driver.longhorn.io
 allowVolumeExpansion: true
