@@ -105,8 +105,8 @@ config:
             hideErrors: true
             widget:
                 type: pihole
-                url: http://192.168.0.13:8001
-                key: b7752b819a1f2982e45cb1831bffe36bef5363de6e197b1eb17978b3fea396b1
+                url: http://192.168.40.1:8080
+                key: 8a9a3b5d6f9c873584ecddb03ad7c5dedc640655feee115bb81addede3d1b0c5
 
         # - Code:
         #     icon: mdi-microsoft-visual-studio-code
