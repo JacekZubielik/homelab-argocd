@@ -71,7 +71,7 @@ config:
     - Tools:
         - Treafik:
             icon: mdi-play-network-outline
-            href: https://traefik.anotherlife.pl
+            href: https://traefik.anotherlife.pl/dashboard/#/
             description: Reverse Proxy
             server: traefik
             container: traefik
@@ -79,7 +79,7 @@ config:
             hideErrors: true
             widget:
                 type: traefik
-                url: https://traefik.anotherlife.pl
+                url: http://192.168.40.119:9000
 
         # - Portainer:
         #     icon: mdi-play-network-outline
