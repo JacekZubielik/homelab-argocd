@@ -7,15 +7,15 @@ helmCharts:
     namespace: monitoring
     releaseName: monitoring
     repo: https://prometheus-community.github.io/helm-charts
-    valuesFile: values.yaml
-    version: 56.0.3 #55.5.0
+    valuesFile: values-test-from-old-cfg #values.yaml
+    version: 56.3.0 #56.0.3 #55.5.0
 
   - name: prometheus-blackbox-exporter
     namespace: monitoring
     releaseName: monitoring
     repo: https://prometheus-community.github.io/helm-charts
     valuesFile: blackbox-exporter-values.yaml
-    version: 8.10.0
+    version: 8.10.1
 
   - name: prometheus-smartctl-exporter
     namespace: monitoring
