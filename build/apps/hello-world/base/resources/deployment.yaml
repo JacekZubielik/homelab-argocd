@@ -26,11 +26,12 @@ spec:
       - name: webserver-simple
         image: docker.io/kostiscodefresh/simple-web-app:3d9b390
         imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80
         volumeMounts:
         - name: hello-world-frontend
           mountPath: /app/data
-        ports:
-        - containerPort: 80
+
       volumes:
       - name: hello-world-frontend
         persistentVolumeClaim:

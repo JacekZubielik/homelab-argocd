@@ -40,11 +40,12 @@ spec:
           value: "3001"
         ports: 
           - containerPort: 3001
-      #   volumeMounts:
-      #   - mountPath: /app/data
-      #     name: uptime-kuma-content
-      # volumes:
-      # - name: uptime-kuma-content
-      #   persistentVolumeClaim:
-      #     claimName:  uptime-kuma-claim
-        
+
+        volumeMounts:
+        - name: uptime-kuma-content
+          mountPath: /app/data
+
+      volumes:
+      - name: uptime-kuma-content
+        persistentVolumeClaim:
+          claimName: uptime-kuma-claim

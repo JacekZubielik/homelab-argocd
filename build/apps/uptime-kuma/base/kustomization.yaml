@@ -8,7 +8,7 @@ resources:
 - resources/service.yaml
 #- resources/sealed-sec.yaml
 #- resources/secret-test.yaml
-#- resources/claim.yaml
+- resources/claim.yaml
 
 commonLabels:
   app.kubernetes.io/name: uptime-kuma

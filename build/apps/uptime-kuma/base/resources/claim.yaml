@@ -1,11 +1,17 @@
-kind: PersistentVolumeClaim
+---
 apiVersion: v1
+kind: PersistentVolumeClaim
 metadata:
   name: uptime-kuma-claim
 spec:
-  storageClassName: longhorn
+  storageClassName: longhorn-retain
+  #volumeName: hello-world-frontend
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteOnce #ReadWriteMany #ReadWriteOnce
+  #volumeMode: Block
   resources:
     requests:
-      storage: 5Gi
+      storage: 2Gi
+  # selector:
+  #   matchLabels:
+  #     volume: hello-world-frontend
