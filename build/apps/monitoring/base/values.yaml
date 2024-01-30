@@ -1,9 +1,31 @@
 defaultRules:
+  create: true
   rules:
-    etcd: false
-    # Disable until fixing: https://github.com/prometheus-community/helm-charts/issues/1283
-    kubeApiserve: false
-    kubeProxy: false
+    alertmanager: true
+    etcd: true
+    configReloaders: true
+    general: true
+    k8s: true
+    kubeApiserverAvailability: true
+    kubeApiserverBurnrate: true
+    kubeApiserverHistogram: true
+    kubeApiserverSlos: true
+    kubelet: true
+    kubeProxy: true
+    kubePrometheusGeneral: true
+    kubePrometheusNodeRecording: true
+    kubernetesApps: true
+    kubernetesResources: true
+    kubernetesStorage: true
+    kubernetesSystem: true
+    kubeScheduler: true
+    kubeStateMetrics: true
+    network: true
+    node: true
+    nodeExporterAlerting: true
+    nodeExporterRecording: true
+    prometheus: true
+    prometheusOperator: true
 
 alertmanager:
   alertmanagerSpec:
@@ -68,6 +90,7 @@ alertmanager:
 grafana:
   enabled: true
   defaultDashboardsTimezone: cet
+  defaultDashboardsEnabled: true
   deploymentStrategy:
     type: Recreate
   revisionHistoryLimit: 2
@@ -77,8 +100,8 @@ grafana:
   # needed for loading initial datasources
   # admin:
   #   existingSecret: grafana-admin-secret
-  #   userKey: username
-  #   passwordKey: password
+    # userKey: admin-user
+    # passwordKey: admin-password
 
   plugins:
     - grafana-piechart-panel
