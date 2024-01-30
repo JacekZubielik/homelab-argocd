@@ -3,7 +3,7 @@
   "userGivenName": "home-assistant",
   "destNamespace": "dev",
   "destServer": "https://kubernetes.default.svc",
-  "srcPath": "build/apps/home-assistant/overlays/dev",
+  "srcPath": "build/apps/hass/overlays/dev",
   "srcRepoURL": "https://github.com/jacekzubielik/homelab-argocd.git",
   "srcTargetRevision": "",
   "syncWave": "4",
