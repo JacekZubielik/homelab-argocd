@@ -214,40 +214,82 @@ kubeControllerManager:
   enabled: false
 
 prometheusOperator:
-  # https://github.com/helm/charts/issues/19147
   admissionWebhooks:
     enabled: false
   tls:
     enabled: false
+  # prometheusConfigReloader:
+  #   resources:
+  #     requests:
+  #       cpu: 200m
+  #       memory: 50Mi
+  #     limits:
+  #       memory: 100Mi
 
-  # resources:
-  #   limits:
-  #     memory: 200Mi
-  #   requests:
-  #     cpu: 10m
-  #     memory: 100Mi
+# prometheus-node-exporter:
+#   prometheus:
+#     monitor:
+#       enabled: true
+#       relabelings:
+#         - action: replace
+#           sourceLabels:
+#             - __meta_kubernetes_pod_node_name
+#           targetLabel: instance
+# ## smart disk data metrics
+# extraArgs:
+#   - --collector.filesystem.ignored-mount-points=^/(dev|proc|sys|var/lib/docker/.+|var/lib/kubelet/.+)($|/)
+#   - --collector.filesystem.ignored-fs-types=^(autofs|binfmt_misc|bpf|cgroup2?|configfs|debugfs|devpts|devtmpfs|fusectl|hugetlbfs|iso9660|mqueue|nsfs|overlay|proc|procfs|pstore|rpc_pipefs|securityfs|selinuxfs|squashfs|sysfs|tracefs)$
+#   # this is the new line
+#   - --collector.textfile.directory=/host/root/var/log/prometheus
+
 
 prometheus-node-exporter:
+  fullnameOverride: node-exporter
+  podLabels:
+    jobLabel: node-exporter
+  extraArgs:
+    - --collector.filesystem.mount-points-exclude=^/(dev|proc|sys|var/lib/docker/.+|var/lib/kubelet/.+)($|/)
+    - --collector.filesystem.fs-types-exclude=^(autofs|binfmt_misc|bpf|cgroup2?|configfs|debugfs|devpts|devtmpfs|fusectl|hugetlbfs|iso9660|mqueue|nsfs|overlay|proc|procfs|pstore|rpc_pipefs|securityfs|selinuxfs|squashfs|sysfs|tracefs)$
+    - --collector.textfile.directory=/host/root/var/log/prometheus
+
+  service:
+    portName: http-metrics
   prometheus:
     monitor:
       enabled: true
       relabelings:
         - action: replace
+          regex: (.*)
+          replacement: $1
           sourceLabels:
             - __meta_kubernetes_pod_node_name
-          targetLabel: instance
-## smart disk data metrics
-extraArgs:
-  - --collector.filesystem.ignored-mount-points=^/(dev|proc|sys|var/lib/docker/.+|var/lib/kubelet/.+)($|/)
-  - --collector.filesystem.ignored-fs-types=^(autofs|binfmt_misc|bpf|cgroup2?|configfs|debugfs|devpts|devtmpfs|fusectl|hugetlbfs|iso9660|mqueue|nsfs|overlay|proc|procfs|pstore|rpc_pipefs|securityfs|selinuxfs|squashfs|sysfs|tracefs)$
-  # this is the new line
-  - --collector.textfile.directory=/host/root/var/log/prometheus
+          targetLabel: kubernetes_node
+  # resources:
+  #   requests:
+  #     memory: 512Mi
+  #     cpu: 250m
+  #   limits:
+  #     memory: 2048Mi
+
+
+
+
+
 
 prometheus:
   prometheusSpec:
     replicas: 1
     retentionSize: 3GB
     retention: 7d
+    ruleSelectorNilUsesHelmValues: true
+    serviceMonitorSelectorNilUsesHelmValues: true
+    podMonitorSelectorNilUsesHelmValues: true
+    probeSelectorNilUsesHelmValues: true
+    scrapeConfigSelectorNilUsesHelmValues: true
+    replicaExternalLabelName: "replica"
+    enableAdminAPI: true
+    walCompression: true
+
 
     # resources:
     #   requests:
@@ -256,13 +298,6 @@ prometheus:
     #   limits:
     #     cpu: 4
     #     memory: 2.5Gi
-
-    # Change this to false doesn't require label `release: monitoring` for following resources:
-    ruleSelectorNilUsesHelmValues: true
-    serviceMonitorSelectorNilUsesHelmValues: true
-    podMonitorSelectorNilUsesHelmValues: true
-    probeSelectorNilUsesHelmValues: true
-    scrapeConfigSelectorNilUsesHelmValues: true
 
     storageSpec:
       volumeClaimTemplate:
