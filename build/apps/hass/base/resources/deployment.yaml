@@ -10,8 +10,8 @@ metadata:
 
 spec:
   revisionHistoryLimit: 3
-  replicas: 1
-  #progressDeadlineSeconds: 600
+  replicas: 2
+  progressDeadlineSeconds: 600
   strategy:
     type: Recreate
 
@@ -37,27 +37,27 @@ spec:
             containerPort: 8123
             protocol: TCP
 
-        livenessProbe:
-          tcpSocket:
-            port: 8123
-          initialDelaySeconds: 0
-          failureThreshold: 3
-          timeoutSeconds: 1
-          periodSeconds: 10
-        readinessProbe:
-          tcpSocket:
-            port: 8123
-          initialDelaySeconds: 0
-          failureThreshold: 3
-          timeoutSeconds: 1
-          periodSeconds: 10
-        startupProbe:
-          tcpSocket:
-            port: 8123
-          initialDelaySeconds: 0
-          failureThreshold: 30
-          timeoutSeconds: 1
-          periodSeconds: 5
+        # livenessProbe:
+        #   tcpSocket:
+        #     port: 8123
+        #   initialDelaySeconds: 0
+        #   failureThreshold: 3
+        #   timeoutSeconds: 1
+        #   periodSeconds: 10
+        # readinessProbe:
+        #   tcpSocket:
+        #     port: 8123
+        #   initialDelaySeconds: 0
+        #   failureThreshold: 3
+        #   timeoutSeconds: 1
+        #   periodSeconds: 10
+        # startupProbe:
+        #   tcpSocket:
+        #     port: 8123
+        #   initialDelaySeconds: 0
+        #   failureThreshold: 30
+        #   timeoutSeconds: 1
+        #   periodSeconds: 5
 
         volumeMounts:
           - name: hass-data-volume
