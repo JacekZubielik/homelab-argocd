@@ -6,13 +6,15 @@ metadata:
   labels:
     app.kubernetes.io/name: home-assistant
     app: home-assistant
+    name: home-assistant
 
 spec:
-  revisionHistoryLimit: 2
+  revisionHistoryLimit: 3
   replicas: 1
-  progressDeadlineSeconds: 600
+  #progressDeadlineSeconds: 600
   strategy:
     type: Recreate
+
   selector:
     matchLabels:
       app.kubernetes.io/name: home-assistant
@@ -21,48 +23,49 @@ spec:
     metadata:
       labels:
         app.kubernetes.io/name: home-assistant
+        task: home-assistant
     spec:
-      hostNetwork: true
+      #hostNetwork: true
       containers:
       - name: home-assistant
         image: "ghcr.io/home-assistant/home-assistant:2023.12.1"
         imagePullPolicy: IfNotPresent
-        securityContext:
-          privileged: null
+        # securityContext:
+        #   privileged: null
         ports:
           - name: http
             containerPort: 8123
             protocol: TCP
 
-        # livenessProbe:
-        #   tcpSocket:
-        #     port: 8123
-        #   initialDelaySeconds: 0
-        #   failureThreshold: 3
-        #   timeoutSeconds: 1
-        #   periodSeconds: 10
-        # readinessProbe:
-        #   tcpSocket:
-        #     port: 8123
-        #   initialDelaySeconds: 0
-        #   failureThreshold: 3
-        #   timeoutSeconds: 1
-        #   periodSeconds: 10
-        # startupProbe:
-        #   tcpSocket:
-        #     port: 8123
-        #   initialDelaySeconds: 0
-        #   failureThreshold: 30
-        #   timeoutSeconds: 1
-        #   periodSeconds: 5
+        livenessProbe:
+          tcpSocket:
+            port: 8123
+          initialDelaySeconds: 0
+          failureThreshold: 3
+          timeoutSeconds: 1
+          periodSeconds: 10
+        readinessProbe:
+          tcpSocket:
+            port: 8123
+          initialDelaySeconds: 0
+          failureThreshold: 3
+          timeoutSeconds: 1
+          periodSeconds: 10
+        startupProbe:
+          tcpSocket:
+            port: 8123
+          initialDelaySeconds: 0
+          failureThreshold: 30
+          timeoutSeconds: 1
+          periodSeconds: 5
 
         volumeMounts:
           - name: hass-data-volume
             mountPath: /config
-    volumes:
-      - name: hass-data-volume
-        persistentVolumeClaim:
-          claimName: pvc-hass-data
+      volumes:
+        - name: hass-data-volume
+          persistentVolumeClaim:
+            claimName: pvc-hass-data
 
 
       #     env:
