@@ -15,5 +15,3 @@ spec:
   # selector:
   #   matchLabels:
   #     volume: hello-world-frontend
-	
-
