@@ -79,7 +79,7 @@ config:
             hideErrors: true
             widget:
                 type: traefik
-                url: http://192.168.40.119:9000
+                url: http://192.168.40.180:9000
 
         # - Portainer:
         #     icon: mdi-play-network-outline
