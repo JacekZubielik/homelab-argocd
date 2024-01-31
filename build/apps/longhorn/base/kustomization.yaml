@@ -3,10 +3,17 @@ kind: Kustomization
 namespace: longhorn-system
 
 metadata:
+  labels:
+    app.kubernetes.io/managed-by: argocd-autopilot
+    app.kubernetes.io/name: longhorn
+    application-role: dev
   annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
     argocd.argoproj.io/sync-wave: "0"
     #argocd.argoproj.io/compare-options: IgnoreExtraneous
+    ##############application-role: dev
+
+
 
 helmCharts:
 - name: longhorn
