@@ -379,7 +379,7 @@ prometheus:
     storageSpec:
       volumeClaimTemplate:
         spec:
-          storageClassName: longhorn-retain
+          storageClassName: local-path #longhorn-retain
           accessModes: ["ReadWriteOnce"]
           resources:
             requests:
