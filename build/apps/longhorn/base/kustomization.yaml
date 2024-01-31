@@ -27,8 +27,8 @@ configMapGenerator:
   literals:
   - TZ="Europe/Warsaw"
 
-resources:
-  - resources/ingressroute.yaml
+# resources:
+#   - resources/ingressroute.yaml
 #- resources/ingress.yaml
   # - resources/storageclass.yaml
 
