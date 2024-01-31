@@ -2,22 +2,25 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 metadata:
+  labels:
+    app.kubernetes.io/name: whoami
   annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
-    argocd.argoproj.io/sync-wave: "4"
-
-resources:
-- resources/deployment.yaml
-#- resources/ingress.yaml
-- resources/ingressroute.yaml
-- resources/service.yaml
-
-commonLabels:
-  app.kubernetes.io/name: whoami
-  app: whoami
+    argocd.argoproj.io/compare-options: IgnoreExtraneous
 
 configMapGenerator:
 - name: whoami-config
   literals:
-  - TZ="Europe/Warsaw"
+  - TZ=CET
+
+resources:
+- resources/deployment.yaml
+- resources/ingressroute.yaml
+- resources/service.yaml
+
+# commonLabels:
+#   app.kubernetes.io/name: whoami
+#   app: whoami
+
+
 

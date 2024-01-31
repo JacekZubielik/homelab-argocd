@@ -3,11 +3,13 @@ apiVersion: v1
 metadata:
   name: pcp-proxy
 spec:
-  type: ExternalName
-  ports:
-    - name: pcp-proxy
-      port: 80 #8123
-      targetPort: 80
   externalName: 192.168.40.12
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 80
   selector:
     app.kubernetes.io/instance: traefik
+    task: pcp-proxy
+  type: ExternalName

@@ -11,15 +11,15 @@ metadata:
 configMapGenerator:
 - name: pcp-proxy-config
   literals:
-  - TZ="Europe/Warsaw"
+  - TZ=CET
 
 resources:
 - resources/ingressroute.yaml
 - resources/service.yaml
 
-commonLabels:
-  app.kubernetes.io/name: pcp-proxy
-  app: pcp-proxy
+# commonLabels:
+#   app.kubernetes.io/name: pcp-proxy
+#   app: pcp-proxy
 
 
 
