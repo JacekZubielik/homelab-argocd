@@ -14,15 +14,15 @@ configMapGenerator:
         key: git_username
         name: autopilot-secret
   name: argocd-cm
-# - behavior: merge
-#   literals:
-#   - server.insecure="true"
-#   name: argocd-cmd-params-cm
+- behavior: merge
+  literals:
+  - server.insecure="true"
+  name: argocd-cmd-params-cm
 
 resources:
   - github.com/argoproj-labs/argocd-autopilot/manifests/base?ref=v0.4.17
   - argocd-cm-cmp-kustomize-build-with-helm.yaml
-  - ingressroute.yaml
+  #- ingressroute.yaml
 # - vs.yaml
 # patchesStrategicMerge:
 # - istio_patches.yaml
