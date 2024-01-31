@@ -4,12 +4,10 @@
 
 serviceAccount:
   create: true
-  # name: ""
-  # annotations: {}
-  # labels: {}
+  name: ""
+  annotations: {}
+  labels: {}
   automountServiceAccountToken: true
-# Automounting API credentials for a particular pod
-# automountServiceAccountToken: true
 
 longhorn:
   defaultSettings:
