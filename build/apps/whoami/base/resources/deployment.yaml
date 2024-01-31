@@ -8,9 +8,9 @@ spec:
   strategy:
     type: Recreate
 
-  # selector:
-  #   matchLabels:
-  #     app.kubernetes.io/name: whoami-frontend
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: whoami-frontend
 
   template:
     metadata:
