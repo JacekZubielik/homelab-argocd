@@ -10,7 +10,6 @@ metadata:
     #external-dns.alpha.kubernetes.io/target: infra.anotherlife.pl
     kubernetes.io/ingress.class: traefik-external
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
-    argocd.argoproj.io/sync-wave: "4"
 
 spec:
   entryPoints:
@@ -20,7 +19,7 @@ spec:
       #match: Host(`hello.<secret:private-domain>`)
       match: Host(`pcp-proxy.anotherlife.pl`)
       services:
-        - kind: TraefikService #Service
+        - kind: TraefikService
           name: pcp-proxy
           port: 80
       middlewares:
