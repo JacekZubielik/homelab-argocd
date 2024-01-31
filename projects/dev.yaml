@@ -71,9 +71,9 @@ spec:
       labels:
         app.kubernetes.io/managed-by: argocd-autopilot
         app.kubernetes.io/name: '{{ appName }}'
-        application-role: '{{ default "app" .appRole }}'
+        application-role: '{{ appRole }}' #'{{ default "app" appRole }}'
       annotations:
-        argocd.argoproj.io/sync-wave: '{{ default "5" .syncWave }}'
+        argocd.argoproj.io/sync-wave: '{{ default "5" syncWave }}'
       name: dev-{{ userGivenName }}
       namespace: argocd
     spec:
