@@ -110,7 +110,7 @@ spec:
           backoff:
             duration: 5s
             factor: 2
-            maxDuration: 5m0s
+            maxDuration: 8m0s
           limit: 2
 
         syncOptions:
