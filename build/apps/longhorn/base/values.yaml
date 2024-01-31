@@ -21,23 +21,22 @@ longhorn:
     defaultClassReplicaCount: 1    
     defaultClass: true
     defaultFsType: ext4
-    reclaimPolicy: Delete
     defaultDataLocality: disabled # best-effort otherwise
-  reclaimPolicy: Retain
-  migratable: false
-  recurringJobSelector:
-    enable: false
-    jobList: []
-  backingImage:
-    enable: false
-    name: ~
-    dataSourceType: ~
-    dataSourceParameters: ~
-    expectedChecksum: ~
-  defaultNodeSelector:
-    enable: false # disable by default
-    selector: ""
-  removeSnapshotsDuringFilesystemTrim: ignored # "enabled" or "disabled" otherwise
+    reclaimPolicy: Retain
+    migratable: false
+    recurringJobSelector:
+      enable: false
+      jobList: []
+    backingImage:
+      enable: false
+      name: ~
+      dataSourceType: ~
+      dataSourceParameters: ~
+      expectedChecksum: ~
+    defaultNodeSelector:
+      enable: false # disable by default
+      selector: ""
+    removeSnapshotsDuringFilesystemTrim: ignored # "enabled" or "disabled" otherwise
 
   longhornUI:
     replicas: 2
