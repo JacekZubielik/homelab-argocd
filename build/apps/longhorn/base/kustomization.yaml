@@ -30,7 +30,7 @@ configMapGenerator:
 resources:
   - resources/ingressroute.yaml
 #- resources/ingress.yaml
-  - resources/storageclass.yaml
+  # - resources/storageclass.yaml
 
 # patchesStrategicMerge:
 #   - resources/storageclass.yaml
