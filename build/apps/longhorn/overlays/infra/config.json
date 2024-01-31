@@ -6,7 +6,7 @@
   "srcPath": "build/apps/longhorn/overlays/infra",
   "srcRepoURL": "https://github.com/jacekzubielik/homelab-argocd.git",
   "srcTargetRevision": "",
-  "syncWave": "-2",
+  "syncWave": "0",
   "appRole": "infra",
   "labels": null,
   "annotations": null,
