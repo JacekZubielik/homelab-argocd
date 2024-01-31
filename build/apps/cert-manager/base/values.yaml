@@ -2,7 +2,7 @@
 #
 # helm show values jetstack/cert-manager >> cert-manager-values.yaml
 
-#installCRDs: true
+installCRDs: true
 
 global:
   leaderElection:
