@@ -20,3 +20,10 @@ configMapGenerator:
   literals:
   - TZ="Europe/Warsaw"
 
+  # valuesInline:
+  #   alertmanager:
+  #     persistentVolume:
+  #       storageClass: manual
+  #   server:
+  #     persistentVolume:
+  #       storageClass: manual
