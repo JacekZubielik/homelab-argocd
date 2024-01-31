@@ -1,6 +1,16 @@
 # helm repo add longhorn https://charts.longhorn.io
 # helm show values longhorn/longhorn  >> longhorn-values.yaml
 
+
+serviceAccount:
+  create: true
+  # name: ""
+  # annotations: {}
+  # labels: {}
+  automountServiceAccountToken: true
+# Automounting API credentials for a particular pod
+# automountServiceAccountToken: true
+
 longhorn:
   defaultSettings:
     nodeDownPodDeletionPolicy: delete-both-statefulset-and-deployment-pod
