@@ -4,9 +4,8 @@ namespace: longhorn-system
 
 metadata:
   labels:
-    app.kubernetes.io/managed-by: argocd-autopilot
     app.kubernetes.io/name: longhorn
-    application-role: dev
+    #application-role: dev
   annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
     argocd.argoproj.io/sync-wave: "0"
