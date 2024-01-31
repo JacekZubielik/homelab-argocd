@@ -6,10 +6,15 @@ installCRDs: true
 
 global:
   leaderElection:
-    namespace: "kube-system"
+    namespace: "cert-manager"
   rbac:
     create: true
     aggregateClusterRoles: true
+
+  podSecurityPolicy:
+    enabled: false
+    useAppArmor: true
+
 
 fullnameOverride: "cert-manager"
 
