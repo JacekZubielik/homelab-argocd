@@ -28,7 +28,8 @@ kind: ApplicationSet
 metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "0"
-  #creationTimestamp: null
+    #argocd.argoproj.io/sync-wave: '{{ syncWave }}'
+  creationTimestamp: null
   name: infra
   namespace: argocd
 spec:
@@ -71,8 +72,8 @@ spec:
         app.kubernetes.io/managed-by: argocd-autopilot
         app.kubernetes.io/name: '{{ appName }}'
         application-role: '{{ appRole }}'
-      # annotations:
-      #   argocd.argoproj.io/sync-wave: '{{ default "5" syncWave }}'
+      annotations:
+        argocd.argoproj.io/sync-wave: '{{ syncWave }}'
 
 
       name: infra-{{ userGivenName }}
@@ -86,10 +87,10 @@ spec:
         kind: Application
         jsonPointers:
           - /status
-      - group: argoproj.io
-        kind: Application
-        jsonPointers:
-          - /operation
+      # - group: argoproj.io
+      #   kind: Application
+      #   jsonPointers:
+      #     - /operation
       project: infra
       source:
         path: '{{ srcPath }}'
