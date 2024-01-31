@@ -2,21 +2,14 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: hello-world-frontend
-  labels:
-    app.kubernetes.io/name: hello-world-frontend
-    app: hello-world-frontend
-    name: hello-world-frontend
-
 spec:
+  replicas: 2
   revisionHistoryLimit: 3
-  replicas: 1
-  strategy:
-    type: Recreate
-
   selector:
     matchLabels:
       app.kubernetes.io/name: hello-world-frontend
-
+  strategy:
+    type: Recreate
   template:
     metadata:
       labels:
@@ -24,14 +17,13 @@ spec:
         task: hello-world-frontend
     spec:
       containers:
-      - name: webserver-simple
-        image: docker.io/kostiscodefresh/simple-web-app:3d9b390
-        imagePullPolicy: IfNotPresent
-
-        ports:
-          - name: http
-            containerPort: 80
-            protocol: TCP
+        - image: 'docker.io/kostiscodefresh/simple-web-app:3d9b390'
+          imagePullPolicy: IfNotPresent
+          name: webserver-simple
+          ports:
+            - containerPort: 80
+              name: http
+              protocol: TCP
 
         # livenessProbe:
         #   tcpSocket:

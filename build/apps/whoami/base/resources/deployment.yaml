@@ -3,15 +3,13 @@ kind: Deployment
 metadata:
   name: whoami-frontend
 spec:
-  revisionHistoryLimit: 3
   replicas: 2
-  strategy:
-    type: Recreate
-
+  revisionHistoryLimit: 3
   selector:
     matchLabels:
       app.kubernetes.io/name: whoami-frontend
-
+  strategy:
+    type: Recreate
   template:
     metadata:
       labels:
@@ -19,7 +17,10 @@ spec:
         task: whoami-frontend
     spec:
       containers:
-        - name: whoami
-          image: traefik/whoami
+        - image: traefik/whoami
+          imagePullPolicy: IfNotPresent
+          name: whoami
           ports:
             - containerPort: 80
+            name: http
+            protocol: TCP

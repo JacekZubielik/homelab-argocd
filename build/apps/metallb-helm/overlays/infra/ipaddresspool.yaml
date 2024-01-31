@@ -2,15 +2,10 @@ apiVersion: metallb.io/v1beta1
 kind: IPAddressPool
 metadata:
   name: dev-lb-iprange
-  namespace: metallb-system
-  # labels:
-  #   pod-security.kubernetes.io/audit: privileged
-  #   pod-security.kubernetes.io/enforce: privileged
-  #   pod-security.kubernetes.io/warn: privileged
 spec:
   addresses:
   - 192.168.40.180-192.168.40.200
-  #autoAssign: true
+  autoAssign: false
   avoidBuggyIPs: false
 ---
 apiVersion: metallb.io/v1beta1
@@ -18,10 +13,6 @@ kind: L2Advertisement
 metadata:
   name: l2-advertisement
   namespace: metallb-system
-  # labels:
-  #   pod-security.kubernetes.io/audit: privileged
-  #   pod-security.kubernetes.io/enforce: privileged
-  #   pod-security.kubernetes.io/warn: privileged
 spec:
   ipAddressPools:
   - dev-lb-iprange

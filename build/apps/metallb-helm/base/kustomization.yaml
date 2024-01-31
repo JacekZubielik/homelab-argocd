@@ -5,13 +5,13 @@ kind: Kustomization
 metadata:
   annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
-    argocd.argoproj.io/sync-wave: "0"
-
+    argocd.argoproj.io/compare-options: IgnoreExtraneous
   labels:
+    app.kubernetes.io/name: metallb
     pod-security.kubernetes.io/audit: privileged
     pod-security.kubernetes.io/enforce: privileged
     pod-security.kubernetes.io/warn: privileged
-    app.kubernetes.io/name: metallb
+    #existingConfigMap: metallb-config
 
 helmCharts:
   - name: metallb
@@ -22,14 +22,10 @@ helmCharts:
     includeCRDs: true
     valuesFile: values.yaml 
 
-commonLabels:
-  app.kubernetes.io/name: metallb
-  app: metallb
-
 configMapGenerator:
 - name: metallb-config
   literals:
-  - TZ="Europe/Warsaw"
+  - TZ=CET
 
 
 # resources:

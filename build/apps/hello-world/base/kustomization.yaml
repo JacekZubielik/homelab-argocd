@@ -1,6 +1,18 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
+metadata:
+  labels:
+    app.kubernetes.io/name: hello-world-frontend
+  annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+    argocd.argoproj.io/compare-options: IgnoreExtraneous
+
+configMapGenerator:
+- name: pcp-proxy-config
+  literals:
+  - TZ=CET
+
 resources:
 - resources/deployment.yaml
 #- resources/ingress.yaml
@@ -10,20 +22,3 @@ resources:
 #- resources/sealed-sec.yaml
 #- resources/secret-test.yaml
 #- resources/pvc.yaml
-
-commonLabels:
-  app.kubernetes.io/name: hello-world-frontend
-  app: hello-world-frontend
-
-configMapGenerator:
-- name: hello-world-frontend-config
-  literals:
-  - TZ="Europe/Warsaw"
-
-  # valuesInline:
-  #   alertmanager:
-  #     persistentVolume:
-  #       storageClass: manual
-  #   server:
-  #     persistentVolume:
-  #       storageClass: manual
