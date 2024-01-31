@@ -1,8 +1,6 @@
 kind: Service
 apiVersion: v1
 metadata:
-  labels:
-    k8s-app: prox-proxy
   name: prox-proxy
 spec:
   type: ExternalName
@@ -13,4 +11,3 @@ spec:
   externalName: 192.168.40.18
   selector:
     app.kubernetes.io/instance: traefik
-    app.kubernetes.io/name: traefik

@@ -7,6 +7,9 @@
   "srcRepoURL": "https://github.com/jacekzubielik/homelab-argocd.git",
   "srcTargetRevision": "",
   "syncWave": "4",
+  "appRole": "proxy",
   "labels": null,
-  "annotations": null
+  "annotations": null,
+  "exclude": "",
+  "include": ""
 }
