@@ -56,14 +56,14 @@ spec:
           timeoutSeconds: 1
           periodSeconds: 5
 
-        volumeMounts:
-        - name: hello-world-frontend
-          mountPath: /app/data
+      #   volumeMounts:
+      #   - name: hello-world-frontend
+      #     mountPath: /app/data
 
-      volumes:
-      - name: hello-world-frontend
-        persistentVolumeClaim:
-          claimName: lh-pvc-1
+      # volumes:
+      # - name: hello-world-frontend
+      #   persistentVolumeClaim:
+      #     claimName: lh-pvc-1
 
 
 
