@@ -6,7 +6,7 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
     argocd.argoproj.io/sync-wave: "0"
-    argocd.argoproj.io/compare-options: IgnoreExtraneous
+    #argocd.argoproj.io/compare-options: IgnoreExtraneous
 
 helmCharts:
 - name: longhorn
@@ -39,6 +39,7 @@ patches:
   - path: patches/ignore-deployment-mutation-patch.yaml
     target:
       kind: Deployment
+
   # - path: resources/storageclass.yaml
   #   target:
   #     kind: StorageClass
