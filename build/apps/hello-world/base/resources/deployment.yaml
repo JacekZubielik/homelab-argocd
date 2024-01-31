@@ -9,7 +9,7 @@ metadata:
 
 spec:
   revisionHistoryLimit: 3
-  replicas: 2
+  replicas: 1
   strategy:
     type: Recreate
 

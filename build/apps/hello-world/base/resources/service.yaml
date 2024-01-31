@@ -11,5 +11,5 @@ spec:
       targetPort: 8080
   selector:
     #app: traefik
-    app.kubernetes.io/name: traefik
+    app.kubernetes.io/name: hello-world-frontend
     task: hello-world-frontend
