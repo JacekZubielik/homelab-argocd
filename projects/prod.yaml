@@ -4,7 +4,7 @@ metadata:
   annotations:
     argocd-autopilot.argoproj-labs.io/default-dest-server: https://kubernetes.default.svc
     argocd.argoproj.io/sync-options: PruneLast=true
-    argocd.argoproj.io/sync-wave: "2"
+    argocd.argoproj.io/sync-wave: '{{ syncWave }}'
   creationTimestamp: null
   name: prod
   namespace: argocd
@@ -27,12 +27,11 @@ apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
   annotations:
-    argocd.argoproj.io/sync-wave: "2"
+    argocd.argoproj.io/sync-wave: '{{ syncWave }}'
   creationTimestamp: null
   name: prod
   namespace: argocd
 spec:
-  #goTemplate: true
   generators:
   - git:
       files:
@@ -71,9 +70,9 @@ spec:
       labels:
         app.kubernetes.io/managed-by: argocd-autopilot
         app.kubernetes.io/name: '{{ appName }}'
-      #   application-role: '{{ default "app" appRole }}'
-      # annotations:
-      #   argocd.argoproj.io/sync-wave: '{{ default "5" syncWave }}'
+        application-role: '{{ appRole }}'
+      annotations:
+        argocd.argoproj.io/sync-wave: '{{ syncWave }}'
       name: prod-{{ userGivenName }}
       namespace: argocd
     spec:
@@ -84,10 +83,13 @@ spec:
       - group: argoproj.io
         jsonPointers:
         - /status
+      - group: argoproj.io
         kind: Application
+        jsonPointers:
+          - /operation
       project: prod
       source:
-        path: '{{ srcPath }}/prod'
+        path: '{{ srcPath }}'
         repoURL: '{{ srcRepoURL }}'
         targetRevision: '{{ srcTargetRevision }}'
       syncPolicy:
@@ -102,13 +104,13 @@ spec:
         - CreateNamespace=true
         - preserveResourcesOnDeletion=false
         - SkipDryRunOnMissingResource=true
-        #- Replace=true
+        - Replace=false
         #- ServerSideApply=true
-        - ApplyOutOfSyncOnly=true
+        - ApplyOutOfSyncOnly=false
         #- Validate=true
-        - PruneLast=true
+        - PruneLast=false
         automated:
           allowEmpty: true
-          prune: true
-          selfHeal: true
+          prune: false
+          selfHeal: false
 status: {}

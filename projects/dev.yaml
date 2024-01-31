@@ -4,7 +4,7 @@ metadata:
   annotations:
     argocd-autopilot.argoproj-labs.io/default-dest-server: https://kubernetes.default.svc
     argocd.argoproj.io/sync-options: PruneLast=true
-    argocd.argoproj.io/sync-wave: '{{ syncWave }}' #"4"
+    argocd.argoproj.io/sync-wave: '{{ syncWave }}'
   creationTimestamp: null
   name: dev
   namespace: argocd
@@ -27,7 +27,6 @@ apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
   annotations:
-    #argocd.argoproj.io/sync-wave: "4" 
     argocd.argoproj.io/sync-wave: '{{ syncWave }}'
   creationTimestamp: null
   name: dev
@@ -71,7 +70,7 @@ spec:
       labels:
         app.kubernetes.io/managed-by: argocd-autopilot
         app.kubernetes.io/name: '{{ appName }}'
-        application-role: '{{ appRole }}' #'{{ default "app" appRole }}'
+        application-role: '{{ appRole }}'
       annotations:
         argocd.argoproj.io/sync-wave: '{{ syncWave }}'
       name: dev-{{ userGivenName }}
@@ -84,7 +83,11 @@ spec:
       - group: argoproj.io
         jsonPointers:
         - /status
+      - group: argoproj.io
         kind: Application
+        jsonPointers:
+          - /operation
+
       project: dev
       source:
         path: '{{ srcPath }}'

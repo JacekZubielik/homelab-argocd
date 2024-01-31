@@ -5,14 +5,9 @@ namespace: longhorn-system
 metadata:
   labels:
     app.kubernetes.io/name: longhorn
-    #application-role: dev
   annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
-    argocd.argoproj.io/sync-wave: "0"
-    #argocd.argoproj.io/compare-options: IgnoreExtraneous
-    ##############application-role: dev
-
-
+    argocd.argoproj.io/compare-options: IgnoreExtraneous
 
 helmCharts:
 - name: longhorn
@@ -26,7 +21,6 @@ helmCharts:
   #   installCRDs: true
   #   namespace: longhorn-system
   #   fullnameOverride: longhorn-system
-
 
 configMapGenerator:
 - name: longhorn-config
