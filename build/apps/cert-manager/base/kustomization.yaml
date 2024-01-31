@@ -13,7 +13,7 @@ helmCharts:
   version: v1.13.3
   releaseName: cert-manager
   namespace: cert-manager
-  includeCRDs: true
+  #includeCRDs: true
   valuesFile: values.yaml
 
   # valuesInline:
@@ -23,8 +23,8 @@ helmCharts:
     #     namespace: "kube-system"
     # fullnameOverride: "cert-manager"
 
-#resources:
-#- https://github.com/cert-manager/cert-manager/releases/download/v1.13.3/cert-manager.crds.yaml
+resources:
+- https://github.com/cert-manager/cert-manager/releases/download/v1.13.3/cert-manager.crds.yaml
 
 patches:
 # label app.kubernetes.io/instance=cert-manager causes warnings for all 6 Cert Manager CRDs in ArgoCD, eg:
