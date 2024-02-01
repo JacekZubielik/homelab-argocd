@@ -3,7 +3,6 @@ apiVersion: traefik.io/v1alpha1
 kind: TLSOption
 metadata:
   name: tls-ver13
-  #namespace: dev #traefik
   labels:
     app.kubernetes.io/name: traefik
     app: traefik
@@ -31,7 +30,6 @@ apiVersion: traefik.io/v1alpha1
 kind: TLSOption
 metadata:
   name: tls-ver12
-  #namespace: traefik
   labels:
     app.kubernetes.io/name: traefik
     app: traefik

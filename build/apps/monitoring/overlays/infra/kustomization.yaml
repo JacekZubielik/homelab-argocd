@@ -7,12 +7,3 @@ kind: Kustomization
 resources:
 - ../../base
 #- resources/ingressroute.yaml
-
-# commonLabels:
-#   app.kubernetes.io/name: kube-prometheus-stack
-#   app: kube-prometheus-stack
-
-configMapGenerator:
-- name: kube-prometheus-stack-config
-  literals:
-  - TZ="cet" #"Europe/Warsaw"

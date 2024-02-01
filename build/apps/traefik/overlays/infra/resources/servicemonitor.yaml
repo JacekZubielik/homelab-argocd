@@ -3,13 +3,12 @@ apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   name: traefik
-  namespace: traefik
+metadata:
   annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
-    argocd.argoproj.io/sync-wave: "2"
+    argocd.argoproj.io/compare-options: IgnoreExtraneous
   labels:
     app.kubernetes.io/name: traefik
-    app: traefik
     release: kube-prometheus-stack
 spec:
   jobLabel: traefik-metrics

@@ -10,12 +10,3 @@ resources:
 - resources/default.svc-certificate.yaml
 - resources/default.svc-issuer.yaml
 #- resources/crds.yaml
-
-# commonLabels:
-#   app.kubernetes.io/name: cert-manager
-#   app: cert-manager
-
-# configMapGenerator:
-# - name: cert-manager-config
-#   literals:
-#   - TZ="Europe/Warsaw"

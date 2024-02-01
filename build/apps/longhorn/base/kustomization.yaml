@@ -2,11 +2,11 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 metadata:
-  labels:
-    app.kubernetes.io/name: longhorn
   annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
     argocd.argoproj.io/compare-options: IgnoreExtraneous
+  labels:
+    app.kubernetes.io/name: longhorn
 
 helmCharts:
 - name: longhorn
@@ -24,7 +24,7 @@ helmCharts:
 configMapGenerator:
 - name: longhorn-config
   literals:
-  - TZ=CET #"Europe/Warsaw"
+  - TZ=CET 
 
 # resources:
 #   - resources/ingressroute.yaml

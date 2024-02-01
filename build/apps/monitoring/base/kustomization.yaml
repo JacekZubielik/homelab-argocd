@@ -4,7 +4,9 @@ kind: Kustomization
 metadata:
   annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
-    argocd.argoproj.io/sync-wave: "1"
+    argocd.argoproj.io/compare-options: IgnoreExtraneous
+  labels:
+    app.kubernetes.io/name: kube-prometheus-stack
 
 helmCharts:
   - includeCRDs: true
@@ -28,6 +30,11 @@ helmCharts:
     repo: https://prometheus-community.github.io/helm-charts
     valuesFile: smartctl-exporter-values.yaml
     version: 0.7.0
+
+configMapGenerator:
+- name: pcp-proxy-config
+  literals:
+  - TZ=CET
 
 resources:
   - resources/ingressroute.yaml

@@ -5,7 +5,9 @@ kind: Kustomization
 metadata:
   annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
-    argocd.argoproj.io/sync-wave: "0"
+    argocd.argoproj.io/compare-options: IgnoreExtraneous
+  labels:
+    app.kubernetes.io/name: cert-manager
 
 helmCharts:
 - name: cert-manager
@@ -22,6 +24,11 @@ helmCharts:
   #     leaderElection:
   #       namespace: "kube-system"
   #   fullnameOverride: "cert-manager"
+
+configMapGenerator:
+- name: pcp-proxy-config
+  literals:
+  - TZ=CET
 
 # resources:
 # - https://github.com/cert-manager/cert-manager/releases/download/v1.13.3/cert-manager.crds.yaml

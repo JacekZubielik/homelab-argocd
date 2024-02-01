@@ -166,7 +166,7 @@ grafana:
       searchNamespace: ALL
 
 
-  # custom-dashboard:
+  custom-dashboard:
   #   # This is a path to a file inside the dashboards directory inside the chart directory
   #   file: dashboards/router.json
 

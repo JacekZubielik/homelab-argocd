@@ -4,25 +4,23 @@ kind: Kustomization
 metadata:
   annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
-    argocd.argoproj.io/sync-wave: "0"
+    argocd.argoproj.io/compare-options: IgnoreExtraneous
+  labels:
+    app.kubernetes.io/name: sealed-secrets
 
 helmCharts:
 - name: sealed-secrets
   repo: https://bitnami-labs.github.io/sealed-secrets
-  version: 2.14.2 #2.10.0
+  version: 2.14.2
   releaseName: sealed-secrets
   namespace: kube-system
   includeCRDs: true
   valuesFile: values.yaml
 
-commonLabels:
-  app.kubernetes.io/name: sealed-secrets
-  app: sealed-secrets
-
 configMapGenerator:
-- name: sealed-secrets-config
+- name: pcp-proxy-config
   literals:
-  - TZ="Europe/Warsaw"
+  - TZ=CET
 
 # Workaround for:
 #
