@@ -112,7 +112,7 @@ updateStrategy:
   type: RollingUpdate
   rollingUpdate:
     maxUnavailable: 0
-    maxSurge: 2
+    maxSurge: 1
 
 readinessProbe:
   failureThreshold: 1
