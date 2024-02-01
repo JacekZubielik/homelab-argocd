@@ -9,7 +9,7 @@ metadata:
     argocd.argoproj.io/compare-options: IgnoreExtraneous
 
 configMapGenerator:
-- name: pcp-proxy-config
+- name: hello-world-config
   literals:
   - TZ=CET
 

@@ -11,7 +11,7 @@ metadata:
 configMapGenerator:
 - name: prox-proxy-config
   literals:
-  - TZ="Europe/Warsaw"
+  - TZ=CET
 
 resources:
 - resources/ingressroute.yaml

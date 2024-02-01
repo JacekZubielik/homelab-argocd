@@ -18,7 +18,7 @@ helmCharts:
   valuesFile: values.yaml
 
 configMapGenerator:
-- name: pcp-proxy-config
+- name: sealed-secrets-config
   literals:
   - TZ=CET
 

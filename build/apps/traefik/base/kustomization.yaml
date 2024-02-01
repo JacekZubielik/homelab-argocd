@@ -30,6 +30,6 @@ patches:
         value: traefik
 
 configMapGenerator:
-- name: pcp-proxy-config
+- name: traefik-config
   literals:
   - TZ=CET
