@@ -9,8 +9,10 @@ metadata:
     argocd.argoproj.io/sync-wave: "0"
 spec:
   dnsNames:
-    - "default.svc"
     - "*.default.svc"
+    - "*.default"
+    # - "default.svc"
+    # - "*.default.svc"
   issuerRef:
     #group: cert-manager.io
     kind: ClusterIssuer
