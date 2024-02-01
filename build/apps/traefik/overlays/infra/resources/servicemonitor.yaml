@@ -5,6 +5,7 @@ metadata:
   name: traefik
   annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+    argocd.argoproj.io/sync-wave: "2"
     argocd.argoproj.io/compare-options: IgnoreExtraneous
   labels:
     app.kubernetes.io/name: traefik

@@ -4,7 +4,8 @@ kind: Certificate
 metadata:
   name: letsencrypt-staging
   namespace: traefik
-
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
 spec:
   dnsNames:
   - 'anotherlife.pl'
