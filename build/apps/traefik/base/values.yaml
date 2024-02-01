@@ -148,8 +148,8 @@ providers:
     labelSelector: "" 
     namespaces:
     - "traefik,dev,prod,infra,argocd,monitoring,longhorn-system"
-    # ingressEndpoint:
-    #   publishedService: "traefik/traefik"
+    ingressEndpoint:
+      publishedService: "traefik/traefik"
       ####################################################
       # Need to override path since otherwise the namespace is set as default
       pathOverride: traefik-system/traefik
