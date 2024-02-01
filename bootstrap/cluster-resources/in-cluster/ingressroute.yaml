@@ -20,7 +20,7 @@ spec:
         - name: chain-traefik-dashboard 
           namespace: traefik
       services:
-        - kind: TraefikService #Service
+        - kind: TraefikService
           name: argocd-server
           port: 80
 
