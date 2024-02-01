@@ -81,13 +81,13 @@ spec:
         server: '{{ destServer }}'
       ignoreDifferences:
       - group: argoproj.io
+        kind: Application
         jsonPointers:
-        - /status
+          - /status
       - group: argoproj.io
         kind: Application
         jsonPointers:
           - /operation
-
       project: dev
       source:
         path: '{{ srcPath }}'
@@ -98,7 +98,7 @@ spec:
           backoff:
             duration: 5s
             factor: 2
-            maxDuration: 5m0s
+            maxDuration: 8m0s
           limit: 2
 
         syncOptions:
