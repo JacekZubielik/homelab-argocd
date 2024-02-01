@@ -3,10 +3,10 @@ apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
   name: default.svc
-  namespace: cert-manager
-  annotations:
-    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
-    argocd.argoproj.io/sync-wave: "0"
+  # namespace: cert-manager
+  # annotations:
+  #   argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+  #   argocd.argoproj.io/sync-wave: "0"
 spec:
   dnsNames:
     - "*.default.svc"
