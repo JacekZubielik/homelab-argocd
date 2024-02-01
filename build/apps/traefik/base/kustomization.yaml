@@ -18,6 +18,12 @@ helmCharts:
   includeCRDs: true
   valuesFile: values.yaml
 
+
+configMapGenerator:
+- name: traefik-config
+  literals:
+  - TZ=CET
+
 patches:
   - target:
       group: rbac.authorization.k8s.io
@@ -29,7 +35,3 @@ patches:
         path: /subjects/0/namespace
         value: traefik
 
-configMapGenerator:
-- name: traefik-config
-  literals:
-  - TZ=CET
