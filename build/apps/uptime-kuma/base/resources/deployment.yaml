@@ -37,8 +37,8 @@ spec:
         env:
         - name: UPTIME_KUMA_PORT
           value: "3001"
-        ports: 
-          - containerPort: 3001
+          ports: 
+            - containerPort: 3001
 
       #   volumeMounts:
       #   - name: uptime-kuma-content
