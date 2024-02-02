@@ -35,6 +35,8 @@ serviceAccount:
   create: true
   # name: ""
   # annotations: {}
+  annotations:
+    eks.amazonaws.com/role-arn: arn:aws:iam::227651627371:role/cert-manager
   # labels: {}
   automountServiceAccountToken: true
 # Automounting API credentials for a particular pod
@@ -65,6 +67,7 @@ extraEnv: []
   #   memory: 32Mi
 
 securityContext:
+  fsGroup: 1001
   runAsNonRoot: true
   seccompProfile:
     type: RuntimeDefault
