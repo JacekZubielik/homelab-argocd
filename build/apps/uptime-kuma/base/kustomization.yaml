@@ -15,7 +15,7 @@ resources:
 #   app: uptime-kuma
 
 configMapGenerator:
-- name: traefik-config
+- name: uptime-kuma-config
   literals:
   - TZ=CET
 

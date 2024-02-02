@@ -16,6 +16,6 @@ resources:
 #   app: home-assistant
 
 configMapGenerator:
-- name: traefik-config
+- name: home-assistant-config
   literals:
   - TZ=CET
