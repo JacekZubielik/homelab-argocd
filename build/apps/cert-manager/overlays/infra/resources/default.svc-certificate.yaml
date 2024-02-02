@@ -8,11 +8,21 @@ metadata:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
     argocd.argoproj.io/sync-wave: "0"
 spec:
-  dnsNames:
-    - "*.default.svc"
-    - "*.default"
+  # dnsNames:
+  #   - "*.default.svc"
+  #   - "*.default"
     # - "default.svc"
     # - "*.default.svc"
+  dnsNames:
+    - registry.default.svc.cluster.local
+    - localhost
+  ipAddresses:
+    - 127.0.0.1
+    - ::1
+  privateKey:
+    algorithm: RSA
+    encoding: PKCS8
+    size: 2048
   issuerRef:
     group: cert-manager.io
     kind: ClusterIssuer
@@ -22,6 +32,4 @@ spec:
   renewBefore: 720h0m0s # 30d
   isCA: true
   commonName: default.svc-ca
-  privateKey:
-    algorithm: ECDSA
-    size: 256
+
