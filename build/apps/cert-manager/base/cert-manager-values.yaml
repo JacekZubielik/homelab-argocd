@@ -206,7 +206,7 @@ webhook:
     #   helm.sh/hook-weight: "-5"
     #   helm.sh/hook-delete-policy: before-hook-creation,hook-succeeded
 
-  securePort: 10250
+  securePort: 10260 #10250
   hostNetwork: false
   serviceType: ClusterIP
 
