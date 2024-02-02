@@ -122,6 +122,8 @@ spec:
         - ApplyOutOfSyncOnly=false
         - Validate=false
         - PruneLast=true
+        #- Delete=false
+        - RespectIgnoreDifferences=true
         automated:
           allowEmpty: true
           prune: true
