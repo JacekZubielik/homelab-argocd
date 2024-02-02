@@ -20,7 +20,7 @@ global:
     namespace: cert-manager #"kube-system"
 
 #################################
-
+fullnameOverride: cert-manager
 installCRDs: true
 replicaCount: 1
 strategy:
