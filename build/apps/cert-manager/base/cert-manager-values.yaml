@@ -353,10 +353,10 @@ startupapicheck:
   serviceAccount:
     create: true
 
-    annotations:
-      helm.sh/hook: post-install
-      helm.sh/hook-weight: "-5"
-      helm.sh/hook-delete-policy: before-hook-creation,hook-succeeded
+    # annotations:
+    #   helm.sh/hook: post-install
+    #   helm.sh/hook-weight: "-5"
+    #   helm.sh/hook-delete-policy: before-hook-creation,hook-succeeded
 
     automountServiceAccountToken: true
 
