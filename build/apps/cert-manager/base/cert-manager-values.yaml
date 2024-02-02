@@ -114,6 +114,8 @@ prometheus:
   enabled: true
   servicemonitor:
     enabled: false
+      labels:
+        release: monitoring
     prometheusInstance: default
     targetPort: 9402
     path: /metrics
