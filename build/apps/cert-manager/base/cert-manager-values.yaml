@@ -17,7 +17,7 @@ global:
 
   logLevel: 2
   leaderElection:
-    namespace: "kube-system"
+    namespace: cert-manager #"kube-system"
 
 #################################
 
