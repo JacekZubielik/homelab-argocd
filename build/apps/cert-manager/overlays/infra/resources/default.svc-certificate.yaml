@@ -11,11 +11,11 @@ spec:
   isCA: false
   # commonName: default.svc-ca
   secretName: default.svc.tls
-  # subject:
-  #   organizations:
-  #     - ACME Inc.
-  #   organizationalUnits:
-  #     - Widgets
+  subject:
+    organizations:
+      - ACME Inc.
+    organizationalUnits:
+      - Widgets
   privateKey:
     # algorithm: RSA
     # encoding: PKCS8
