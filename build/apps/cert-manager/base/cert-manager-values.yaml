@@ -21,18 +21,14 @@ global:
   priorityClassName: ""
   rbac:
     create: true
-    # Aggregate ClusterRoles to Kubernetes default user-facing roles. Ref: https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles
     aggregateClusterRoles: true
 
   podSecurityPolicy:
     enabled: false
     useAppArmor: true
 
-  # Set the verbosity of cert-manager. Range of 0 - 6 with 6 being the most verbose.
   logLevel: 2
-
   leaderElection:
-    # Override the namespace used for the leader election lease
     namespace: "kube-system"
 
     # The duration that non-leader candidates will wait after observing a
@@ -50,7 +46,7 @@ global:
     # renewal of a leadership.
     # retryPeriod: 15s
 
-installCRDs: false
+installCRDs: true
 
 replicaCount: 1
 
@@ -62,59 +58,27 @@ strategy: {}
 
 podDisruptionBudget:
   enabled: false
-
-  # minAvailable and maxUnavailable can either be set to an integer (e.g. 1)
-  # or a percentage value (e.g. 25%)
-  # if neither minAvailable or maxUnavailable is set, we default to `minAvailable: 1`
   # minAvailable: 1
   # maxUnavailable: 1
 
-# Comma separated list of feature gates that should be enabled on the
-# controller pod.
 featureGates: ""
 
-# The maximum number of challenges that can be scheduled as 'processing' at once
 maxConcurrentChallenges: 60
 
 image:
   repository: quay.io/jetstack/cert-manager-controller
-  # You can manage a registry with
-  # registry: quay.io
-  # repository: jetstack/cert-manager-controller
-
-  # Override the image tag to deploy by setting this variable.
-  # If no value is set, the chart's appVersion will be used.
-  # tag: canary
-
-  # Setting a digest will override any tag
-  # digest: sha256:0e072dddd1f7f8fc8909a2ca6f65e76c5f0d2fcfb8be47935ae3457e8bbceb20
   pullPolicy: IfNotPresent
-
-# Override the namespace used to store DNS provider credentials etc. for ClusterIssuer
-# resources. By default, the same namespace as cert-manager is deployed within is
-# used. This namespace will not be automatically created by the Helm chart.
 clusterResourceNamespace: ""
 
-# This namespace allows you to define where the services will be installed into
-# if not set then they will use the namespace of the release
-# This is helpful when installing cert manager as a chart dependency (sub chart)
 namespace: ""
 
 serviceAccount:
-  # Specifies whether a service account should be created
   create: true
-  # The name of the service account to use.
-  # If not set and create is true, a name is generated using the fullname template
-  # name: ""
-  # Optional additional annotations to add to the controller's ServiceAccount
-  # annotations: {}
-  # Automount API credentials for a Service Account.
-  # Optional additional labels to add to the controller's ServiceAccount
-  # labels: {}
+  annotations:
+    eks.amazonaws.com/role-arn: arn:aws:iam::227651627371:role/cert-manager
   automountServiceAccountToken: true
 
-# Automounting API credentials for a particular pod
-# automountServiceAccountToken: true
+automountServiceAccountToken: true
 
 # When this flag is enabled, secrets will be automatically removed when the certificate resource is deleted
 enableCertificateOwnerRef: false
@@ -124,33 +88,16 @@ enableCertificateOwnerRef: false
 # An APIVersion and Kind must be specified in your values.yaml file.
 # Flags will override options that are set here.
 config:
-#   apiVersion: controller.config.cert-manager.io/v1alpha1
-#   kind: ControllerConfiguration
-#   logging:
-#    verbosity: 2
-#    format: text
-#   leaderElectionConfig:
-#    namespace: kube-system
-#   kubernetesAPIQPS: 9000
-#   kubernetesAPIBurst: 9000
-#   numberOfConcurrentWorkers: 200
-#   featureGates:
-#     additionalCertificateOutputFormats: true
-#     experimentalCertificateSigningRequestControllers: true
-#     experimentalGatewayAPISupport: true
-#     serverSideApply: true
-#     literalCertificateSubject: true
-#     useCertificateRequestBasicConstraints: true
+enableCertificateOwnerRef: false
 
-# Setting Nameservers for DNS01 Self Check
-# See: https://cert-manager.io/docs/configuration/acme/dns01/#setting-nameservers-for-dns01-self-check
-
-# Comma separated string with host and port of the recursive nameservers cert-manager should query
-dns01RecursiveNameservers: ""
-
-# Forces cert-manager to only use the recursive nameservers for verification.
-# Enabling this option could cause the DNS01 self check to take longer due to caching performed by the recursive nameservers
+dns01RecursiveNameservers: "1.1.1.1:53,1.0.0.1:53"
 dns01RecursiveNameserversOnly: false
+podDnsPolicy: None
+podDnsConfig:
+  nameservers:
+    - 1.1.1.1
+    - 1.0.0.1
+    # - 9.9.9.9
 
 # Additional command line flags to pass to cert-manager controller binary.
 # To see all available flags run docker run quay.io/jetstack/cert-manager-controller:<version> --help
@@ -170,6 +117,7 @@ resources: {}
 # Pod Security Context
 # ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
 securityContext:
+  #fsGroup: 1001
   runAsNonRoot: true
   seccompProfile:
     type: RuntimeDefault
@@ -299,24 +247,7 @@ enableServiceLinks: false
 webhook:
   replicaCount: 1
   timeoutSeconds: 10
-
-  # Used to configure options for the webhook pod.
-  # This allows setting options that'd usually be provided via flags.
-  # An APIVersion and Kind must be specified in your values.yaml file.
-  # Flags will override options that are set here.
   config:
-    # apiVersion: webhook.config.cert-manager.io/v1alpha1
-    # kind: WebhookConfiguration
-
-    # The port that the webhook should listen on for requests.
-    # In GKE private clusters, by default kubernetes apiservers are allowed to
-    # talk to the cluster nodes only on 443 and 10250. so configuring
-    # securePort: 10250, will work out of the box without needing to add firewall
-    # rules or requiring NET_BIND_SERVICE capabilities to bind port numbers <1000.
-    # This should be uncommented and set as a default by the chart once we graduate
-    # the apiVersion of WebhookConfiguration past v1alpha1.
-    # securePort: 10250
-
   strategy: {}
     # type: RollingUpdate
     # rollingUpdate:
@@ -650,7 +581,7 @@ startupapicheck:
     # runAsNonRoot: true
 
   # Timeout for 'kubectl check api' command
-  timeout: 1m
+  timeout: 5m
 
   # Job backoffLimit
   backoffLimit: 4
