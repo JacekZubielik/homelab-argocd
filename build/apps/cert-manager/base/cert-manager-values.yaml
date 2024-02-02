@@ -31,7 +31,7 @@ strategy:
   #   maxUnavailable: 1
 
 podDisruptionBudget:
-  enabled: false
+  enabled: true
   # minAvailable: 1
   # maxUnavailable: 1
 
@@ -156,7 +156,7 @@ webhook:
       type: RuntimeDefault
 
   podDisruptionBudget:
-    enabled: false
+    enabled: true
 
   containerSecurityContext:
     allowPrivilegeEscalation: false
@@ -262,7 +262,7 @@ cainjector:
       type: RuntimeDefault
 
   podDisruptionBudget:
-    enabled: false
+    enabled: true
 
   containerSecurityContext:
     allowPrivilegeEscalation: false
