@@ -6,7 +6,7 @@
   "srcPath": "build/apps/cert-manager/overlays/infra",
   "srcRepoURL": "https://github.com/jacekzubielik/homelab-argocd.git",
   "srcTargetRevision": "",
-  "syncWave": "-1",
+  "syncWave": "0",
   "appRole": "infra",
   "labels": null,
   "annotations": null,
