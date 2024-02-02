@@ -19,13 +19,13 @@ spec:
 
     - dns01:
         route53:
-          #accessKeyID: AKIATKAIYFFV34T22QYU
+          accessKeyID: AKIATKAIYFFV34T22QYU
           region: eu-central-1
           hostedZoneID: Z08398941B204TVG99U4E
           role: arn:aws:iam::227651627371:user/certManagerIAMUser
-          # secretAccessKeySecretRef:
-          #   name: route53-credentials
-          #   key: secret-access-key
+          secretAccessKeySecretRef:
+            name: route53-credentials
+            key: secret-access-key
 
     # - selector:
     #     dnsZones:
