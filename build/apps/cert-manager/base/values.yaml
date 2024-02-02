@@ -79,7 +79,7 @@ maxConcurrentChallenges: 60
 #enableCertificateOwnerRef: false
 
 dns01RecursiveNameservers: "1.1.1.1:53,1.0.0.1:53"
-dns01RecursiveNameserversOnly: false
+dns01RecursiveNameserversOnly: true #false
 podDnsPolicy: None
 podDnsConfig:
   nameservers:
@@ -105,8 +105,8 @@ podDnsConfig:
 #   # readOnlyRootFilesystem: true
 #   # runAsNonRoot: true
 
-# nodeSelector:
-#   kubernetes.io/os: linux
+nodeSelector:
+  kubernetes.io/os: linux
 
 livenessProbe:
   enabled: false
@@ -146,12 +146,12 @@ webhook:
   replicaCount: 1
   timeoutSeconds: 10
 
-#   nodeSelector:
-#     kubernetes.io/os: linux
+  nodeSelector:
+    kubernetes.io/os: linux
 
-#   updateStrategy:
-#     type: RollingUpdate
-#     rollingUpdate: {}
+  updateStrategy:
+    type: RollingUpdate
+    rollingUpdate: {}
 
   # serviceAccount:
   #   create: true
