@@ -200,13 +200,13 @@ grafana:
     # auth.generic_oauth:
     #   enabled: true
     #   allow_sign_up: true
-    #   name: idm.grigri.cloud
+    #   name: idm.anotherlife.pl
     #   client_id: $__env{GRAFANA_SSO_CLIENT_ID}
     #   client_secret: $__env{GRAFANA_SSO_CLIENT_SECRET}
     #   scopes: openid profile email
-    #   auth_url: https://idm.grigri.cloud/ui/oauth2
-    #   token_url: https://idm.grigri.cloud/oauth2/token
-    #   api_url: https://idm.grigri.cloud/oauth2/openid/grafana/userinfo
+    #   auth_url: https://idm.anotherlife.pl/ui/oauth2
+    #   token_url: https://idm.anotherlife.pl/oauth2/token
+    #   api_url: https://idm.anotherlife.pl/oauth2/openid/grafana/userinfo
     #   use_pkce: true
     #   groups_attribute_path: scopes
     #   name_attribute_path: preferred_username
@@ -217,8 +217,6 @@ grafana:
     path: /metrics
     labels:
       release: monitoring
-
-
 
 kubelet:
   enabled: true
@@ -241,7 +239,9 @@ coreDns:
 kubeEtcd:
   enabled: true
   endpoints: # ips of servers
-    - 192.168.40.100
+    - 192.168.40.110
+    - 192.168.40.111
+    - 192.168.40.112
   service:
     enabled: true
     port: 2381
