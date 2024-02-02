@@ -11,7 +11,7 @@ resources:
 - resources/dashboard.yaml
 - resources/middlewares.yaml
 - resources/seal.secret.yaml
-- resources/servicemonitor.yaml
+#- resources/servicemonitor.yaml
 - resources/tlsoption.yaml
 - resources/tlsstore.yaml
 
