@@ -152,7 +152,7 @@ providers:
       publishedService: "traefik/traefik"
       ####################################################
       # Need to override path since otherwise the namespace is set as default
-      pathOverride: traefik/traefik #traefik-system/traefik
+      pathOverride: traefik-system/traefik
       ####################################################
 
   file:
@@ -173,7 +173,6 @@ logs:
 entryPoints:
   metrics:
     address: :9100
-
 
 metrics:
   prometheus:
@@ -302,8 +301,8 @@ ports:
     # http3:
     #   enabled: false
     # advertisedPort: 4443
-
     middlewares: []
+
   metrics:
     port: 9100
     expose: true
@@ -473,9 +472,9 @@ namespaceOverride: traefik
 instanceLabelOverride: traefik
 
 prometheus:
-  enabled: true
+  enabled: false
   servicemonitor:
-    enabled: true
+    enabled: false
     prometheusInstance: default
     targetPort: 9100 #9402
     path: /metrics
