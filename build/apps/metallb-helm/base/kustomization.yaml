@@ -11,7 +11,7 @@ metadata:
     pod-security.kubernetes.io/audit: privileged
     pod-security.kubernetes.io/enforce: privileged
     pod-security.kubernetes.io/warn: privileged
-    #existingConfigMap: metallb-config
+    existingConfigMap: metallb-config
 
 helmCharts:
   - name: metallb

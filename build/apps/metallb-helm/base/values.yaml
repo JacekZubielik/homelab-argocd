@@ -1,5 +1,4 @@
 # helm repo add metallb https://metallb.github.io/metallb
-#
 # helm show values https://metallb.github.io/metallb >> metallb-values.yaml
 
 managedNamespaceMetadata:
