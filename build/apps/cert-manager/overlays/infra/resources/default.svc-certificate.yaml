@@ -28,9 +28,9 @@ spec:
     # - "default.svc"
     # - "*.default.svc"
   dnsNames:
-    - "*.default.svc.local" # <-----
-    - "default.svc.local"
-    - localhost
+    - "*.default.svc" # <-----
+    - "default.svc"
+    - "localhost"
   # ipAddresses:
   #   - 127.0.0.1
   #   - ::1
