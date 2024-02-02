@@ -2,6 +2,10 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: uptime-kuma
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
+
+
   # labels:
   #   app.kubernetes.io/name: uptime-kuma
   #   app: uptime-kuma
@@ -25,20 +29,14 @@ spec:
       containers:
       - image: louislam/uptime-kuma:latest
         name: uptime-kuma
-        
-        #resources:
-          # requests:
-          #   memory: "256Mi"
-          #   cpu: "100m"
-            
-          # limits: 
-          #   memory: "512Mi"
-          #   cpu: "250m" 
+
         env:
         - name: UPTIME_KUMA_PORT
           value: "3001"
-          ports: 
-            - containerPort: 3001
+
+        ports: 
+          - containerPort: 3001
+            protocol: TCP
 
       #   volumeMounts:
       #   - name: uptime-kuma-content
@@ -48,3 +46,14 @@ spec:
       # - name: uptime-kuma-content
       #   persistentVolumeClaim:
       #     claimName: uptime-kuma-claim
+
+        
+        #resources:
+          # requests:
+          #   memory: "256Mi"
+          #   cpu: "100m"
+            
+          # limits: 
+          #   memory: "512Mi"
+          #   cpu: "250m" 
+
