@@ -109,11 +109,11 @@ nodeSelector:
 #################################
 
 prometheus:
-  enabled: true
+  enabled: false
   servicemonitor:
     enabled: false
-      labels:
-        release: monitoring
+    labels:
+      release: monitoring
     prometheusInstance: default
     targetPort: 9402
     path: /metrics
