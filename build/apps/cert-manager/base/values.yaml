@@ -2,7 +2,7 @@
 # helm show values jetstack/cert-manager >> cert-manager-values.yaml
 
 startupapicheck:
-  enabled: true
+  enabled: false
   timeout: 5m
   backoffLimit: 4
 
