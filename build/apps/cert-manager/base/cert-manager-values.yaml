@@ -76,7 +76,7 @@ resources: {}
   #   memory: 32Mi
 
 securityContext:
-  fsGroup: 1001
+  #fsGroup: 1001
   runAsNonRoot: true
   seccompProfile:
     type: RuntimeDefault
@@ -150,7 +150,7 @@ webhook:
     rollingUpdate: {}
 
   securityContext:
-    fsGroup: 1001
+    #fsGroup: 1001
     runAsNonRoot: true
     seccompProfile:
       type: RuntimeDefault
@@ -256,7 +256,7 @@ cainjector:
     #   maxUnavailable: 1
 
   securityContext:
-    fsGroup: 1001
+    #fsGroup: 1001
     runAsNonRoot: true
     seccompProfile:
       type: RuntimeDefault
@@ -309,7 +309,7 @@ acmesolver:
 startupapicheck:
   enabled: true
   securityContext:
-    fsGroup: 1001
+    #fsGroup: 1001
     runAsNonRoot: true
     seccompProfile:
       type: RuntimeDefault
