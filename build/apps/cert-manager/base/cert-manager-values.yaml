@@ -201,10 +201,10 @@ webhook:
   serviceAccount:
     create: true
     automountServiceAccountToken: true
-    annotations:
-      helm.sh/hook: post-install
-      helm.sh/hook-weight: "-5"
-      helm.sh/hook-delete-policy: before-hook-creation,hook-succeeded
+    # annotations:
+    #   helm.sh/hook: post-install
+    #   helm.sh/hook-weight: "-5"
+    #   helm.sh/hook-delete-policy: before-hook-creation,hook-succeeded
 
   securePort: 10250
   hostNetwork: false
@@ -321,10 +321,10 @@ startupapicheck:
   timeout: 5m
   backoffLimit: 4
 
-  jobAnnotations:
-    helm.sh/hook: post-install
-    helm.sh/hook-weight: "1"
-    helm.sh/hook-delete-policy: before-hook-creation,hook-succeeded
+  # jobAnnotations:
+  #   helm.sh/hook: post-install
+  #   helm.sh/hook-weight: "1"
+  #   helm.sh/hook-delete-policy: before-hook-creation,hook-succeeded
 
   extraArgs: []
   resources: {}
@@ -343,11 +343,11 @@ startupapicheck:
     repository: quay.io/jetstack/cert-manager-ctl
     pullPolicy: IfNotPresent
 
-  rbac:
-    annotations:
-      helm.sh/hook: post-install
-      helm.sh/hook-weight: "-5"
-      helm.sh/hook-delete-policy: before-hook-creation,hook-succeeded
+  # rbac:
+  #   annotations:
+  #     helm.sh/hook: post-install
+  #     helm.sh/hook-weight: "-5"
+  #     helm.sh/hook-delete-policy: before-hook-creation,hook-succeeded
 
   serviceAccount:
     create: true
