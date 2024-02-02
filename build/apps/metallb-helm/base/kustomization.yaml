@@ -20,7 +20,7 @@ helmCharts:
     releaseName: metallb
     namespace: metallb-system 
     includeCRDs: true
-    valuesFile: values.yaml 
+    valuesFile: values-metallb.yaml
 
 configMapGenerator:
 - name: metallb-config
