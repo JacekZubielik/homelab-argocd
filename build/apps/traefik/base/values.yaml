@@ -152,7 +152,7 @@ providers:
       publishedService: "traefik/traefik"
       ####################################################
       # Need to override path since otherwise the namespace is set as default
-      pathOverride: traefik-system/traefik
+      pathOverride: traefik/traefik #traefik-system/traefik
       ####################################################
 
   file:
