@@ -11,11 +11,11 @@ spec:
   isCA: true
   commonName: default.svc-ca
   secretName: default.svc.tls
-  # subject:
-  #   organizations:
-  #     - ACME Inc.
-  #   organizationalUnits:
-  #     - Widgets
+  subject:
+    organizations:
+      - ACME Inc.
+    organizationalUnits:
+      - Widgets
   privateKey:
     # algorithm: RSA
     # encoding: PKCS8
@@ -28,7 +28,7 @@ spec:
     # - "default.svc"
     # - "*.default.svc"
   dnsNames:
-    - kubernetes.default.svc # <-----
+    - .default.svc # <-----
     - localhost
   ipAddresses:
     - 127.0.0.1

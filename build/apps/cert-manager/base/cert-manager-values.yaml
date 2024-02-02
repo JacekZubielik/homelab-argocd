@@ -2,6 +2,7 @@
 # helm show values jetstack/cert-manager >> cert-manager-values.yaml
 
 #################################
+
 global:
   imagePullSecrets: []
   commonLabels: {}
@@ -17,7 +18,9 @@ global:
   logLevel: 2
   leaderElection:
     namespace: "kube-system"
+
 #################################
+
 installCRDs: true
 replicaCount: 1
 strategy:
@@ -69,7 +72,6 @@ podDnsConfig:
 
 extraArgs: []
 extraEnv: []
-
 resources: {}
   # requests:
   #   cpu: 10m
@@ -90,9 +92,7 @@ containerSecurityContext:
   # runAsNonRoot: true
 
 volumes: []
-
 volumeMounts: []
-
 podLabels: {}
 
 # Optional DNS settings, useful if you have a public and private DNS zone for
@@ -136,7 +136,6 @@ livenessProbe:
   timeoutSeconds: 15
   successThreshold: 1
   failureThreshold: 8
-
 
 enableServiceLinks: false
 
@@ -299,8 +298,8 @@ cainjector:
   volumeMounts: []
   enableServiceLinks: false
 
-
 #################################
+
 acmesolver:
   image:
     repository: quay.io/jetstack/cert-manager-acmesolver
@@ -315,8 +314,6 @@ startupapicheck:
     seccompProfile:
       type: RuntimeDefault
 
-
-
   containerSecurityContext:
     allowPrivilegeEscalation: false
     capabilities:
@@ -325,19 +322,12 @@ startupapicheck:
   timeout: 5m
   backoffLimit: 4
 
-  # Optional additional annotations to add to the startupapicheck Job
   jobAnnotations:
     helm.sh/hook: post-install
     helm.sh/hook-weight: "1"
     helm.sh/hook-delete-policy: before-hook-creation,hook-succeeded
 
-  # Optional additional annotations to add to the startupapicheck Pods
-  # podAnnotations: {}
-
-  # Additional command line flags to pass to startupapicheck binary.
-  # To see all available flags run docker run quay.io/jetstack/cert-manager-ctl:<version> --help
   extraArgs: []
-
   resources: {}
     # requests:
     #   cpu: 10m
@@ -347,10 +337,7 @@ startupapicheck:
     kubernetes.io/os: linux
 
   affinity: {}
-
   tolerations: []
-
-  # Optional additional labels to add to the startupapicheck Pods
   podLabels: {}
 
   image:
@@ -371,7 +358,6 @@ startupapicheck:
       helm.sh/hook-weight: "-5"
       helm.sh/hook-delete-policy: before-hook-creation,hook-succeeded
 
-    # Automount API credentials for a Service Account.
     automountServiceAccountToken: true
 
   volumes: []
