@@ -28,7 +28,7 @@ spec:
     # - "default.svc"
     # - "*.default.svc"
   dnsNames:
-    - kubernetes.default.svc.local # <-----
+    - kubernetes.default.svc # <-----
     - localhost
   ipAddresses:
     - 127.0.0.1
