@@ -49,12 +49,12 @@ namespace: ""
 
 serviceAccount:
   create: true
-  annotations:
-    helm.sh/hook: post-install
-    helm.sh/hook-weight: "-5"
-    helm.sh/hook-delete-policy: before-hook-creation,hook-succeeded
-#   eks.amazonaws.com/role-arn: arn:aws:iam::227651627371:role/cert-manager
-  automountServiceAccountToken: true
+  # annotations:
+  #   helm.sh/hook: post-install
+  #   helm.sh/hook-weight: "-5"
+  #   helm.sh/hook-delete-policy: before-hook-creation,hook-succeeded
+  #   eks.amazonaws.com/role-arn: arn:aws:iam::227651627371:role/cert-manager
+  automountServiceAccountToken: false
 
 #################################
 
@@ -204,11 +204,11 @@ webhook:
 
   serviceAccount:
     create: true
-    automountServiceAccountToken: true
-    annotations:
-      helm.sh/hook: post-install
-      helm.sh/hook-weight: "-5"
-      helm.sh/hook-delete-policy: before-hook-creation,hook-succeeded
+    automountServiceAccountToken: false
+    # annotations:
+    #   helm.sh/hook: post-install
+    #   helm.sh/hook-weight: "-5"
+    #   helm.sh/hook-delete-policy: before-hook-creation,hook-succeeded
 
   securePort: 10250
   hostNetwork: false
@@ -295,7 +295,7 @@ cainjector:
 
   serviceAccount:
     create: true
-    automountServiceAccountToken: true
+    automountServiceAccountToken: false
 
   volumes: []
   volumeMounts: []
@@ -325,10 +325,10 @@ startupapicheck:
   timeout: 5m
   backoffLimit: 4
 
-  jobAnnotations:
-    helm.sh/hook: post-install
-    helm.sh/hook-weight: "1"
-    helm.sh/hook-delete-policy: before-hook-creation,hook-succeeded
+  # jobAnnotations:
+  #   helm.sh/hook: post-install
+  #   helm.sh/hook-weight: "1"
+  #   helm.sh/hook-delete-policy: before-hook-creation,hook-succeeded
 
   extraArgs: []
   resources: {}
@@ -347,21 +347,21 @@ startupapicheck:
     repository: quay.io/jetstack/cert-manager-ctl
     pullPolicy: IfNotPresent
 
-  rbac:
-    annotations:
-      helm.sh/hook: post-install
-      helm.sh/hook-weight: "-5"
-      helm.sh/hook-delete-policy: before-hook-creation,hook-succeeded
+  # rbac:
+  #   annotations:
+  #     helm.sh/hook: post-install
+  #     helm.sh/hook-weight: "-5"
+  #     helm.sh/hook-delete-policy: before-hook-creation,hook-succeeded
 
   serviceAccount:
     create: true
 
-    annotations:
-      helm.sh/hook: post-install
-      helm.sh/hook-weight: "-5"
-      helm.sh/hook-delete-policy: before-hook-creation,hook-succeeded
+    # annotations:
+    #   helm.sh/hook: post-install
+    #   helm.sh/hook-weight: "-5"
+    #   helm.sh/hook-delete-policy: before-hook-creation,hook-succeeded
 
-    automountServiceAccountToken: true
+    automountServiceAccountToken: false
 
   volumes: []
   volumeMounts: []
