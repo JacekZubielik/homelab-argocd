@@ -8,7 +8,7 @@ metadata:
 
 resources:
 - ../../base
-#- namespace.yaml # Do not set this - it will override roles for kube-system needed for leader election of cainjector
+- namespace.yaml # Do not set this - it will override roles for kube-system needed for leader election of cainjector
 #- resources/crds.yaml
 - resources/letsencrypt-production.yaml
 - resources/letsencrypt-staging.yaml
@@ -16,21 +16,3 @@ resources:
 - resources/default.svc-certificate.yaml
 - resources/default.svc-issuer.yaml
 
-
-# patches:
-# # label app.kubernetes.io/instance=cert-manager causes warnings for all 6 Cert Manager CRDs in ArgoCD, eg:
-# #  SharedResourceWarning 	CustomResourceDefinition/certificaterequests.cert-manager.io is part of applications cert-manager-production and cert-manager
-# #   https://github.com/argoproj/argo-cd/issues/6728
-
-#   - path: patches/remove-instance-label.jsonpatch.yaml
-#     target:
-#       kind: CustomResourceDefinition
-#       labelSelector: app.kubernetes.io/instance=cert-manager
-
-# # This overlay includes a patch for the Helm chart base that adds the client.lifecycle.config.k8s.io/mutation: ignore 
-# # annotation to all Deployment objects. The annotation causes Config Sync to ignore any conflicting changes to this object 
-# # in the cluster after you have created it.
-
-#   - path: patches/ignore-deployment-mutation-patch.yaml
-#     target:
-#       kind: Deployment
