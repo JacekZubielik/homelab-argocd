@@ -22,9 +22,9 @@ spec:
         - kind: TraefikService
           name: home-assistant
           port: 8123
-      # middlewares:
-      #   - name: headers #traefik-dashboard-auth  #chain-traefik-dashboard
-      #     namespace: traefik
+      middlewares:
+        - name: headers #traefik-dashboard-auth  #chain-traefik-dashboard
+          namespace: traefik
   tls:
     domains:
       - main: anotherlife.pl
