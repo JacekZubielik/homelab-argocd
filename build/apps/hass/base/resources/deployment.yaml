@@ -24,8 +24,8 @@ spec:
       - name: home-assistant
         image: "ghcr.io/home-assistant/home-assistant:2024.2.0.dev20240129"
         imagePullPolicy: IfNotPresent
-        # securityContext:
-        #   privileged: null
+        securityContext:
+          privileged: null
         ports:
           - containerPort: 8123
             name: http
