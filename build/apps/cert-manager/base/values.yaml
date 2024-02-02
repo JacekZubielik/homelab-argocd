@@ -5,6 +5,20 @@
 startupapicheck:
   enabled: true
   timeout: 5m
+  backoffLimit: 4
+
+  securityContext:
+    runAsNonRoot: true
+    seccompProfile:
+      type: RuntimeDefault
+
+  containerSecurityContext:
+    allowPrivilegeEscalation: false
+    capabilities:
+      drop:
+      - ALL
+    # readOnlyRootFilesystem: true
+    # runAsNonRoot: true
 
   jobAnnotations:
     helm.sh/hook: post-install
@@ -18,6 +32,9 @@ startupapicheck:
       helm.sh/hook-weight: "-5"
       helm.sh/hook-delete-policy: before-hook-creation,hook-succeeded
 
+  image:
+    repository: quay.io/jetstack/cert-manager-ctl
+    pullPolicy: IfNotPresent
 
 
 installCRDs: true
