@@ -9,7 +9,6 @@ metadata:
 resources:
 - ../../base
 - resources/namespace.yaml # Do not set this - it will override roles for kube-system needed for leader election of cainjector
-- resources/crds.yaml
 #- resources/selfsigned-credentials-secret.yaml
 - resources/letsencrypt-production.yaml
 - resources/letsencrypt-staging.yaml
