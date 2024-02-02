@@ -49,11 +49,11 @@ namespace: ""
 
 serviceAccount:
   create: true
-    annotations:
-      helm.sh/hook: post-install
-      helm.sh/hook-weight: "-5"
-      helm.sh/hook-delete-policy: before-hook-creation,hook-succeeded
-  #   eks.amazonaws.com/role-arn: arn:aws:iam::227651627371:role/cert-manager
+  annotations:
+    helm.sh/hook: post-install
+    helm.sh/hook-weight: "-5"
+    helm.sh/hook-delete-policy: before-hook-creation,hook-succeeded
+#   eks.amazonaws.com/role-arn: arn:aws:iam::227651627371:role/cert-manager
   automountServiceAccountToken: true
 
 #################################
