@@ -20,9 +20,13 @@ spec:
     - 127.0.0.1
     - ::1
   privateKey:
-    algorithm: RSA
-    encoding: PKCS8
-    size: 2048
+    # algorithm: RSA
+    # encoding: PKCS8
+    # size: 2048
+    algorithm: ECDSA
+    size: 256
+
+
   issuerRef:
     group: cert-manager.io
     kind: ClusterIssuer
