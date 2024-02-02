@@ -240,8 +240,8 @@ kubeEtcd:
   enabled: true
   endpoints: # ips of servers
     - 192.168.40.110
-    - 192.168.40.111
-    - 192.168.40.112
+    # - 192.168.40.111
+    # - 192.168.40.112
   service:
     enabled: true
     port: 2381
@@ -249,17 +249,17 @@ kubeEtcd:
 
 kubeScheduler:
   enabled: true
-  # endpoints: # ips of servers
-  #   - 192.168.30.38
-  #   - 192.168.30.39
-  #   - 192.168.30.40
+  endpoints: # ips of servers
+    - 192.168.40.110
+    # - 192.168.40.111
+    # - 192.168.40.112
 
 kubeProxy:
   enabled: true
-  # endpoints: # ips of servers
-  #   - 192.168.30.38
-  #   - 192.168.30.39
-  #   - 192.168.30.40
+  endpoints: # ips of servers
+    - 192.168.40.110
+    # - 192.168.40.111
+    # - 192.168.40.112
 
 kube-state-metrics:
   fullnameOverride: kube-state-metrics
@@ -290,10 +290,10 @@ nodeExporter:
 
 kubeControllerManager:
   enabled: true
-  # endpoints: # ips of servers 
-  #   - 192.168.30.38
-  #   - 192.168.30.39
-  #   - 192.168.30.40
+  endpoints: # ips of servers
+    - 192.168.40.110
+    # - 192.168.40.111
+    # - 192.168.40.112
 
 prometheusOperator:
   admissionWebhooks:
@@ -366,7 +366,6 @@ prometheus:
     replicaExternalLabelName: "replica"
     enableAdminAPI: true
     walCompression: true
-
 
     # resources:
     #   requests:
