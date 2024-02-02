@@ -9,12 +9,13 @@ metadata:
 resources:
 - ../../base
 #- namespace.yaml # Do not set this - it will override roles for kube-system needed for leader election of cainjector
+#- resources/crds.yaml
 - resources/letsencrypt-production.yaml
 - resources/letsencrypt-staging.yaml
 - resources/seal.secret.yaml
 - resources/default.svc-certificate.yaml
 - resources/default.svc-issuer.yaml
-- resources/crds.yaml
+
 
 # patches:
 # # label app.kubernetes.io/instance=cert-manager causes warnings for all 6 Cert Manager CRDs in ArgoCD, eg:
