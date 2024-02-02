@@ -6,5 +6,9 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
     argocd.argoproj.io/sync-wave: "0"
+# spec:
+#   selfSigned: {}
+
 spec:
-  selfSigned: {}
+  ca:
+    secretName: default.svc.tls
