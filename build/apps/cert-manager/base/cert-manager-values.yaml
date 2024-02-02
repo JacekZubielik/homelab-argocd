@@ -35,7 +35,6 @@ podDisruptionBudget:
   # maxUnavailable: 1
 
 featureGates: ""
-
 maxConcurrentChallenges: 60
 
 image:
@@ -49,8 +48,8 @@ namespace: ""
 
 serviceAccount:
   create: true
-  annotations:
-    eks.amazonaws.com/role-arn: arn:aws:iam::227651627371:role/cert-manager
+  # annotations:
+  #   eks.amazonaws.com/role-arn: arn:aws:iam::227651627371:role/cert-manager
   automountServiceAccountToken: true
 
 #################################
