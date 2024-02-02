@@ -14,14 +14,14 @@ spec:
     # - "default.svc"
     # - "*.default.svc"
   issuerRef:
-    #group: cert-manager.io
+    group: cert-manager.io
     kind: ClusterIssuer
     name: default.svc
   secretName: default.svc
   duration: 2160h0m0s # 90d
   renewBefore: 720h0m0s # 30d
   isCA: true
-  commonName: selfsigned-ca
+  commonName: default.svc-ca
   privateKey:
     algorithm: ECDSA
     size: 256
