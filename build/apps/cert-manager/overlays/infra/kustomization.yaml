@@ -12,7 +12,7 @@ resources:
 - resources/letsencrypt-production.yaml
 - resources/letsencrypt-staging.yaml
 - resources/seal.secret.yaml
-#- resources/default.svc-certificate.yaml
+- resources/default.svc-certificate.yaml
 - resources/default.svc-issuer.yaml
 #- resources/crds.yaml
 
