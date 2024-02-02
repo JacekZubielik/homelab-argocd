@@ -31,9 +31,9 @@ spec:
     - "*.default.svc.local" # <-----
     - "default.svc.local"
     - localhost
-  ipAddresses:
-    - 127.0.0.1
-    - ::1
+  # ipAddresses:
+  #   - 127.0.0.1
+  #   - ::1
   issuerRef:
     group: cert-manager.io
     kind: ClusterIssuer
