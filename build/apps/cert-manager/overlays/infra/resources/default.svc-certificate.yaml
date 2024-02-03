@@ -16,21 +16,20 @@ spec:
   #     - ACME Inc.
   #   organizationalUnits:
   #     - Widgets
-  # privateKey:
+  privateKey:
   #   # algorithm: RSA
   #   # encoding: PKCS8
   #   # size: 2048
-  #   algorithm: ECDSA
-  #   size: 256
+    algorithm: ECDSA
+    size: 256
   # dnsNames:
   #   - "*.default.svc"
   #   - "*.default"
     # - "default.svc"
     # - "*.default.svc"
   dnsNames:
-    - "*.default.svc" # <-----
     - "default.svc"
-    - "localhost"
+    - "*.default.svc" # <-----
   # ipAddresses:
   #   - 127.0.0.1
   #   - ::1
