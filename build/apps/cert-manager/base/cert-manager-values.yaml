@@ -4,9 +4,6 @@
 #################################
 
 global:
-  imagePullSecrets: []
-  commonLabels: {}
-  priorityClassName: ""
   rbac:
     create: true
     aggregateClusterRoles: true
@@ -31,7 +28,7 @@ strategy:
   #   maxUnavailable: 1
 
 podDisruptionBudget:
-  enabled: true
+  enabled: false
   # minAvailable: 1
   # maxUnavailable: 1
 
@@ -159,7 +156,7 @@ webhook:
       type: RuntimeDefault
 
   podDisruptionBudget:
-    enabled: true
+    enabled: false
 
   containerSecurityContext:
     allowPrivilegeEscalation: false
@@ -265,7 +262,7 @@ cainjector:
       type: RuntimeDefault
 
   podDisruptionBudget:
-    enabled: true
+    enabled: false
 
   containerSecurityContext:
     allowPrivilegeEscalation: false
