@@ -8,7 +8,7 @@ metadata:
     argocd.argoproj.io/sync-wave: "0"
 spec:
   acme:
-    email: jack.zu@protonmail.com
+    email: zumbik@protonmail.com #jack.zu@protonmail.com
     server: https://acme-staging-v02.api.letsencrypt.org/directory
     privateKeySecretRef:
       name: route53-access-key
