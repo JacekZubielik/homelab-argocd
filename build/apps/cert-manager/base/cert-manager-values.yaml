@@ -58,7 +58,7 @@ serviceAccount:
 
 #################################
 
-enableCertificateOwnerRef: false
+enableCertificateOwnerRef: true
 
 #config:
 
