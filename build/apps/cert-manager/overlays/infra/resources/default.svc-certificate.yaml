@@ -11,17 +11,17 @@ spec:
   isCA: false
   # commonName: default.svc-ca
   secretName: default.svc #.tls
-  subject:
-    organizations:
-      - ACME Inc.
-    organizationalUnits:
-      - Widgets
-  privateKey:
-    # algorithm: RSA
-    # encoding: PKCS8
-    # size: 2048
-    algorithm: ECDSA
-    size: 256
+  # subject:
+  #   organizations:
+  #     - ACME Inc.
+  #   organizationalUnits:
+  #     - Widgets
+  # privateKey:
+  #   # algorithm: RSA
+  #   # encoding: PKCS8
+  #   # size: 2048
+  #   algorithm: ECDSA
+  #   size: 256
   # dnsNames:
   #   - "*.default.svc"
   #   - "*.default"
