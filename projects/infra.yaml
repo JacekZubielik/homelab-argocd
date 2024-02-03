@@ -117,12 +117,12 @@ spec:
         - PrunePropagationPolicy=foreground
         - preserveResourcesOnDeletion=false
         - SkipDryRunOnMissingResource=true
-        - Replace=true
+        - Replace=false
         - ServerSideApply=true
-        - ApplyOutOfSyncOnly=false
+        - ApplyOutOfSyncOnly=true
         - Validate=false
         - PruneLast=true
-        #- Delete=false
+        #- Delete=true
         - RespectIgnoreDifferences=true
         automated:
           allowEmpty: true
