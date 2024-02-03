@@ -12,7 +12,6 @@ spec:
     server: https://acme-staging-v02.api.letsencrypt.org/directory
     privateKeySecretRef:
       name: route53-access-key
-
     solvers:
     - dns01:
         route53:
