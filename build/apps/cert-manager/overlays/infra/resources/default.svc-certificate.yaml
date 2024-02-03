@@ -10,7 +10,7 @@ metadata:
 spec:
   isCA: false
   # commonName: default.svc-ca
-  secretName: default.svc.tls
+  secretName: default.svc #.tls
   subject:
     organizations:
       - ACME Inc.
