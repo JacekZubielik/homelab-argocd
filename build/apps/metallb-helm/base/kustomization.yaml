@@ -58,19 +58,19 @@ patches:
         path: /spec/template/spec/tolerations/-
         value: {"effect":"NoSchedule","key":"example.com/some-taint","operator":"Exists"}
 
-# patches:
-#   - |-
-#       apiVersion: apps/v1
-#       kind: Deployment
-#       metadata:
-#         name: controller
-#         namespace: metallb-system
-#       spec:
-#         template:
-#           spec:
-#             securityContext:
-#               $patch: replace
-#               runAsNonRoot: true
+patches:
+  - |-
+      apiVersion: apps/v1
+      kind: Deployment
+      metadata:
+        name: controller
+        namespace: metallb-system
+      spec:
+        template:
+          spec:
+            securityContext:
+              $patch: replace
+              runAsNonRoot: true
 
 patches:
   - target:

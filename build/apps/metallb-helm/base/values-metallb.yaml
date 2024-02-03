@@ -212,7 +212,7 @@ controller:
     type: RollingUpdate
   serviceAccount:
     # Specifies whether a ServiceAccount should be created
-    create: true
+    create: false
     # The name of the ServiceAccount to use. If not set and create is
     # true, a name is generated using the fullname template
     name: ""
@@ -270,13 +270,10 @@ speaker:
   ## ref: https://kubernetes.io/docs/tasks/manage-daemon/update-daemon-set/
   ##
   updateStrategy:
-    ## StrategyType
-    ## Can be set to RollingUpdate or OnDelete
-    ##
     type: RollingUpdate
   serviceAccount:
     # Specifies whether a ServiceAccount should be created
-    create: true
+    create: false
     # The name of the ServiceAccount to use. If not set and create is
     # true, a name is generated using the fullname template
     name: ""
