@@ -27,13 +27,17 @@ spec:
           port: 80
 
   tls:
-    domains:
-      - main: anotherlife.pl
-        sans:
-          - .anotherlife.pl
-    options:
-      name: tls-ver13
-      namespace: traefik
+    stores:
+      default: {}
+
+  # tls:
+  #   domains:
+  #     - main: anotherlife.pl
+  #       sans:
+  #         - .anotherlife.pl
+  #   options:
+  #     name: tls-ver13
+  #     namespace: traefik
     #secretName: letsencrypt-production
 
   # tls:
