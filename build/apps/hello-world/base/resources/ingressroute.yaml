@@ -10,7 +10,6 @@ metadata:
     cert-manager.io/cluster-issuer: route53-letsencrypt-production
     #external-dns.alpha.kubernetes.io/target: infra.anotherlife.pl
     kubernetes.io/ingress.class: traefik-external
-    #
 
 spec:
   entryPoints:
@@ -30,11 +29,11 @@ spec:
   #   stores:
   #     default: {}
 
-  # tls:
-  #   domains:
-  #     - main: anotherlife.pl
-  #       sans:
-  #         - .anotherlife.pl
+  tls:
+    domains:
+      - main: anotherlife.pl
+        sans:
+          - .anotherlife.pl
   #   options:
   #     name: tls-ver13
   #     namespace: traefik
