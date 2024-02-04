@@ -4,12 +4,12 @@ kind: Kustomization
 resources:
 - resources/deployment.yaml
 #- resources/ingress.yaml
-#- resources/ingressroute.yaml
+- resources/ingressroute.yaml
 - resources/service.yaml
 #- resources/servicemonitor.yaml
 #- resources/sealed-sec.yaml
 #- resources/secret-test.yaml
-#- resources/pvc.yaml
+- resources/pvc.yaml
 
 # commonLabels:
 #   app.kubernetes.io/name: home-assistant
