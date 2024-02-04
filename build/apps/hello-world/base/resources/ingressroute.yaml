@@ -30,7 +30,6 @@ spec:
   #     default: {}
 
   tls:
-    namespace: traefik
     domains:
       - main: anotherlife.pl
         sans:
