@@ -23,7 +23,7 @@ helmCharts:
 configMapGenerator:
 - name: traefik-config
   literals:
-  - TZ=CET
+  - TZ=CEST
 
 patches:
   - target:
