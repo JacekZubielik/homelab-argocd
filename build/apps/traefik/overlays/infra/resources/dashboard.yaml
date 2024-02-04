@@ -40,5 +40,5 @@ spec:
     options:
       name: tls-ver13
       namespace: traefik
-    secretName: letsencrypt-production #staging ###########
+    secretName: letsencrypt-production
 
