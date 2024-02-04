@@ -42,7 +42,7 @@ spec:
     options:
       name: tls-ver13
       namespace: traefik
-    certResolver: route53-letsencrypt-production
+    certResolver: letsencrypt-production
     secretName: letsencrypt-production
 
 
