@@ -11,7 +11,7 @@ spec:
     storage: 2Gi
   hostPath:
     path: /mnt/data1
-  storageClassName: manual
+  storageClassName: longhorn-retain #manual
 # ---
 # apiVersion: v1
 # kind: PersistentVolume
