@@ -31,15 +31,15 @@ resources:
 - resources/ingressroute.yaml
 - resources/namespace.yaml
 #- resources/ingress.yaml
-  # - resources/storageclass.yaml
+- resources/storageclass.yaml
 
 # patchesStrategicMerge:
 #   - resources/storageclass.yaml
 
 patches:
-  - path: patches/ignore-deployment-mutation-patch.yaml
-    target:
-      kind: Deployment
+- path: patches/ignore-deployment-mutation-patch.yaml
+  target:
+    kind: Deployment
 
   # - path: resources/storageclass.yaml
   #   target:
