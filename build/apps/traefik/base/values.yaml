@@ -335,13 +335,13 @@ service:
   # loadBalancerClass: service.k8s.aws/nlb
   externalIPs: []
 
-# tls:
-#   stores:
-#     default:
-#       defaultCertificate:
-#         secretName: letsencrypt-staging
-#   options:
-#     name: tls-ver13
+tls:
+  stores:
+    default:
+      defaultCertificate:
+        secretName: letsencrypt-production
+  options:
+    name: tls-ver13
 
 serviceMonitor:
   metricRelabelings:
