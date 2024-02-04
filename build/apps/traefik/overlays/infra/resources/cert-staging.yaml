@@ -17,5 +17,3 @@ spec:
   secretName: letsencrypt-staging
   duration: 2160h0m0s # 90d
   renewBefore: 720h0m0s # 30d
-
-
