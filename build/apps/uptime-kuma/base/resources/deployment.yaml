@@ -32,14 +32,20 @@ spec:
             name: uptime-kuma
             protocol: TCP
 
-      #   volumeMounts:
-      #   - name: uptime-kuma-content
-      #     mountPath: /app/data
+        volumeMounts:
+        - name: uptime-kuma-content
+          mountPath: /app/data
 
       # volumes:
       # - name: uptime-kuma-content
       #   persistentVolumeClaim:
       #     claimName: uptime-kuma-claim
+
+      volumes:
+      - name: uptime-kuma-content
+        persistentVolume:
+          name: uptime-kuma
+
 
         
         #resources:
