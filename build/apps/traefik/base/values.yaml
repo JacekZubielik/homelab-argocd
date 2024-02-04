@@ -411,7 +411,7 @@ autoscaling:
 # -- Certificates resolvers configuration
 certResolvers: {}
 
-hostNetwork: true
+hostNetwork: false
 
 # -- Whether Role Based Access Control objects like roles and rolebindings should be created
 rbac:
