@@ -6,10 +6,11 @@ spec:
   externalName: 192.168.40.18
   ports:
     - name: prox-proxy
-      port: 443  #80
+      port: 8006  #80
       targetPort: 8006
-
   selector:
     app.kubernetes.io/instance: traefik
+        task: prox-proxy
   type: ExternalName
+
 
