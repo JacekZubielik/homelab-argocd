@@ -1,3 +1,4 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -50,13 +51,13 @@ spec:
         #   periodSeconds: 5
 
         volumeMounts:
-        - name: hello-world-frontend
-          mountPath: /app/data
+          - name: hello-world-frontend
+            mountPath: /app/data
 
       volumes:
-      - name: hello-world-frontend
-        persistentVolumeClaim:
-          claimName: lh-pvc-1
+        - name: hello-world-frontend
+          persistentVolumeClaim:
+            claimName: lh-pvc-1
 
 
 
