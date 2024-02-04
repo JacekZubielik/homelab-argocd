@@ -42,9 +42,9 @@ spec:
     options:
       name: tls-ver13
       namespace: traefik
-    certResolver: cert-manager-certificates-issuing
-    secretName: letsencrypt-production
-
+    #secretName: letsencrypt-production
+    stores:
+      letsencrypt-production: {}
 
 
 ---
