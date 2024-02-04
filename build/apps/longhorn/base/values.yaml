@@ -39,7 +39,7 @@ longhorn:
     removeSnapshotsDuringFilesystemTrim: ignored # "enabled" or "disabled" otherwise
 
   longhornUI:
-    replicas: 2
+    replicas: 1
     priorityClass: ~
     tolerations: []
     ## If you want to set tolerations for Longhorn UI Deployment, delete the `[]` in the line above
