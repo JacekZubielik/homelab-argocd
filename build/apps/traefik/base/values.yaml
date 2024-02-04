@@ -235,7 +235,7 @@ additionalArguments:
 - "--ping=true"
 - "--accesslog.filepath=/data/access.log"
 - "--entrypoints.websecure.http.tls=true"
-- "--serversTransport.insecureSkipVerify=false"
+- "--serversTransport.insecureSkipVerify=true"
 
   #
   # Shouldn't need this if you've got Cert Manager installed
