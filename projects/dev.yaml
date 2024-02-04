@@ -109,7 +109,7 @@ spec:
         #- ServerSideApply=true
         - ApplyOutOfSyncOnly=false
         #- Validate=true
-        - PruneLast=false
+        - PruneLast=true
         automated:
           allowEmpty: true
           prune: false
