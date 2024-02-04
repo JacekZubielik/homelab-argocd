@@ -3,7 +3,6 @@ apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
   name: pcp-proxy
-  #namespace: traefik
   annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
     argocd.argoproj.io/sync-wave: "4"
@@ -32,7 +31,7 @@ spec:
     options:
       name: tls-ver13
       namespace: traefik
-    #secretName: letsencrypt-production
+    secretName: letsencrypt-production
 ---
 apiVersion: traefik.io/v1alpha1
 kind: TraefikService
