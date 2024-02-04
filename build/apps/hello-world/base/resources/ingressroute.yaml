@@ -46,6 +46,7 @@ spec:
   weighted:
     services:
       - name: hello-world-frontend
+        namespace: dev
         port: 80
         weight: 1
 
