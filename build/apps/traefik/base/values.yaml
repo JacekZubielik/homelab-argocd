@@ -474,7 +474,7 @@ instanceLabelOverride: traefik
 prometheus:
   enabled: true
   servicemonitor:
-    enabled: false
+    enabled: true
     prometheusInstance: default
     targetPort: 9100 #9402
     path: /metrics
