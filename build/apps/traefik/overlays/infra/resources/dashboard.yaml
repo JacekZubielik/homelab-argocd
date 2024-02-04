@@ -8,7 +8,7 @@ metadata:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
     argocd.argoproj.io/sync-wave: "3"
     argocd.argoproj.io/compare-options: IgnoreExtraneous
-    cert-manager.io/cluster-issuer: route53-letsencrypt-staging
+    cert-manager.io/cluster-issuer: route53-letsencrypt-production #staging
     #external-dns.alpha.kubernetes.io/target: infra.anotherlife.pl
     kubernetes.io/ingress.class: traefik-external
     gethomepage.dev/description: traefik test tool
@@ -40,5 +40,5 @@ spec:
     options:
       name: tls-ver13
       namespace: traefik
-    secretName: letsencrypt-staging ###########
+    secretName: letsencrypt-production #staging ###########
 
