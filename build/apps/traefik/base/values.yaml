@@ -309,7 +309,7 @@ ports:
       options:
         name: tls-ver13
         namespace: traefik
-      secretName: letsencrypt-production
+      #secretName: letsencrypt-production
       certResolver: ""
       domains:
         - main: anotherlife.pl
