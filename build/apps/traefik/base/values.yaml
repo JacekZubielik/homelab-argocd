@@ -306,10 +306,10 @@ ports:
     tls:
       enabled: true
       # this is the name of a TLSOption definition
-      options:
-        name: tls-ver13
-        #namespace: traefik
-      #secretName: letsencrypt-production
+      # options:
+      #   name: tls-ver13
+      #   #namespace: traefik
+      # #secretName: letsencrypt-production
       certResolver: ""
       domains:
         - main: anotherlife.pl
