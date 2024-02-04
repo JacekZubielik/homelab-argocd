@@ -15,7 +15,7 @@ spec:
     - websecure
   routes:
     - kind: Rule
-      match: Host(`hello.anotherlife.pl`)
+      match: Host(`hello.anotherlife.pl`) && (PathPrefix(`/`))
       middlewares:
         - name: headers
           namespace: traefik
