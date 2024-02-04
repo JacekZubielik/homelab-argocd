@@ -164,7 +164,7 @@ providers:
 
 logs:
   general:
-    level: ERROR # -- DEBUG, PANIC, FATAL, ERROR, WARN, and INFO.
+    level: DEBUG # -- DEBUG, PANIC, FATAL, ERROR, WARN, and INFO.
   access:
     enabled: true
     filters:
