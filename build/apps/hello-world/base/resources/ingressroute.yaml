@@ -34,9 +34,9 @@ spec:
       - main: anotherlife.pl
         sans:
           - .anotherlife.pl
-  #   options:
-  #     name: tls-ver13
-  #     namespace: traefik
+    options:
+      name: tls-ver13
+      namespace: traefik
     secretName: letsencrypt-production
     
 
