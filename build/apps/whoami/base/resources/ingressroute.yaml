@@ -16,9 +16,9 @@ spec:
   routes:
     - kind: Rule
       match: Host(`whoami.anotherlife.pl`)
-      middlewares:
-        - name: chain-traefik-dashboard
-          namespace: traefik
+      # middlewares:
+      #   - name: chain-traefik-dashboard
+      #     namespace: traefik
       services:
         - kind: TraefikService
           name: whoami-frontend
