@@ -23,8 +23,8 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`traefik.anotherlife.pl`) && (PathPrefix(`/dashboard`) || PathPrefix(`/api`))
       kind: Rule
+    - match: Host(`traefik.anotherlife.pl`) && (PathPrefix(`/dashboard`) || PathPrefix(`/api`))
       middlewares:
         - name: chain-traefik-dashboard
           namespace: traefik
@@ -40,5 +40,5 @@ spec:
     options:
       name: tls-ver13
       namespace: traefik
-    #secretName: letsencrypt-production #staging ###########
+    secretName: letsencrypt-production #staging ###########
 
