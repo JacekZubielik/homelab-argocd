@@ -26,9 +26,9 @@ spec:
           name: hello-world-frontend
           port: 80
 
-  tls:
-    stores:
-      default: {}
+  # tls:
+  #   stores:
+  #     default: {}
 
   # tls:
   #   domains:
@@ -40,19 +40,19 @@ spec:
   #     namespace: traefik
     #secretName: letsencrypt-production
 
-  # tls:
-  #   domains:
-  #     - main: anotherlife.pl
-  #       sans:
-  #         - .anotherlife.pl
-  #   options:
-  #     name: tls-ver13
-  #     namespace: traefik
-  #   #secretName: letsencrypt-production
-  #   stores:
-  #     default:
-  #       defaultCertificate:
-  #         secretName: letsencrypt-production
+  tls:
+    domains:
+      - main: anotherlife.pl
+        sans:
+          - .anotherlife.pl
+    options:
+      name: tls-ver13
+      namespace: traefik
+    #secretName: letsencrypt-production
+    stores:
+      default:
+        defaultCertificate:
+          secretName: letsencrypt-production
 
 
 ---
