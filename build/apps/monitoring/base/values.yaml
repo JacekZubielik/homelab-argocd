@@ -115,16 +115,6 @@ grafana:
   #     - ReadWriteOnce
   #   finalizers:
   #     - kubernetes.io/pvc-protection
-  persistence:
-    volumeClaimTemplate:
-      spec:
-        storageClassName: local-path #longhorn-retain
-        accessModes: ["ReadWriteOnce"]
-        resources:
-          requests:
-            storage: 5Gi
-
-
 
   inMemory:
     enabled: true
