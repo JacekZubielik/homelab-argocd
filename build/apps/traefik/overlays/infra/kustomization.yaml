@@ -8,7 +8,7 @@ resources:
 - resources/cert-staging.yaml
 - resources/cert-production.yaml
 - resources/chains.yaml
-- resources/dashboard.yaml
+#- resources/dashboard.yaml
 - resources/middlewares.yaml
 - resources/namespace.yaml
 
