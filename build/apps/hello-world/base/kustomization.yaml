@@ -23,4 +23,4 @@ resources:
 #- resources/sealed-sec.yaml
 #- resources/secret-test.yaml
 #- resources/pvc.yaml
-- resources/namespace.yaml
+#- resources/namespace.yaml
