@@ -308,7 +308,7 @@ ports:
       # this is the name of a TLSOption definition
       options:
         name: tls-ver13
-        namespace: traefik
+        #namespace: traefik
       #secretName: letsencrypt-production
       certResolver: ""
       domains:
