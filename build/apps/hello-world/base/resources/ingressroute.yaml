@@ -37,7 +37,9 @@ spec:
   #   options:
   #     name: tls-ver13
   #     namespace: traefik
-    secretName: traefik/letsencrypt-production
+    secretName: 
+      - name: letsencrypt-production
+      - namespace: traefik
 
   # tls:
   #   domains:
