@@ -60,7 +60,7 @@ apiVersion: traefik.io/v1alpha1
 kind: TraefikService
 metadata:
   name: hello-world-frontend
-  namespace: traefik
+  namespace: dev
   annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
     argocd.argoproj.io/sync-wave: "4"
