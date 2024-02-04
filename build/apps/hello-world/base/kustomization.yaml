@@ -22,5 +22,5 @@ resources:
 #- resources/servicemonitor.yaml
 #- resources/sealed-sec.yaml
 #- resources/secret-test.yaml
-#- resources/pvc.yaml
+- resources/pvc.yaml
 #- resources/namespace.yaml
