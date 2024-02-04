@@ -36,7 +36,7 @@ spec:
       - letsencrypt-production
 
 
-    secretName: letsencrypt-production
+    #secretName: letsencrypt-production
 ---
 apiVersion: traefik.io/v1alpha1
 kind: TraefikService
