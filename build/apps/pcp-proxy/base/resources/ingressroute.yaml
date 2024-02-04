@@ -16,7 +16,7 @@ spec:
     - kind: Rule
       match: Host(`pcp-proxy.anotherlife.pl`)
       middlewares:
-        - name: security #chain-traefik-dashboard
+        - name: chain-traefik-dashboard #chain-traefik-dashboard security
           namespace: traefik
       services:
         - kind: TraefikService
