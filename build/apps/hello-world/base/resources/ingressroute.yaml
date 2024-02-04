@@ -33,7 +33,8 @@ spec:
       name: tls-ver13
       namespace: traefik
     stores: 
-      - letsencrypt-production
+      default {}
+      #- letsencrypt-production
 
 
     #secretName: letsencrypt-production
