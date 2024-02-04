@@ -34,10 +34,10 @@ resources:
 # patchesStrategicMerge:
 #   - resources/storageclass.yaml
 
-# patches:
-#   - path: patches/ignore-deployment-mutation-patch.yaml
-#     target:
-#       kind: Deployment
+patches:
+  - path: patches/ignore-deployment-mutation-patch.yaml
+    target:
+      kind: Deployment
 
   # - path: resources/storageclass.yaml
   #   target:
