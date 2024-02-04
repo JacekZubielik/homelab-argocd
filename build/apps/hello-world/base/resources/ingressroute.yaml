@@ -30,6 +30,7 @@ spec:
   #     default: {}
 
   tls:
+    namespace: traefik
     domains:
       - main: anotherlife.pl
         sans:
@@ -37,9 +38,8 @@ spec:
   #   options:
   #     name: tls-ver13
   #     namespace: traefik
-    secretName: 
-      - name: letsencrypt-production
-      - namespace: traefik
+    secretName: letsencrypt-production
+    
 
   # tls:
   #   domains:
