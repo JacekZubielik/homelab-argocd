@@ -15,5 +15,5 @@ resources:
 - resources/seal.secret.yaml
 - resources/servicemonitor.yaml
 - resources/tlsoption.yaml
-- resources/tlsstore.yaml
+#- resources/tlsstore.yaml
 
