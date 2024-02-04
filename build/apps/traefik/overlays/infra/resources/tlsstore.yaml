@@ -10,7 +10,7 @@ spec:
 apiVersion: traefik.io/v1alpha1
 kind: TLSStore
 metadata:
-  name: letsencrypt-production
+  name: default #letsencrypt-production
 spec:
   defaultCertificate: 
     secretName: letsencrypt-production
