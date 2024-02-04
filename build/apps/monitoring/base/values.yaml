@@ -108,14 +108,6 @@ grafana:
   plugins:
     - grafana-piechart-panel
 
-  storage:
-    volumeClaimTemplate:
-      spec:
-        accessModes: ["ReadWriteOnce"]
-        resources:
-          requests:
-            storage: 10Gi
-
   # persistence:
   #   enabled: true
   #   size: 10Gi
@@ -123,6 +115,16 @@ grafana:
   #     - ReadWriteOnce
   #   finalizers:
   #     - kubernetes.io/pvc-protection
+  persistence:
+    volumeClaimTemplate:
+      spec:
+        storageClassName: local-path #longhorn-retain
+        accessModes: ["ReadWriteOnce"]
+        resources:
+          requests:
+            storage: 5Gi
+
+
 
   inMemory:
     enabled: true
@@ -146,7 +148,7 @@ grafana:
       datasources:
         - name: Prometheus
           type: prometheus
-          url: http://monitoring-kube-prometheus-prometheus.monitoring:9090 #http://kube-prometheus-stack-prometheus:9090
+          url: http://kube-prometheus-stack-prometheus:9090 #http://monitoring-kube-prometheus-prometheus.monitoring:9090 #http://kube-prometheus-stack-prometheus:9090
           access: proxy
           # isDefault: true
         - name: Loki
