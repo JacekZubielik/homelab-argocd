@@ -112,6 +112,6 @@ spec:
         - PruneLast=true
         automated:
           allowEmpty: true
-          prune: false
+          prune: true
           selfHeal: false
 status: {}
