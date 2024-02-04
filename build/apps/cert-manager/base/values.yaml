@@ -76,7 +76,7 @@ maxConcurrentChallenges: 60
 # # automountServiceAccountToken: true
 
 # When this flag is enabled, secrets will be automatically removed when the certificate resource is deleted
-#enableCertificateOwnerRef: false
+enableCertificateOwnerRef: true
 
 dns01RecursiveNameservers: "1.1.1.1:53,1.0.0.1:53" #9.9.9.9:53" #,#1.0.0.1:53"
 dns01RecursiveNameserversOnly: false #true #false
