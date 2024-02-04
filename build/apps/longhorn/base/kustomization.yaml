@@ -26,8 +26,8 @@ configMapGenerator:
   literals:
   - TZ=CET 
 
-# resources:
-#   - resources/ingressroute.yaml
+resources:
+  - resources/ingressroute.yaml
 #- resources/ingress.yaml
   # - resources/storageclass.yaml
 
