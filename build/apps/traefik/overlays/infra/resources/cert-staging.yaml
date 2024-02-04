@@ -7,7 +7,7 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "0"
 spec:
-  commonName: letsencrypt-staging
+  #commonName: letsencrypt-staging
   dnsNames:
   - 'anotherlife.pl'
   - '*.anotherlife.pl'
