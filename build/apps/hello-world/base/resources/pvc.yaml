@@ -4,7 +4,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: lh-pvc-1
 spec:
-  storageClassName: longhorn-retain
+  storageClassName: local-path #longhorn-retain
   #volumeName: hello-world-frontend
   accessModes:
     - ReadWriteOnce #ReadWriteMany #ReadWriteOnce
