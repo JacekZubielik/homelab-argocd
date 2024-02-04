@@ -109,7 +109,7 @@ grafana:
     - grafana-piechart-panel
 
   persistence:
-    enabled: false
+    enabled: true
     size: 10Gi
     accessModes:
       - ReadWriteOnce
