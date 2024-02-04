@@ -53,13 +53,13 @@ spec:
         #   timeoutSeconds: 1
         #   periodSeconds: 5
 
-      #   volumeMounts:
-      #     - name: hass-data-volume
-      #       mountPath: /config
-      # volumes:
-      #   - name: hass-data-volume
-      #     persistentVolumeClaim:
-      #       claimName: pvc-hass-data
+        volumeMounts:
+          - name: hass-data-volume
+            mountPath: /config
+      volumes:
+        - name: hass-data-volume
+          persistentVolumeClaim:
+            claimName: pvc-hass-data
 
 
       #     env:

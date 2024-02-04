@@ -10,8 +10,8 @@ spec:
   resources:
     requests:
       storage: 2Gi
-  # selector:
-  #   matchLabels:
-  #     volume: hass-data-volume
+  selector:
+    matchLabels:
+      volume: hass-data-volume
 
 
