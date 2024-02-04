@@ -303,6 +303,20 @@ ports:
     #   enabled: false
     # advertisedPort: 4443
     middlewares: []
+    tls:
+      enabled: true
+      # this is the name of a TLSOption definition
+      options:
+        name: tls-ver13
+        namespace: traefik
+      secretName: letsencrypt-production
+      certResolver: ""
+      domains:
+        - main: anotherlife.pl
+          sans:
+            - .anotherlife.pl
+
+
 
   metrics:
     port: 9100
