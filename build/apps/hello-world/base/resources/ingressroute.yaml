@@ -17,7 +17,7 @@ spec:
     - kind: Rule
       match: Host(`hello.anotherlife.pl`) && (PathPrefix(`/`))
       middlewares:
-        - name: headers
+        - name: chain-traefik-dashboard
           namespace: traefik
       services:
         - kind: TraefikService
