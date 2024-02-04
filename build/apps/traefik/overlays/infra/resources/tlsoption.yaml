@@ -21,9 +21,9 @@ spec:
     - TLS_AES_128_GCM_SHA256
     - TLS_CHACHA20_POLY1305_SHA256
     - TLS_FALLBACK_SCSV
-  curvePreferences:
-    - CurveP521
-    - CurveP384
+  # curvePreferences:
+  #   - CurveP521
+  #   - CurveP384
   sniStrict: false
 ---
 apiVersion: traefik.io/v1alpha1
