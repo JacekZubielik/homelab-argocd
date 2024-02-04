@@ -6,10 +6,10 @@ metadata:
   name: lh-pvc-1
 spec:
   accessModes:
-  - ReadWriteMany
+  - ReadWriteOnce
   capacity:
     storage: 2Gi
   hostPath:
-    path: /mnt/data1
-  storageClassName: longhorn-retain #manual
+    path: "/mnt/data1"
+  storageClassName: local-path #longhorn-retain #manual
 
