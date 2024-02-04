@@ -29,7 +29,7 @@ spec:
         sans:
           - .anotherlife.pl
     options:
-      name: tls-ver13
+      name: tls-ver12
       namespace: traefik
     #secretName: letsencrypt-staging
 ---
