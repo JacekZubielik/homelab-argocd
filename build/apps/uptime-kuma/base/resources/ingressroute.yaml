@@ -17,9 +17,9 @@ spec:
   routes:
     - kind: Rule
       match: Host(`uptime.anotherlife.pl`)
-      middlewares:
-        - name: headers
-          namespace: traefik
+      # middlewares:
+      #   - name: headers
+      #     namespace: traefik
       services:
         - kind: TraefikService
           name: uptime-kuma
