@@ -14,7 +14,7 @@ configMapGenerator:
   - TZ=CET
 
 resources:
-- resources/ingressroute.yaml
+#- resources/ingressroute.yaml
 - resources/service.yaml
 
 

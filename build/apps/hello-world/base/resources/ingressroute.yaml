@@ -30,21 +30,21 @@ spec:
   #   stores:
   #     default: {}
 
-  # tls:
-  #   domains:
-  #     - main: anotherlife.pl
-  #       sans:
-  #         - .anotherlife.pl
-  #   options:
-  #     name: tls-ver13
-  #     namespace: traefik
-    #secretName: letsencrypt-production
-
   tls:
     domains:
       - main: anotherlife.pl
         sans:
           - .anotherlife.pl
+    options:
+      name: tls-ver13
+      namespace: traefik
+    secretName: letsencrypt-production
+
+  # tls:
+  #   domains:
+  #     - main: anotherlife.pl
+  #       sans:
+  #         - .anotherlife.pl
     # options:
     #   name: tls-ver13
     #   namespace: traefik
@@ -60,7 +60,7 @@ apiVersion: traefik.io/v1alpha1
 kind: TraefikService
 metadata:
   name: hello-world-frontend
-  namespace: dev
+  #namespace: dev
   annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
     argocd.argoproj.io/sync-wave: "4"
@@ -68,7 +68,7 @@ spec:
   weighted:
     services:
       - name: hello-world-frontend
-        namespace: dev
+        #namespace: dev
         port: 80
         weight: 1
 

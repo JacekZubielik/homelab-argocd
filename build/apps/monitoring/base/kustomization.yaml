@@ -39,7 +39,7 @@ configMapGenerator:
 resources:
   - resources/blackbox-exporter-dashboard-configmap.yaml
   - resources/namespace.yaml
-  - resources/ingressroute.yaml
+  #- resources/ingressroute.yaml
   - resources/smartctl-exporter-dashboard-configmap.yaml
   - resources/smartctl-exporter-prometheus-rules.yaml
   - resources/temperature-dashboard-configmap.yaml

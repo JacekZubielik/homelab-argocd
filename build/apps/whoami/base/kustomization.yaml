@@ -15,5 +15,5 @@ configMapGenerator:
 
 resources:
 - resources/deployment.yaml
-- resources/ingressroute.yaml
+#- resources/ingressroute.yaml
 - resources/service.yaml
