@@ -108,13 +108,21 @@ grafana:
   plugins:
     - grafana-piechart-panel
 
-  persistence:
-    enabled: true
-    size: 10Gi
-    accessModes:
-      - ReadWriteOnce
-    finalizers:
-      - kubernetes.io/pvc-protection
+  storage:
+    volumeClaimTemplate:
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        resources:
+          requests:
+            storage: 10Gi
+
+  # persistence:
+  #   enabled: true
+  #   size: 10Gi
+  #   accessModes:
+  #     - ReadWriteOnce
+  #   finalizers:
+  #     - kubernetes.io/pvc-protection
 
   inMemory:
     enabled: true
