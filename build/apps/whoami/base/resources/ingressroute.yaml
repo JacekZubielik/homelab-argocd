@@ -15,7 +15,7 @@ spec:
     - websecure
   routes:
     - kind: Rule
-      match: Host(`whoami.anotherlife.pl`) && (PathPrefix(`/`)
+      match: Host(`whoami.anotherlife.pl`) && (PathPrefix(`/`))
       # middlewares:
       #   - name: chain-traefik-dashboard
       #     namespace: traefik
