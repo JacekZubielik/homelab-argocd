@@ -4,15 +4,16 @@ kind: Service
 metadata:
   name: uptime-kuma
   annotations:
-    argocd.argoproj.io/sync-wave: "0"
-  # labels:
-  #   app.kubernetes.io/name: uptime-kuma
-  #   app: uptime-kuma
-  #   name: uptime-kuma
+    argocd.argoproj.io/sync-wave: "4"
 spec:
   ports:
-    - port: 3001
+    - name: uptime-kuma
       protocol: TCP
+      port: 3001
       targetPort: 3001
   selector:
-    app: uptime-kuma
+    app.kubernetes.io/name: uptime-kuma
+    task: uptime-kuma
+
+
+

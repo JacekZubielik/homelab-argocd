@@ -3,14 +3,7 @@ kind: Deployment
 metadata:
   name: uptime-kuma
   annotations:
-    argocd.argoproj.io/sync-wave: "0"
-
-
-  # labels:
-  #   app.kubernetes.io/name: uptime-kuma
-  #   app: uptime-kuma
-  #   name: uptime-kuma
-
+    argocd.argoproj.io/sync-wave: "4"
 spec:
   replicas: 1
   revisionHistoryLimit: 3
@@ -36,6 +29,7 @@ spec:
 
         ports: 
           - containerPort: 3001
+            name: uptime-kuma
             protocol: TCP
 
       #   volumeMounts:
