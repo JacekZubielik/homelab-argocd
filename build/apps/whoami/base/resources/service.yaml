@@ -17,3 +17,4 @@ spec:
   selector:
     app.kubernetes.io/name: whoami-frontend
     task: whoami-frontend
+  type: ClusterIP
