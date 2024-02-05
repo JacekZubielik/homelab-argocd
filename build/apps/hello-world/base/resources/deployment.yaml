@@ -19,8 +19,7 @@ spec:
         app.kubernetes.io/name: hello-world-frontend
         task: hello-world-frontend
     spec:
-      # restartPolicy: Always
-
+      restartPolicy: Always
       volumes:
       - name: config
         persistentVolumeClaim:
@@ -38,17 +37,17 @@ spec:
               name: http
               protocol: TCP
 
-          env:
-            - name: TZ
-              valueFrom:
-                configMapKeyRef:
-                  name: homeassistant-env
-                  key: TZ
+          # env:
+          #   - name: TZ
+          #     valueFrom:
+          #       configMapKeyRef:
+          #         name: hello-world-frontend
+          #         key: TZ
 
 
-          # envFrom:
-          #   - configMapRef:
-          #       name: hello-world-config
+          envFrom:
+            - configMapRef:
+                name: hello-world-config
 
 
 
