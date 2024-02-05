@@ -37,19 +37,19 @@ spec:
         - name: UPTIME_KUMA_PORT
           value: "3001"
 
-        volumeMounts:
-        - name: uptime-kuma-content
-          mountPath: /app/data
+        # volumeMounts:
+        # - name: uptime-kuma-content
+        #   mountPath: /app/data
 
       # volumes:
       # - name: uptime-kuma-content
       #   persistentVolumeClaim:
       #     claimName: uptime-kuma-claim
 
-      volumes:
-      - name: uptime-kuma-content
-        persistentVolume:
-          name: uptime-kuma
+      # volumes:
+      # - name: uptime-kuma-content
+      #   persistentVolume:
+      #     name: uptime-kuma
 
 
         
