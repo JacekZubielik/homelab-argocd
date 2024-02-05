@@ -5,12 +5,22 @@ metadata:
   name: home-assistant
   annotations:
     argocd.argoproj.io/sync-wave: "4"
+# spec:
+#   ports:
+#     # - name: http
+#     - protocol: TCP
+#       port: 8123
+#       targetPort: 8123
+#   selector:
+#     app.kubernetes.io/name: home-assistant
+#     task: home-assistant
+
 spec:
-  ports:
-    # - name: http
-    - protocol: TCP
-      port: 8123
-      targetPort: 8123
+  type: LoadBalancer
   selector:
     app.kubernetes.io/name: home-assistant
-    task: home-assistant
+  ports:
+    - protocol: TCP
+      name: http
+      port: 80
+      targetPort: 8123
