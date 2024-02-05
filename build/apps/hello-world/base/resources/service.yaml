@@ -17,3 +17,4 @@ spec:
   selector:
     app.kubernetes.io/name: hello-world-frontend
     task: hello-world-frontend
+type: ClusterIP
