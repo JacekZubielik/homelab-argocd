@@ -192,8 +192,8 @@ config:
             description: Uptime
             server: uptime-kuma
             container: uptime-kuma
-            showStats: false
-            hideErrors: true
+            showStats: true
+            hideErrors: false
             widget:
                 type: uptimekuma
                 url: http://dev-uptime-kuma.kubernetes.default.svc:3001 #http://192.168.0.13:3001
