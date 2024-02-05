@@ -17,3 +17,7 @@ helmCharts:
   namespace: dev
   #includeCRDs: true
   valuesFile: values.yaml
+
+resources:
+- resources/ingressroute.yaml
+- resources/service.yaml
