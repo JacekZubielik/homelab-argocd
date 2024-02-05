@@ -19,6 +19,7 @@ spec:
         app.kubernetes.io/name: home-assistant
         task: home-assistant
     spec:
+      restartPolicy: Always
       volumes:
         - name: hass-config
           persistentVolumeClaim:
@@ -36,18 +37,46 @@ spec:
             name: home-assistant
             protocol: TCP
 
-        env:
-          - name: TZ
-            valueFrom:
-              configMapKeyRef:
-                name: home-assistant-config
-                key: TZ
+        envFrom:
+          - configMapRef:
+              name: home-assistant-config
+
+        # env:
+        #   - name: TZ
+        #     valueFrom:
+        #       configMapKeyRef:
+        #         name: home-assistant-config
+        #         key: TZ
+
+        livenessProbe:
+          tcpSocket:
+            port: 8123
+          initialDelaySeconds: 0
+          failureThreshold: 3
+          timeoutSeconds: 1
+          periodSeconds: 10
+        readinessProbe:
+          tcpSocket:
+            port: 8123
+          initialDelaySeconds: 0
+          failureThreshold: 3
+          timeoutSeconds: 1
+          periodSeconds: 10
+        startupProbe:
+          tcpSocket:
+            port: 8123
+          initialDelaySeconds: 0
+          failureThreshold: 30
+          timeoutSeconds: 1
+          periodSeconds: 5
+
+
 
         volumeMounts:
           - name: hass-config
             mountPath: /config
             readOnly: false
-      restartPolicy: Always
+
 
 
         # livenessProbe:

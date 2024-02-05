@@ -36,6 +36,12 @@ spec:
               name: http
               protocol: TCP
 
+        envFrom:
+          - configMapRef:
+              name: hello-world-config
+
+
+
           volumeMounts:
             - name: config
               mountPath: /app/data
