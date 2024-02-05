@@ -27,6 +27,10 @@ spec:
       #   persistentVolumeClaim:
       #     claimName: hello-world-frontend
 
+      envFrom:
+        - configMapRef:
+            name: hello-world-config
+
       containers:
         - name: webserver-simple
           image: kostiscodefresh/simple-web-app:3d9b390 #'docker.io/kostiscodefresh/simple-web-app:3d9b390'
@@ -36,9 +40,7 @@ spec:
               name: http
               protocol: TCP
 
-        envFrom:
-          - configMapRef:
-              name: hello-world-config
+
 
 
 
