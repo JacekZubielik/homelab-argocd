@@ -12,6 +12,7 @@ configMapGenerator:
 - name: uptime-kuma-config
   literals:
   - TZ=CET
+  - UPTIME_KUMA_PORT=3001"
 
 resources:
 - resources/deployment.yaml
