@@ -10,6 +10,6 @@ spec:
   capacity:
     storage: 2Gi
   hostPath:
-    path: "/mnt/data1"
+    path: "/app/data"
   storageClassName: local-path #longhorn-retain #manual
 
