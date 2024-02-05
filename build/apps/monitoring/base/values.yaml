@@ -45,15 +45,7 @@ alertmanager:
         labelSelector:
           matchLabels:
             app: alertmanager
-    # storage:
-    #   volumeClaimTemplate:
-    #     spec:
-    #       accessModes: ["ReadWriteOnce"]
-    #       resources:
-    #         requests:
-    #           storage: 1Gi
-
-    storageSpec:
+    storage:
       volumeClaimTemplate:
         spec:
           storageClassName: local-path #longhorn-retain
@@ -61,6 +53,15 @@ alertmanager:
           resources:
             requests:
               storage: 1Gi
+
+    # storageSpec:
+    #   volumeClaimTemplate:
+    #     spec:
+    #       storageClassName: local-path #longhorn-retain
+    #       accessModes: ["ReadWriteOnce"]
+    #       resources:
+    #         requests:
+    #           storage: 1Gi
 
 
 
