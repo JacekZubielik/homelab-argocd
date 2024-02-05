@@ -15,7 +15,7 @@ helmCharts:
   version: v1.5.3
   namespace: longhorn-system
   repo: https://charts.longhorn.io
-  valuesFile: values.yaml #values.yaml
+  valuesFile: values.yaml
 
   # valuesInline:
   #   installCRDs: true
@@ -32,7 +32,7 @@ resources:
 - resources/namespace.yaml
 #- resources/ingress.yaml
 - resources/storageclass.yaml
-
+- resources/servicemonitor.yaml
 # patchesStrategicMerge:
 #   - resources/storageclass.yaml
 
