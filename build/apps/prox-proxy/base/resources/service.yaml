@@ -2,6 +2,11 @@ kind: Service
 apiVersion: v1
 metadata:
   name: prox-proxy
+  annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+    argocd.argoproj.io/sync-wave: "4"
+  labels:
+    app.kubernetes.io/name: prox-proxy
 spec:
   externalName: 192.168.40.18
   ports:
@@ -9,5 +14,7 @@ spec:
       port: 8006  #80
       targetPort: 80
   type: ExternalName
-
+  selector:
+    app.kubernetes.io/instance: prox-proxy
+    task: prox-proxy
 

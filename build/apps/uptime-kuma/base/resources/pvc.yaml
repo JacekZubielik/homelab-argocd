@@ -4,7 +4,10 @@ kind: PersistentVolumeClaim
 metadata:
   name: uptime-kuma
   annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
     argocd.argoproj.io/sync-wave: "4"
+  labels:
+    app.kubernetes.io/name: uptime-kuma
 
 spec:
   storageClassName: longhorn-retain

@@ -3,7 +3,11 @@ kind: Deployment
 metadata:
   name: whoami-frontend
   annotations:
-    argocd.argoproj.io/sync-wave: "0"
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+    argocd.argoproj.io/sync-wave: "4"
+  labels:
+    app.kubernetes.io/name: whoami-frontend
+
 spec:
   replicas: 2
   revisionHistoryLimit: 3
@@ -12,6 +16,7 @@ spec:
       app.kubernetes.io/name: whoami-frontend
   strategy:
     type: Recreate
+
   template:
     metadata:
       labels:

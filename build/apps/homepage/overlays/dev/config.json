@@ -1,6 +1,6 @@
 {
-  "appName": "homepage",
-  "userGivenName": "homepage",
+  "appName": "homepage-frontend",
+  "userGivenName": "homepage-frontend",
   "destNamespace": "dev",
   "destServer": "https://kubernetes.default.svc",
   "srcPath": "build/apps/homepage/overlays/dev",

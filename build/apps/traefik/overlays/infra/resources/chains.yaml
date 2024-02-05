@@ -3,6 +3,9 @@ apiVersion: traefik.io/v1alpha1
 kind: Middleware
 metadata:
   name: chain-basic-auth
+  labels:
+    app.kubernetes.io/name: traefik
+
 spec:
   chain:
     middlewares:
@@ -13,6 +16,9 @@ apiVersion: traefik.io/v1alpha1
 kind: Middleware
 metadata:
   name: chain-traefik-dashboard
+  labels:
+    app.kubernetes.io/name: traefik
+
 spec:
   chain:
     middlewares:

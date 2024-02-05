@@ -9,6 +9,8 @@ metadata:
     cert-manager.io/cluster-issuer: route53-letsencrypt-production
     #external-dns.alpha.kubernetes.io/target: infra.anotherlife.pl
     kubernetes.io/ingress.class: traefik-external
+  labels:
+    app.kubernetes.io/name: prox-proxy
 
 spec:
   entryPoints:

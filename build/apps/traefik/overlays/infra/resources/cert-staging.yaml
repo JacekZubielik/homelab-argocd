@@ -6,6 +6,9 @@ metadata:
   namespace: traefik
   annotations:
     argocd.argoproj.io/sync-wave: "0"
+  labels:
+    app.kubernetes.io/name: traefik
+
 spec:
   dnsNames:
   - 'anotherlife.pl'

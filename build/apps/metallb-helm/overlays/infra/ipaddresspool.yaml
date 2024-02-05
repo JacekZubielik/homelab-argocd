@@ -5,6 +5,8 @@ metadata:
   namespace: metallb-system
   annotations:
     argocd.argoproj.io/sync-wave: "0"
+  labels:
+    app.kubernetes.io/name: metallb
 spec:
   addresses:
   - 192.168.40.180-192.168.40.200
@@ -18,12 +20,14 @@ metadata:
   namespace: metallb-system
   annotations:
     argocd.argoproj.io/sync-wave: "0"
+  labels:
+    app.kubernetes.io/name: metallb
 spec:
   ipAddressPools:
   - dev-lb-iprange
-  # nodeSelectors:
-  # - matchLabels:
-  #     kubernetes.io/hostname: dev-k3s-master-0
+  nodeSelectors:
+  - matchLabels:
+      kubernetes.io/hostname: dev-k3s-master-0
   # - matchLabels:
   #     kubernetes.io/hostname: dev-k3s-master-1
   # - matchLabels:

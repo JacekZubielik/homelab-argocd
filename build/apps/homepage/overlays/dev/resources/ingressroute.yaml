@@ -9,7 +9,8 @@ metadata:
     cert-manager.io/cluster-issuer: route53-letsencrypt-production
     #external-dns.alpha.kubernetes.io/target: infra.anotherlife.pl
     kubernetes.io/ingress.class: traefik-external
-
+  labels:
+    app.kubernetes.io/name: homepage-frontend
 spec:
   entryPoints:
     - websecure
@@ -41,10 +42,12 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
     argocd.argoproj.io/sync-wave: "4"
+  labels:
+    app.kubernetes.io/name: homepage-frontend
 spec:
   weighted:
     services:
-      - name: homepage
+      - name: homepage-frontend
         port: 3000
         weight: 1
 

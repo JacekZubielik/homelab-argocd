@@ -3,6 +3,8 @@ apiVersion: traefik.io/v1alpha1
 kind: TLSStore
 metadata:
   name: letsencrypt-staging
+  labels:
+    app.kubernetes.io/name: treafik
 spec:
   defaultCertificate: 
     secretName: letsencrypt-staging
@@ -11,6 +13,8 @@ apiVersion: traefik.io/v1alpha1
 kind: TLSStore
 metadata:
   name: letsencrypt-production
+  labels:
+    app.kubernetes.io/name: treafik
 spec:
   defaultCertificate: 
     secretName: letsencrypt-production
@@ -19,6 +23,8 @@ apiVersion: traefik.io/v1alpha1
 kind: TLSStore
 metadata:
   name: default
+  labels:
+    app.kubernetes.io/name: treafik
 spec:
   defaultCertificate: 
     secretName: letsencrypt-production

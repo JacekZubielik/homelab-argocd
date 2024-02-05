@@ -58,7 +58,6 @@ patches:
         path: /spec/template/spec/tolerations/-
         value: {"effect":"NoSchedule","key":"example.com/some-taint","operator":"Exists"}
 
-patches:
   - |-
       apiVersion: apps/v1
       kind: Deployment
@@ -72,7 +71,6 @@ patches:
               $patch: replace
               runAsNonRoot: true
 
-patches:
   - target:
       kind: Deployment
       name: controller

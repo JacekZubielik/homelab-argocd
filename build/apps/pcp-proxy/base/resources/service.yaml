@@ -2,6 +2,11 @@ kind: Service
 apiVersion: v1
 metadata:
   name: pcp-proxy
+  annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+    argocd.argoproj.io/sync-wave: "4"
+  labels:
+    app.kubernetes.io/name: pcp-proxy
 spec:
   externalName: 192.168.40.12
   ports:
@@ -9,7 +14,7 @@ spec:
       protocol: TCP
       port: 80
       targetPort: 80
-  # selector:
-  #   app.kubernetes.io/instance: traefik
-  #   task: pcp-proxy
   type: ExternalName
+  selector:
+    app.kubernetes.io/instance: pcp-proxy
+    task: pcp-proxy

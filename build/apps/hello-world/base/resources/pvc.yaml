@@ -2,7 +2,12 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: lh-pvc-1
+  name: hello-world-frontend
+  annotations:
+    argocd.argoproj.io/sync-wave: "4"
+  labels:
+    app.kubernetes.io/name: hello-world-frontend
+
 spec:
   storageClassName: local-path #longhorn-retain
   #volumeName: hello-world-frontend

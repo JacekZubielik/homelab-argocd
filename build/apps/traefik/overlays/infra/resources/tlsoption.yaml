@@ -4,9 +4,7 @@ kind: TLSOption
 metadata:
   name: tls-ver13
   labels:
-    app.kubernetes.io/name: traefik
-    app: traefik
-    name: traefik
+    app.kubernetes.io/name: treafik
 spec:
   minVersion: VersionTLS13
   cipherSuites:
@@ -31,9 +29,7 @@ kind: TLSOption
 metadata:
   name: tls-ver12
   labels:
-    app.kubernetes.io/name: traefik
-    app: traefik
-    name: traefik
+    app.kubernetes.io/name: treafik
 spec:
   minVersion: VersionTLS12
   cipherSuites:

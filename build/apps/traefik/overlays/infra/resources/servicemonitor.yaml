@@ -10,6 +10,7 @@ metadata:
   labels:
     app.kubernetes.io/name: traefik
     release: kube-prometheus-stack
+
 spec:
   jobLabel: traefik-metrics
   selector:

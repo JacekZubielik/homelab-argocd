@@ -164,7 +164,7 @@ providers:
 
 logs:
   general:
-    level: ERROR # -- DEBUG, PANIC, FATAL, ERROR, WARN, and INFO.
+    level: DEBUG # -- DEBUG, PANIC, FATAL, ERROR, WARN, and INFO.
   access:
     enabled: true
     filters:
@@ -185,7 +185,6 @@ metrics:
     headerLabels:
       label: headerKey
       useragent: User-Agent
-
 
   #  datadog:
   #    ## Address instructs exporter to send metrics to datadog-agent at this address.
