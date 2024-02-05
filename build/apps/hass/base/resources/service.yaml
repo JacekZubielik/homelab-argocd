@@ -16,4 +16,5 @@ spec:
       targetPort: 8123
   selector:
     app.kubernetes.io/name: home-assistant
+    task: home-assistant
   type: ClusterIP

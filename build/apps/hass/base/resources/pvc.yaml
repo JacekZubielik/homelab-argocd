@@ -3,15 +3,31 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: pvc-hass-data
+  annotations:
+    argocd.argoproj.io/sync-wave: "4"
+  labels:
+    app.kubernetes.io/name: home-assistant
+
 spec:
-  storageClassName: local-path #longhorn-retain
   accessModes:
     - ReadWriteOnce #ReadWriteMany #ReadWriteOnce
   resources:
     requests:
       storage: 2Gi
-  selector:
-    matchLabels:
-      volume: hass-data-volume
+  storageClassName: local-path #longhorn-retain
+
+
+
+
+# spec:
+#   storageClassName: local-path #longhorn-retain
+#   accessModes:
+#     - ReadWriteOnce #ReadWriteMany #ReadWriteOnce
+#   resources:
+#     requests:
+#       storage: 2Gi
+#   selector:
+#     matchLabels:
+#       volume: hass-data-volume
 
 

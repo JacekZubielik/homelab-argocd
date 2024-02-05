@@ -19,6 +19,11 @@ spec:
         app.kubernetes.io/name: home-assistant
         task: home-assistant
     spec:
+      volumes:
+        - name: hass-data
+          persistentVolumeClaim:
+            claimName: pvc-hass-data
+
       #hostNetwork: true
       containers:
       - name: home-assistant
@@ -28,8 +33,15 @@ spec:
           privileged: null
         ports:
           - containerPort: 8123
-            name: http
+            name: home-assistant
             protocol: TCP
+
+        volumeMounts:
+          - name: hass-data
+            mountPath: /config
+            readOnly: false
+      restartPolicy: Always
+
 
         # livenessProbe:
         #   tcpSocket:
@@ -53,13 +65,6 @@ spec:
         #   timeoutSeconds: 1
         #   periodSeconds: 5
 
-      #   volumeMounts:
-      #     - name: hass-data-volume
-      #       mountPath: /config
-      # volumes:
-      #   - name: hass-data-volume
-      #     persistentVolumeClaim:
-      #       claimName: pvc-hass-data
 
 
       #     env:
