@@ -12,24 +12,24 @@ deployment:
   podAnnotations: {}
   podLabels: {}
   additionalContainers: []
-  # additionalVolumes:
-  # - name: plugins
-  # - name: traefik-logs
+  additionalVolumes:
+  - name: plugins
+  - name: traefik-logs
 
-  # initContainers:
-  #   - name: data-accesslog
-  #     image: busybox:latest
-  #     args:
-  #       - /bin/sh
-  #       - -c
-  #       - tail -n+1 -F /data/access.log
-  #     imagePullPolicy: Always
-  #     resources: {}
-  #     terminationMessagePath: /dev/termination-log
-  #     terminationMessagePolicy: File
-  #     volumeMounts:
-  #     - name: data
-  #       mountPath: /data
+  initContainers:
+    - name: data-accesslog
+      image: busybox:latest
+      args:
+        - /bin/sh
+        - -c
+        - tail -n+1 -F /data/access.log
+      imagePullPolicy: Always
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - name: data
+        mountPath: /data
 
   shareProcessNamespace: true #false
   dnsConfig: {}
@@ -46,11 +46,11 @@ deployment:
 #   type: secret
 
 ### Additional volumeMounts to add to the Traefik container
-# additionalVolumeMounts:
-# - name: traefik-logs
-#   mountPath: /var/log/traefik
-# - name: plugins
-#   mountPath: /plugins-storage
+additionalVolumeMounts:
+- name: traefik-logs
+  mountPath: /var/log/traefik
+- name: plugins
+  mountPath: /plugins-storage
 
 # persistence:
 #   enabled: true
