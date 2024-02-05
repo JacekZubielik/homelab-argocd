@@ -2,7 +2,7 @@
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
-  name: homepage-frontend
+  name: homepage
   annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
     argocd.argoproj.io/sync-wave: "4"
@@ -10,7 +10,7 @@ metadata:
     #external-dns.alpha.kubernetes.io/target: infra.anotherlife.pl
     kubernetes.io/ingress.class: traefik-external
   labels:
-    app.kubernetes.io/name: homepage-frontend
+    app.kubernetes.io/name: homepage
 spec:
   entryPoints:
     - websecure
@@ -22,7 +22,7 @@ spec:
           namespace: traefik
       services:
         - kind: TraefikService
-          name: homepage-frontend
+          name: homepage
           port: 3000
 
   tls:
@@ -38,16 +38,16 @@ spec:
 apiVersion: traefik.io/v1alpha1
 kind: TraefikService
 metadata:
-  name: homepage-frontend
+  name: homepage
   annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
     argocd.argoproj.io/sync-wave: "4"
   labels:
-    app.kubernetes.io/name: homepage-frontend
+    app.kubernetes.io/name: homepage
 spec:
   weighted:
     services:
-      - name: homepage-frontend
+      - name: homepage
         port: 3000
         weight: 1
 

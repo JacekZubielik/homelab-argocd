@@ -5,7 +5,7 @@ image:
 
 enableRbac: true
 serviceAccount:
-  name: homepage-frontend
+  name: homepage
   create: true
 
 # service:
