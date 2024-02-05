@@ -16,4 +16,5 @@ resources:
 - resources/servicemonitor.yaml
 - resources/tlsoption.yaml
 #- resources/tlsstore.yaml
+- resources/ingressroute-argocd.yaml
 
