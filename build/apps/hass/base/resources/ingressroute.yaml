@@ -15,7 +15,7 @@ metadata:
 
 spec:
   entryPoints:
-    - websecure
+    - web #secure
   routes:
     - kind: Rule
       match: Host(`hass.anotherlife.pl`)
@@ -25,7 +25,7 @@ spec:
       services:
         - kind: TraefikService
           name: home-assistant
-          port: 80
+          port: 8123
 
   tls:
     domains:
@@ -48,6 +48,6 @@ spec:
   weighted:
     services:
       - name: home-assistant
-        port: 80
+        port: 8123
         weight: 1
 

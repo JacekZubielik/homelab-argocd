@@ -23,4 +23,4 @@ spec:
     - protocol: TCP
       name: http
       port: 8123
-      targetPort: 80
+      targetPort: 8123
