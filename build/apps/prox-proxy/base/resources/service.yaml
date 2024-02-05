@@ -7,7 +7,7 @@ spec:
   ports:
     - name: prox-proxy
       port: 8006  #80
-      targetPort: 8006
+      targetPort: 80
   selector:
     app.kubernetes.io/instance: traefik
       #  task: prox-proxy
