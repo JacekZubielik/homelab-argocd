@@ -12,7 +12,7 @@ spec:
   ports:
     - name: prox-proxy
       port: 8006  #80
-      targetPort: 80
+      targetPort: 8006
   type: ExternalName
   selector:
     app.kubernetes.io/instance: prox-proxy

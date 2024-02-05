@@ -24,7 +24,7 @@ spec:
       services:
         - kind: TraefikService
           name: prox-proxy
-          port: 80
+          port: 8006
 
   tls:
     domains:
@@ -47,7 +47,7 @@ spec:
   weighted:
     services:
       - name: prox-proxy
-        port: 80
+        port: 8006
         weight: 1
 
 
