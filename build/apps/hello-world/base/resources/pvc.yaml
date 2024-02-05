@@ -9,14 +9,16 @@ metadata:
     app.kubernetes.io/name: hello-world-frontend
 
 spec:
-  storageClassName: local-path #longhorn-retain
-  #volumeName: hello-world-frontend
   accessModes:
     - ReadWriteOnce #ReadWriteMany #ReadWriteOnce
-  #volumeMode: Block
   resources:
     requests:
       storage: 2Gi
+  storageClassName: local-path #longhorn-retain
+
   # selector:
   #   matchLabels:
   #     volume: hello-world-frontend
+  #volumeName: hello-world-frontend
+  #volumeMode: Block
+
