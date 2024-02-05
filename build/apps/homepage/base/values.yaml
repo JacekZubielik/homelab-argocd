@@ -196,7 +196,7 @@ config:
             hideErrors: true
             widget:
                 type: uptimekuma
-                url: http://dev-uptime-kuma.default.svc:3001 #http://192.168.0.13:3001
+                url: http://dev-uptime-kuma.kubernetes.default.svc:3001 #http://192.168.0.13:3001
                 slug: test
                 hideErrors: false
 
@@ -252,8 +252,6 @@ config:
         timezone: Europe/Warsaw # optional
         units: metric # or imperial
         cache: 5 # Time in minutes to cache API responses, to stay within limits
-
-
 
     ## Uncomment to enable Kubernetes integration
     - kubernetes:
