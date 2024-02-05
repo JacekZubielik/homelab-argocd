@@ -6,5 +6,5 @@ metadata:
   name: dev
   annotations:
     argocd.argoproj.io/sync-wave: "-1"
-  labels:
-    app.kubernetes.io/name: whoami-frontend
+  # labels:
+  #   app.kubernetes.io/name: whoami-frontend
