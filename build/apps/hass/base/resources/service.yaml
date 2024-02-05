@@ -16,11 +16,11 @@ metadata:
 #     task: home-assistant
 
 spec:
-  #type: LoadBalancer
+  type: ClusterIP
   selector:
     app.kubernetes.io/name: home-assistant
   ports:
     - protocol: TCP
       name: http
       port: 8123
-      targetPort: 8123
+      targetPort: 80

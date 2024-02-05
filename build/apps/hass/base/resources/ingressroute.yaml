@@ -25,7 +25,7 @@ spec:
       services:
         - kind: TraefikService
           name: home-assistant
-          port: 8123
+          port: 80
 
   tls:
     domains:
@@ -48,6 +48,6 @@ spec:
   weighted:
     services:
       - name: home-assistant
-        port: 8123
+        port: 80
         weight: 1
 
