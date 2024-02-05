@@ -19,6 +19,8 @@ spec:
         app.kubernetes.io/name: hello-world-frontend
         task: hello-world-frontend
     spec:
+      # restartPolicy: Always
+
       volumes:
       - name: config
         persistentVolumeClaim:
@@ -57,4 +59,3 @@ spec:
             - name: config
               mountPath: /config-data
               readOnly: false
-      restartPolicy: Always
