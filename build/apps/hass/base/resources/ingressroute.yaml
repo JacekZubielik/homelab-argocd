@@ -15,7 +15,7 @@ metadata:
 
 spec:
   entryPoints:
-    - web #secure
+    - websecure
   routes:
     - kind: Rule
       match: Host(`hass.anotherlife.pl`)
