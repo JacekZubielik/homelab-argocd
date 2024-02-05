@@ -8,11 +8,11 @@ serviceAccount:
   name: homepage
   create: true
 
-# service:
-#   main:
-#     ports:
-#       http:
-#         port: 3000
+service:
+  main:
+    ports:
+      http:
+        port: 3000
 
 controller:
   strategy: RollingUpdate
