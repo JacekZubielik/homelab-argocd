@@ -33,8 +33,6 @@ alertmanager:
     replicas: 1
     useExistingSecret: true
 
-
-
     # configMaps:
     #   - alertmanager-telegram-template
     configSecret: alertmanager-secret
@@ -48,22 +46,11 @@ alertmanager:
     storage:
       volumeClaimTemplate:
         spec:
-          storageClassName: local-path #longhorn-retain
+          storageClassName: local-path
           accessModes: ["ReadWriteOnce"]
           resources:
             requests:
               storage: 1Gi
-
-    # storageSpec:
-    #   volumeClaimTemplate:
-    #     spec:
-    #       storageClassName: local-path #longhorn-retain
-    #       accessModes: ["ReadWriteOnce"]
-    #       resources:
-    #         requests:
-    #           storage: 1Gi
-
-
 
   config:
     receivers:
