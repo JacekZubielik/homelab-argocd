@@ -21,7 +21,7 @@ spec:
     spec:
       volumes:
       - name: config
-        persistantVolumeClaim:
+        persistentVolumeClaim:
           claimName: hello-world-frontend
       containers:
         - image: 'docker.io/kostiscodefresh/simple-web-app:3d9b390'
