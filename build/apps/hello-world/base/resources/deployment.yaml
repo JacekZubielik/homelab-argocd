@@ -36,9 +36,17 @@ spec:
               name: http
               protocol: TCP
 
-          envFrom:
-            - configMapRef:
-                name: hello-world-config
+          env:
+            - name: TZ
+              valueFrom:
+                configMapKeyRef:
+                  name: homeassistant-env
+                  key: TZ
+
+
+          # envFrom:
+          #   - configMapRef:
+          #       name: hello-world-config
 
 
 
