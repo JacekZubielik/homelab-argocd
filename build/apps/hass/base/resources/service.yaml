@@ -16,7 +16,7 @@ metadata:
 #     task: home-assistant
 
 spec:
-  type: LoadBalancer
+  #type: LoadBalancer
   selector:
     app.kubernetes.io/name: home-assistant
   ports:
