@@ -10,11 +10,11 @@ resources:
 - resources/chains.yaml
 - resources/dashboard.yaml
 - resources/middlewares.yaml
-- resources/namespace.yaml
+#- resources/namespace.yaml
 
 - resources/seal.secret.yaml
 - resources/servicemonitor.yaml
 - resources/tlsoption.yaml
 #- resources/tlsstore.yaml
-- resources/ingressroute-argocd.yaml
+#- resources/ingressroute-argocd.yaml
 
