@@ -9,6 +9,7 @@ resources:
 #- resources/sealed-sec.yaml
 #- resources/secret-test.yaml
 - resources/pvc.yaml
+#- resources/configmap.yml
 
 # commonLabels:
 #   app.kubernetes.io/name: home-assistant

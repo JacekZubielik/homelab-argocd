@@ -20,7 +20,7 @@ spec:
         task: home-assistant
     spec:
       volumes:
-        - name: hass-data
+        - name: hass-config
           persistentVolumeClaim:
             claimName: pvc-hass-data
 
@@ -36,8 +36,15 @@ spec:
             name: home-assistant
             protocol: TCP
 
+        env:
+          - name: TZ
+            valueFrom:
+              configMapKeyRef:
+                name: home-assistant-config
+                key: TZ
+
         volumeMounts:
-          - name: hass-data
+          - name: hass-config
             mountPath: /config
             readOnly: false
       restartPolicy: Always
