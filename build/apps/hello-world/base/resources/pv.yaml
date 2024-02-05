@@ -3,7 +3,7 @@ kind: PersistentVolume
 metadata:
   labels:
     type: local
-  name: lh-pvc-1
+  name: data
 spec:
   accessModes:
   - ReadWriteOnce
