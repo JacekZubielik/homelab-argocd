@@ -28,29 +28,29 @@ spec:
             name: http
             protocol: TCP
 
-        volumeMounts:
-        - name: hello-world-frontend
-          mountPath: /app/data
-          readOnly: false
-        - name: data
-          mountPath: /data
-          readOnly: false
+  #       volumeMounts:
+  #       - name: hello-world-frontend
+  #         mountPath: /app/data
+  #         readOnly: false
+  #       - name: data
+  #         mountPath: /data
+  #         readOnly: false
 
-      volumes:
-      - name: config
-        configMap:
-          name: hello-world-frontend
-          defaultMode: 0755
+  #     volumes:
+  #     - name: config
+  #       configMap:
+  #         name: hello-world-frontend
+  #         defaultMode: 0755
 
-  volumeClaimTemplates:
-  - metadata:
-      name: data
-    spec:
-      accessModes: [ "ReadWriteOnce" ]
-      storageClassName: "standard"
-      resources:
-        requests:
-          storage: 2Gi
+  # volumeClaimTemplates:
+  # - metadata:
+  #     name: data
+  #   spec:
+  #     accessModes: [ "ReadWriteOnce" ]
+  #     storageClassName: "standard"
+  #     resources:
+  #       requests:
+  #         storage: 2Gi
 
 
 
