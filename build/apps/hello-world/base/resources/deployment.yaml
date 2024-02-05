@@ -23,45 +23,24 @@ spec:
       - name: config
         persistentVolumeClaim:
           claimName: hello-world-frontend
+      - name: data
+        persistentVolumeClaim:
+          claimName: hello-world-frontend
+
+
       containers:
         - name: webserver-simple
           image: kostiscodefresh/simple-web-app:3d9b390 #'docker.io/kostiscodefresh/simple-web-app:3d9b390'
           imagePullPolicy: IfNotPresent
-          
           ports:
-          - containerPort: 80
-            name: http
-            protocol: TCP
+            - containerPort: 80
+              name: http
+              protocol: TCP
 
           volumeMounts:
-          - name: config
-            mountPath: /app/data
-            readOnly: false
-          # - name: data
-          #   mountPath: /data
-          #   readOnly: false
-
-  #     volumes:
-  #     - name: config
-  #       configMap:
-  #         name: hello-world-frontend
-  #         defaultMode: 0755
-
-  # volumeClaimTemplates:
-  # - metadata:
-  #     name: data
-  #   spec:
-  #     accessModes: [ "ReadWriteOnce" ]
-  #     storageClassName: "standard"
-  #     resources:
-  #       requests:
-  #         storage: 2Gi
-
-
-
-
-      # volumes:
-      # - name: hello-world-frontend
-      #   persistentVolumeClaim:
-      #     claimName: lh-pvc-1
-
+            - name: config
+              mountPath: /app/data
+              readOnly: false
+            - name: data
+              mountPath: /data
+              readOnly: false
