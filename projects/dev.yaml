@@ -106,12 +106,12 @@ spec:
         - preserveResourcesOnDeletion=false
         - SkipDryRunOnMissingResource=true
         - Replace=false
-        #- ServerSideApply=true
-        - ApplyOutOfSyncOnly=false
+        - ServerSideApply=true
+        - ApplyOutOfSyncOnly=true
         #- Validate=true
         - PruneLast=true
         automated:
           allowEmpty: true
           prune: true
-          selfHeal: false
+          selfHeal: true
 status: {}
