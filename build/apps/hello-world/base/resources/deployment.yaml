@@ -29,32 +29,30 @@ spec:
       #     claimName: hello-world-frontend
 
       containers:
-        - name: webserver-simple
-          image: kostiscodefresh/simple-web-app:3d9b390 #'docker.io/kostiscodefresh/simple-web-app:3d9b390'
-          imagePullPolicy: IfNotPresent
-          ports:
-            - containerPort: 80
-              name: http
-              protocol: TCP
+      - name: webserver-simple
+        image: kostiscodefresh/simple-web-app:3d9b390 #'docker.io/kostiscodefresh/simple-web-app:3d9b390'
+        imagePullPolicy: IfNotPresent
+        ports:
+          - containerPort: 80
+            name: http
+            protocol: TCP
 
-          # env:
-          #   - name: TZ
-          #     valueFrom:
-          #       configMapKeyRef:
-          #         name: hello-world-frontend
-          #         key: TZ
-
-
-          envFrom:
-            - configMapRef:
-                name: hello-world-config
+        # env:
+        #   - name: TZ
+        #     valueFrom:
+        #       configMapKeyRef:
+        #         name: hello-world-frontend
+        #         key: TZ
 
 
+        envFrom:
+          - configMapRef:
+              name: hello-world-config
 
-          volumeMounts:
-            - name: config
-              mountPath: /app/data
-              readOnly: false
-            - name: config
-              mountPath: /config-data
-              readOnly: false
+        volumeMounts:
+          - name: config
+            mountPath: /app/data
+            readOnly: false
+          - name: config
+            mountPath: /config-data
+            readOnly: false
