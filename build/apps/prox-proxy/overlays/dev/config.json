@@ -1,0 +1,15 @@
+{
+  "appName": "prox-proxy",
+  "userGivenName": "prox-proxy",
+  "destNamespace": "dev",
+  "destServer": "https://kubernetes.default.svc",
+  "srcPath": "build/apps/prox-proxy/overlays/dev",
+  "srcRepoURL": "https://github.com/jacekzubielik/homelab-argocd.git",
+  "srcTargetRevision": "",
+  "syncWave": "4",
+  "appRole": "proxy",
+  "labels": null,
+  "annotations": null,
+  "exclude": "",
+  "include": ""
+}

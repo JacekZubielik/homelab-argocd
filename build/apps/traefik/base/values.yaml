@@ -237,8 +237,8 @@ additionalArguments:
 - "--accesslog.filepath=/data/access.log"
 - "--entrypoints.websecure.http.tls=true"
 - "--serversTransport.insecureSkipVerify=true"
-- "--entryPoints.web.proxyProtocol.insecure"
-- "--entryPoints.web.forwardedHeaders.insecure"
+- "--entryPoints.web.proxyProtocol.insecure" # < --- for Hass
+- "--entryPoints.web.forwardedHeaders.insecure" # < --- for Hass
 
   #
   # Shouldn't need this if you've got Cert Manager installed
