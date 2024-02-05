@@ -19,6 +19,10 @@ spec:
         app.kubernetes.io/name: hello-world-frontend
         task: hello-world-frontend
     spec:
+      volumes:
+      - name: config
+        persistantVolumeClaim:
+          claimName: hello-world-frontend
       containers:
         - image: 'docker.io/kostiscodefresh/simple-web-app:3d9b390'
           imagePullPolicy: IfNotPresent
