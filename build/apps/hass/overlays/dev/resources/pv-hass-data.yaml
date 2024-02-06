@@ -16,7 +16,7 @@ spec:
   storageClassName: local-path
   volumeMode: Filesystem
   local:
-    path: /disk/etc/home-assistant
+    path: /home-assistant
   nodeAffinity:
     required:
       nodeSelectorTerms:
