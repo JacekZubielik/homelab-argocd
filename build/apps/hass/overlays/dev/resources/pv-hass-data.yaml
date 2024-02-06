@@ -5,6 +5,7 @@ metadata:
     argocd.argoproj.io/sync-wave: "4"
   labels:
     app.kubernetes.io/name: home-assistant
+    type: local
   name: pv-hass-data
 
 spec:
@@ -13,9 +14,14 @@ spec:
   capacity:
     storage: 3Gi
   persistentVolumeReclaimPolicy: Retain
-  storageClassName: longhorn-retain #local-path
+  storageClassName: local-path #longhorn-retain #local-path
   hostPath:
     path: "/mnt/volume-0"
+
+  # reclaimPolicy:
+  #   - Recycle
+
+
 
 
   # volumeMode: Filesystem
