@@ -14,10 +14,7 @@ spec:
     requests:
       storage: 3Gi
   storageClassName: manual #longhorn-retain #local-path #longhorn-retain
-  # selector:
-  #   matchLabels:
-  #     volume: pvc-hass-data
-  # volumeName: pvc-hass-data
+
 
 
 
