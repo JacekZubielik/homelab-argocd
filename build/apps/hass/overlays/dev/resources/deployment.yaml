@@ -43,6 +43,10 @@ spec:
               readOnly: false
             - mountPath: /etc/localtime
               name: localtime
+            - mountPath: /data
+              name: hass-data
+              readOnly: false
+
       hostNetwork: true
       restartPolicy: Always
       volumes:
@@ -52,8 +56,7 @@ spec:
         - name: localtime
           hostPath:
             path: /etc/localtime
-
-        - name: hass-config
+        - name: hass-data
           persistentVolumeClaim:
             claimName: pv-hass-data
 
