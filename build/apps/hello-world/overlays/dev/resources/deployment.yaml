@@ -37,14 +37,6 @@ spec:
             name: http
             protocol: TCP
 
-        # env:
-        #   - name: TZ
-        #     valueFrom:
-        #       configMapKeyRef:
-        #         name: hello-world-frontend
-        #         key: TZ
-
-
         envFrom:
           - configMapRef:
               name: hello-world-config
