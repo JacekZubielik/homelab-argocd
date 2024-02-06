@@ -24,14 +24,11 @@ spec:
         app.kubernetes.io/name: uptime-kuma
         task: uptime-kuma
     spec:
-      restartPolicy: Always
-      volumes:
-      - name: kuma-data
-        persistentVolumeClaim:
-          claimName: pvc-kuma-data
-
       containers:
-      - image: louislam/uptime-kuma:latest
+      - envFrom:
+        - configMapRef:
+            name: uptime-kuma-config
+        image: louislam/uptime-kuma:latest
         imagePullPolicy: IfNotPresent
         name: uptime-kuma
         ports: 
@@ -43,38 +40,8 @@ spec:
         - name: kuma-data
           mountPath: /app/data
 
-        # env:
-        # - name: UPTIME_KUMA_PORT
-        #   value: "3001"
-
-        envFrom:
-        - configMapRef:
-            name: uptime-kuma-config
-
-
-
-        # volumeMounts:
-        # - name: uptime-kuma-content
-        #   mountPath: /app/data
-
-      # volumes:
-      # - name: uptime-kuma-content
-      #   persistentVolumeClaim:
-      #     claimName: uptime-kuma-claim
-
-      # volumes:
-      # - name: uptime-kuma-content
-      #   persistentVolume:
-      #     name: uptime-kuma
-
-
-        
-        #resources:
-          # requests:
-          #   memory: "256Mi"
-          #   cpu: "100m"
-            
-          # limits: 
-          #   memory: "512Mi"
-          #   cpu: "250m" 
-
+      restartPolicy: Always
+      volumes:
+      - name: kuma-data
+        persistentVolumeClaim:
+          claimName: pv-kuma-data
