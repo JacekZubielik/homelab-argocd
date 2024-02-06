@@ -49,10 +49,15 @@ spec:
 
       hostNetwork: true
       restartPolicy: Always
+      
       volumes:
         - name: hass-config
           persistentVolumeClaim:
             claimName: pv-hass-data
+
+
+
+            
         - name: localtime
           hostPath:
             path: /etc/localtime

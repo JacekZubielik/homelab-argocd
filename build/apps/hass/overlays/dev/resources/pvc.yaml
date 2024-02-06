@@ -6,14 +6,14 @@ metadata:
     argocd.argoproj.io/sync-wave: "4"
   labels:
     app.kubernetes.io/name: home-assistant
-  name: pvc-hass-data
+  name: pv-hass-data
 spec:
   accessModes:
     - ReadWriteOnce #ReadWriteMany #ReadWriteOnce
   resources:
     requests:
-      storage: 2Gi
-  storageClassName: longhorn-retain #local-path #longhorn-retain
+      storage: 3Gi
+  storageClassName: manual #longhorn-retain #local-path #longhorn-retain
   # selector:
   #   matchLabels:
   #     volume: pvc-hass-data
