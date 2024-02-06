@@ -14,9 +14,9 @@ spec:
     requests:
       storage: 2Gi
   storageClassName: longhorn-retain #local-path #longhorn-retain
-  selector:
-    matchLabels:
-      volume: pvc-hass-data
+  # selector:
+  #   matchLabels:
+  #     volume: pvc-hass-data
 
 
 
