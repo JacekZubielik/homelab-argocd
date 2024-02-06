@@ -53,6 +53,10 @@ spec:
           hostPath:
             path: /etc/localtime
 
+        - name: hass-config
+          persistentVolumeClaim:
+            claimName: pv-hass-data
+
         # livenessProbe:
         #   tcpSocket:
         #     port: 8123
