@@ -9,7 +9,7 @@ metadata:
   name: pvc-hass-data
 spec:
   accessModes:
-    - ReadWriteOnce #ReadWriteMany #ReadWriteOnce
+    - ReadWriteMany #ReadWriteMany #ReadWriteOnce
   resources:
     requests:
       storage: 2Gi
