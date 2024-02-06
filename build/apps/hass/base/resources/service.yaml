@@ -13,7 +13,7 @@ spec:
     - protocol: TCP
       name: home-assistant
       port: 8123
-      targetPort: 80
+      targetPort: home-assistant
   selector:
     app.kubernetes.io/name: home-assistant
     task: home-assistant
