@@ -20,9 +20,9 @@ configMapGenerator:
   literals:
   - TZ=CET
 
-patches:
-  - path: patches/comparisonerror.jsonpatch.yaml
-    target:
-      kind: CustomResourceDefinition
-      labelSelector: app.kubernetes.io/instance=home-assistant
+# patches:
+#   - path: patches/comparisonerror.jsonpatch.yaml
+#     target:
+#       kind: CustomResourceDefinition
+#       labelSelector: app.kubernetes.io/instance=home-assistant
 
