@@ -2,12 +2,13 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: hello-world-frontend
   annotations:
     argocd.argoproj.io/sync-wave: "4"
   labels:
     app.kubernetes.io/name: hello-world-frontend
     type: local
+  name: hello-world-frontend
+
 spec:
   accessModes:
   - ReadWriteOnce

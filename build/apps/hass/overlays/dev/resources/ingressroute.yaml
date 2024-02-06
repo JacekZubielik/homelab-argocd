@@ -26,9 +26,9 @@ spec:
           port: 8123
   tls:
     domains:
-      - main: anotherlife.pl
+      - main: anotherlife.pl # dev.anotherlife.pl
         sans:
-          - .anotherlife.pl
+          - .anotherlife.pl # .dev.anotherlife.pl
     options:
       name: tls-ver13
       namespace: traefik

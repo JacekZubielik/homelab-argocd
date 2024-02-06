@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "4"
+  labels:
+    app.kubernetes.io/name: home-assistant
+  name: pv-hass-data
+
+spec:
+  accessModes:
+    - ReadWriteOnce
+  capacity:
+    storage: 3Gi
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: local-path
+  volumeMode: Filesystem
+  local:
+    path: /disk/etc/home-assistant
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+        - matchExpressions:
+            - key: kubernetes.io/hostname
+              operator: In
+              values:
+                - dev-k3s-master-0
