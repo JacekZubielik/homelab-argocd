@@ -38,9 +38,9 @@ spec:
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
           volumeMounts:
-            - mountPath: /config
-              name: hass-config
-              readOnly: false
+            # - mountPath: /config
+            #   name: hass-config
+            #   readOnly: false
             - mountPath: /etc/localtime
               name: localtime
             - mountPath: /data
@@ -49,10 +49,10 @@ spec:
 
       hostNetwork: true
       restartPolicy: Always
-      volumes:
-        - name: hass-config
-          persistentVolumeClaim:
-            claimName: pvc-hass-data
+      # volumes:
+      #   - name: hass-config
+      #     persistentVolumeClaim:
+      #       claimName: pvc-hass-data
         - name: localtime
           hostPath:
             path: /etc/localtime
