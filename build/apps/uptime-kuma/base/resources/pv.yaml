@@ -11,11 +11,33 @@ metadata:
     type: local
   name: pv-hass-data
 
+# spec:
+#   accessModes:
+#   - ReadWriteMany
+#   capacity:
+#     storage: 9Gi
+#   storageClassName: manual #local-path #longhorn-retain #local-path
+#   hostPath:
+#     path: "/mnt/volume-0/PV/pv-uptime-kuma-data"
+
+
+
 spec:
-  accessModes:
-  - ReadWriteMany
   capacity:
-    storage: 9Gi
-  storageClassName: manual #local-path #longhorn-retain #local-path
-  hostPath:
+    storage: 8Gi
+  volumeMode: Filesystem
+  accessModes:
+  - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Delete
+  storageClassName: local-storage
+  local:
     path: "/mnt/volume-0/PV/pv-uptime-kuma-data"
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - dev-k3s-master-0
+
