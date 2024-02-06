@@ -14,8 +14,12 @@ spec:
   selector:
     matchLabels:
       app.kubernetes.io/name: home-assistant
+  # strategy:
+  #   type: RollingUpdate
   strategy:
-    type: RollingUpdate
+    type: Recreate
+
+
   template:
     metadata:
       labels:
