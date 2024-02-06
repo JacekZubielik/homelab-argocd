@@ -14,7 +14,7 @@ spec:
   capacity:
     storage: 3Gi
   persistentVolumeReclaimPolicy: Retain
-  storageClassName: local-path #longhorn-retain #local-path
+  storageClassName: manual #local-path #longhorn-retain #local-path
   hostPath:
     path: "/mnt/volume-0"
 
