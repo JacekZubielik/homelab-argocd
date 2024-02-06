@@ -43,7 +43,7 @@ spec:
             #   readOnly: false
             - mountPath: /etc/localtime
               name: localtime
-            - mountPath: /data
+            - mountPath: /config #/data
               name: hass-data
               readOnly: false
 
