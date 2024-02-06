@@ -13,15 +13,15 @@ spec:
   capacity:
     storage: 3Gi
   persistentVolumeReclaimPolicy: Retain
-  storageClassName: local-path
+  storageClassName: longhorn-retain #local-path
   volumeMode: Filesystem
   local:
     path: /home-assistant
-  # nodeAffinity:
-  #   required:
-  #     nodeSelectorTerms:
-  #       - matchExpressions:
-  #           - key: kubernetes.io/hostname
-  #             operator: In
-  #             values:
-  #               - dev-k3s-master-0
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+        - matchExpressions:
+            - key: kubernetes.io/hostname
+              operator: In
+              values:
+                - dev-k3s-master-0
