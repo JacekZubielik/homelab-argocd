@@ -16,7 +16,6 @@ spec:
 
   strategy:
     type: RollingUpdate
-  revisionHistoryLimit: 10
   progressDeadlineSeconds: 600
 
 
