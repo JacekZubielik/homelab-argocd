@@ -28,3 +28,8 @@ spec:
 #     - port: 443
 #       name: hassio-gui-api
 #       targetPort: 8123
+
+  # annotations:
+  #   metallb.universe.tf/loadBalancerIPs: 10.0.3.25
+
+  # type: LoadBalancer
