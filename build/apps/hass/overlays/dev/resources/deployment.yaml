@@ -56,9 +56,9 @@ spec:
         - name: localtime
           hostPath:
             path: /etc/localtime
-        # - name: hass-data
-        #   persistentVolumeClaim:
-        #     claimName: pv-hass-data
+        - name: hass-data
+          persistentVolumeClaim:
+            claimName: pv-hass-data
 
         # livenessProbe:
         #   tcpSocket:
