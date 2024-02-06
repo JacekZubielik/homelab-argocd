@@ -22,7 +22,7 @@ patches:
   - path: patches/remove-instance-label.jsonpatch.yaml
     target:
       kind: CustomResourceDefinition
-      labelSelector: app.kubernetes.io/instance=cert-manager
+      labelSelector: app.kubernetes.io/instance=infra-cert-manager
 
 # # This overlay includes a patch for the Helm chart base that adds the client.lifecycle.config.k8s.io/mutation: ignore 
 # # annotation to all Deployment objects. The annotation causes Config Sync to ignore any conflicting changes to this object 
