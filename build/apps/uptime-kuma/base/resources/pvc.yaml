@@ -7,7 +7,7 @@ metadata:
     argocd.argoproj.io/sync-wave: "4"
   labels:
     app.kubernetes.io/name: uptime-kuma
-  name: kuma-pv-volume #kuma-pv-claim
+  name: kuma-pv-claim
 spec:
   accessModes:
     - ReadWriteOnce #ReadWriteMany #ReadWriteOnce
