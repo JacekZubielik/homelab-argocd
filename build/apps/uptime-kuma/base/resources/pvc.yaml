@@ -7,13 +7,13 @@ metadata:
     argocd.argoproj.io/sync-wave: "4"
   labels:
     app.kubernetes.io/name: uptime-kuma
-  name: kuma-pv-claim
+  name: kuma-pv-volume #kuma-pv-claim
 spec:
   accessModes:
     - ReadWriteOnce #ReadWriteMany #ReadWriteOnce
   resources:
     requests:
       storage: 2Gi
-  storageClassName: "manual" #manual #longhorn-retain #local-path #longhorn-retain
+  storageClassName: "local-path" #manual #longhorn-retain #local-path #longhorn-retain
   volumeName: kuma-pv-volume
   volumeMode: Filesystem
