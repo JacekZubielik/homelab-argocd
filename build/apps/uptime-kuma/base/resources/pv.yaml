@@ -18,7 +18,7 @@ metadata:
 #     storage: 9Gi
 #   storageClassName: manual #local-path #longhorn-retain #local-path
 #   hostPath:
-    path: "/mnt/volume-0/PV/pv-uptime-kuma-data"
+      # path: "/mnt/volume-0/PV/pv-uptime-kuma-data"
 
 
 
