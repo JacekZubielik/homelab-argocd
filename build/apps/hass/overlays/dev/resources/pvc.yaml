@@ -7,7 +7,6 @@ metadata:
   labels:
     app.kubernetes.io/name: home-assistant
   name: hass-pv-claim
-
 spec:
   accessModes:
     - ReadWriteOnce
@@ -15,8 +14,8 @@ spec:
     requests:
       storage: 2Gi
   storageClassName: hostpath
-  # volumeName: hass-pv-volume
-  # volumeMode: Filesystem
+  volumeName: hass-pv-volume
+  volumeMode: Filesystem
 
 
 
