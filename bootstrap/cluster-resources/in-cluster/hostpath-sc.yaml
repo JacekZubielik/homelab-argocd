@@ -4,7 +4,7 @@ kind: StorageClass
 metadata:
   name: hostpath
 provisioner: microk8s.io/hostpath
-reclaimPolicy: Delete
+reclaimPolicy: Retain #Delete
 parameters:
   pvDir: /mnt/volume-0
 volumeBindingMode: WaitForFirstConsumer
