@@ -15,7 +15,7 @@ spec:
   - ReadWriteOnce
   capacity:
     storage: 9Gi
-
+  # volumeMode: Filesystem
   persistentVolumeReclaimPolicy: Retain
   storageClassName: "hostpath"
   hostPath:
