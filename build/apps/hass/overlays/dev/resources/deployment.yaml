@@ -55,7 +55,7 @@ spec:
       volumes:
       - name: hass-pv-storage
         persistentVolumeClaim:
-          claimName: hass-pv-claim
+          claimName: kuma-pv-volume #hass-pv-claim
       - name: localtime
         hostPath:
           path: /etc/localtime

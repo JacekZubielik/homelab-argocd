@@ -14,8 +14,8 @@ spec:
   resources:
     requests:
       storage: 2Gi
-  storageClassName: local-path #longhorn-retain
-
+  storageClassName: hostpath #local-path #longhorn-retain
+  volumeName: hello-world-frontend
 
 
   # selector:
