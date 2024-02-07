@@ -38,12 +38,12 @@ spec:
 
         volumeMounts:
         - mountPath: /app/data
-          name: kuma-pv-volume
+          name: kuma-pv-storage
           readOnly: false
 
       restartPolicy: Always
 
-      # volumes:
-      # - name: kuma-pv-volume
-      #   persistentVolumeClaim:
-      #     claimName: kuma-pv-claim
+      volumes:
+      - name: kuma-pv-storage
+        persistentVolumeClaim:
+          claimName: kuma-pv-claim
