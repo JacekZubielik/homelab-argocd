@@ -27,47 +27,38 @@ spec:
         task: home-assistant
     spec:
       containers:
-        - envFrom:
-            - configMapRef:
-                name: home-assistant-config
+      - envFrom:
+          - configMapRef:
+              name: home-assistant-config
           image: 'ghcr.io/home-assistant/home-assistant:2024.2.0.dev20240129'
           imagePullPolicy: IfNotPresent
           name: home-assistant
           ports:
-            - containerPort: 8123
-              name: home-assistant
-              protocol: TCP
+          - containerPort: 8123
+            name: home-assistant
+            protocol: TCP
           securityContext:
             privileged: true
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
+
           volumeMounts:
-            - mountPath: /config
-              name: hass-config
-              readOnly: false
-            - mountPath: /etc/localtime
-              name: localtime
-            # - mountPath: /data
-            #   name: hass-data
-            #   readOnly: false
+          - mountPath: /config
+            name: hass-pv-storage
+            readOnly: false
+          - mountPath: /etc/localtime
+            name: localtime
 
       hostNetwork: true
       restartPolicy: Always
-      
+
       volumes:
-        - name: hass-config
-          persistentVolumeClaim:
-            claimName: pv-hass-data
-
-
-
-            
-        - name: localtime
-          hostPath:
-            path: /etc/localtime
-        # - name: hass-data
-        #   persistentVolumeClaim:
-        #     claimName: pv-hass-data
+      - name: hass-pv-storage
+        persistentVolumeClaim:
+          claimName: hass-pv-claim
+      - name: localtime
+        hostPath:
+          path: /etc/localtime
 
         # livenessProbe:
         #   tcpSocket:

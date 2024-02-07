@@ -6,7 +6,7 @@ metadata:
   labels:
     app.kubernetes.io/name: home-assistant
     type: local
-  name: pv-hass-data
+  name: hass-pv-volume
 
 spec:
   accessModes:
@@ -16,7 +16,7 @@ spec:
   #persistentVolumeReclaimPolicy: Retain
   storageClassName: manual #local-path #longhorn-retain #local-path
   hostPath:
-    path: "/mnt/volume-0/PV/pv-hass-data"
+    path: "/mnt/volume-0/PV/hass-pv-volume"
 
   # reclaimPolicy:
   #   - Recycle

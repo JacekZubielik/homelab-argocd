@@ -37,10 +37,12 @@ spec:
           protocol: TCP
 
         volumeMounts:
-        - name: kuma-pv-storage
-          mountPath: /app/data
+        - mountPath: /app/data
+          name: kuma-pv-storage
+          readOnly: false
 
       restartPolicy: Always
+
       volumes:
       - name: kuma-pv-storage
         persistentVolumeClaim:

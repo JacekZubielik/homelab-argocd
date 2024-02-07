@@ -6,7 +6,7 @@ metadata:
     argocd.argoproj.io/sync-wave: "4"
   labels:
     app.kubernetes.io/name: home-assistant
-  name: pv-hass-data
+  name: hass-pv-claim
 spec:
   accessModes:
     - ReadWriteOnce #ReadWriteMany #ReadWriteOnce
