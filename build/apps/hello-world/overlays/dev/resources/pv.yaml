@@ -2,10 +2,10 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  annotations:
-    argocd.argoproj.io/sync-wave: "4"
+  # annotations:
+  #   argocd.argoproj.io/sync-wave: "4"
   labels:
-    app.kubernetes.io/name: hello-world-frontend
+    #app.kubernetes.io/name: hello-world-frontend
     type: local
   name: hello-world-pv-volume
 
