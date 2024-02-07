@@ -18,6 +18,6 @@ resources:
 #- resources/sealed-sec.yaml
 #- resources/secret-test.yaml
 #- resources/pvc.yaml
-- resources/pv.yaml
+#- resources/pv.yaml
 
 #- resources/namespace.yaml

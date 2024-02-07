@@ -41,7 +41,13 @@ spec:
           name: hello-world-pv-storage
           readOnly: false
 
+      # volumes:
+      # - name: hello-world-pv-storage
+      #   persistentVolumeClaim:
+      #     claimName: hello-world-pv-claim
+
       volumes:
       - name: hello-world-pv-storage
-        persistentVolumeClaim:
-          claimName: hello-world-pv-claim
+        hostPath:
+          path: "/mnt/volume-0/PV/hello-world-pv-volume"
+          type: Directory # this field is optional
