@@ -4,7 +4,6 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "4"
   labels:
-    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
     app.kubernetes.io/name: home-assistant
     type: local
   name: hass-pv-volume
