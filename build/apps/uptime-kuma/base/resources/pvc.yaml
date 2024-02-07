@@ -14,5 +14,5 @@ spec:
   resources:
     requests:
       storage: 2Gi
-  storageClassName: manual #longhorn-retain #local-path #longhorn-retain
+  storageClassName: "" #manual #longhorn-retain #local-path #longhorn-retain
   volumeName: kuma-pv-volume
