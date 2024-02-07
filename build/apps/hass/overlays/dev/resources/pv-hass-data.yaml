@@ -20,11 +20,11 @@ spec:
   #   path: "/mnt/volume-0/PV/hass-pv-volume"
   local:
     path: "/mnt/volume-0/PV/hass-pv-volume"
-  # nodeAffinity:
-  #   required:
-  #     nodeSelectorTerms:
-  #     - matchExpressions:
-  #       - key: kubernetes.io/hostname
-  #         operator: In
-  #         values:
-  #         - dev-k3s-master-01
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - dev-k3s-master-0
