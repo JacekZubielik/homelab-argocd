@@ -8,7 +8,7 @@ metadata:
   name: hostpath
 #provisioner: microk8s.io/hostpath
 provisioner: kubernetes.io/no-provisioner
-reclaimPolicy: Retain #Delete
+#reclaimPolicy: Retain #Delete
 allowVolumeExpansion: true
 parameters:
 #   pvDir: /mnt/volume-0
