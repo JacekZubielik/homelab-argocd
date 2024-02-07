@@ -3,7 +3,8 @@ apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
   name: hostpath
-provisioner: microk8s.io/hostpath
+#provisioner: microk8s.io/hostpath
+provisioner: kubernetes.io/no-provisioner
 reclaimPolicy: Retain #Delete
 parameters:
   pvDir: /mnt/volume-0
