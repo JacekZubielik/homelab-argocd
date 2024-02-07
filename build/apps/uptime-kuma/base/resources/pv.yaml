@@ -19,7 +19,7 @@ spec:
   persistentVolumeReclaimPolicy: Retain
   storageClassName: "hostpath" #manual #local-path #longhorn-retain #local-path
   hostPath:
-      path: "/mnt/volume-0/PV/kuma-pv-volume"
+      path: "/PV/kuma-pv-volume" #"/mnt/volume-0/PV/kuma-pv-volume"
 
 
 
