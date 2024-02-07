@@ -43,7 +43,7 @@ spec:
 
       restartPolicy: Always
 
-      volumes:
-      - name: kuma-pv-volume
-        persistentVolumeClaim:
-          claimName: kuma-pv-claim
+      # volumes:
+      # - name: kuma-pv-volume
+      #   persistentVolumeClaim:
+      #     claimName: kuma-pv-claim
