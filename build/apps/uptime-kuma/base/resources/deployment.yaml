@@ -24,10 +24,9 @@ spec:
         app.kubernetes.io/name: uptime-kuma
         task: uptime-kuma
     spec:
+      restartPolicy: Always
+
       containers:
-      - envFrom:
-        - configMapRef:
-            name: uptime-kuma-config
         image: louislam/uptime-kuma:latest
         imagePullPolicy: IfNotPresent
         name: uptime-kuma
@@ -36,12 +35,14 @@ spec:
           name: uptime-kuma
           protocol: TCP
 
+        envFrom:
+        - configMapRef:
+            name: uptime-kuma-config
+
         volumeMounts:
         - mountPath: /app/data
           name: kuma-pv-storage
           readOnly: false
-
-      restartPolicy: Always
 
       volumes:
       - name: kuma-pv-storage

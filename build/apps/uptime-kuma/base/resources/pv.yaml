@@ -17,22 +17,10 @@ spec:
     storage: 9Gi
 
   persistentVolumeReclaimPolicy: Retain
-  storageClassName: "hostpath" #manual #local-path #longhorn-retain #local-path
+  storageClassName: "hostpath"
   hostPath:
       path: "/mnt/volume-0/PV/kuma-pv-volume"
 
-
-
-# spec:
-#   capacity:
-#     storage: 8Gi
-#   volumeMode: Filesystem
-#   accessModes:
-#   - ReadWriteOnce
-#   persistentVolumeReclaimPolicy: Delete
-#   storageClassName: local-path
-#   local:
-#     path: "/mnt/volume-0/PV/pv-uptime-kuma-data"
 #   nodeAffinity:
 #     required:
 #       nodeSelectorTerms:

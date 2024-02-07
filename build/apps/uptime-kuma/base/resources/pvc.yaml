@@ -10,10 +10,10 @@ metadata:
   name: kuma-pv-claim
 spec:
   accessModes:
-    - ReadWriteOnce #ReadWriteMany #ReadWriteOnce
+    - ReadWriteOnce
   resources:
     requests:
       storage: 2Gi
-  storageClassName: "hostpath" #manual #longhorn-retain #local-path #longhorn-retain
+  storageClassName: hostpath
   volumeName: kuma-pv-volume
   volumeMode: Filesystem

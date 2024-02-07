@@ -5,6 +5,7 @@ metadata:
   name: hello-world-frontend
   annotations:
     argocd.argoproj.io/sync-wave: "4"
+
 spec:
   replicas: 1
   revisionHistoryLimit: 3
@@ -20,31 +21,26 @@ spec:
         task: hello-world-frontend
     spec:
       restartPolicy: Always
-      volumes:
-      - name: config
-        persistentVolumeClaim:
-          claimName: hello-world-frontend
-      # - name: data
-      #   persistentVolumeClaim:
-      #     claimName: hello-world-frontend
 
       containers:
-      - name: webserver-simple
-        image: kostiscodefresh/simple-web-app:3d9b390 #'docker.io/kostiscodefresh/simple-web-app:3d9b390'
+      - image: kostiscodefresh/simple-web-app:3d9b390
         imagePullPolicy: IfNotPresent
+        name: webserver-simple
         ports:
-          - containerPort: 80
-            name: http
-            protocol: TCP
+        - containerPort: 80
+          name: http
+          protocol: TCP
 
         envFrom:
-          - configMapRef:
-              name: hello-world-config
+        - configMapRef:
+            name: hello-world-config
 
         volumeMounts:
-          - name: config
-            mountPath: /app/data
-            readOnly: false
-          - name: config
-            mountPath: /config-data
-            readOnly: false
+        - mountPath: /app/data
+          name: hello-world-pv-storage
+          readOnly: false
+
+      volumes:
+      - name: hello-world-pv-storage
+        persistentVolumeClaim:
+          claimName: hello-world-pv-claim

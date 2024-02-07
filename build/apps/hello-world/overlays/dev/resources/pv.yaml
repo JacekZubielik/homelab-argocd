@@ -7,14 +7,19 @@ metadata:
   labels:
     app.kubernetes.io/name: hello-world-frontend
     type: local
-  name: hello-world-frontend
+  name: hello-world-pv-volume
 
 spec:
   accessModes:
   - ReadWriteOnce
   capacity:
     storage: 2Gi
+
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: hostpath #longhorn-retain #manual
   hostPath:
-    path: "/app/data"
-  storageClassName: local-path #longhorn-retain #manual
+    path: "/mnt/volume-0/PV/hello-world-pv-volume"
+
+
+
 
