@@ -4,14 +4,14 @@ kind: StorageClass
 metadata:
     annotations:
     argocd.argoproj.io/sync-wave: "-1"
-    storageclass.kubernetes.io/is-default-class: "true"
+    storageclass.kubernetes.io/is-default-class: "false"
   name: hostpath
 #provisioner: microk8s.io/hostpath
 provisioner: kubernetes.io/no-provisioner
 #reclaimPolicy: Retain #Delete
-allowVolumeExpansion: true
-parameters:
+# allowVolumeExpansion: true
+# parameters:
 #   pvDir: /mnt/volume-0
-  type: local
+  # type: local
 volumeBindingMode: WaitForFirstConsumer
 
