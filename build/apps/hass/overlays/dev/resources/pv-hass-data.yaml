@@ -16,10 +16,10 @@ spec:
   persistentVolumeReclaimPolicy: Retain
   storageClassName: hostpath
   # volumeMode: Filesystem
-  # hostPath:
-  #   path: "/mnt/volume-0/PV/hass-pv-volume"
-  local:
+  hostPath:
     path: "/mnt/volume-0/PV/hass-pv-volume"
+  # local:
+  #   path: "/mnt/volume-0/PV/hass-pv-volume"
   nodeAffinity:
     required:
       nodeSelectorTerms:
