@@ -12,7 +12,7 @@ metadata:
 
 spec:
   accessModes:
-  - ReadWriteMany
+  - ReadWriteOnce
   capacity:
     storage: 9Gi
   storageClassName: "local-path" #manual #local-path #longhorn-retain #local-path
