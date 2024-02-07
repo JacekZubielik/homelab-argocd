@@ -13,15 +13,10 @@ spec:
     - ReadWriteOnce
   capacity:
     storage: 3Gi
-  #persistentVolumeReclaimPolicy: Retain
-  storageClassName: manual #local-path #longhorn-retain #local-path
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: hostpath
   hostPath:
     path: "/mnt/volume-0/PV/hass-pv-volume"
-
-  # reclaimPolicy:
-  #   - Recycle
-
-
 
 
   # volumeMode: Filesystem

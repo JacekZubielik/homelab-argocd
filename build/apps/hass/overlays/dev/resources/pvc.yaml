@@ -7,13 +7,16 @@ metadata:
   labels:
     app.kubernetes.io/name: home-assistant
   name: hass-pv-claim
+
 spec:
   accessModes:
-    - ReadWriteOnce #ReadWriteMany #ReadWriteOnce
+    - ReadWriteOnce
   resources:
     requests:
-      storage: 3Gi
-  storageClassName: manual #longhorn-retain #local-path #longhorn-retain
+      storage: 2Gi
+  storageClassName: hostpath
+  # volumeName: hass-pv-volume
+  # volumeMode: Filesystem
 
 
 
