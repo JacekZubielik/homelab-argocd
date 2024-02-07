@@ -16,7 +16,7 @@ spec:
     storage: 9Gi
   # volumeMode: Filesystem
   persistentVolumeReclaimPolicy: Retain
-  storageClassName: "hostpath"
+  storageClassName: hostpath
   hostPath:
       path: "/mnt/volume-0/PV/kuma-pv-volume"
 

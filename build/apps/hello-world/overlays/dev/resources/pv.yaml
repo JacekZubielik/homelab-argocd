@@ -16,7 +16,7 @@ spec:
     storage: 2Gi
 
   persistentVolumeReclaimPolicy: Retain
-  storageClassName: hostpath #longhorn-retain #manual
+  storageClassName: hostpath
   hostPath:
     path: "/mnt/volume-0/PV/hello-world-pv-volume"
 
