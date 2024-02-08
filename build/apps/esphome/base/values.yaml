@@ -42,7 +42,7 @@ service:
 hostNetwork: false
 
 persistence:
-  enabled: false
+  #enabled: false
   # storageClass: "-"
   ##
   ## If you want to reuse an existing claim, you can pass the name of the PVC using
