@@ -1,0 +1,50 @@
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+    argocd.argoproj.io/sync-wave: "4"
+    cert-manager.io/cluster-issuer: route53-letsencrypt-production
+    #external-dns.alpha.kubernetes.io/target: infra.anotherlife.pl
+    kubernetes.io/ingress.class: traefik-external
+  labels:
+    app.kubernetes.io/name: home-assistant
+  name: home-assistant
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - kind: Rule
+      match: Host(`hass.anotherlife.pl`)
+      # middlewares:
+      #   - name: headers #traefik-dashboard-auth  #chain-traefik-dashboard
+      #     namespace: traefik
+      services:
+        - kind: TraefikService
+          name: home-assistant
+          port: 8123
+  tls:
+    domains:
+      - main: anotherlife.pl # dev.anotherlife.pl
+        sans:
+          - .anotherlife.pl # .dev.anotherlife.pl
+    options:
+      name: tls-ver13
+      namespace: traefik
+    secretName: letsencrypt-production
+---
+apiVersion: traefik.io/v1alpha1
+kind: TraefikService
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+    argocd.argoproj.io/sync-wave: "4"
+  name: home-assistant
+spec:
+  weighted:
+    services:
+      - name: home-assistant
+        port: 8123
+        weight: 1
+

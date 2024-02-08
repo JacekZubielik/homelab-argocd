@@ -1,0 +1,56 @@
+---
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+podAnnotations: {}
+
+podSecurityContext:
+  privileged: true
+
+securityContext:
+  runAsNonRoot: false
+
+extraEnv: {}
+
+service:
+  type: ClusterIP
+  port: 8123
+  targetPort: 8123
+  annotations: {}
+  labels: {}
+
+resources: {}
+
+nodeSelector:
+  kubernetes.io/hostname: dev-k3s-master-0
+  #kubernetes.io/os: linux
+
+tolerations: []
+
+affinity: {}
+
+persistence:
+  enabled: false
+  hostPath: /mnt/volume-0/apps/home-assistant
+
+ingress:
+  enabled: false
+  annotations: {}
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"{{- if .Values.serviceMonitor.enabled }}
+  path: /
+  hosts:
+    - home-assistant.local
+  tls: []
+  #  - secretName: letsencrypt-production
+  #    hosts:
+  #      - home-assistant.local
+
+monitoring:
+  enabled: true
+  serviceMonitor:
+    enabled: true
+    namespace: monitoring
+    interval: 30s
+
