@@ -33,8 +33,6 @@ affinity: {}
 persistence:
   #enabled: false
   hostPath: /mnt/volume-0/apps/home-assistant
-  # hostPath: /etc/localtime
-
 
 ingress:
   enabled: false
