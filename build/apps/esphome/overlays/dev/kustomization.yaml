@@ -14,6 +14,6 @@ resources:
 
 
 configMapGenerator:
-- name: home-assistant-config
+- name: esphome-config
   literals:
   - TZ=CET
