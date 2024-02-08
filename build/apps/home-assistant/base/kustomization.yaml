@@ -13,7 +13,7 @@ helmCharts:
 - name: home-assistant
   repo: https://jacekzubielik.github.io/helm-charts 
   #repo: https://github.com/JacekZubielik/helm-charts/tree/master/charts/home-assistant
-  version: 0.0.26
+  version: 0.0.35
   releaseName: home-assistant
   #namespace: kube-system
   includeCRDs: false
