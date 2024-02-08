@@ -31,11 +31,6 @@ startupapicheck:
   #     helm.sh/hook-weight: "-5"
   #     helm.sh/hook-delete-policy: before-hook-creation,hook-succeeded
 
-  # image:
-  #   repository: quay.io/jetstack/cert-manager-ctl
-  #   pullPolicy: IfNotPresent
-
-
 installCRDs: true
 
 # global:
