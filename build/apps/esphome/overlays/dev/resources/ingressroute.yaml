@@ -17,9 +17,9 @@ spec:
   routes:
     - kind: Rule
       match: Host(`esphome.anotherlife.pl`)
-      # middlewares:
-      #   - name: headers #traefik-dashboard-auth  #chain-traefik-dashboard
-      #     namespace: traefik
+      middlewares:
+        - name: traefik-dashboard-auth  #chain-traefik-dashboard
+          namespace: traefik
       services:
         - kind: TraefikService
           name: esphome
