@@ -5,8 +5,8 @@ namespace: traefik
 
 resources:
 - ../../base
-- resources/cert-staging.yaml
-- resources/cert-production.yaml
+# - resources/cert-staging.yaml
+# - resources/cert-production.yaml
 - resources/chains.yaml
 - resources/dashboard.yaml
 - resources/middlewares.yaml
