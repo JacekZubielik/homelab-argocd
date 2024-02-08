@@ -48,7 +48,7 @@ ingress:
   #      - home-assistant.local
 
 monitoring:
-  enabled: true
+  enabled: false
   serviceMonitor:
     enabled: true
     namespace: monitoring
