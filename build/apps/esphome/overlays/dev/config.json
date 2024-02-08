@@ -1,0 +1,15 @@
+{
+  "appName": "esphome",
+  "userGivenName": "esphome",
+  "destNamespace": "dev",
+  "destServer": "https://kubernetes.default.svc",
+  "srcPath": "build/apps/esphome/overlays/dev",
+  "srcRepoURL": "https://github.com/jacekzubielik/homelab-argocd.git",
+  "srcTargetRevision": "",
+  "syncWave": "4",
+  "appRole": "dev",
+  "labels": null,
+  "annotations": null,
+  "exclude": "",
+  "include": ""
+}
