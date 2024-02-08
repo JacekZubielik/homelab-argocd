@@ -39,19 +39,6 @@ service:
   # nodePort: 30000
   publishNotReadyAddresses: false
 
-ingress:
-  enabled: false
-  annotations: {}
-    # kubernetes.io/ingress.class: nginx
-    # kubernetes.io/tls-acme: "true"
-  path: /
-  hosts:
-    - esphome.local
-  tls: []
-  #  - secretName: esphome-tls
-  #    hosts:
-  #      - esphome.local
-
 hostNetwork: false
 
 persistence:
@@ -63,7 +50,7 @@ persistence:
   # existingClaim: your-claim
   ##
   ## If you want to use a volume on the host machine instead of a PVC:
-  # hostPath: /path/to/the/config/folder
+  hostPath: /mnt/volume-0/apps/esphome
   accessMode: ReadWriteOnce
   size: 1Gi
 
@@ -120,7 +107,7 @@ podAnnotations: {}
 extraVolumes: []
   # - name: example-name
   #   hostPath:
-  #     path: /path/on/host
+  #     path: /mnt/volume-0/apps/esphome
   #     type: DirectoryOrCreate
 ##########hostPath: /mnt/volume-0/apps/home-assistant
 
