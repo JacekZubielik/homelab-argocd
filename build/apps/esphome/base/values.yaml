@@ -50,9 +50,9 @@ persistence:
   # existingClaim: your-claim
   ##
   ## If you want to use a volume on the host machine instead of a PVC:
-  # hostPath: /mnt/volume-0/apps/esphome
-  # accessMode: ReadWriteOnce
-  # size: 1Gi
+  hostPath: /mnt/volume-0/apps/esphome
+  accessMode: ReadWriteOnce
+  size: 1Gi
 
 extraEnv: {}
 
@@ -82,11 +82,9 @@ usePodSecurityContext: true
 # fsGroup: <will be omitted in deployment if runAsUser is 0>
 
 # Mount devices or folders from the host machine. Can be used for USB device mounting.
-hostMounts: #[]
+hostMounts: []
   # - name: zha
   #   hostPath: /dev/serial/by-id/usb-Silicon_Labs_HubZ_Smart_Home_Controller_6120245D-if01-port0
-  - name: esphome
-    hostPath: /mnt/volume-0/apps/esphome
 
 resources: {}
   # limits:
