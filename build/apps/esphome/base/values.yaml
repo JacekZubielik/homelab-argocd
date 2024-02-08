@@ -43,7 +43,7 @@ hostNetwork: false
 
 persistence:
   enabled: false
-  # storageClass: "-"
+  storageClass: "-"
   ##
   ## If you want to reuse an existing claim, you can pass the name of the PVC using
   ## the existingClaim variable
@@ -51,8 +51,8 @@ persistence:
   ##
   ## If you want to use a volume on the host machine instead of a PVC:
   hostPath: /mnt/volume-0/apps/esphome
-  accessMode: ReadWriteOnce
-  size: 1Gi
+  #accessMode: ReadWriteOnce
+  #size: 1Gi
 
 extraEnv: {}
 
