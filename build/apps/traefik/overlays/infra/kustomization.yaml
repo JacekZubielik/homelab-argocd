@@ -9,6 +9,7 @@ resources:
 # - resources/cert-production.yaml
 - resources/chains.yaml
 - resources/dashboard.yaml
+- resources/ingressroute-argocd.yaml
 - resources/middlewares.yaml
 #- resources/namespace.yaml
 
