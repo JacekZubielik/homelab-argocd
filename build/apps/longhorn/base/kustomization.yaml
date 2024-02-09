@@ -45,3 +45,5 @@ patches:
 #     kind: StorageClass
 
 
+patchesStrategicMerge:
+  - patches/default-settings.yaml
