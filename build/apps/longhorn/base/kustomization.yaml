@@ -35,10 +35,10 @@ resources:
 #- resources/servicemonitor.yaml
 
 patches:
-- path: patches/hook.yaml
-  target:
-    name: pre-hook
-    kind: Job
+  - target:
+      name: pre-hook
+      kind: Job
+    path: patches/hook.yaml
 
 # - path: resources/storageclass.yaml
 #   target:
