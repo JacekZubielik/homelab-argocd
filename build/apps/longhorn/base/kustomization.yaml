@@ -16,9 +16,8 @@ helmCharts:
   namespace: longhorn-system
   repo: https://charts.longhorn.io
   valuesFile: values.yaml
-  fullnameOverride: longhorn-system
 
-  
+
   # valuesInline:
   #   installCRDs: true
   #   namespace: longhorn-system
@@ -29,9 +28,9 @@ configMapGenerator:
   literals:
   - TZ=CET 
 
-resources:
-- resources/ingressroute.yaml
-- resources/namespace.yaml
+#resources:
+#- resources/ingressroute.yaml
+#- resources/namespace.yaml
 #- resources/ingress.yaml
 #- resources/storageclass.yaml
 #- resources/servicemonitor.yaml
