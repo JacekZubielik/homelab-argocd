@@ -16,11 +16,9 @@ helmCharts:
   namespace: longhorn-system
   repo: https://charts.longhorn.io
   valuesFile: values.yaml
-  # valuesInline:
-  #   helm:
-  valuesObject:
-    preUpgradeChecker:
-      jobEnabled: false
+  valuesInline:
+      preUpgradeChecker:
+        jobEnabled: false
 
 
   # valuesInline:
