@@ -16,7 +16,7 @@ longhorn:
     storageOverProvisioningPercentage: 30
     storageMinimalAvailablePercentage: 5
     storageReservedPercentageForDefaultDisk: 10
-    #defaultDataPath="/mnt/volume-0"
+    defaultDataPath: "/mnt/volume-0"
 
 
   persistence:
