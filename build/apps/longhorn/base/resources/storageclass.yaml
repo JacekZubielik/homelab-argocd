@@ -7,7 +7,7 @@ metadata:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
     argocd.argoproj.io/sync-wave: "0"
     storageclass.kubernetes.io/is-default-class: "true"
-    #node.longhorn.io/default-node-tags: '["fast","media-pvc"]'
+    node.longhorn.io/default-node-tags: '["nvme","media-pvc"]'
     node.longhorn.io/create-default-disk: 'longhorn-retain'
   labels:
     app.kubernetes.io/name: longhorn-system
@@ -21,7 +21,7 @@ parameters:
   staleReplicaTimeout: "2880"
   fromBackup: ""
   fsType: "ext4"
-  dataLocality: "disabled"
+  dataLocality: strict-local # "strict-local" "best-effort" "disabled" 
 # ---
 # kind: StorageClass
 # apiVersion: storage.k8s.io/v1
