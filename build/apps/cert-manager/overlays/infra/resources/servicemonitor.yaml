@@ -4,7 +4,7 @@ metadata:
   name: cert-manager-prometheus-servicemonitor
   annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
-    argocd.argoproj.io/sync-wave: "1"
+    argocd.argoproj.io/sync-wave: "3"
     argocd.argoproj.io/compare-options: IgnoreExtraneous
   labels:
     app.kubernetes.io/name: cert-manager
