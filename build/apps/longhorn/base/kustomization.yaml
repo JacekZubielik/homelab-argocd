@@ -34,11 +34,11 @@ resources:
 #- resources/storageclass.yaml
 #- resources/servicemonitor.yaml
 
-patches:
-  - target:
-      name: pre-hook
-      kind: Job
-    path: patches/hook.yaml
+# patches:
+#   - target:
+#       name: pre-hook
+#       kind: Job
+#     path: patches/hook.yaml
 
 # - path: resources/storageclass.yaml
 #   target:
@@ -47,6 +47,7 @@ patches:
 
 patchesStrategicMerge:
   - patches/default-settings.yaml
+  - patches/hook.yaml
 
 
   # patch: |-
