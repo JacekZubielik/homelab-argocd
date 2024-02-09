@@ -31,21 +31,21 @@ resources:
 - resources/ingressroute.yaml
 #- resources/namespace.yaml
 #- resources/ingress.yaml
-- resources/storageclass.yaml
+#- resources/storageclass.yaml
 - resources/servicemonitor.yaml
-# patchesStrategicMerge:
-#   - resources/storageclass.yaml
 
 patches:
-- path: patches/ignore-deployment-mutation-patch.yaml
+- path: patches/hook.yaml
   target:
-    kind: Deployment
+    name: pre-hook
+    kind: Job
+
+# - path: patches/ignore-deployment-mutation-patch.yaml
+#   target:
+#     kind: Deployment
 
 # - path: resources/storageclass.yaml
 #   target:
 #     kind: StorageClass
 
-- path: patches/hook.yaml
-  target:
-    name: pre-hook
-    kind: Job
+
