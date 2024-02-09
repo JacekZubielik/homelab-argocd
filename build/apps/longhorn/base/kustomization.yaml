@@ -51,7 +51,7 @@ patches:
   #   target:
   #     kind: StorageClass
 
-  - target:
+  - path: patches/hook.yaml
+    target:
       name: pre-hook
       kind: Job
-    path: patches/hook.yaml
