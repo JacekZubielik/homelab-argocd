@@ -34,11 +34,11 @@ resources:
 #- resources/storageclass.yaml
 - resources/servicemonitor.yaml
 
-patches:
-- path: patches/hook.yaml
-  target:
-    name: pre-hook
-    kind: Job
+# patches:
+# - path: patches/hook.yaml
+#   target:
+#     name: pre-hook
+#     kind: Job
 
 # - path: patches/ignore-deployment-mutation-patch.yaml
 #   target:
