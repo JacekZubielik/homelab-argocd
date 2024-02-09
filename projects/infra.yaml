@@ -39,16 +39,6 @@ spec:
       repoURL: https://github.com/jacekzubielik/homelab-argocd.git
       requeueAfterSeconds: 20
       revision: ""
-
-######################## longhorn
-      helm:
-        valuesObject:
-          preUpgradeChecker:
-            jobEnabled: false
-
-
-
-
       template:
         metadata: {}
         spec:
