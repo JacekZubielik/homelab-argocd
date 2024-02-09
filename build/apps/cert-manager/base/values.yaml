@@ -3,8 +3,8 @@
 
 startupapicheck:
   enabled: true
-  timeout: 5m
-  backoffLimit: 4
+  timeout: 10m
+  backoffLimit: 6
 
   # securityContext:
   #   runAsNonRoot: true
