@@ -12,7 +12,7 @@ helmCharts:
 - name: longhorn
   includeCRDs: true
   releaseName: longhorn
-  version: v1.6.0
+  version: v1.5.3 #v1.6.0
   namespace: longhorn-system
   repo: https://charts.longhorn.io
   valuesFile: values.yaml
@@ -34,11 +34,11 @@ resources:
 #- resources/storageclass.yaml
 #- resources/servicemonitor.yaml
 
-# patches:
-#   - target:
-#       name: pre-hook
-#       kind: Job
-#     path: patches/hook.yaml
+patches:
+  - target:
+      name: pre-hook
+      kind: Job
+    path: patches/hook.yaml
 
 # - path: resources/storageclass.yaml
 #   target:
@@ -47,7 +47,6 @@ resources:
 
 patchesStrategicMerge:
   - patches/default-settings.yaml
-  - patches/hook.yaml
 
 
   # patch: |-
