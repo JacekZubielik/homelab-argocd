@@ -45,5 +45,15 @@ resources:
 #     kind: StorageClass
 
 
-patchesStrategicMerge:
-  - patches/default-settings.yaml
+# patchesStrategicMerge:
+#   - patches/default-settings.yaml
+
+
+  # patch: |-
+  #   - op: remove
+  #     path: /spec/template/spec/securityContext
+
+  patch: |-
+    - op: remove
+      path: "/spec/ttlSecondsAfterFinished"
+
