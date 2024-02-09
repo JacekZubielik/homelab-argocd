@@ -42,7 +42,13 @@ configMapGenerator:
   literals:
   - TZ=CET
 
-
+patchesJson6902:
+- path: patches/metallb-no-deprecation-warning.yaml
+  target:
+    group: apiextensions.k8s.io
+    kind: CustomResourceDefinition
+    name: addresspools.metallb.io
+    version: v1
 # resources:
 # - namespace.yaml
 
