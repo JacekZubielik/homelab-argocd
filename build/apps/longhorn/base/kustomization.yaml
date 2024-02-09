@@ -35,10 +35,10 @@ resources:
 #- resources/servicemonitor.yaml
 
 patches:
-#   - target:
-#       name: pre-hook
-#       kind: Job
-#     path: patches/hook.yaml
+  - target:
+      name: pre-hook
+      kind: Job
+    path: patches/hook.yaml
 
 # - path: resources/storageclass.yaml
 #   target:
@@ -53,9 +53,9 @@ patches:
   #   - op: remove
   #     path: /spec/template/spec/securityContext
 
-  patch: |-
-    - op: remove
-      path: "/spec/ttlSecondsAfterFinished"
+  # patch: |-
+  #   - op: remove
+  #     path: "/spec/ttlSecondsAfterFinished"
 
 # spec:
 #   project: default
