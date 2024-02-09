@@ -16,10 +16,6 @@ helmCharts:
   namespace: longhorn-system
   repo: https://charts.longhorn.io
   valuesFile: values.yaml
-  valuesInline:
-      preUpgradeChecker:
-        jobEnabled: false
-
 
   # valuesInline:
   #   installCRDs: true
@@ -45,11 +41,11 @@ patches:
   target:
     kind: Deployment
 
-  # - path: resources/storageclass.yaml
-  #   target:
-  #     kind: StorageClass
-
-# - path: patches/hook.yaml
+# - path: resources/storageclass.yaml
 #   target:
-#     name: pre-hook
-#     kind: Job
+#     kind: StorageClass
+
+- path: patches/hook.yaml
+  target:
+    name: pre-hook
+    kind: Job

@@ -23,7 +23,7 @@ longhorn:
     defaultClassReplicaCount: 1    
     defaultClass: true
     defaultFsType: ext4
-    defaultDataLocality: disabled # best-effort otherwise
+    defaultDataLocality: best-effort #disabled # best-effort otherwise
     reclaimPolicy: Retain
     migratable: false
     recurringJobSelector:
