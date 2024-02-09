@@ -35,7 +35,7 @@ configMapGenerator:
 
 resources:
 - resources/ingressroute.yaml
-- resources/namespace.yaml
+#- resources/namespace.yaml
 #- resources/ingress.yaml
 - resources/storageclass.yaml
 - resources/servicemonitor.yaml
