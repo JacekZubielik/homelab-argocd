@@ -50,3 +50,8 @@ patches:
   # - path: resources/storageclass.yaml
   #   target:
   #     kind: StorageClass
+
+  - target:
+      name: pre-hook
+      kind: Job
+    path: patches/hook.yaml
