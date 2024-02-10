@@ -1,6 +1,3 @@
-
-
-
 # If this option is set to false a StateFulset instead of a Deployment is used
 useDeploy: false
 
@@ -110,9 +107,7 @@ readinessProbe:
 
 volume:
   enabled: false
-  accessMode: ReadWriteOnce
-  size: 4Gi
-  existingClaim: ""
+
 
 additionalVolumes:
   []
