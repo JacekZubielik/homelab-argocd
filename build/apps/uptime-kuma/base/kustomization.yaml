@@ -1,12 +1,22 @@
+---
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 metadata:
-  labels:
-    app.kubernetes.io/name: uptime-kuma
   annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
     argocd.argoproj.io/compare-options: IgnoreExtraneous
+  labels:
+    app.kubernetes.io/name: uptime-kuma
+
+helmCharts:
+- name: uptime-kuma
+  repo: https://jacekzubielik.github.io/helm-charts
+  version: 0.0.1
+  releaseName: homepage
+  namespace: dev
+  includeCRDs: false
+  valuesFile: values.yaml
 
 configMapGenerator:
 - name: uptime-kuma-config
@@ -15,7 +25,7 @@ configMapGenerator:
   - UPTIME_KUMA_PORT=3001"
 
 resources:
-- resources/deployment.yaml
+#- resources/deployment.yaml
 #- resources/ingress.yaml
 - resources/ingressroute.yaml
 - resources/service.yaml
