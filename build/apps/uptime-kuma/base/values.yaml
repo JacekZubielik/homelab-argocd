@@ -67,22 +67,22 @@ readinessProbe:
   enabled: true
   initialDelaySeconds: 5
 
-# strategy:
-#   type: Recreate
+strategy:
+  type: Recreate
 
-# serviceMonitor:
-#   enabled: false
-#   interval: 60s
-#   scrapeTimeout: 10s
-#   scheme: ~
-#   tlsConfig: {}
-#   relabelings: []
-#   metricRelabelings: []
-#   selector: {}
+serviceMonitor:
+  enabled: false
+  interval: 60s
+  scrapeTimeout: 10s
+  scheme: ~
+  tlsConfig: {}
+  relabelings: []
+  metricRelabelings: []
+  selector: {}
 
-#   namespace: ~
-#   additionalLabels: {}
-#   annotations: {}
+  namespace: ~
+  additionalLabels: {}
+  annotations: {}
 
 
 # dnsPolicy: ""
