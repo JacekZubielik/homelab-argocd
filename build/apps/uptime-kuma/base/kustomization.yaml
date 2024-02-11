@@ -12,7 +12,7 @@ metadata:
 helmCharts:
 - name: uptime-kuma
   repo: https://jacekzubielik.github.io/helm-charts
-  version: 0.0.25
+  version: 0.0.26
   releaseName: uptime-kuma
   #namespace: dev
   includeCRDs: false
