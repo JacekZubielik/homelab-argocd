@@ -38,9 +38,9 @@ resources: {}
 nodeSelector:
   kubernetes.io/hostname: dev-k3s-master-0
 
-tolerations: []
+# tolerations: []
 
-affinity: {}
+# affinity: {}
 
 persistence:
   enabled: false
@@ -73,8 +73,8 @@ strategy:
 #   annotations: {}
 
 
-dnsPolicy: ""
-dnsConfig: {}
+# dnsPolicy: ""
+# dnsConfig: {}
 
 
 # ingress:
