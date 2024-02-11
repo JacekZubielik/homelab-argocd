@@ -58,14 +58,14 @@ persistence:
 #   enabled: false
 #   hostPath: /mnt/volume-0/apps/uptime-kuma
 
-# livenessProbe:
-#   enabled: true
-#   timeoutSeconds: 2
-#   initialDelaySeconds: 15
+livenessProbe:
+  enabled: true
+  timeoutSeconds: 2
+  initialDelaySeconds: 15
 
-# readinessProbe:
-#   enabled: true
-#   initialDelaySeconds: 5
+readinessProbe:
+  enabled: true
+  initialDelaySeconds: 5
 
 # strategy:
 #   type: Recreate
