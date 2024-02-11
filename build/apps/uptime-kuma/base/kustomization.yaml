@@ -24,10 +24,10 @@ helmCharts:
 #   - TZ=CET
 #   - UPTIME_KUMA_PORT=3001"
 
-resources:
+# resources:
 #- resources/deployment.yaml
 #- resources/ingress.yaml
-- resources/ingressroute.yaml
+#- resources/ingressroute.yaml
 #- resources/service.yaml
 #- resources/sealed-sec.yaml
 #- resources/secret-test.yaml
