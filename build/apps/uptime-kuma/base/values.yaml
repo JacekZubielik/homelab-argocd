@@ -43,7 +43,7 @@ nodeSelector:
 # affinity: {}
 
 persistence:
-  #enabled: false
+  enabled: false
   hostPath: /mnt/volume-0/apps/uptime-kuma
 
 # livenessProbe:
