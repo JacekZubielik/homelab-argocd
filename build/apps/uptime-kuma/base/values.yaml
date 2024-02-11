@@ -41,6 +41,18 @@ useDeploy: false # If this option is set to false a StateFulset instead of a Dep
 # tolerations: []
 
 # affinity: {}
+persistence:
+  enabled: true
+  # storageClass: "-"
+  ##
+  ## If you want to reuse an existing claim, you can pass the name of the PVC using
+  ## the existingClaim variable
+  # existingClaim: your-claim
+  ##
+  ## If you want to use a volume on the host machine instead of a PVC:
+  hostPath: /mnt/volume-0/apps/uptime-kuma
+  # accessMode: ReadWriteOnce
+  # size: 1Gi
 
 # persistence:
 #   enabled: false
