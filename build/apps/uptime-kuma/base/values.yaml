@@ -15,11 +15,11 @@ useDeploy: false # If this option is set to false a StateFulset instead of a Dep
 
 # securityContext: {}
 
-service:
-  type: ClusterIP
-  port: 3001
-  nodePort: {}
-  annotations: {}
+# service:
+#   type: ClusterIP
+#   port: 3001
+#   nodePort: {}
+#   annotations: {}
 
 
 
@@ -42,9 +42,9 @@ nodeSelector:
 
 # affinity: {}
 
-persistence:
-  enabled: false
-  hostPath: /mnt/volume-0/apps/uptime-kuma
+# persistence:
+#   enabled: false
+#   hostPath: /mnt/volume-0/apps/uptime-kuma
 
 # livenessProbe:
 #   enabled: true
