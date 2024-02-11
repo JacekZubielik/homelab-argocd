@@ -11,9 +11,9 @@ useDeploy: false # If this option is set to false a StateFulset instead of a Dep
 #   - name: "UPTIME_KUMA_PORT"
 #     value: "3001"
 
-podSecurityContext: {}
+# podSecurityContext: {}
 
-securityContext: {}
+# securityContext: {}
 
 service:
   type: ClusterIP
