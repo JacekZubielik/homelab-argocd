@@ -1,4 +1,11 @@
-useDeploy: false # If this option is set to false a StateFulset instead of a Deployment is used
+# If this option is set to false a StateFulset instead of a Deployment is used
+useDeploy: false
+
+# upgrade strategy type (e.g. Recreate or RollingUpdate)
+strategyType: Recreate
+
+nameOverride: ""
+fullnameOverride: ""
 
 serviceAccount:
   create: false
@@ -7,27 +14,32 @@ serviceAccount:
 
 # podAnnotations: {}
 # podLabels: {}
+
 # podEnv:
 #   - name: "UPTIME_KUMA_PORT"
 #     value: "3001"
 
-# podSecurityContext: {}
+podSecurityContext: {}
+  # fsGroup: 2000
+# dnsPolicy: ""
+# dnsConfig: {}
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+# dnsPolicy: ""
+# dnsConfig: {}
 
-# securityContext: {}
+service:
+  type: ClusterIP
+  port: 3001
+  nodePort: {}
+  annotations: {}
 
-# service:
-#   type: ClusterIP
-#   port: 3001
-#   nodePort: {}
-#   annotations: {}
-
-
-
-# resources: {}
-  # We usually recommend not to specify default resources and to leave this as a conscious
-  # choice for the user. This also increases chances charts run on environments with little
-  # resources, such as Minikube. If you do want to specify resources, uncomment the following
-  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+resources: {}
   # limits:
   #   cpu: 100m
   #   memory: 128Mi
@@ -35,14 +47,24 @@ serviceAccount:
   #   cpu: 100m
   #   memory: 128Mi
 
+livenessProbe:
+  enabled: true
+  timeoutSeconds: 2
+  initialDelaySeconds: 15
+
+readinessProbe:
+  enabled: true
+  initialDelaySeconds: 5
+
 nodeSelector:
   kubernetes.io/hostname: dev-k3s-master-0
 
 # tolerations: []
 
 # affinity: {}
+
 persistence:
-  enabled: true
+  enabled: false
   # storageClass: "-"
   ##
   ## If you want to reuse an existing claim, you can pass the name of the PVC using
@@ -54,22 +76,6 @@ persistence:
   # accessMode: ReadWriteOnce
   # size: 1Gi
 
-# persistence:
-#   enabled: false
-#   hostPath: /mnt/volume-0/apps/uptime-kuma
-
-livenessProbe:
-  enabled: true
-  timeoutSeconds: 2
-  initialDelaySeconds: 15
-
-readinessProbe:
-  enabled: true
-  initialDelaySeconds: 5
-
-strategy:
-  type: Recreate
-
 serviceMonitor:
   enabled: false
   interval: 60s
@@ -79,15 +85,12 @@ serviceMonitor:
   relabelings: []
   metricRelabelings: []
   selector: {}
-
   namespace: ~
   additionalLabels: {}
   annotations: {}
 
-
 # dnsPolicy: ""
 # dnsConfig: {}
-
 
 ingress:
   enabled: false
