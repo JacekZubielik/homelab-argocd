@@ -10,7 +10,7 @@ metadata:
     app.kubernetes.io/name: logitech-media-server
 
 helmCharts:
-- name: logitech-media-server
+- name: lms
   repo: https://jacekzubielik.github.io/helm-charts
   version: 0.0.1
   releaseName: logitech-media-server
