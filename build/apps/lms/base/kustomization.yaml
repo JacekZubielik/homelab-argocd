@@ -13,7 +13,7 @@ helmCharts:
 - name: lms
   repo: https://jacekzubielik.github.io/helm-charts
   version: 0.0.1
-  releaseName: logitech-media-server
+  releaseName: lms
   #namespace: dev
   includeCRDs: false
   valuesFile: values.yaml
