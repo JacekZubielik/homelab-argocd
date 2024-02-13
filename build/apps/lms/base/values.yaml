@@ -1,8 +1,8 @@
 service:
   type: LoadBalancer #ClusterIP
   #clusterIP: ""
-  externalIPs: 192.168.40.181
-  loadBalancerIP: ""
+  externalIPs: []
+  loadBalancerIP: "192.168.40.181"
   loadBalancerSourceRanges: []
   httpPort: "9000"
   dlnaPort: "9090"
