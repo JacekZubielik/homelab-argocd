@@ -48,7 +48,7 @@ ingress:
 #     memory: "512Mi"
 
 livenessProbe:
-  enabled: true
+  enabled: false
   timeoutSeconds: 2
   initialDelaySeconds: 15
 
