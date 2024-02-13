@@ -6,13 +6,13 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
     argocd.argoproj.io/compare-options: IgnoreExtraneous
-  labels:
-    app.kubernetes.io/name: lms
+  # labels:
+  #   app.kubernetes.io/name: lms
 
 helmCharts:
 - name: lms
   repo: https://jacekzubielik.github.io/helm-charts
-  version: 0.0.35
+  version: 0.0.36
   releaseName: lms
   #namespace: dev
   includeCRDs: false
