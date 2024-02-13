@@ -1,6 +1,6 @@
 {
-  "appName": "uptime-kuma",
-  "userGivenName": "uptime-kuma",
+  "appName": "lms",
+  "userGivenName": "lms",
   "destNamespace": "dev",
   "destServer": "https://kubernetes.default.svc",
   "srcPath": "build/apps/lms/overlays/dev",

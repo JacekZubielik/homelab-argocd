@@ -1,23 +1,11 @@
-image:
-  repository: lmscommunity/logitechmediaserver
-  tag: 8.4.0
-  pullPolicy: IfNotPresent
-
-extraLabels: {}
-
-settings:
-
 service:
-  annotations: {}
-  clusterIP: ""
   httpPort: "9000"
+  dlnaPort: "9090"
   controlPort: "3483"
-  ## List of IP addresses at which the service is available
-  ## Ref: https://kubernetes.io/docs/user-guide/services/#external-ips
-  ##
   externalIPs: []
   loadBalancerIP: ""
   loadBalancerSourceRanges: []
+  clusterIP: ""
   type: ClusterIP
 
 ingress:
@@ -26,30 +14,26 @@ ingress:
   annotations: {}
   path: /
   hosts:
-    - logitech-media-server
+    - lms
   tls: []
-  #  - secretName: logitech-media-server-tls
+  #  - secretName: lms-tls
   #    hosts:
-  #      logitech-media-server
+  #      lms
 
 persistence:
   enabled: true
-  ## esphome data Persistent Volume Storage Class
-  ## If defined, storageClassName: <storageClass>
-  ## If set to "-", storageClassName: "", which disables dynamic provisioning
-  ## If undefined (the default) or set to null, no storageClassName spec is
-  ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
-  ##   GKE, AWS & OpenStack)
-  ##
-  # storageClass: "-"
-  ##
-  ## If you want to reuse an existing claim, you can pass the name of the PVC using
-  ## the existingClaim variable
-  # existingClaim: your-claim
-  ##
-  ## If you want to use a volume on the host machine instead of a PVC:
-  # hostPath: /path/to/the/config/folder
-  hostPath: /mnt/volume-0/apps/lms
+  configstorage:
+    hostPath: /mnt/volume-0/apps/lms
+  musicstorage:
+    hostPath: /mnt/volume-0/media/music
+  pvc:
+    enabled: false
+    # accessModes:
+    #   - {}
+    # resources:
+    #   requests:
+    #     storage: 2Gi
+    # storageClassName: ""
 
 # resources:
 #   requests:
