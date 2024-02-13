@@ -1,8 +1,8 @@
 service:
   type: ClusterIP
-  clusterIP: []
+  clusterIP: ""
   externalIPs: []
-  loadBalancerIP: []
+  loadBalancerIP: ""
   loadBalancerSourceRanges: []
   httpPort: "9000"
   dlnaPort: "9090"
