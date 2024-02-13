@@ -7,10 +7,10 @@ metadata:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
     argocd.argoproj.io/sync-wave: "4"
     cert-manager.io/cluster-issuer: route53-letsencrypt-production
-    #external-dns.alpha.kubernetes.io/target: infra.anotherlife.pl
+    #external-dns.alpha.kubernetes.io/target: hq.anotherlife.pl
     kubernetes.io/ingress.class: traefik-external
-  labels:
-    app.kubernetes.io/name: lms
+  # labels:
+  #   app.kubernetes.io/name: lms
 
 spec:
   entryPoints:
@@ -19,7 +19,7 @@ spec:
     - kind: Rule
       match: Host(`lms.anotherlife.pl`)
       middlewares:
-        - name: chain-traefik-dashboard #headers
+        - name: chain-traefik-dashboard
           namespace: traefik
       services:
         - kind: TraefikService

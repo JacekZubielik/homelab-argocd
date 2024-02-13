@@ -6,15 +6,12 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
     argocd.argoproj.io/compare-options: IgnoreExtraneous
-  # labels:
-  #   app.kubernetes.io/name: lms
 
 helmCharts:
 - name: lms
   repo: https://jacekzubielik.github.io/helm-charts
   version: 0.0.37
   releaseName: lms
-  #namespace: dev
   includeCRDs: false
   valuesFile: values.yaml
 
@@ -24,11 +21,5 @@ configMapGenerator:
   - TZ=CET
 
 resources:
-#- resources/deployment.yaml
 #- resources/ingress.yaml
 - resources/ingressroute.yaml
-#- resources/service.yaml
-#- resources/sealed-sec.yaml
-#- resources/secret-test.yaml
-#- resources/pvc.yaml
-#- resources/pv.yaml
