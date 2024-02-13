@@ -1,12 +1,12 @@
 service:
+  type: ClusterIP
+  clusterIP: []
+  externalIPs: []
+  loadBalancerIP: []
+  loadBalancerSourceRanges: []
   httpPort: "9000"
   dlnaPort: "9090"
   controlPort: "3483"
-  externalIPs: []
-  loadBalancerIP: ""
-  loadBalancerSourceRanges: []
-  clusterIP: ""
-  type: ClusterIP
 
 ingress:
   enabled: false
