@@ -1,3 +1,32 @@
+strategyType: Recreate
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  create: true
+  annotations: {}
+  name: ""
+
+podAnnotations: {}
+podLabels:
+  {}
+podEnv:
+  {}
+#   - name: "exemple"
+#     value: "3001"
+
+podSecurityContext: {}
+  # fsGroup: 2000
+# dnsPolicy: ""
+# dnsConfig: {}
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
 service:
   type: LoadBalancer #ClusterIP
   externalIPs: []
@@ -9,15 +38,28 @@ service:
 
 ingress:
   enabled: false
-  class:
-  annotations: {}
-  path: /
-  hosts:
-    - lms
-  tls: []
-  #  - secretName: lms-tls
-  #    hosts:
-  #      lms
+
+# resources:
+#   requests:
+#     cpu: "1"
+#     memory: "256Mi"
+#   limits:
+#     cpu: "1"
+#     memory: "512Mi"
+
+livenessProbe:
+  enabled: true
+  timeoutSeconds: 2
+  initialDelaySeconds: 15
+
+readinessProbe:
+  enabled: true
+  initialDelaySeconds: 5
+
+nodeSelector:
+  kubernetes.io/hostname: dev-k3s-master-0
+affinity: {}
+tolerations: []
 
 persistence:
   enabled: true
@@ -34,16 +76,15 @@ persistence:
     #     storage: 2Gi
     # storageClassName: ""
 
-# resources:
-#   requests:
-#     cpu: "1"
-#     memory: "256Mi"
-#   limits:
-#     cpu: "1"
-#     memory: "512Mi"
-
-nodeSelector:
-  kubernetes.io/hostname: dev-k3s-master-0
-
-tolerations: []
-affinity: {}
+serviceMonitor:
+  enabled: true
+  interval: 60s
+  scrapeTimeout: 10s
+  scheme: ~
+  tlsConfig: {}
+  relabelings: []
+  metricRelabelings: []
+  selector: {}
+  namespace: ~
+  additionalLabels: {}
+  annotations: {}
