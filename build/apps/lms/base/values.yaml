@@ -1,6 +1,6 @@
 service:
   type: ClusterIP
-  clusterIP: ""
+  #clusterIP: ""
   externalIPs: []
   loadBalancerIP: ""
   loadBalancerSourceRanges: []
