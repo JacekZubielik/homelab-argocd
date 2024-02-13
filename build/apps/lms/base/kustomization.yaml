@@ -19,6 +19,8 @@ configMapGenerator:
 - name: lms-config
   literals:
   - TZ=CET
+  - PUID=1000
+  - PGID=1000
 
 resources:
 #- resources/ingress.yaml
