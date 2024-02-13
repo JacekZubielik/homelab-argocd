@@ -2,7 +2,7 @@
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
-  name: logitech-media-server
+  name: lms
   annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
     argocd.argoproj.io/sync-wave: "4"
@@ -10,7 +10,7 @@ metadata:
     #external-dns.alpha.kubernetes.io/target: infra.anotherlife.pl
     kubernetes.io/ingress.class: traefik-external
   labels:
-    app.kubernetes.io/name: logitech-media-server
+    app.kubernetes.io/name: lms
 
 spec:
   entryPoints:
@@ -23,7 +23,7 @@ spec:
           namespace: traefik
       services:
         - kind: TraefikService
-          name: logitech-media-server
+          name: lms
           port: 9000
 
   tls:
@@ -34,18 +34,18 @@ spec:
     options:
       name: tls-ver13
       namespace: traefik
-    secretName: letsencrypt-production
+    secretName: letsencrypt-staging
 ---
 apiVersion: traefik.io/v1alpha1
 kind: TraefikService
 metadata:
-  name: logitech-media-server
+  name: lms
   annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
     argocd.argoproj.io/sync-wave: "4"
 spec:
   weighted:
     services:
-      - name: logitech-media-server
+      - name: lms
         port: 9000
         weight: 1
