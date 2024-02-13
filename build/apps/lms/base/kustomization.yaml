@@ -10,7 +10,7 @@ metadata:
 helmCharts:
 - name: lms
   repo: https://jacekzubielik.github.io/helm-charts
-  version: 0.0.40
+  version: 0.0.41
   releaseName: lms
   includeCRDs: false
   valuesFile: values.yaml
@@ -19,8 +19,8 @@ configMapGenerator:
 - name: lms-config
   literals:
   - TZ=CET
-  # - PUID=1000
-  # - PGID=1000
+  - PUID=1000
+  - PGID=1000
 
 resources:
 #- resources/ingress.yaml

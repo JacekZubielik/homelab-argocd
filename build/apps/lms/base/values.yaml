@@ -19,7 +19,7 @@ podSecurityContext: {}
   # fsGroup: 2000
 # dnsPolicy: ""
 # dnsConfig: {}
-securityContext: {}
+securityContext:
   capabilities:
     drop:
     - ALL
