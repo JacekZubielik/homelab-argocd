@@ -25,9 +25,9 @@ metadata:
 spec:
   ipAddressPools:
   - dev-lb-iprange
-  # nodeSelectors:
-  # - matchLabels:
-  #     kubernetes.io/hostname: dev-k3s-master-0
+  nodeSelectors:
+  - matchLabels:
+      kubernetes.io/hostname: dev-k3s-master-0
   # - matchLabels:
   #     kubernetes.io/hostname: dev-k3s-master-1
   # - matchLabels:
