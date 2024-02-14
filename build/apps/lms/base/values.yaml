@@ -28,15 +28,15 @@ securityContext: {}
   # runAsUser: 1000
 
 service:
-  type: LoadBalancer #ClusterIP
+  type: ClusterIP #LoadBalancer #ClusterIP
   externalIPs: []
-  loadBalancerIP: "192.168.40.181"
+  #loadBalancerIP: "192.168.40.181"
   loadBalancerSourceRanges: []
   httpPort: "9000"
   dlnaPort: "9090"
   controlPort: "3483"
-  # annotations:
-  #   metallb.universe.tf/loadBalancerIPs: "192.168.40.181"
+  annotations:
+    metallb.universe.tf/loadBalancerIPs: "192.168.40.181"
 
 
 
