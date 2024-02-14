@@ -38,9 +38,6 @@ service:
   annotations:
     metallb.universe.tf/loadBalancerIPs: "192.168.40.181"
 
-
-
-
 ingress:
   enabled: false
 
@@ -53,13 +50,19 @@ ingress:
 #     memory: "512Mi"
 
 livenessProbe:
-  enabled: false
-  timeoutSeconds: 10
-  initialDelaySeconds: 15
-
+  enabled: true
+  periodSeconds:       60
+  timeoutSeconds:      10
+  successThreshold:    1
+  failureThreshold:    6
+  initialDelaySeconds: 30
 readinessProbe:
-  enabled: false
-  initialDelaySeconds: 5
+  enabled: true
+  periodSeconds:       60
+  timeoutSeconds:      10
+  successThreshold:    1
+  failureThreshold:    6
+  initialDelaySeconds: 30
 
 nodeSelector:
   kubernetes.io/hostname: dev-k3s-master-0
