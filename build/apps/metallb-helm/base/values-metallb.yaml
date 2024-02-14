@@ -43,7 +43,7 @@ prometheus:
   controllerMetricsTLSSecret: ""
 
   # prometheus doens't have the permission to scrape all namespaces so we give it permission to scrape metallb's one
-  rbacPrometheus: true
+  rbacPrometheus: false
 
   # the service account used by prometheus
   # required when " .Values.prometheus.rbacPrometheus == true " and " .Values.prometheus.podMonitor.enabled=true or prometheus.serviceMonitor.enabled=true "
@@ -61,7 +61,7 @@ prometheus:
   # Prometheus Operator PodMonitors
   podMonitor:
     # enable support for Prometheus Operator
-    enabled: true
+    enabled: false
 
     # optional additionnal labels for podMonitors
     additionalLabels: {}
@@ -94,7 +94,7 @@ prometheus:
   # to podMonitor, supports secure metrics.
   serviceMonitor:
     # enable support for Prometheus Operator
-    enabled: true
+    enabled: false
 
     speaker:
       # optional additional labels for the speaker serviceMonitor
