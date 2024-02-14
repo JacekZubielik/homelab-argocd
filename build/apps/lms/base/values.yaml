@@ -28,7 +28,7 @@ securityContext: {}
   # runAsUser: 1000
 
 service:
-  type: ClusterIP #LoadBalancer #ClusterIP
+  type: LoadBalancer #LoadBalancer #ClusterIP
   externalIPs: []
   #loadBalancerIP: "192.168.40.181"
   loadBalancerSourceRanges: []
