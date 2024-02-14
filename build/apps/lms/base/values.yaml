@@ -1,7 +1,7 @@
 strategyType: Recreate
 nameOverride: ""
 fullnameOverride: ""
-
+revisionHistoryLimit: 4
 serviceAccount:
   create: true
   annotations: {}
