@@ -94,7 +94,7 @@ prometheus:
   # to podMonitor, supports secure metrics.
   serviceMonitor:
     # enable support for Prometheus Operator
-    enabled: false
+    enabled: true
 
     speaker:
       # optional additional labels for the speaker serviceMonitor
@@ -199,17 +199,12 @@ controller:
     repository: quay.io/metallb/controller
     tag:
     pullPolicy:
-  ## @param controller.updateStrategy.type Metallb controller deployment strategy type.
-  ## ref: https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#strategy
-  ## e.g:
-  ## strategy:
-  ##  type: RollingUpdate
+  strategy:
+    type: RollingUpdate
   ##  rollingUpdate:
   ##    maxSurge: 25%
   ##    maxUnavailable: 25%
-  ##
-  strategy:
-    type: RollingUpdate
+
   serviceAccount:
     # Specifies whether a ServiceAccount should be created
     create: true
@@ -298,18 +293,18 @@ speaker:
   labels: {}
   livenessProbe:
     enabled: true
-    failureThreshold: 3
-    initialDelaySeconds: 10
-    periodSeconds: 10
+    failureThreshold: 6
+    initialDelaySeconds: 30
+    periodSeconds: 60
     successThreshold: 1
-    timeoutSeconds: 1
+    timeoutSeconds: 10
   readinessProbe:
     enabled: true
-    failureThreshold: 3
-    initialDelaySeconds: 10
-    periodSeconds: 10
+    failureThreshold: 6
+    initialDelaySeconds: 30
+    periodSeconds: 60
     successThreshold: 1
-    timeoutSeconds: 1
+    timeoutSeconds: 10
   startupProbe:
     enabled: true
     failureThreshold: 30
