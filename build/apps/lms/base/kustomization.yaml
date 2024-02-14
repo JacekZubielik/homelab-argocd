@@ -10,7 +10,7 @@ metadata:
 helmCharts:
 - name: lms
   repo: https://jacekzubielik.github.io/helm-charts
-  version: 0.0.55
+  version: 0.0.56
   releaseName: lms
   includeCRDs: false
   valuesFile: values.yaml
