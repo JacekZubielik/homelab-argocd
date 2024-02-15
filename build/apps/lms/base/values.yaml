@@ -8,10 +8,8 @@ serviceAccount:
   name: ""
 
 podAnnotations: {}
-podLabels:
-  {}
-podEnv:
-  {}
+podLabels: {}
+podEnv: {}
 #   - name: "exemple"
 #     value: "3001"
 
