@@ -1,4 +1,4 @@
-strategyType: Recreate
+strategyType: RollingUpdate
 nameOverride: ""
 fullnameOverride: ""
 revisionHistoryLimit: 4
