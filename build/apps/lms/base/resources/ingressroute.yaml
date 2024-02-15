@@ -6,7 +6,7 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
     argocd.argoproj.io/sync-wave: "5"
-    cert-manager.io/cluster-issuer: route53-letsencrypt-production
+    cert-manager.io/cluster-issuer: route53-letsencrypt-staging
     #external-dns.alpha.kubernetes.io/target: hq.anotherlife.pl
     kubernetes.io/ingress.class: traefik-external
   # labels:
