@@ -6,7 +6,7 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
     argocd.argoproj.io/sync-wave: "4"
-    cert-manager.io/cluster-issuer: route53-letsencrypt-staging #production
+    cert-manager.io/cluster-issuer: route53-letsencrypt-production #production
     #external-dns.alpha.kubernetes.io/target: infra.anotherlife.pl
     kubernetes.io/ingress.class: traefik-external
   labels:
@@ -34,7 +34,7 @@ spec:
     options:
       name: tls-ver13
       namespace: traefik
-    secretName: letsencrypt-staging #production
+    secretName: letsencrypt-production #production
     # stores:
     #   default:
     #     defaultCertificate:
