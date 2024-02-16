@@ -12,7 +12,7 @@ metadata:
 helmCharts:
 - name: home-assistant
   repo: https://jacekzubielik.github.io/helm-charts 
-  version: 0.0.56
+  version: 0.0.57
   releaseName: home-assistant
   includeCRDs: false
   valuesFile: values.yaml
