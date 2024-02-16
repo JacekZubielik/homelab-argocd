@@ -46,7 +46,7 @@ securityContext: {}
   # runAsUser: 1000
 
 service:
-  annotations: {}
+  annotations:
     metallb.universe.tf/loadBalancerIPs: "192.168.40.110"
     #prometheus.io/scrape: true
   labels: {}
