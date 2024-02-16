@@ -47,10 +47,10 @@ securityContext: {}
 
 service:
   annotations: {}
-    # prometheus.io/scrape: "false"
-    # prometheus.io/port: {{ .Values.service.metricsPort }}
+    metallb.universe.tf/loadBalancerIPs: "192.168.40.110"
+    #prometheus.io/scrape: true
   labels: {}
-  type: ClusterIP
+  type: LoadBalancer
   externalIPs: []
   loadBalancerIP: ""
   externalTrafficPolicy: {}
