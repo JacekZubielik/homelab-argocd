@@ -157,7 +157,7 @@ affinity: {}
 tolerations: []
 
 persistence:
-  enabled: true
+  enabled: false
   configstorage:
     hostPath: /mnt
   musicstorage:
