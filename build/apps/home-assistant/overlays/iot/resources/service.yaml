@@ -13,7 +13,7 @@ spec:
     - name: http
       protocol: TCP
       port: 8123
-      targetPort: 80
+      targetPort: 8123
   type: ExternalName
   selector:
     app.kubernetes.io/instance: home-assistant
