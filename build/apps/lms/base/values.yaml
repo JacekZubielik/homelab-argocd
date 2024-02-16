@@ -65,9 +65,9 @@ service:
   metricsPort: "9113"
 
 monitoring:
-  enabled: true
+  enabled: false
   serviceMonitor:
-    enabled: true
+    enabled: false
     labels: {}
     honorLabels: true
     interval: 60s
