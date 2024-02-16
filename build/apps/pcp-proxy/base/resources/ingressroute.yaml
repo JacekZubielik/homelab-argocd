@@ -2,7 +2,6 @@
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
-  name: pcp-proxy
   annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
     argocd.argoproj.io/sync-wave: "4"
@@ -11,13 +10,13 @@ metadata:
     kubernetes.io/ingress.class: traefik-external
   labels:
     app.kubernetes.io/name: pcp-proxy
-
+  name: pcp-proxy
 spec:
   entryPoints:
     - websecure
   routes:
     - kind: Rule
-      match: Host(`pcp-proxy.anotherlife.pl`)
+      match: Host(`pcp.anotherlife.pl`)
       middlewares:
         - name: chain-traefik-dashboard #chain-traefik-dashboard security
           namespace: traefik
@@ -25,7 +24,6 @@ spec:
         - kind: TraefikService
           name: pcp-proxy
           port: 80
-
   tls:
     domains:
       - main: anotherlife.pl
