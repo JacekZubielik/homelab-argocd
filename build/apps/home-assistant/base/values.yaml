@@ -51,9 +51,9 @@ service:
     #prometheus.io/scrape: true
   labels: {}
   type: LoadBalancer
-  externalIPs: 
-    - 192.168.40.181 #[]
-  loadBalancerIP: ""
+  externalIPs: []
+    # - 192.168.40.181
+  loadBalancerIP: "192.168.40.181"
   externalTrafficPolicy: {}
   loadBalancerSourceRanges: []
   publishNotReadyAddresses: false
