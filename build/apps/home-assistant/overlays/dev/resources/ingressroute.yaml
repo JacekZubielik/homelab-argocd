@@ -22,7 +22,7 @@ spec:
       #     namespace: traefik
       services:
         - kind: TraefikService
-          name: home-assistant
+          name: home-assistant-proxy
           port: 8123
   tls:
     domains:
