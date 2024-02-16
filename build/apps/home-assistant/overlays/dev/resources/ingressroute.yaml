@@ -47,4 +47,3 @@ spec:
       - name: home-assistant-proxy
         port: 8123
         weight: 1
-
