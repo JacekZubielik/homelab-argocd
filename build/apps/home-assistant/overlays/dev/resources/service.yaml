@@ -5,8 +5,8 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
     argocd.argoproj.io/sync-wave: "4"
-  labels:
-    app.kubernetes.io/name: home-assistant
+  # labels:
+  #   app.kubernetes.io/name: home-assistant
 spec:
   externalName: 192.168.40.110
   ports:
