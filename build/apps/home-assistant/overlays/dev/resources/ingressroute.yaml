@@ -26,9 +26,9 @@ spec:
           port: 8123
   tls:
     domains:
-      - main: anotherlife.pl # dev.anotherlife.pl
+      - main: anotherlife.pl
         sans:
-          - .anotherlife.pl # .dev.anotherlife.pl
+          - .anotherlife.pl
     options:
       name: tls-ver13
       namespace: traefik
@@ -40,7 +40,6 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
     argocd.argoproj.io/sync-wave: "4"
-  name: home-assistant
 spec:
   weighted:
     services:
