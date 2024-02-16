@@ -1,11 +1,10 @@
 replicas: 1
-updateStrategy:
-  type: RollingUpdate
-  rollingUpdate: {}
 nameOverride: ""
 fullnameOverride: ""
 revisionHistoryLimit: 4
 hostNetwork: false
+
+
 
 serviceAccount:
   create: true
