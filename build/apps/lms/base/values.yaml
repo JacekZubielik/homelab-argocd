@@ -7,7 +7,7 @@ hostNetwork: false
 
 
 serviceAccount:
-  create: true
+  create: false
   annotations: {}
   automountServiceAccountToken: false
 
@@ -30,10 +30,10 @@ extraSecretForEnvFrom: []
 # - esphome-secrets
 
 podSecurityContext:
-  privileged: true
+  privileged: false
 
 securityContext:
-  runAsNonRoot: true
+  runAsNonRoot: false
 
 service:
   annotations:
@@ -54,9 +54,9 @@ service:
   metricsPort: "9113"
 
 monitoring:
-  enabled: true
+  enabled: false
   serviceMonitor:
-    enabled: true
+    enabled: false
     labels: {}
     honorLabels: true
     interval: 60s
