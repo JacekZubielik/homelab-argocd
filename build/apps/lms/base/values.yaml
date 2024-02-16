@@ -29,11 +29,23 @@ extraEnvSecrets:
 extraSecretForEnvFrom: []
 # - esphome-secrets
 
-podSecurityContext:
-  privileged: false
+# podSecurityContext:
+#   privileged: false
 
-securityContext:
-  runAsNonRoot: false
+# securityContext:
+#   runAsNonRoot: false
+
+podSecurityContext: {}
+  # fsGroup: 2000
+
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
 
 service:
   annotations:
