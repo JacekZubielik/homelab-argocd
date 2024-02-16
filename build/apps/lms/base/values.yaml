@@ -1,6 +1,7 @@
 replicas: 1
-strategy:
+updateStrategy:
   type: RollingUpdate
+  rollingUpdate: {}
 nameOverride: ""
 fullnameOverride: ""
 revisionHistoryLimit: 4
