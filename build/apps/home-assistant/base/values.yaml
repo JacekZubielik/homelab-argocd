@@ -1,7 +1,7 @@
 nameOverride: ""
 fullnameOverride: ""
 revisionHistoryLimit: 4
-hostNetwork: true
+hostNetwork: false
 
 replicas: 1
 updateStrategy:
