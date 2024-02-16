@@ -3,6 +3,7 @@ kind: Kustomization
 resources:
 - ../../base
 - resources/ingressroute.yaml
+- resources/endpoint.yaml
 #- resources/service.yaml
 #- resources/servicemonitor.yaml
 #- resources/sealed-sec.yaml
