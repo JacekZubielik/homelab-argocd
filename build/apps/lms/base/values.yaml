@@ -161,7 +161,7 @@ persistence:
   configstorage:
     hostPath: /mnt/volume-0/apps/lms
   musicstorage:
-    hostPath: /mnt/volume-0/apps/lms
+    hostPath: /mnt/media/music
   pvc:
     enabled: false
     # accessModes:
