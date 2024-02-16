@@ -36,7 +36,7 @@ extraSecretForEnvFrom: []
 #   runAsNonRoot: false
 
 podSecurityContext:
-  fsGroup: 1000
+  fsGroup: 2000
 
 securityContext:
   capabilities:
