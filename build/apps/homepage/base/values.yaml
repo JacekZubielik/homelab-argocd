@@ -38,6 +38,10 @@ config:
             - abbr: IT
               href: https://tools.anotherlife.pl/
 
+        - Security Headers:
+            - abbr: Security Headers
+              href: https://securityheaders.com/
+
     - Social:
         - Reddit:
             - abbr: RE
