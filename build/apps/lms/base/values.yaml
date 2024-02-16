@@ -48,7 +48,7 @@ securityContext: {}
 service:
   annotations:
     metallb.universe.tf/loadBalancerIPs: "192.168.40.181"
-    prometheus.io/scrape: "true"
+    prometheus.io/scrape: true
   labels: {}
   type: LoadBalancer
   externalIPs: []
