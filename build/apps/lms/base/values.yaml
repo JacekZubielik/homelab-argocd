@@ -4,6 +4,10 @@ fullnameOverride: ""
 revisionHistoryLimit: 4
 hostNetwork: false
 
+strategyType: RollingUpdate
+
+
+
 # updateStrategy:
 #   type: RollingUpdate
 #   rollingUpdate:
