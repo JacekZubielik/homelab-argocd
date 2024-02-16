@@ -44,6 +44,6 @@ metadata:
 spec:
   weighted:
     services:
-      - name: home-assistant
+      - name: home-assistant-proxy
         port: 8123
         weight: 1

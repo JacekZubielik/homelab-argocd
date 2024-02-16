@@ -10,7 +10,6 @@ resources:
 #- resources/pvc.yaml
 #- resources/pv-hass-data.yaml
 
-
 configMapGenerator:
 - name: home-assistant-config
   literals:

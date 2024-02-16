@@ -16,9 +16,3 @@ helmCharts:
   releaseName: home-assistant
   includeCRDs: false
   valuesFile: values.yaml
-
-# configMapGenerator:
-# - name: home-assistant-config
-#   literals:
-#   - TZ=CET
-
