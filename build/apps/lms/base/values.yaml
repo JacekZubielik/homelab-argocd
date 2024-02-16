@@ -1,86 +1,55 @@
+replicas: 1
 strategyType: RollingUpdate
 nameOverride: ""
 fullnameOverride: ""
 revisionHistoryLimit: 4
+hostNetwork: false
+
 serviceAccount:
   create: true
   annotations: {}
-  name: ""
+  automountServiceAccountToken: false
 
 podAnnotations: {}
 podLabels: {}
-podEnv: {}
-#   - name: "exemple"
-#     value: "3001"
 
-podSecurityContext: {}
-  # fsGroup: 2000
-# dnsPolicy: ""
-# dnsConfig: {}
-securityContext: {}
-  # capabilities:
-  #   drop:
-  #   - ALL
-  # readOnlyRootFilesystem: false
-  # runAsNonRoot: false
-  # runAsUser: 1000
+extraEnv: {}
+
+extraEnvSecrets:
+  # This will set ${MQTT_PASSWORD} to the 'password' key from the 'mqtt' secret
+  # MQTT_PASSWORD:
+  #   secret: mqtt
+  #   key: password
+
+## If you'd like to provide your own Kubernetes Secret object instead of passing your values
+## individually, pass in the name of a created + populated Secret.
+## All secrets will be mounted as environment variables, with each key/value mapping to a
+## corresponding environment variable.
+extraSecretForEnvFrom: []
+# - esphome-secrets
+
+podSecurityContext:
+  privileged: true
+
+securityContext:
+  runAsNonRoot: true
 
 service:
-  type: LoadBalancer #LoadBalancer #ClusterIP
+  annotations:
+    metallb.universe.tf/loadBalancerIPs: "192.168.40.181"
+    # prometheus.io/scrape: "true"
+    # prometheus.io/port: "{{ .Values.service.metricsPort }}"
+  labels: {}
+  type: LoadBalancer
   externalIPs: []
-  #loadBalancerIP: "192.168.40.181"
+  loadBalancerIP: ""
+  externalTrafficPolicy: {}
   loadBalancerSourceRanges: []
+  publishNotReadyAddresses: false
   httpPort: "9000"
   dlnaPort: "9090"
   controlPort: "3483"
-  annotations:
-    metallb.universe.tf/loadBalancerIPs: "192.168.40.181"
-
-ingress:
-  enabled: false
-
-# resources:
-#   requests:
-#     cpu: "1"
-#     memory: "256Mi"
-#   limits:
-#     cpu: "1"
-#     memory: "512Mi"
-
-livenessProbe:
-  enabled: true
-  periodSeconds:       60
-  timeoutSeconds:      10
-  successThreshold:    1
-  failureThreshold:    6
-  initialDelaySeconds: 30
-readinessProbe:
-  enabled: true
-  periodSeconds:       60
-  timeoutSeconds:      10
-  successThreshold:    1
-  failureThreshold:    6
-  initialDelaySeconds: 30
-
-nodeSelector:
-  kubernetes.io/hostname: dev-k3s-master-0
-affinity: {}
-tolerations: []
-
-persistence:
-  enabled: true
-  configstorage:
-    hostPath: /mnt/volume-0/apps/lms
-  musicstorage:
-    hostPath: /mnt/volume-0/media/music
-  pvc:
-    enabled: false
-    # accessModes:
-    #   - {}
-    # resources:
-    #   requests:
-    #     storage: 2Gi
-    # storageClassName: ""
+  metricsPort: "9113"
 
 monitoring:
   enabled: true
@@ -90,7 +59,7 @@ monitoring:
     honorLabels: true
     interval: 60s
     selector: {}
-    #namespace: monitoring
+    namespace: monitoring
     scrapeTimeout: 10s
     scheme: http
     tlsConfig: {}
@@ -111,3 +80,86 @@ monitoring:
       # name:
       # key:
       # optional:
+
+livenessProbe:
+  enabled: true
+  scheme: HTTP
+  periodSeconds:       60
+  timeoutSeconds:      10
+  successThreshold:    1
+  failureThreshold:    6
+  initialDelaySeconds: 30
+readinessProbe:
+  enabled: true
+  scheme: HTTP
+  periodSeconds:       60
+  timeoutSeconds:      10
+  successThreshold:    1
+  failureThreshold:    6
+  initialDelaySeconds: 30
+
+ingress:
+  enabled: false
+  # className: ""
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"
+    nginx.ingress.kubernetes.io/server-snippets: |
+      location / {
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_http_version 1.1;
+        proxy_set_header X-Forwarded-Host $http_host;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header X-Forwarded-For $remote_addr;
+        proxy_set_header Host $host;
+        proxy_set_header Connection "upgrade";
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header   Upgrade $http_upgrade;
+        proxy_cache_bypass $http_upgrade;
+      }
+  hosts:
+    - host: lms.local
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls:
+    []
+    # - secretName: letsencrypt-staging
+    #   hosts:
+    #     - lms.local
+
+resources: {}
+#   requests:
+#     cpu: "1"
+#     memory: "256Mi"
+#   limits:
+#     cpu: "1"
+#     memory: "512Mi"
+
+nodeSelector:
+  kubernetes.io/hostname: dev-k3s-master-0
+affinity: {}
+tolerations: []
+
+persistence:
+  enabled: false
+  configstorage:
+    hostPath: /mnt
+  musicstorage:
+    hostPath: /mnt/
+  pvc:
+    enabled: false
+    # accessModes:
+    #   - {}
+    # resources:
+    #   requests:
+    #     storage: 2Gi
+    # storageClassName: ""
+
+# Mount devices or folders from the host machine. Can be used for USB device mounting.
+hostMounts: []
+  # Example
+  # - name: cdrw
+  #   hostPath: /dev/cdrw
+
