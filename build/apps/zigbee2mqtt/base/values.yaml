@@ -15,14 +15,14 @@ config:
     # MQTT base topic for zigbee2mqtt MQTT messages
     base_topic: zigbee2mqtt
     # MQTT server URL
-    server: 'mqtt://localhost'
+    server: 'mqtt://192.168.40.183'
     # MQTT server authentication, uncomment if required:
     # user: my_user
     # password: my_password
 
   # Serial settings
   serial:
-    port: /dev/bus/usb/009/001 #/dev/ttyUSB0
+    port: /dev/bus/usb/009/003 #/dev/ttyUSB0
 
   advanced:
     network_key: GENERATE
