@@ -18,7 +18,7 @@ spec:
     - kind: Rule
       match: Host(`esphome.anotherlife.pl`)
       middlewares:
-        - name: traefik-dashboard-auth  #chain-traefik-dashboard
+        - name: chain-traefik-dashboard
           namespace: traefik
       services:
         - kind: TraefikService
@@ -26,9 +26,9 @@ spec:
           port: 6052
   tls:
     domains:
-      - main: anotherlife.pl # dev.anotherlife.pl
+      - main: anotherlife.pl
         sans:
-          - .anotherlife.pl # .dev.anotherlife.pl
+          - .anotherlife.pl
     options:
       name: tls-ver13
       namespace: traefik
