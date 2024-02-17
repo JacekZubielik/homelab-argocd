@@ -1,27 +1,57 @@
-# If this option is set to false a StateFulset instead of a Deployment is used
+---
+image:
+  repository: louislam/uptime-kuma
+  tag: ""
+  pullPolicy: IfNotPresent
+  PullSecrets: []
+
+# If this option  set to false a StateFulset instead of a Deployment is used
 useDeploy: false
 
-strategyType: Recreate
 nameOverride: ""
 fullnameOverride: ""
+revisionHistoryLimit: 4
+hostNetwork: false
+
+# strategyType: RollingUpdate
+
+replicas: 1
+updateStrategy:
+  type: RollingUpdate
+  # rollingUpdate:
+  #   maxUnavailable: 0
+  #   maxSurge: 1
 
 serviceAccount:
   create: true
   annotations: {}
-  name: ""
+  automountServiceAccountToken: false
 
 podAnnotations: {}
-podLabels:
-  {}
-podEnv:
+podLabels: {}
+
+extraEnv:
   {}
 #   - name: "UPTIME_KUMA_PORT"
 #     value: "3001"
 
+extraEnvSecrets:
+  # This will set ${MQTT_PASSWORD} to the 'password' key from the 'mqtt' secret
+  # MQTT_PASSWORD:
+  #   secret: mqtt
+  #   key: password
+
+## If you'd like to provide your own Kubernetes Secret object instead of passing your values
+## individually, pass in the name of a created + populated Secret.
+## All secrets will be mounted as environment variables, with each key/value mapping to a
+## corresponding environment variable.
+extraSecretForEnvFrom: []
+# - esphome-secrets
+
 podSecurityContext: {}
   # fsGroup: 2000
-# dnsPolicy: ""
-# dnsConfig: {}
+  # privileged: true
+
 securityContext: {}
   # capabilities:
   #   drop:
@@ -29,72 +59,71 @@ securityContext: {}
   # readOnlyRootFilesystem: true
   # runAsNonRoot: true
   # runAsUser: 1000
-# dnsPolicy: ""
-# dnsConfig: {}
 
 service:
-  type: ClusterIP
-  port: 3001
-  nodePort: {}
   annotations: {}
+    # prometheus.io/scrape: "false"
+    # prometheus.io/port: {{ .Values.service.metricsPort }}
+  labels: {}
+  type: ClusterIP
+  externalIPs: []
+  loadBalancerIP: ""
+  externalTrafficPolicy: {}
+  loadBalancerSourceRanges: []
+  publishNotReadyAddresses: false
+  httpPort:      "3001"
+  metricsPort:   "9113"
 
-resources: {}
-  # limits:
-  #   cpu: 100m
-  #   memory: 128Mi
-  # requests:
-  #   cpu: 100m
-  #   memory: 128Mi
+monitoring:
+  enabled: false
+  serviceMonitor:
+    enabled: false
+    labels: {}
+    honorLabels: true
+    interval:      60s
+    selector: {}
+    namespace: monitoring
+    scrapeTimeout: 10s
+    scheme: http
+    tlsConfig: {}
+    relabelings: []
+    # - sourceLabels: [__meta_kubernetes_pod_node_name]
+    #   separator: ;
+    #   regex: ^(.*)$
+    #   target_label: nodename
+    #   replacement: $1
+    #   action: replace
+    metricRelabelings: []
+    # - action: keep
+    #   regex: 'kube_(daemonset|deployment|pod|namespace|node|statefulset).+'
+    #   sourceLabels: [__name__]
+    bearerTokenFile: {}
+    # (use long lived access tokens)
+    bearerTokenSecret: {}
+      # name:
+      # key:
+      # optional:
 
 livenessProbe:
   enabled: true
-  timeoutSeconds: 2
-  initialDelaySeconds: 15
-
+  scheme: HTTP
+  periodSeconds:       60
+  timeoutSeconds:      10
+  successThreshold:    1
+  failureThreshold:    6
+  initialDelaySeconds: 30
 readinessProbe:
   enabled: true
-  initialDelaySeconds: 5
-
-nodeSelector:
-  kubernetes.io/hostname: dev-k3s-master-0
-
-# tolerations: []
-
-# affinity: {}
-
-persistence:
-  enabled: true
-  # storageClass: "-"
-  ##
-  ## If you want to reuse an existing claim, you can pass the name of the PVC using
-  ## the existingClaim variable
-  # existingClaim: your-claim
-  ##
-  ## If you want to use a volume on the host machine instead of a PVC:
-  hostPath: /mnt/volume-0/apps/uptime-kuma
-  # accessMode: ReadWriteOnce
-  # size: 1Gi
-
-serviceMonitor:
-  enabled: true
-  interval: 60s
-  scrapeTimeout: 10s
-  scheme: ~
-  tlsConfig: {}
-  relabelings: []
-  metricRelabelings: []
-  selector: {}
-  namespace: ~
-  additionalLabels: {}
-  annotations: {}
-
-# dnsPolicy: ""
-# dnsConfig: {}
+  scheme: HTTP
+  periodSeconds:       60
+  timeoutSeconds:      10
+  successThreshold:    1
+  failureThreshold:    6
+  initialDelaySeconds: 30
 
 ingress:
   enabled: false
   # className: ""
-  extraLabels: {}
   annotations:
     nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
     nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"
@@ -113,13 +142,44 @@ ingress:
         proxy_cache_bypass $http_upgrade;
       }
   hosts:
-    - host: chart-example.local
+    - host: uptime-kuma.local
       paths:
         - path: /
           pathType: ImplementationSpecific
-
   tls:
     []
-    # - secretName: chart-example-tls
+    # - secretName: letsencrypt-staging
     #   hosts:
-    #     - chart-example.local
+    #     - uptime-kuma.local
+
+resources: {}
+#   requests:
+#     cpu: "1"
+#     memory: "256Mi"
+#   limits:
+#     cpu: "1"
+#     memory: "512Mi"
+
+nodeSelector:
+  kubernetes.io/hostname: dev-k3s-master-0
+affinity: {}
+tolerations: []
+
+persistence:
+  enabled: true
+  configstorage:
+    hostPath: /mnt/volume-0/apps/uptime-kuma
+  pvc:
+    enabled: false
+    # accessModes:
+    #   - {}
+    # resources:
+    #   requests:
+    #     storage: 2Gi
+    # storageClassName: ""
+
+# Mount devices or folders from the host machine. Can be used for USB device mounting.
+hostMounts: []
+  # Example
+  # - name: cdrw
+  #   hostPath: /dev/cdrw
