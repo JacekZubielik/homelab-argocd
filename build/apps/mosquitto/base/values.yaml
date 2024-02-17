@@ -16,7 +16,8 @@ securityContext: {}
   # runAsUser: 1000
 
 service:
-  type: ClusterIP
+  type: LoadBalancer
+  loadBalancerIP: "192.168.40.182"
   ports:
     mqtt: 1883
     mqttssl: 8883
@@ -55,7 +56,7 @@ mosquitto:
         name: letsencrypt
   
   persistence:
-    enabled: false
+    enabled: true
   
     ## The path the volume will be mounted at, useful when using different
     ## Mosquitto images.
