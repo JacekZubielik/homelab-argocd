@@ -6,7 +6,7 @@ image:
 
 nameOverride: ""
 fullnameOverride: ""
-revisionHistoryLimit: 2
+revisionHistoryLimit: 4
 hostNetwork: false
 
 replicas: 1
@@ -15,7 +15,7 @@ strategyType: RollingUpdate #Recreate or RollingUpdate
 serviceAccount:
   create: true
   annotations: {}
-  automountServiceAccountToken: false
+  automountServiceAccountToken: true
 
 podAnnotations: {}
 podLabels: {}
@@ -58,12 +58,12 @@ service:
   externalTrafficPolicy: {}
   loadBalancerSourceRanges: []
   publishNotReadyAddresses: false
-  httpPort:      "6052"
+  httpPort: "6052"
 
 monitoring:
-  enabled: false
+  enabled: true
   serviceMonitor:
-    enabled: false
+    enabled: true
     labels: {}
     honorLabels: true
     interval:      60s
