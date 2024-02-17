@@ -12,7 +12,7 @@ metadata:
 helmCharts:
 - name: mosquitto
   repo: https://jacekzubielik.github.io/helm-charts
-  version: 0.0.3
+  version: 0.0.4
   releaseName: mosquitto
   includeCRDs: false
   valuesFile: values.yaml
@@ -21,6 +21,8 @@ configMapGenerator:
 - name: mosquitto-config
   literals:
   - TZ=CET
+
+
 
 
 #resources:
