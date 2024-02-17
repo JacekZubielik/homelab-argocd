@@ -17,7 +17,7 @@ securityContext: {}
 
 service:
   type: LoadBalancer
-  loadBalancerIP: "192.168.40.182"
+  loadBalancerIP: "192.168.40.183"
   ports:
     mqtt: 1883
     mqttssl: 8883
