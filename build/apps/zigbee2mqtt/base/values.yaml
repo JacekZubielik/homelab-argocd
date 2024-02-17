@@ -22,7 +22,7 @@ config:
 
   # Serial settings
   serial:
-    port: /dev/ttyUSB0
+    port: /dev/bus/usb/009/002 #/dev/ttyUSB0
 
   advanced:
     network_key: GENERATE
