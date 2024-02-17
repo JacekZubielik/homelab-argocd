@@ -16,10 +16,13 @@ securityContext: {}
   # runAsUser: 1000
 
 service:
+  # annotations:
+  #   metallb.universe.tf/loadBalancerIPs: "192.168.40.181"
+    #prometheus.io/scrape: true
   type: LoadBalancer
   loadBalancerIP: "192.168.40.183"
   ports:
-    mqtt: 1883
+    mqtt: 1883  0.0.0.0
     mqttssl: 8883
     mqttws: 9001
 
@@ -31,7 +34,8 @@ resources: {}
   #   cpu: 100m
   #   memory: 128Mi
 
-nodeSelector: {}
+nodeSelector:
+  kubernetes.io/hostname: dev-k3s-master-0
 
 tolerations: []
 
