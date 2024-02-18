@@ -100,6 +100,7 @@ serviceAccount:
 podAnnotations: {}
 
 podSecurityContext: {}
+  privileged: true
   # fsGroup: 2000
 
 securityContext:
