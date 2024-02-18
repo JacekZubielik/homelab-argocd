@@ -12,7 +12,7 @@ metadata:
 helmCharts:
 - name: zigbee2mqtt
   repo: https://jacekzubielik.github.io/helm-charts
-  version: 0.0.75
+  version: 0.0.76
   releaseName: zigbee2mqtt
   includeCRDs: false
   valuesFile: values.yaml
