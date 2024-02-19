@@ -1,24 +1,202 @@
+image:
+  repository: koenkk/zigbee2mqtt
+  tag: ""
+  pullPolicy: IfNotPresent
+  pullSecrets: []
+
+nameOverride: ""
+fullnameOverride: ""
+revisionHistoryLimit: 4
+hostNetwork: false
+
+# strategyType: RollingUpdate
+
+replicas: 1
+updateStrategy:
+  type: RollingUpdate
+  # rollingUpdate:
+  #   maxUnavailable: 0
+  #   maxSurge: 1
+
+serviceAccount:
+  create: true
+  annotations: {}
+  automountServiceAccountToken: false
+
+podAnnotations: {}
+podLabels: {}
+
+extraEnv: {}
+
+extraEnvSecrets:
+  # This will set ${MQTT_PASSWORD} to the 'password' key from the 'mqtt' secret
+  # MQTT_PASSWORD:
+  #   secret: mqtt
+  #   key: password
+
+## If you'd like to provide your own Kubernetes Secret object instead of passing your values
+## individually, pass in the name of a created + populated Secret.
+## All secrets will be mounted as environment variables, with each key/value mapping to a
+## corresponding environment variable.
+extraSecretForEnvFrom: []
+# - esphome-secrets
+
+podSecurityContext: {}
+  # fsGroup: 2000
+  # privileged: true
+
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+service:
+  annotations: {}
+    # prometheus.io/scrape: "false"
+    # prometheus.io/port: {{ .Values.service.metricsPort }}
+  labels: {}
+  type: ClusterIP
+  externalIPs: []
+  loadBalancerIP: ""
+  externalTrafficPolicy: {}
+  loadBalancerSourceRanges: []
+  publishNotReadyAddresses: false
+  httpPort:      "8080"
+  metricsPort:   "9113"
+
+monitoring:
+  enabled: false
+  serviceMonitor:
+    enabled: false
+    labels: {}
+    honorLabels: true
+    interval:      60s
+    selector: {}
+    namespace: monitoring
+    scrapeTimeout: 10s
+    scheme: http
+    tlsConfig: {}
+    relabelings: []
+    # - sourceLabels: [__meta_kubernetes_pod_node_name]
+    #   separator: ;
+    #   regex: ^(.*)$
+    #   target_label: nodename
+    #   replacement: $1
+    #   action: replace
+    metricRelabelings: []
+    # - action: keep
+    #   regex: 'kube_(daemonset|deployment|pod|namespace|node|statefulset).+'
+    #   sourceLabels: [__name__]
+    bearerTokenFile: {}
+    # (use long lived access tokens)
+    bearerTokenSecret: {}
+      # name:
+      # key:
+      # optional:
+
+livenessProbe:
+  enabled: true
+  scheme: HTTP
+  periodSeconds:       60
+  timeoutSeconds:      10
+  successThreshold:    1
+  failureThreshold:    6
+  initialDelaySeconds: 30
+readinessProbe:
+  enabled: true
+  scheme: HTTP
+  periodSeconds:       60
+  timeoutSeconds:      10
+  successThreshold:    1
+  failureThreshold:    6
+  initialDelaySeconds: 30
+
+ingress:
+  enabled: false
+  # className: ""
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"
+    nginx.ingress.kubernetes.io/server-snippets: |
+      location / {
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_http_version 1.1;
+        proxy_set_header X-Forwarded-Host $http_host;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header X-Forwarded-For $remote_addr;
+        proxy_set_header Host $host;
+        proxy_set_header Connection "upgrade";
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header   Upgrade $http_upgrade;
+        proxy_cache_bypass $http_upgrade;
+      }
+  hosts:
+    - host: lms.local
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls:
+    []
+    # - secretName: letsencrypt-staging
+    #   hosts:
+    #     - lms.local
+
+resources: {}
+#   requests:
+#     cpu: "1"
+#     memory: "256Mi"
+#   limits:
+#     cpu: "1"
+#     memory: "512Mi"
+
+nodeSelector:
+  kubernetes.io/hostname: dev-k3s-master-0
+affinity: {}
+tolerations: []
+
+persistence:
+  enabled: true
+  configstorage:
+    hostPath: /mnt/volume-0/apps/zigbee2mqtt
+  pvc:
+    enabled: false
+    # accessModes:
+    #   - {}
+    # resources:
+    #   requests:
+    #     storage: 2Gi
+    # storageClassName: ""
+
+# Mount devices or folders from the host machine. Can be used for USB device mounting.
+hostMounts:
+  - name: sniffer
+    hostPath: /dev/ttyUSB0
+
+
+{{/*  
 timezone: "CET"
 # Enable zigbee-herdsman debuggin
 # debug: "zigbee-herdsman*"
 config:
-  homeassistant: true
+  homeassistant: false
   permit_join: true
 
   mqtt:
     base_topic: zigbee2mqtt
-    server: 'mqtt://192.168.40.183'
+    server: 'mqtt://localhost'
     # user: my_user
     # password: my_password
     force_disable_retain: false
     keepalive: 60
     reject_unauthorized: true
-    version: 5
+    version: 4
 
   serial:
-    port: /dev/ttyUSB0 #/dev/serial/by-id/usb-1a86_USB_Serial-if00-port0 #/dev/ttyUSB0
-    adapter: zstack
-    disable_led: true
+    port: /dev/ttyUSB0
 
   frontend:
     port: 8080
@@ -28,101 +206,11 @@ config:
     log_output:
       - console
 
-  # advanced:
-  #   network_key:
-  #     - 226
-  #     - 72
-  #     - 161
-  #     - 202
-  #     - 102
-  #     - 89
-  #     - 201
-  #     - 128
-  #     - 246
-  #     - 146
-  #     - 53
-  #     - 52
-  #     - 106
-  #     - 13
-  #     - 213
-  #     - 160
-  #   availability_timeout: 0
-  #   channel: 11
-  #   ikea_ota_use_test_url: false
-  #   log_level: info
-  #   homeassistant_status_topic: homeassistant/status
-  #   homeassistant_legacy_entity_attributes: false
-  #   legacy_api: false
-  #   homeassistant_legacy_triggers: true
-  #   last_seen: ISO_8601
-  #   log_syslog:
-  #     app_name: Zigbee2MQTT
-  #     eol: /n
-  #     host: localhost
-  #     localhost: localhost
-  #     path: /dev/log
-  #     pid: process.pid
-  #     port: 123
-  #     protocol: tcp4
-  #     type: '5424'
-  # experimental:
-  #   transmit_power: 20
-  # device_options:
-  #   legacy: false
-
-persistence:
-  enabled: true
-  annotations: {}
-  ## zigbee2mqtt data Persistent Volume Storage Class
-  ## If defined, storageClassName: <storageClass>
-  ## If set to "-", storageClassName: "", which disables dynamic provisioning
-  ## If undefined (the default) or set to null, no storageClassName spec is
-  ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
-  ##   GKE, AWS & OpenStack)
-  ##
-  # storageClass: "-"
-  ##
-  ## If you want to reuse an existing claim, you can pass the name of the PVC using
-  ## the existingClaim variable
-  # existingClaim: zigbee2mqtt-data
-  accessMode: ReadWriteOnce
-  size: 1Gi
-
-imagePullSecrets: []
-nameOverride: ""
-fullnameOverride: ""
-
-serviceAccount:
-  create: true
-  annotations: {}
-  name: ""
-
-podAnnotations: {}
-
-podSecurityContext:
-  privileged: true
+podSecurityContext: {}
   # fsGroup: 2000
 
 securityContext:
-  # privileged: false
+  privileged: true
   # capabilities:
-  #   drop:
-  #   - ALL
-  # readOnlyRootFilesystem: true
-  runAsNonRoot: false
-  # runAsUser: 1000
 
-resources: {}
-  # limits:
-  #   cpu: 100m
-  #   memory: 128Mi
-  # requests:
-  #   cpu: 100m
-  #   memory: 128Mi
-
-nodeSelector:
-  kubernetes.io/hostname: dev-k3s-master-0
-
-tolerations: []
-
-affinity: {}
+*/}}
