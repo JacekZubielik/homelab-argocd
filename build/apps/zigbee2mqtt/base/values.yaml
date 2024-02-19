@@ -9,8 +9,6 @@ fullnameOverride: ""
 revisionHistoryLimit: 4
 hostNetwork: false
 
-# strategyType: RollingUpdate
-
 replicas: 1
 updateStrategy:
   type: RollingUpdate
@@ -68,9 +66,9 @@ service:
   metricsPort:   "9113"
 
 monitoring:
-  enabled: false
+  enabled: true
   serviceMonitor:
-    enabled: false
+    enabled: true
     labels: {}
     honorLabels: true
     interval:      60s
