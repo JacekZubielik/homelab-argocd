@@ -35,9 +35,9 @@ extraEnvSecrets:
 extraSecretForEnvFrom: []
 # - esphome-secrets
 
-podSecurityContext: {}
+podSecurityContext:
+  privileged: true
   # fsGroup: 2000
-  # privileged: true
 
 securityContext: {}
   # capabilities:
