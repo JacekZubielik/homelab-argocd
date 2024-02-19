@@ -42,15 +42,15 @@ extraSecretForEnvFrom: []
 # - esphome-secrets
 
 podSecurityContext:
-  # fsGroup: 2000
   privileged: true
+  # fsGroup: 2000
 
-securityContext: {}
+securityContext:
+  runAsNonRoot: false
   # capabilities:
   #   drop:
   #   - ALL
   # readOnlyRootFilesystem: true
-  # runAsNonRoot: true
   # runAsUser: 1000
 
 service:
