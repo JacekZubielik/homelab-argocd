@@ -13,7 +13,7 @@ config:
     force_disable_retain: false
     keepalive: 60
     reject_unauthorized: true
-    version: 4
+    version: 5
 
   serial:
     port: /dev/ttyUSB0 #/dev/serial/by-id/usb-1a86_USB_Serial-if00-port0 #/dev/ttyUSB0
