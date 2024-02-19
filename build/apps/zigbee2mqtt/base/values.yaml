@@ -71,7 +71,7 @@ config:
   #   legacy: false
 
 persistence:
-  enabled: false
+  enabled: true
   annotations: {}
   ## zigbee2mqtt data Persistent Volume Storage Class
   ## If defined, storageClassName: <storageClass>
