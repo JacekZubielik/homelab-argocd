@@ -31,7 +31,7 @@ extraEnvSecrets:
 ## All secrets will be mounted as environment variables, with each key/value mapping to a
 ## corresponding environment variable.
 extraSecretForEnvFrom: []
-# - esphome-secrets
+# - mqtt-secrets
 
 podSecurityContext:
   privileged: true
