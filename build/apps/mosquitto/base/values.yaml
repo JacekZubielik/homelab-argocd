@@ -32,7 +32,7 @@ replicas: 1
 strategyType: RollingUpdate
 
 serviceAccount:
-  create: false
+  create: true
   annotations: {}
   automountServiceAccountToken: false
 
