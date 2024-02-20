@@ -39,19 +39,18 @@ config:
               href: https://tools.anotherlife.pl/
 
         - Security Headers:
-            - abbr: Security Headers
+            - abbr: SH
               href: https://securityheaders.com/
 
     - Social:
         - Reddit:
-            - abbr: RE
-              href: https://reddit.com/
+            - abbr: X
+              href: https://x.com/
 
     - Entertainment:
         - YouTube:
             - abbr: YT
               href: https://youtube.com/
-
 
   services:
     - Apps:
@@ -160,17 +159,17 @@ config:
             showStats: false
             hideErrors: true
 
-        # - Prometheus:
-        #     icon: mdi-home-assistant
-        #     href: https://prom.anotherlife.pl
-        #     description: Prometheus
-        #     server: prometheus
-        #     container: prometheus
-        #     showStats: false
-        #     hideErrors: true
-        #     widget:
-        #         type: prometheus
-        #         url: http://192.168.0.13:9098
+        - Prometheus:
+            icon: mdi-home-assistant
+            href: https://prometheus.anotherlife.pl
+            description: Prometheus
+            server: prometheus
+            container: prometheus
+            showStats: false
+            hideErrors: true
+            widget:
+                type: prometheus
+                url: http://192.168.0.13:9098
 
         - Grafana:
             icon: mdi-home-assistant
@@ -200,7 +199,7 @@ config:
             hideErrors: false
             widget:
                 type: uptimekuma
-                url: http://dev-uptime-kuma.kubernetes.default.svc:3001 #http://192.168.0.13:3001
+                url: http://uptime-kuma.kubernetes.default.svc:3001 #http://192.168.0.13:3001
                 slug: test
                 hideErrors: false
 
@@ -220,6 +219,15 @@ config:
             description: zigbee2mqtt
             server: zigbee2mqtt
             container: zigbee2mqtt
+            showStats: false
+            hideErrors: true
+
+        - espHome:
+            icon: mdi-home-assistant
+            href: https://esphome.anotherlife.pl
+            description: esphome
+            server: esphome
+            container: esphome
             showStats: false
             hideErrors: true
 
@@ -282,9 +290,9 @@ config:
 
   settings:
     providers:
-      longhorn:
-        #url: http://longhorn-frontend.default.svc
-        url: http://longhorn-frontend.kubernetes.default.svc
+      # longhorn:
+      #   #url: http://longhorn-frontend.default.svc
+      #   url: http://longhorn-frontend.kubernetes.default.svc
       openweathermap: openweathermapapikey
       weatherapi: weatherapiapikey
 
