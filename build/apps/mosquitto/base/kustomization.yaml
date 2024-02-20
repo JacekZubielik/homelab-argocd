@@ -11,8 +11,8 @@ metadata:
 
 helmCharts:
 - name: mosquitto
+  version: 0.0.6
   repo: https://jacekzubielik.github.io/helm-charts
-  version: 0.0.4
   releaseName: mosquitto
   includeCRDs: false
   valuesFile: values.yaml
