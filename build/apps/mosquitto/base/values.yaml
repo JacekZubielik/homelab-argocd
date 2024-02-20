@@ -145,7 +145,6 @@ persistence:
   enabled: true
   configstorage:
     hostPath: /mnt/volume-0/apps/mosquitto
-  existingClaim: {}
   pvc:
     enabled: false
     accessModes:
