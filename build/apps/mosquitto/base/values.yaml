@@ -76,9 +76,9 @@ service:
   metricsPort: 9113
 
 monitoring:
-  enabled: false
+  enabled: true
   serviceMonitor:
-    enabled: false
+    enabled: true
     labels: {}
     honorLabels: true
     interval:      60s
@@ -107,19 +107,11 @@ monitoring:
 
 livenessProbe:
   enabled: true
-  #scheme: HTTP
   periodSeconds:       60
-  # timeoutSeconds:      10
-  # successThreshold:    1
-  # failureThreshold:    6
   initialDelaySeconds: 30
 readinessProbe:
   enabled: true
-  # scheme: HTTP
   periodSeconds:       60
-  # timeoutSeconds:      10
-  # successThreshold:    1
-  # failureThreshold:    6
   initialDelaySeconds: 30
 
 resources: {}
