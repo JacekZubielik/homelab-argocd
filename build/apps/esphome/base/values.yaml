@@ -20,10 +20,10 @@ serviceAccount:
 podAnnotations: {}
 podLabels: {}
 
-env: {}
-extraEnv: {}
+# env: {}
+# extraEnv: {}
 
-extraEnvSecrets: []
+# extraEnvSecrets: []
   # This will set ${MQTT_PASSWORD} to the 'password' key from the 'mqtt' secret
   # MQTT_PASSWORD:
   #   secret: mqtt
@@ -33,7 +33,7 @@ extraEnvSecrets: []
 ## individually, pass in the name of a created + populated Secret.
 ## All secrets will be mounted as environment variables, with each key/value mapping to a
 ## corresponding environment variable.
-extraSecretForEnvFrom: []
+# extraSecretForEnvFrom: []
 # - esphome-secrets
 
 podSecurityContext:
