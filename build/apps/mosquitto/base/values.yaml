@@ -17,12 +17,6 @@ mosquitto:
         kind: ClusterIssuer
         name: letsencrypt
 
-image:
-  repository: eclipse-mosquitto
-  tag: ""
-  pullPolicy: IfNotPresent
-  pullSecrets: []
-
 nameOverride: ""
 fullnameOverride: ""
 revisionHistoryLimit: 4
@@ -143,7 +137,7 @@ tolerations: []
 
 persistence:
   enabled: true
-  configstorage:
+  data:
     hostPath: /mnt/volume-0/apps/mosquitto
   pvc:
     enabled: false
