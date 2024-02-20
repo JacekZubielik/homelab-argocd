@@ -28,7 +28,7 @@ strategyType: RollingUpdate
 serviceAccount:
   create: true
   annotations: {}
-  automountServiceAccountToken: false
+  automountServiceAccountToken: true
 
 podAnnotations: {}
 podLabels: {}
@@ -47,7 +47,7 @@ extraSecretForEnvFrom: []
 # - mosquitto-secrets
 
 podSecurityContext:
-  privileged: false
+  privileged: true
   # fsGroup: 2000
 
 securityContext: {}
