@@ -137,7 +137,7 @@ tolerations: []
 
 persistence:
   enabled: true
-  data:
+  datastorage:
     hostPath: /mnt/volume-0/apps/mosquitto
   pvc:
     enabled: false
