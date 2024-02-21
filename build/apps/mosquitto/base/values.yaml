@@ -104,9 +104,6 @@ monitoring:
       # name:
       # key:
       # optional:
-  podMonitor:
-    enabled: true
-    intervalPod: 60s
 
 livenessProbe:
   enabled: true
