@@ -43,8 +43,8 @@ extraEnvSecrets:
 
 ## All secrets will be mounted as environment variables, with each key/value mapping to a
 ## corresponding environment variable.
-extraSecretForEnvFrom: []
-# - mosquitto-secrets
+extraSecretForEnvFrom:
+  - mosquitto-secrets
 
 podSecurityContext:
   privileged: true
