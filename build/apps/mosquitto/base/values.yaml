@@ -4,7 +4,7 @@ mosquitto:
   acls: ""
   users: ""
   allow_anonymous:
-    enabled: true
+    enabled: false
   ssl:
     enabled: false
     portName: "mqttssl"
