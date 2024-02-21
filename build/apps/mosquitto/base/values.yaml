@@ -61,7 +61,7 @@ securityContext: {}
 service:
   annotations:
     # metallb.universe.tf/loadBalancerIPs: "192.168.40.183"
-    prometheus.io/scrape: "false"
+    prometheus.io/scrape: "true"
     prometheus.io/port: {{ .Values.service.metricsPort }}
   labels: {}
   type: LoadBalancer
