@@ -23,7 +23,7 @@ spec:
       services:
         - kind: TraefikService
           name: home-assistant-proxy
-          port: 8123
+          port: 443 #8123
   tls:
     domains:
       - main: anotherlife.pl
@@ -45,5 +45,5 @@ spec:
   weighted:
     services:
       - name: home-assistant-proxy
-        port: 8123
+        port: 443 #8123
         weight: 1
