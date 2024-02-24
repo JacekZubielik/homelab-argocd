@@ -37,9 +37,25 @@ extraEnv: {}
 
 extraEnvSecrets:
   # This will set ${MQTT_PASSWORD} to the 'password' key from the 'mqtt' secret
-  # MQTT_PASSWORD:
-  #   secret: mqtt
-  #   key: password
+  MQTT_PASSWORD:
+    secret: mosquitto-secrets
+    key: MQTT_PASSWORD
+
+# - name: {{ $name }}
+#   valueFrom:
+#     secretKeyRef:
+#       name: {{ $opts.secret }}
+#       key: {{ $opts.key }}
+# {{- end }}
+
+# - name: CF_API_EMAIL
+#   valueFrom:
+#     secretKeyRef:
+#       key: email
+#       name: cloudflare-api-credentials
+
+
+
 
 ## All secrets will be mounted as environment variables, with each key/value mapping to a
 ## corresponding environment variable.
