@@ -128,7 +128,7 @@ affinity: {}
 tolerations: []
 
 persistence:
-  enabled: false
+  enabled: true
   datastorage:
     hostPath: /mnt/volume-0/apps/mosquitto
   pvc:
