@@ -2,7 +2,7 @@
 mosquitto:
   config: ""
   acls: ""
-  users: ""
+  users: "MQTT_PASSWORD"
   allow_anonymous:
     enabled: true
   ssl:
@@ -37,25 +37,9 @@ extraEnv: {}
 
 extraEnvSecrets:
   # This will set ${MQTT_PASSWORD} to the 'password' key from the 'mqtt' secret
-  MQTT_PASSWORD:
-    secret: mosquitto-secrets
-    key: MQTT_PASSWORD
-
-# - name: {{ $name }}
-#   valueFrom:
-#     secretKeyRef:
-#       name: {{ $opts.secret }}
-#       key: {{ $opts.key }}
-# {{- end }}
-
-# - name: CF_API_EMAIL
-#   valueFrom:
-#     secretKeyRef:
-#       key: email
-#       name: cloudflare-api-credentials
-
-
-
+  # MQTT_PASSWORD:
+  #   secret: mosquitto-secrets
+  #   key: MQTT_PASSWORD
 
 ## All secrets will be mounted as environment variables, with each key/value mapping to a
 ## corresponding environment variable.
@@ -89,7 +73,7 @@ service:
   mqttPort:    1883
   mqttsslPort: 8883
   mqttwsPort:  9090 #9001
-  metricsPort: 9113
+  metricsPort: 9100
 
 monitoring:
   enabled: true
