@@ -12,7 +12,7 @@ spec:
   ports:
     - name: http
       protocol: TCP
-      port: 443 #8123
+      port: 8123
       targetPort: 8123
   type: ExternalName
   # selector:
