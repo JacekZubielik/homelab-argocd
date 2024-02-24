@@ -132,7 +132,7 @@ persistence:
   datastorage:
     hostPath: /mnt/volume-0/apps/mosquitto
   pvc:
-    enabled: true
+    enabled: false
     accessModes:
       - ReadWriteOnce
     size: 1Gi
