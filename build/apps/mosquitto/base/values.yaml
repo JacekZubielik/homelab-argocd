@@ -10,7 +10,7 @@ mosquitto:
     portName: "mqttssl"
     secretName: "mosquitto-ssl"
     certificate:
-      enabled: false
+      enabled: true
       dnsNames: []
       issuerRef:
         group: cert-manager.io
