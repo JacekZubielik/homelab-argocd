@@ -28,7 +28,7 @@ strategyType: RollingUpdate
 serviceAccount:
   create: true
   annotations: {}
-  automountServiceAccountToken: true
+  automountServiceAccountToken: false
 
 podAnnotations: {}
 podLabels: {}
