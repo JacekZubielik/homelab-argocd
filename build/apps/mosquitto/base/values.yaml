@@ -2,7 +2,7 @@
 mosquitto:
   config: ""
   acls: ""
-  users: "MQTT_PASSWORD"
+  users: ""
   allow_anonymous:
     enabled: false
   ssl:
