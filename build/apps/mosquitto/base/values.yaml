@@ -128,11 +128,11 @@ affinity: {}
 tolerations: []
 
 persistence:
-  enabled: true
+  enabled: false
   datastorage:
     hostPath: /mnt/volume-0/apps/mosquitto
   pvc:
-    enabled: false
+    enabled: true
     accessModes:
       - ReadWriteOnce
     size: 1Gi
