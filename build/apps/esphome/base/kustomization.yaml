@@ -19,7 +19,7 @@ helmCharts:
 
 
 configMapGenerator:
-- name: eclipse-mosquitto-config
+- name: esphome-config
   literals:
   - TZ=CET
   - ESPHOME_DASHBOARD_USE_PING=true
