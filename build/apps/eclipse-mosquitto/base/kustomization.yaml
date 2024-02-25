@@ -1,0 +1,35 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+    argocd.argoproj.io/compare-options: IgnoreExtraneous
+  labels:
+    app.kubernetes.io/name: eclipse-mosquitto
+
+helmCharts:
+- name: eclipse-mosquitto
+  version: 0.0.1
+  repo: https://jacekzubielik.github.io/helm-charts
+  releaseName: eclipse-mosquitto
+  includeCRDs: false
+  valuesFile: values.yaml
+
+configMapGenerator:
+- name: eclipse-mosquitto-config
+  literals:
+  - TZ=CET
+
+
+# resources:
+# - resources/secret.yaml
+#- resources/deployment.yaml
+#- resources/ingress.yaml
+#- resources/ingressroute.yaml
+#- resources/service.yaml
+#- resources/sealed-sec.yaml
+
+#- resources/pvc.yaml
+#- resources/pv.yaml
