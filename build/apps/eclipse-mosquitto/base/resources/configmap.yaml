@@ -7,7 +7,7 @@ metadata:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
     argocd.argoproj.io/sync-wave: "4"
   labels:
-    app.kubernetes.io/name: eclipse-mosquitto
+    app.kubernetes.io/name: eclipse-mosquitto-config
 data:
   mosquitto.passwd: |
     bXF0dDpETzMySlRsZmI0NDZKS0V4RWJFVmdDWjRFNzRDcnE=
