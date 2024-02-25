@@ -11,23 +11,23 @@ data:
   mosquitto.passwd: |
     mqtt:$ZGV2LXVzZXI6OTJHNU1kbFlDMlpTWmlKSFp1Q0ZJSG0=
   mosquitto.conf: |
-  allow_anonymous true
-  persistence true
-  persistence_location /mosquitto/data/
-  persistence_file mosquitto.db
-  log_dest file /mosquitto/log/mosquitto.log
-  log_dest stdout
-  protocol mqtt
-  listener 1883
-  listener 8883
-  listener  9001
-  password_file /mosquitto/config/mosquitto.passwd
-  pid_file /mosquitto/mosquitto.pid
-  protocol websockets
-  cafile /mosquitto/config/certs/ca.crt
-  certfile /mosquitto/config/certs/server.crt
-  keyfile /mosquitto/config/certs/server.key
-  require_certificate false
+    allow_anonymous true
+    persistence true
+    persistence_location /mosquitto/data/
+    persistence_file mosquitto.db
+    log_dest file /mosquitto/log/mosquitto.log
+    log_dest stdout
+    protocol mqtt
+    listener 1883
+    listener 8883
+    listener  9001
+    password_file /mosquitto/config/mosquitto.passwd
+    pid_file /mosquitto/mosquitto.pid
+    protocol websockets
+    cafile /mosquitto/config/certs/ca.crt
+    certfile /mosquitto/config/certs/server.crt
+    keyfile /mosquitto/config/certs/server.key
+    require_certificate false
 
 
 
