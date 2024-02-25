@@ -17,10 +17,10 @@ helmCharts:
   includeCRDs: false
   valuesFile: values.yaml
 
-configMapGenerator:
-- name: eclipse-mosquitto-config
-  literals:
-  - TZ=CET
+# configMapGenerator:
+# - name: eclipse-mosquitto-config
+#   literals:
+#   - TZ=CET
 
 
 # resources:
