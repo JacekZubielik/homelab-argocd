@@ -1,4 +1,5 @@
 replicaCount: 1
+revisionHistoryLimit: 2
 
 imagePullSecrets: []
 nameOverride: ""
@@ -30,7 +31,12 @@ container:
       port: 8883
 
 service:
-  type: ClusterIP
+  type: LoadBalancer
+  externalIPs: []
+  loadBalancerIP: "192.168.40.183"
+  externalTrafficPolicy: {}
+  loadBalancerSourceRanges: []
+  publishNotReadyAddresses: false
   ports:
     mqtt:
       name: mqtt
