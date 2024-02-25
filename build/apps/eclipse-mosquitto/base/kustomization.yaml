@@ -23,7 +23,8 @@ helmCharts:
 #   - TZ=CET
 
 
-resources:
+# resources:
+# - resources/configmap.yaml
 # - resources/secret.yaml
 #- resources/deployment.yaml
 #- resources/ingress.yaml
@@ -32,4 +33,3 @@ resources:
 #- resources/sealed-sec.yaml
 
 #- resources/pvc.yaml
-- resources/configmap.yaml
