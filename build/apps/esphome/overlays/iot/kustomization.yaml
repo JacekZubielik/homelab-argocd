@@ -17,3 +17,4 @@ configMapGenerator:
 - name: esphome-config
   literals:
   - TZ=CET
+  - ESPHOME_DASHBOARD_USE_PING=true
