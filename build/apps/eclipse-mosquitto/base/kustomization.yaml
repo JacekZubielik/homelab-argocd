@@ -11,7 +11,7 @@ metadata:
 
 helmCharts:
 - name: eclipse-mosquitto
-  version: 0.0.7
+  version: 0.0.8
   repo: https://jacekzubielik.github.io/helm-charts
   releaseName: eclipse-mosquitto
   includeCRDs: false
