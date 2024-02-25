@@ -16,3 +16,10 @@ helmCharts:
   releaseName: esphome
   includeCRDs: false
   valuesFile: values.yaml
+
+
+configMapGenerator:
+- name: eclipse-mosquitto-config
+  literals:
+  - TZ=CET
+  - ESPHOME_DASHBOARD_USE_PING=true
