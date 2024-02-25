@@ -16,7 +16,7 @@ spec:
     - websecure
   routes:
     - kind: Rule
-      match: Host(`hass.<secret:private-domain>`) #Host(`hass.anotherlife.pl`)
+      match: Host(`hass.anotherlife.pl`)
       middlewares:
         - name: security #headers #traefik-dashboard-auth  #chain-traefik-dashboard
           namespace: traefik
@@ -26,9 +26,9 @@ spec:
           port: 8123
   tls:
     domains:
-      - main: '<secret:private-domain>' #anotherlife.pl
+      - main: anotherlife.pl
         sans:
-          - '.<secret:private-domain>' #.anotherlife.pl
+          - .anotherlife.pl
     options:
       name: tls-ver13
       namespace: traefik
