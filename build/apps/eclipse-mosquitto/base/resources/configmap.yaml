@@ -13,7 +13,7 @@ data:
     mqtt:$RE8zMkpUbGZiNDQ2SktFeEViRVZnQ1o0RTc0Q3Jx
 
   mosquitto.conf: |
-    allow_anonymous true
+    allow_anonymous false
     persistence true
     persistence_location /mosquitto/data/
     persistence_file mosquitto.db

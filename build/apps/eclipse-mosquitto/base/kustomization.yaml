@@ -26,7 +26,7 @@ configMapGenerator:
 resources:
 - resources/configmap.yaml
 #- resources/service.yaml
-# - resources/secret.yaml
+- resources/secret.yaml
 #- resources/deployment.yaml
 #- resources/ingress.yaml
 #- resources/ingressroute.yaml
