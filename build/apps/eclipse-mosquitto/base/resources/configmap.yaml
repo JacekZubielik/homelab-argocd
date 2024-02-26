@@ -9,8 +9,8 @@ metadata:
   labels:
     app.kubernetes.io/name: eclipse-mosquitto
 data:
-  password_file: |
-    mqtt:$RE8zMkpUbGZiNDQ2SktFeEViRVZnQ1o0RTc0Q3Jx
+  # password_file: |
+  #   mqtt:$RE8zMkpUbGZiNDQ2SktFeEViRVZnQ1o0RTc0Q3Jx
 
   mosquitto.conf: |
     allow_anonymous false
