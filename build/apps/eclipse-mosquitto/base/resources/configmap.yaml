@@ -11,7 +11,6 @@ metadata:
 data:
   # password_file: |
   #   mqtt:$RE8zMkpUbGZiNDQ2SktFeEViRVZnQ1o0RTc0Q3Jx
-
   mosquitto.conf: |
     allow_anonymous false
     persistence true
@@ -29,7 +28,6 @@ data:
     keyfile /mosquitto/config/certs/server.key
     require_certificate true
     socket_domain ipv4
-
   ca.crt: |-
     -----BEGIN CERTIFICATE-----
     MIIDvzCCAqegAwIBAgIUMukJRdbqWXmnYHUN4Wz+wQWErrcwDQYJKoZIhvcNAQEL
