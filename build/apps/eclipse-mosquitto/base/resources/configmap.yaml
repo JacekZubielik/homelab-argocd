@@ -26,7 +26,7 @@ data:
     keyfile /mosquitto/config/certs/server.key
     require_certificate false
     #
-    socket_domain IPv4
+    socket_domain ipv4
 
   password_file: |
     mqtt:RE8zMkpUbGZiNDQ2SktFeEViRVZnQ1o0RTc0Q3Jx
