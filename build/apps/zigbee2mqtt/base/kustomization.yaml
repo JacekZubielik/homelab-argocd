@@ -17,10 +17,10 @@ helmCharts:
   includeCRDs: false
   valuesFile: values.yaml
 
-# configMapGenerator:
-# - name: zigbee2mqtt-config
-#   literals:
-#   - TZ=CET
+configMapGenerator:
+- name: zigbee2mqtt-config
+  literals:
+  - TZ=CET
 
 resources:
 # - resources/deployment.yaml

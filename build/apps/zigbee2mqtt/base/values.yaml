@@ -3,6 +3,8 @@ fullnameOverride: ""
 revisionHistoryLimit: 4
 hostNetwork: false
 
+timezone: CET
+
 replicas: 1
 updateStrategy:
   type: RollingUpdate
