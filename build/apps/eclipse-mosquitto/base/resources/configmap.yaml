@@ -19,13 +19,16 @@ data:
     listener 8883
     log_dest file /mosquitto/log/mosquitto.log
     log_dest stdout
-    password_file /mosquitto/config/mosquitto.passwd
+    password_file /mosquitto/config/password_file
     pid_file /mosquitto/mosquitto.pid
     cafile /mosquitto/config/certs/ca.crt
     certfile /mosquitto/config/certs/server.crt
     keyfile /mosquitto/config/certs/server.key
     require_certificate false
-  mosquitto.passwd: |
+    #
+    socket_domain IPv4
+
+  password_file: |
     mqtt:RE8zMkpUbGZiNDQ2SktFeEViRVZnQ1o0RTc0Q3Jx
   ca.crt: |-
     -----BEGIN CERTIFICATE-----
