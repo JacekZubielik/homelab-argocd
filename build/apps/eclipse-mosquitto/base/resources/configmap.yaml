@@ -9,7 +9,10 @@ metadata:
   labels:
     app.kubernetes.io/name: eclipse-mosquitto
 data:
-  mosquitto.conf: |-
+  password_file: |
+    mqtt:RE8zMkpUbGZiNDQ2SktFeEViRVZnQ1o0RTc0Q3Jx
+
+  mosquitto.conf: |
     allow_anonymous true
     persistence true
     persistence_location /mosquitto/data/
@@ -28,8 +31,6 @@ data:
     #
     socket_domain ipv4
 
-  password_file: |
-    mqtt:RE8zMkpUbGZiNDQ2SktFeEViRVZnQ1o0RTc0Q3Jx
   ca.crt: |-
     -----BEGIN CERTIFICATE-----
     MIIDvzCCAqegAwIBAgIUMukJRdbqWXmnYHUN4Wz+wQWErrcwDQYJKoZIhvcNAQEL
