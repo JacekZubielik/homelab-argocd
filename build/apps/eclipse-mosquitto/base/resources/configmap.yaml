@@ -9,8 +9,6 @@ metadata:
   labels:
     app.kubernetes.io/name: eclipse-mosquitto
 data:
-  # password_file: |
-  #   mqtt:$RE8zMkpUbGZiNDQ2SktFeEViRVZnQ1o0RTc0Q3Jx
   mosquitto.conf: |
     allow_anonymous false
     persistence true
@@ -21,7 +19,6 @@ data:
     listener 8883
     log_dest file /mosquitto/log/mosquitto.log
     log_dest stdout
-#    password_file /mosquitto/config/password_file
     pid_file /mosquitto/mosquitto.pid
     cafile /mosquitto/config/certs/ca.crt
     certfile /mosquitto/config/certs/server.crt
