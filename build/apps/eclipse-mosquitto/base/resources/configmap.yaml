@@ -4,7 +4,7 @@ metadata:
   name: eclipse-mosquitto-config
   #namespace: iot
   annotations:
-    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+    #argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
     argocd.argoproj.io/sync-wave: "4"
   labels:
     app.kubernetes.io/name: eclipse-mosquitto-config
