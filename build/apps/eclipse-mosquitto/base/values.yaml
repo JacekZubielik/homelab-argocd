@@ -67,6 +67,7 @@ persistence:
   annotations: {}
 
 # config: |
+#   password_file /mosquitto/config/mosquitto.passwd
 #   persistence true
 #   persistence_location /mosquitto/data/
 #   log_dest stdout
