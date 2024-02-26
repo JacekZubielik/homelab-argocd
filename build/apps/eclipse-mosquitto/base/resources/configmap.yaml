@@ -26,7 +26,7 @@ data:
     keyfile /mosquitto/config/certs/server.key
     require_certificate false
   mosquitto.passwd: |-
-    bXF0dDpETzMySlRsZmI0NDZKS0V4RWJFVmdDWjRFNzRDcnE=
+    mqtt:RE8zMkpUbGZiNDQ2SktFeEViRVZnQ1o0RTc0Q3Jx
   ca.crt: |-
     -----BEGIN CERTIFICATE-----
     MIIDvzCCAqegAwIBAgIUMukJRdbqWXmnYHUN4Wz+wQWErrcwDQYJKoZIhvcNAQEL
