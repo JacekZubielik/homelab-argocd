@@ -22,7 +22,7 @@ data:
     listener 8883
     log_dest file /mosquitto/log/mosquitto.log
     log_dest stdout
-    password_file /mosquitto/config/password_file
+#    password_file /mosquitto/config/password_file
     pid_file /mosquitto/mosquitto.pid
     cafile /mosquitto/config/certs/ca.crt
     certfile /mosquitto/config/certs/server.crt
