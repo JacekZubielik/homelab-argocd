@@ -129,7 +129,7 @@ ingress:
         proxy_cache_bypass $http_upgrade;
       }
   hosts:
-    - host: lms.local
+    - host: zigbee2mqtt.local
       paths:
         - path: /
           pathType: ImplementationSpecific
@@ -137,7 +137,7 @@ ingress:
     []
     # - secretName: letsencrypt-staging
     #   hosts:
-    #     - lms.local
+    #     - zigbee2mqtt.local
 
 resources: {}
 #   requests:
