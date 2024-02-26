@@ -10,7 +10,7 @@ metadata:
     app.kubernetes.io/name: eclipse-mosquitto
 data:
   mosquitto.conf: |-
-    allow_anonymous true
+    allow_anonymous false
     persistence true
     persistence_location /mosquitto/data/
     persistence_file mosquitto.db
