@@ -3,7 +3,7 @@ fullnameOverride: ""
 revisionHistoryLimit: 4
 hostNetwork: false
 
-timezone: CET
+#timezone: CET
 
 replicas: 1
 updateStrategy:
