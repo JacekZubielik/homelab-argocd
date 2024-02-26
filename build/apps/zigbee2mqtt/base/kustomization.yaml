@@ -22,9 +22,6 @@ helmCharts:
 #   literals:
 #   - TZ=CET
 
-
-
-
 resources:
 # - resources/deployment.yaml
 # - resources/ingress.yaml

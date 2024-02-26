@@ -1,9 +1,3 @@
-image:
-  repository: koenkk/zigbee2mqtt
-  tag: ""
-  pullPolicy: IfNotPresent
-  pullSecrets: []
-
 nameOverride: ""
 fullnameOverride: ""
 revisionHistoryLimit: 4
@@ -62,8 +56,8 @@ service:
   externalTrafficPolicy: {}
   loadBalancerSourceRanges: []
   publishNotReadyAddresses: false
-  httpPort:    8080
-  metricsPort: 9100
+  httpPort:    "8080"
+  metricsPort: "9100"
 
 monitoring:
   enabled: true
