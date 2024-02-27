@@ -29,4 +29,4 @@ data:
     socket_domain ipv4
     allow_zero_length_clientid true
     use_identity_as_username true
-    tls_version tlsv1.3
+    tls_version tlsv1.2
