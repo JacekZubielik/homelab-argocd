@@ -6,12 +6,12 @@ metadata:
   # annotations:
     #argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
     # argocd.argoproj.io/sync-wave: "4"
+#    password_file /mosquitto/config/passwd
   labels:
     app.kubernetes.io/name: eclipse-mosquitto
 data:
   mosquitto.conf: |
     allow_anonymous false
-#    password_file /mosquitto/config/passwd
     persistence true
     persistence_location /mosquitto/data/
     persistence_file mosquitto.db
