@@ -12,6 +12,7 @@ metadata:
 data:
   mosquitto.conf: |
     allow_anonymous false
+    password_file /etc/mosquitto/password_file
     persistence true
     persistence_location /mosquitto/data/
     persistence_file mosquitto.db
