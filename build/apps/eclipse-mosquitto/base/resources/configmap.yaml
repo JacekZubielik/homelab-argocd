@@ -11,8 +11,9 @@ metadata:
     app.kubernetes.io/name: eclipse-mosquitto
 data:
   mosquitto.conf: |
-    allow_anonymous false
-    password_file /etc/mosquitto/password_file
+    allow_anonymous true
+    autosave_interval 1800
+    password_file /mosquitto/password_file
     persistence true
     persistence_location /mosquitto/data/
     persistence_file mosquitto.db
@@ -27,3 +28,6 @@ data:
     keyfile /mosquitto/config/certs/server.key
     require_certificate true
     socket_domain ipv4
+    allow_zero_length_clientid true
+    use_identity_as_username true
+    tls_version tlsv1.3
