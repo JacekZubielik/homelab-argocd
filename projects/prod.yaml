@@ -102,16 +102,21 @@ spec:
           limit: 2
 
         syncOptions:
-        - ApplyOutOfSyncOnly=true
         - CreateNamespace=true
-        - FailOnSharedResource=false
-        - PruneLast=true
+        #- PrunePropagationPolicy=foreground
         - preserveResourcesOnDeletion=false
-        - RespectIgnoreDifferences=true
+        - SkipDryRunOnMissingResource=true
         - Replace=false
         - ServerSideApply=true
-        - SkipDryRunOnMissingResource=true
+        - ApplyOutOfSyncOnly=true
         - Validate=false
+        - PruneLast=true
+        #- Delete=true
+        - RespectIgnoreDifferences=true
+        - FailOnSharedResource=false
+
+
+
         
         automated:
           allowEmpty: true

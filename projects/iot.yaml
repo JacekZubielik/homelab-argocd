@@ -102,7 +102,7 @@ spec:
           limit: 2
         syncOptions:
         - CreateNamespace=true
-        - PrunePropagationPolicy=foreground
+        #- PrunePropagationPolicy=foreground
         - preserveResourcesOnDeletion=false
         - SkipDryRunOnMissingResource=true
         - Replace=true
@@ -112,6 +112,7 @@ spec:
         - PruneLast=true
         #- Delete=true
         - RespectIgnoreDifferences=true
+        - FailOnSharedResource=false
         automated:
           allowEmpty: true
           prune: true
