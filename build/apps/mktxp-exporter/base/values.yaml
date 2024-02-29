@@ -2,6 +2,10 @@ imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
+serviceAccount:
+  create: true
+  annotations: {}
+  automountServiceAccountToken: false
 podAnnotations: {}
 
 podSecurityContext:
@@ -30,8 +34,6 @@ persistence:
 ingress:
   enabled: false
   ingressClassName: traefik-default
-  domainName: anotherlife.pl
-  secretName: cluster-tls
 
 monitoring:
   enabled: true
@@ -40,3 +42,5 @@ monitoring:
     interval: 60s
     labels:
       prometheus: "true"
+    selector: {}
+    namespace: monitoring
