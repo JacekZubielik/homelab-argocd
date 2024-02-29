@@ -11,7 +11,7 @@ metadata:
 
 helmCharts:
 - name: eclipse-mosquitto
-  version: 0.0.38
+  version: 0.0.39
   repo: https://jacekzubielik.github.io/helm-charts
   releaseName: eclipse-mosquitto
   includeCRDs: false
@@ -21,7 +21,6 @@ configMapGenerator:
 - name: eclipse-mosquitto-timezone
   literals:
   - TZ=CET
-
 
 resources:
 - resources/configmap.yaml

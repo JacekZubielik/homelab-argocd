@@ -1,10 +1,15 @@
-replicaCount: 1
+nameOverride: ""
+fullnameOverride: ""
 revisionHistoryLimit: 2
-
+replicas: 1
+strategyType: RollingUpdate
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
-
+serviceAccount:
+  create: true
+  annotations: {}
+  automountServiceAccountToken: false
 podAnnotations: {}
 
 podSecurityContext:
