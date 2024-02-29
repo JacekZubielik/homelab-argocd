@@ -9,7 +9,7 @@ metadata:
     argocd.argoproj.io/compare-options: IgnoreExtraneous
   labels:
     app.kubernetes.io/name: traefik
-    release: kube-prometheus-stack
+    release: traefik
 
 spec:
   jobLabel: traefik-metrics
