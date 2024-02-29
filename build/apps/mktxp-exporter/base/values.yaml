@@ -43,4 +43,4 @@ monitoring:
     labels:
       prometheus: "true"
     selector: {}
-    namespace: monitoring
+    namespace: {}
