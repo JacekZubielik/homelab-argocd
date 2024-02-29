@@ -58,7 +58,7 @@ service:
   loadBalancerSourceRanges: []
   publishNotReadyAddresses: false
   httpPort:      "8123"
-  metricsPort:   "9113"
+  metricsPort:   "9100"
 
 monitoring:
   enabled: true
