@@ -12,6 +12,7 @@ metadata:
 data:
   mosquitto.conf: |
     allow_anonymous true
+    password_file /mosquitto/password_file
     autosave_interval 1800
     persistence true
     persistence_location /mosquitto/data/
