@@ -28,5 +28,5 @@ data:
     require_certificate false
     socket_domain ipv4
     allow_zero_length_clientid true
-    use_identity_as_username true
+    use_identity_as_username false
     tls_version tlsv1.2
