@@ -61,9 +61,9 @@ securityContext: {}
   # runAsUser: 1000
 
 service:
-  annotations: {}
-    # prometheus.io/scrape: "false"
-    # prometheus.io/port: {{ .Values.service.metricsPort }}
+  annotations:
+    prometheus.io/scrape: "true"
+    prometheus.io/port: 9100
   labels: {}
   type: ClusterIP
   externalIPs: []
@@ -72,7 +72,7 @@ service:
   loadBalancerSourceRanges: []
   publishNotReadyAddresses: false
   httpPort:      "3001"
-  metricsPort:   "9113"
+  metricsPort:   "9100"
 
 monitoring:
   enabled: true
@@ -82,7 +82,7 @@ monitoring:
     honorLabels: true
     interval:      60s
     selector: {}
-    namespace: monitoring
+    namespace: {} #monitoring
     scrapeTimeout: 10s
     scheme: http
     tlsConfig: {}
