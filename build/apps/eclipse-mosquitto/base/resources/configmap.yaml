@@ -15,7 +15,7 @@ data:
     password_file /mosquitto/password_file
     autosave_interval 1800
     persistence true
-    persistence_location /mosquitto/data/
+    persistence_location /mosquitto
     persistence_file mosquitto.db
     protocol mqtt
     listener 1883
