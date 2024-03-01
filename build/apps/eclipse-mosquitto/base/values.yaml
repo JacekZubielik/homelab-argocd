@@ -76,7 +76,7 @@ monitoring:
       # key:
       # optional:
 livenessProbe:
-  enabled: true
+  enabled: false
   scheme: HTTP
   periodSeconds:       60
   timeoutSeconds:      10
@@ -85,7 +85,7 @@ livenessProbe:
   initialDelaySeconds: 30
 readinessProbe:
   enabled: true
-  scheme: HTTP
+  scheme: false
   periodSeconds:       60
   timeoutSeconds:      10
   successThreshold:    1
