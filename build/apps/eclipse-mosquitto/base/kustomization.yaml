@@ -17,10 +17,10 @@ helmCharts:
   includeCRDs: false
   valuesFile: values.yaml
 
-configMapGenerator:
-- name: eclipse-mosquitto-timezone
-  literals:
-  - TZ=CET
+# configMapGenerator:
+# - name: eclipse-mosquitto-timezone
+#   literals:
+#   - TZ=CET
 
 resources:
 - resources/configmap.yaml
