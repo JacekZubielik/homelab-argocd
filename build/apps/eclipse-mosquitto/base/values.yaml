@@ -31,7 +31,7 @@ serviceAccount:
 
 service:
   annotations:
-    prometheus.io/scrape: "false"
+    prometheus.io/scrape: "true"
     prometheus.io/port: 9100
   labels: {}
   type: LoadBalancer
@@ -44,11 +44,11 @@ service:
   mqttsPort:   8883
   metricsPort: 9100
 monitoring:
-  enabled: false
+  enabled: true
   serviceMonitor:
-    enabled: false
+    enabled: true
     annotations:
-      prometheus.io/scrape: "false"
+      prometheus.io/scrape: "true"
       prometheus.io/port: 9100
     labels: {}
     honorLabels: true
@@ -76,7 +76,7 @@ monitoring:
       # key:
       # optional:
 livenessProbe:
-  enabled: true
+  enabled: false
   scheme: HTTP
   periodSeconds:       60
   timeoutSeconds:      10
@@ -84,7 +84,7 @@ livenessProbe:
   failureThreshold:    6
   initialDelaySeconds: 30
 readinessProbe:
-  enabled: true
+  enabled: false
   scheme: HTTP
   periodSeconds:       60
   timeoutSeconds:      10
