@@ -8,7 +8,7 @@ metadata:
     # argocd.argoproj.io/sync-wave: "4"
 ###############################################    password_file /mosquitto/password_file
   labels:
-    app.kubernetes.io/name: eclipse-mosquitto
+    app.kubernetes.io/name: app
 data:
   mosquitto.conf: |-
     allow_anonymous true
