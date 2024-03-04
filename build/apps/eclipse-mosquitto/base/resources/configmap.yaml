@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: eclipse-mosquitto-config
+  name: app #eclipse-mosquitto-config
   # namespace: iot-k3s
   # annotations:
     #argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
