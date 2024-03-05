@@ -2,11 +2,11 @@ imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
-serviceAccount:
-  create: true
-  annotations: {}
-  automountServiceAccountToken: false
-podAnnotations: {}
+# serviceAccount:
+#   create: true
+#   annotations: {}
+#   automountServiceAccountToken: false
+# podAnnotations: {}
 
 podSecurityContext:
   runAsUser: 100
