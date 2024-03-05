@@ -15,7 +15,7 @@ helmCharts:
     releaseName: monitoring
     includeCRDs: true
     valuesFile: values.yaml #values-test-from-old-cfg #values.yaml
-    # namespace: monitoring
+    namespace: monitoring
 
 
   - name: prometheus-blackbox-exporter
@@ -24,7 +24,7 @@ helmCharts:
     releaseName: monitoring
     includeCRDs: false
     valuesFile: blackbox-exporter-values.yaml
-    # namespace: monitoring
+    namespace: monitoring
 
 
   - name: prometheus-smartctl-exporter
@@ -32,7 +32,7 @@ helmCharts:
     repo: https://prometheus-community.github.io/helm-charts
     releaseName: monitoring
     valuesFile: smartctl-exporter-values.yaml
-    # namespace: monitoring
+    namespace: monitoring
 
 
 
