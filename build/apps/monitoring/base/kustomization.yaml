@@ -9,27 +9,33 @@ metadata:
     app.kubernetes.io/name: kube-prometheus-stack
 
 helmCharts:
-  - includeCRDs: true
-    name: kube-prometheus-stack
-    namespace: monitoring
-    releaseName: monitoring
+  - name: kube-prometheus-stack
+    version: 56.21.1 #56.3.0 #56.0.3 #55.5.0
     repo: https://prometheus-community.github.io/helm-charts
+    releaseName: monitoring
+    includeCRDs: true
     valuesFile: values.yaml #values-test-from-old-cfg #values.yaml
-    version: 56.6.2 #56.3.0 #56.0.3 #55.5.0
+    # namespace: monitoring
+
 
   - name: prometheus-blackbox-exporter
-    namespace: monitoring
-    releaseName: monitoring
+    version: 8.12.0
     repo: https://prometheus-community.github.io/helm-charts
+    releaseName: monitoring
+    includeCRDs: false
     valuesFile: blackbox-exporter-values.yaml
-    version: 8.10.1
+    # namespace: monitoring
+
 
   - name: prometheus-smartctl-exporter
-    namespace: monitoring
-    releaseName: monitoring
+    version: 0.7.1
     repo: https://prometheus-community.github.io/helm-charts
+    releaseName: monitoring
     valuesFile: smartctl-exporter-values.yaml
-    version: 0.7.0
+    # namespace: monitoring
+
+
+
 
 configMapGenerator:
 - name: kube-prometheus-stack-config
