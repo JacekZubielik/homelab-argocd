@@ -3,9 +3,9 @@ fullnameOverride: ""
 revisionHistoryLimit: 4
 replicas: 1
 strategyType: RollingUpdate
-  rollingUpdate:
-    maxUnavailable: 0
-    maxSurge: 2
+  # rollingUpdate:
+  #   maxUnavailable: 0
+  #   maxSurge: 2
 
 imagePullSecrets: []
 nameOverride: ""
