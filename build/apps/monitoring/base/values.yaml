@@ -54,7 +54,7 @@ defaultRules:
     nodeExporterRecording: true
     prometheus: true
     prometheusOperator: true
-    windows: true
+    windows: false
 
   ## Reduce app namespace alert scope
   appNamespacesTarget: ".*"
@@ -234,24 +234,15 @@ prometheus-windows-exporter:
 
 ## Configuration for alertmanager
 ## ref: https://prometheus.io/docs/alerting/alertmanager/
-##
 alertmanager:
-
-  ## Deploy alertmanager
-  ##
   enabled: true
-
-  ## Annotations for Alertmanager
-  ##
   annotations: {}
 
   ## Api that prometheus will use to communicate with alertmanager. Possible values are v1, v2
-  ##
   apiVersion: v2
 
   ## Service account for Alertmanager to use.
   ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/
-  ##
   serviceAccount:
     create: true
     name: ""
@@ -262,7 +253,6 @@ alertmanager:
   ## ref: https://kubernetes.io/docs/tasks/run-application/configure-pdb/#specifying-a-poddisruptionbudget
   ## This configuration is immutable once created and will require the PDB to be deleted to be changed
   ## https://github.com/kubernetes/kubernetes/issues/45398
-  ##
   podDisruptionBudget:
     enabled: false
     minAvailable: 1
@@ -723,15 +713,15 @@ alertmanager:
     ## Storage is the definition of how storage will be used by the Alertmanager instances.
     ## ref: https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/user-guides/storage.md
     ##
-    storage: {}
-    # volumeClaimTemplate:
-    #   spec:
-    #     storageClassName: gluster
-    #     accessModes: ["ReadWriteOnce"]
-    #     resources:
-    #       requests:
-    #         storage: 50Gi
-    #     selector: {}
+    storage:
+    volumeClaimTemplate:
+      spec:
+        storageClassName: local-path
+        accessModes: ["ReadWriteOnce"]
+        resources:
+          requests:
+            storage: 10Gi
+        selector: {}
 
 
     ## The external URL the Alertmanager instances will be available under. This is necessary to generate correct URLs. This is necessary if Alertmanager is not served from root of a DNS name. string  false
@@ -919,7 +909,7 @@ alertmanager:
 grafana:
   enabled: true
   namespaceOverride: ""
-
+  fullnameOverride: grafana
   ## ForceDeployDatasources Create datasource configmap even if grafana deployment has been disabled
   ##
   forceDeployDatasources: false
