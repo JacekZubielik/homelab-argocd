@@ -11,7 +11,7 @@ metadata:
     app.kubernetes.io/name: eclipse-mosquitto
 data:
   mosquitto.conf: |-
-    allow_anonymous false
+    allow_anonymous true
     autosave_interval 1800
     persistence true
     persistence_location /mosquitto
