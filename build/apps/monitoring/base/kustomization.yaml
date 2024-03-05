@@ -37,10 +37,10 @@ helmCharts:
 
 
 
-configMapGenerator:
-- name: kube-prometheus-stack-config
-  literals:
-  - TZ=CET
+# configMapGenerator:
+# - name: kube-prometheus-stack-config
+#   literals:
+#   - TZ=CET
 
 resources:
   - resources/blackbox-exporter-dashboard-configmap.yaml
