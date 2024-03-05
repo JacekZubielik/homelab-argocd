@@ -53,7 +53,7 @@ resources:
   # - resources/alertmanager-secret.yaml
   # - resources/alertmanager-telegram-template.yaml
   # - resources/grafana-admin-secret.yaml
-  # - resources/grafana-secret.yaml
+  - resources/grafana-secret.yaml
   # - resources/long-term-metrics/datasource-configmap.yaml
   # - resources/long-term-metrics/ingress.yaml
   # - resources/long-term-metrics/prometheus.yaml
