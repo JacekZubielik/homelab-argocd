@@ -933,6 +933,29 @@ grafana:
 
   adminPassword: prom-operator
 
+  grafana.ini:
+    server:
+      root_url: https://grafana.anotherlife.pl
+
+    log:
+      level: info
+
+    # auth.generic_oauth:
+    #   enabled: true
+    #   allow_sign_up: true
+    #   name: idm.anotherlife.pl
+    #   client_id: $__env{GRAFANA_SSO_CLIENT_ID}
+    #   client_secret: $__env{GRAFANA_SSO_CLIENT_SECRET}
+    #   scopes: openid profile email
+    #   auth_url: https://idm.anotherlife.pl/ui/oauth2
+    #   token_url: https://idm.anotherlife.pl/oauth2/token
+    #   api_url: https://idm.anotherlife.pl/oauth2/openid/grafana/userinfo
+    #   use_pkce: true
+    #   groups_attribute_path: scopes
+    #   name_attribute_path: preferred_username
+    #   role_attribute_path: contains(scopes[*], 'admin') && 'Admin' || 'Viewer'
+
+
   rbac:
     ## If true, Grafana PSPs will be created
     ##

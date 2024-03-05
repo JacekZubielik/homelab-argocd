@@ -18,21 +18,21 @@ helmCharts:
     namespace: monitoring
 
 
-  - name: prometheus-blackbox-exporter
-    version: 8.12.0
-    repo: https://prometheus-community.github.io/helm-charts
-    releaseName: monitoring
-    includeCRDs: false
-    valuesFile: blackbox-exporter-values.yaml
-    namespace: monitoring
+  # - name: prometheus-blackbox-exporter
+  #   version: 8.12.0
+  #   repo: https://prometheus-community.github.io/helm-charts
+  #   releaseName: monitoring
+  #   includeCRDs: false
+  #   valuesFile: blackbox-exporter-values.yaml
+  #   namespace: monitoring
 
 
-  - name: prometheus-smartctl-exporter
-    version: 0.7.1
-    repo: https://prometheus-community.github.io/helm-charts
-    releaseName: monitoring
-    valuesFile: smartctl-exporter-values.yaml
-    namespace: monitoring
+  # - name: prometheus-smartctl-exporter
+  #   version: 0.7.1
+  #   repo: https://prometheus-community.github.io/helm-charts
+  #   releaseName: monitoring
+  #   valuesFile: smartctl-exporter-values.yaml
+  #   namespace: monitoring
 
 
 
