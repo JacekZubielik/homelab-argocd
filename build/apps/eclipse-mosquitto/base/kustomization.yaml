@@ -6,21 +6,21 @@ metadata:
   # annotations:
   #   argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
   #   argocd.argoproj.io/compare-options: IgnoreExtraneous
-  # labels:
-  #   app.kubernetes.io/name: eclipse-mosquitto
+  labels:
+    app.kubernetes.io/name: eclipse-mosquitto
 
 helmCharts:
 - name: eclipse-mosquitto
-  version: 0.0.51
+  version: 0.0.52
   repo: https://jacekzubielik.github.io/helm-charts
   releaseName: eclipse-mosquitto
   includeCRDs: false
   valuesFile: values.yaml
 
-# configMapGenerator:
-# - name: eclipse-mosquitto-timezone
-#   literals:
-#   - TZ=CET
+configMapGenerator:
+- name: eclipse-mosquitto-timezone
+  literals:
+  - TZ=CET
 
 resources:
 - resources/configmap.yaml
