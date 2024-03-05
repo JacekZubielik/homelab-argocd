@@ -11,7 +11,7 @@ metadata:
 
 helmCharts:
 - name: mktxp-exporter
-  version: 0.0.9
+  version: 0.0.10
   repo: https://jacekzubielik.github.io/helm-charts
   releaseName: mktxp-exporter
   includeCRDs: false
