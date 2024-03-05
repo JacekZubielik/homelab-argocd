@@ -17,10 +17,10 @@ helmCharts:
   includeCRDs: false
   valuesFile: values.yaml
 
-configMapGenerator:
-- name: mktxp-exporter-config
-  literals:
-  - TZ=CET
+# configMapGenerator:
+# - name: mktxp-exporter-config
+#   literals:
+#   - TZ=CET
 
 
 #resources:
