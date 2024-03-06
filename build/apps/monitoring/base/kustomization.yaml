@@ -42,24 +42,17 @@ helmCharts:
 #   - TZ=CET
 
 resources:
-  # - resources/blackbox-exporter-dashboard-configmap.yaml
-  #- resources/namespace.yaml
+  - resources/blackbox-exporter-dashboard-configmap.yaml
+  # - resources/namespace.yaml
   - resources/ingressroute.yaml
-  # - resources/smartctl-exporter-dashboard-configmap.yaml
-  # - resources/smartctl-exporter-prometheus-rules.yaml
-  # - resources/temperature-dashboard-configmap.yaml
-  # - resources/temperature-prometheus-rules.yaml
+  - resources/smartctl-exporter-dashboard-configmap.yaml
+  - resources/smartctl-exporter-prometheus-rules.yaml
+  - resources/temperature-dashboard-configmap.yaml
+  - resources/temperature-prometheus-rules.yaml
   # - resources/alertmanager-secret.yaml
-  # - resources/alertmanager-telegram-template.yaml
+  - resources/alertmanager-telegram-template.yaml
   # - resources/grafana-admin-secret.yaml
   # - resources/grafana-secret.yaml
-  # - resources/long-term-metrics/datasource-configmap.yaml
-  # - resources/long-term-metrics/ingress.yaml
-  # - resources/long-term-metrics/prometheus.yaml
-  # - resources/long-term-metrics/service.yaml
-  # - resources/pfsense-darkstat-scrape-config.yaml
-  # - resources/pfsense-node-exporter-dashboard-configmap.yaml
-  # - resources/pfsense-node-exporter-scrape-config.yaml
 
 # patches:
 #   - patch: |-
