@@ -2,7 +2,7 @@
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
-  name: grafana
+  name: monitoring-grafana
   annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
     argocd.argoproj.io/sync-wave: "3"
@@ -22,7 +22,7 @@ spec:
           namespace: traefik
       services:
         - kind: TraefikService
-          name: grafana
+          name: monitoring-grafana
           port: 80
   tls:
     domains:
@@ -37,7 +37,7 @@ spec:
 apiVersion: traefik.io/v1alpha1
 kind: TraefikService
 metadata:
-  name: grafana
+  name: monitoring-grafana
   annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
     argocd.argoproj.io/sync-wave: "3"
@@ -46,7 +46,7 @@ metadata:
 spec:
   weighted:
     services:
-      - name: grafana
+      - name: monitoring-grafana
         port: 80
         weight: 1
 ---
