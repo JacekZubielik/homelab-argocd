@@ -142,7 +142,7 @@ grafana:
         #   url: tcp://192.168.40.183:1883
         #   access: proxy
 
-  #sidecar:
+  sidecar:
     # resources:
     #   limits:
     #     memory: 128Mi
