@@ -137,6 +137,11 @@ grafana:
           type: loki
           url: http://loki-stack:3100
           access: proxy
+        - name: mqtt
+          url: http://192.168.40.183:1883
+
+
+
 
   #sidecar:
     # resources:
