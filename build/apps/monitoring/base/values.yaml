@@ -199,7 +199,7 @@ alertmanager:
           - send_resolved: true
             url: "http://alertmanager-bot:8080"
       - name: 'null'
-      templates:
+    templates:
       - '/etc/alertmanager/config/*.tmpl'
     route:
       group_by: ["namespace"]
