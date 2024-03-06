@@ -1372,8 +1372,8 @@ kubeDns:
 kubeEtcd:
   enabled: true
   ## If your etcd is not deployed as a pod, specify IPs it can be found on
-  endpoints: []
-  # - 10.141.4.22
+  endpoints:
+    - 192.168.40.119
   # - 10.141.4.23
   # - 10.141.4.24
   ## Etcd service. If using kubeEtcd.endpoints only the port and targetPort are used
