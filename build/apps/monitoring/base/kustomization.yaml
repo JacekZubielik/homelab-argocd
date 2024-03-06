@@ -17,14 +17,13 @@ helmCharts:
     valuesFile: values2.yaml #values-test-from-old-cfg #values.yaml
     namespace: monitoring
 
-    helm:
-      values: |-
-        prometheus-node-exporter:
-          hostRootFsMount:
-            enabled: false
-        prometheusOperator:
-          admissionWebhooks:
-            failurePolicy: Ignore
+    values: |-
+      prometheus-node-exporter:
+        hostRootFsMount:
+          enabled: false
+      prometheusOperator:
+        admissionWebhooks:
+          failurePolicy: Ignore
 
   # - name: prometheus-blackbox-exporter
   #   version: 8.12.0
