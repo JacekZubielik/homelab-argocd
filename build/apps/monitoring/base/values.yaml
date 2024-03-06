@@ -521,24 +521,40 @@ prometheus-node-exporter:
 
 prometheus:
   prometheusSpec:
+    enableAdminAPI: true
     replicas: 1
-    retentionSize: 3GB
-    retention: 7d
+    replicaExternalLabelName: "replica"
+    scrapeInterval: 15s
+    scrapeConfigSelectorNilUsesHelmValues: true
+    retentionSize: 10GB
+    retention: 96d
     ruleSelectorNilUsesHelmValues: true
+    # Watch all PrometheusRules in the cluster.
+    ruleNamespaceSelector:
+      matchLabels: {}
+    ruleSelector:
+      matchLabels: {}
+    # Watch all ServiceMonitors in the cluster.
+    serviceMonitorNamespaceSelector:
+      matchLabels: {}
+    serviceMonitorSelector:
+      matchLabels: {}
     serviceMonitorSelectorNilUsesHelmValues: true
+    # Watch all PodMonitors in the cluster.
+    podMonitorSelector:
+      matchLabels: {}
+    podMonitorNamespaceSelector:
+      matchLabels: {}
     podMonitorSelectorNilUsesHelmValues: true
     probeSelectorNilUsesHelmValues: true
-    scrapeConfigSelectorNilUsesHelmValues: true
-    replicaExternalLabelName: "replica"
-    enableAdminAPI: true
     walCompression: true
     # resources:
     #   requests:
     #     cpu: 1
-    #     memory: 2Gi
+    #     memory: 1Gi
     #   limits:
-    #     cpu: 4
-    #     memory: 2.5Gi
+    #     cpu: 2
+    #     memory: 2Gi
     storageSpec:
       volumeClaimTemplate:
         spec:
@@ -546,5 +562,9 @@ prometheus:
           accessModes: ["ReadWriteOnce"]
           resources:
             requests:
-              storage: 5Gi
-
+              storage: 10Gi
+    thanos:
+      {}
+      # objectStorageConfig:
+      #   key: objstore.yml
+      #   name: thanos-objstore-secret
