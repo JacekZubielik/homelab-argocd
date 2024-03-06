@@ -138,6 +138,7 @@ grafana:
           url: http://loki-stack:3100
           access: proxy
         - name: mqtt
+          type: mqtt
           url: tcp://192.168.40.183:1883
           access: proxy
 
