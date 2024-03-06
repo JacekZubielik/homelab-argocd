@@ -2,9 +2,9 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 metadata:
-  annotations:
-    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
-    argocd.argoproj.io/compare-options: IgnoreExtraneous
+  # annotations:
+  #   argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+  #   argocd.argoproj.io/compare-options: IgnoreExtraneous
   labels:
     app.kubernetes.io/name: kube-prometheus-stack
 
@@ -43,13 +43,13 @@ helmCharts:
 #   - TZ=CET
 
 resources:
-  - resources/blackbox-exporter-dashboard-configmap.yaml
+  # - resources/blackbox-exporter-dashboard-configmap.yaml
   #- resources/namespace.yaml
   - resources/ingressroute.yaml
-  - resources/smartctl-exporter-dashboard-configmap.yaml
-  - resources/smartctl-exporter-prometheus-rules.yaml
-  - resources/temperature-dashboard-configmap.yaml
-  - resources/temperature-prometheus-rules.yaml
+  # - resources/smartctl-exporter-dashboard-configmap.yaml
+  # - resources/smartctl-exporter-prometheus-rules.yaml
+  # - resources/temperature-dashboard-configmap.yaml
+  # - resources/temperature-prometheus-rules.yaml
   # - resources/alertmanager-secret.yaml
   # - resources/alertmanager-telegram-template.yaml
   # - resources/grafana-admin-secret.yaml
