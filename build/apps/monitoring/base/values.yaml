@@ -1,3 +1,21 @@
+nameOverride: ""
+namespaceOverride: ""
+kubeTargetVersionOverride: ""
+kubeVersionOverride: ""
+fullnameOverride: ""
+commonLabels: {}
+# scmhash: abc123
+# myLabel: aakkmd
+crds:
+  enabled: true
+
+customRules: {}
+  # AlertmanagerFailedReload:
+  #   for: 3m
+  # AlertmanagerMembersInconsistent:
+  #   for: 5m
+  #   severity: "warning"
+
 defaultRules:
   create: true
   rules:
@@ -6,6 +24,13 @@ defaultRules:
     configReloaders: true
     general: true
     k8s: true
+    k8sContainerCpuUsageSecondsTotal: true
+    k8sContainerMemoryCache: true
+    k8sContainerMemoryRss: true
+    k8sContainerMemorySwap: true
+    k8sContainerResource: true
+    k8sContainerMemoryWorkingSetBytes: true
+    k8sPodOwner: true
     kubeApiserverAvailability: true
     kubeApiserverBurnrate: true
     kubeApiserverHistogram: true
@@ -18,6 +43,8 @@ defaultRules:
     kubernetesResources: true
     kubernetesStorage: true
     kubernetesSystem: true
+    kubeSchedulerAlerting: true
+    kubeSchedulerRecording: true
     kubeScheduler: true
     kubeStateMetrics: true
     network: true
@@ -26,6 +53,33 @@ defaultRules:
     nodeExporterRecording: true
     prometheus: true
     prometheusOperator: true
+    windows: false
+
+  ## Reduce app namespace alert scope
+  appNamespacesTarget: ".*"
+
+  ## Set keep_firing_for for all alerts
+  keepFiringFor: ""
+
+  ## Labels for default rules
+  labels: {}
+  ## Annotations for default rules
+  annotations: {}
+
+  ## Additional labels for PrometheusRule alerts
+  additionalRuleLabels: {}
+
+  ## Additional annotations for PrometheusRule alerts
+  additionalRuleAnnotations: {}
+
+  ## Disabled PrometheusRule alerts
+  disabled: {}
+  # KubeAPIDown: true
+  # NodeRAIDDegraded: true
+
+
+
+
 
 alertmanager:
   fullnameOverride: alertmanager
@@ -420,7 +474,6 @@ prometheus:
     replicaExternalLabelName: "replica"
     enableAdminAPI: true
     walCompression: true
-
     # resources:
     #   requests:
     #     cpu: 1
@@ -428,7 +481,6 @@ prometheus:
     #   limits:
     #     cpu: 4
     #     memory: 2.5Gi
-
     storageSpec:
       volumeClaimTemplate:
         spec:
