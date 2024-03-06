@@ -139,6 +139,7 @@ grafana:
           access: proxy
         - name: mqtt
           url: tcp://192.168.40.183:1883
+          access: proxy
 
 
 
