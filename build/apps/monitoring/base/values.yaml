@@ -94,7 +94,7 @@ grafana:
   defaultDashboardsEnabled: true
   deploymentStrategy:
     type: Recreate
-  revisionHistoryLimit: 2
+  revisionHistoryLimit: 4
   serviceMonitor:
     scrapeTimeout: 5s
 
@@ -142,9 +142,6 @@ grafana:
         #   url: tcp://192.168.40.183:1883
         #   access: proxy
 
-
-
-
   #sidecar:
     # resources:
     #   limits:
@@ -167,8 +164,7 @@ grafana:
 
   custom-dashboard:
   #   # This is a path to a file inside the dashboards directory inside the chart directory
-  #   file: dashboards/router.json
-
+    file: dashboards/router.json
       extra:
         pihole-overview:
           gnetId: 10176
