@@ -296,7 +296,7 @@ kubeControllerManager:
 
 prometheusOperator:
   admissionWebhooks:
-    enabled: false
+    enabled: true
   tls:
     enabled: false
   # prometheusConfigReloader:
