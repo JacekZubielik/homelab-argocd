@@ -838,6 +838,16 @@ grafana:
           allowUiUpdates: true
           options:
             path: /var/lib/grafana/dashboards/extra
+        - name: "nginx"
+          orgId: 1
+          folder: "nginx"
+          type: file
+          disableDeletion: true
+          editable: true
+          allowUiUpdates: true
+          options:
+            path: /var/lib/grafana/dashboards/nginx
+
 
   datasources:
     datasources.yaml:
@@ -871,50 +881,9 @@ grafana:
   #   ## here and the sum of memory limits of all containers in a pod
   #   sizeLimit: 256Mi
 
-  # sidecar:
-  #   resources:
-  #     limits:
-  #       memory: 128Mi
-  #     requests:
-  #       cpu: 10m
-  #       memory: 64Mi
-
-  #   dashboards:
-  #     enabled: true
-  #     label: grafana_dashboard
-  #     resource: configmap
-  #     folderAnnotation: grafana.grafana.com/dashboards.target-directory
-  #     provider:
-  #       foldersFromFilesStructure: true
-  #     annotations:
-  #       grafana.grafana.com/dashboards.target-directory: "/tmp/dashboards/kubernetes"
-  #     searchNamespace: ALL
-
-  # custom-dashboard:
-  # #   # This is a path to a file inside the dashboards directory inside the chart directory
-  #   file: dashboards/router.json
-  #     extra:
-  #       pihole-overview:
-  #         gnetId: 10176
-  #         datasource: Prometheus
-  #       argocd-overview:
-  #         gnetId: 14584
-  #         datasource: Prometheus
-  #       cert-manager-overview:
-  #         gnetId: 11001
-  #         datasource: Prometheus
-  #       external-dns-overview:
-  #         gnetId: 15038
-  #         datasource: Prometheus
-  #       blackbox-exporter-overview:
-  #         gnetId: 5345
-  #         datasource: Prometheus
-
-
   #envFromSecret: grafana-secret
 
-
-#####################################
+#########################
 
 
   extraConfigmapMounts: []
