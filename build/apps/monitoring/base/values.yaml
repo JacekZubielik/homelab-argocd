@@ -1,0 +1,378 @@
+defaultRules:
+  create: true
+  rules:
+    alertmanager: true
+    etcd: true
+    configReloaders: true
+    general: true
+    k8s: true
+    kubeApiserverAvailability: true
+    kubeApiserverBurnrate: true
+    kubeApiserverHistogram: true
+    kubeApiserverSlos: true
+    #kubelet: true
+    kubeProxy: true
+    kubePrometheusGeneral: true
+    kubePrometheusNodeRecording: true
+    kubernetesApps: true
+    kubernetesResources: true
+    kubernetesStorage: true
+    kubernetesSystem: true
+    kubeScheduler: true
+    kubeStateMetrics: true
+    network: true
+    node: true
+    nodeExporterAlerting: true
+    nodeExporterRecording: true
+    prometheus: true
+    prometheusOperator: true
+
+alertmanager:
+  fullnameOverride: alertmanager
+  alertmanagerSpec:
+    replicas: 1
+    useExistingSecret: true
+
+    # configMaps:
+    #   - alertmanager-telegram-template
+    configSecret: alertmanager-secret
+    topologySpreadConstraints:
+      - maxSkew: 1
+        topologyKey: kubernetes.io/hostname
+        whenUnsatisfiable: DoNotSchedule
+        labelSelector:
+          matchLabels:
+            app: alertmanager
+    storage:
+      volumeClaimTemplate:
+        spec:
+          storageClassName: local-path
+          accessModes: ["ReadWriteOnce"]
+          resources:
+            requests:
+              storage: 1Gi
+
+  config:
+    receivers:
+      - name: empty
+      - name: alertmanager-bot
+        webhook_configs:
+          - send_resolved: true
+            url: "http://alertmanager-bot:8080"
+    route:
+      group_by: ["alertname"]
+      receiver: alertmanager-bot
+      routes:
+        - matchers:
+            - alertname=~"etcdInsufficientMembers|Watchdog|KubeProxyDown|KubeSchedulerDown|KubeControllerManagerDown"
+          receiver: empty
+        - matchers:
+            - alertname="TargetDown"
+            - job=~"kube-controller-manager|kube-etcd|kube-proxy|kube-scheduler"
+          receiver: empty
+        - matchers:
+            - alertname="PrometheusOperatorRejectedResources"
+          receiver: empty
+
+    # resources:
+    #   requests:
+    #     cpu: 10m
+    #     memory: 40Mi
+    #   limits:
+    #     cpu: 200m
+    #     memory: 250Mi
+
+# ===========================================================================================
+# Grafana
+# Default values: https://github.com/grafana/helm-charts/blob/main/charts/grafana/values.yaml
+# ===========================================================================================
+
+grafana:
+  enabled: true
+  fullnameOverride: grafana
+  defaultDashboardsTimezone: cet
+  defaultDashboardsEnabled: true
+  deploymentStrategy:
+    type: Recreate
+  revisionHistoryLimit: 2
+  serviceMonitor:
+    scrapeTimeout: 5s
+
+  # needed for loading initial datasources
+  # admin:
+  #   existingSecret: grafana-admin-secret
+    # userKey: admin-user
+    # passwordKey: admin-password
+
+  plugins:
+    - grafana-piechart-panel
+
+  # persistence:
+  #   enabled: true
+  #   size: 10Gi
+  #   accessModes:
+  #     - ReadWriteOnce
+  #   finalizers:
+  #     - kubernetes.io/pvc-protection
+
+  inMemory:
+    enabled: true
+    ## The maximum usage on memory medium EmptyDir would be
+    ## the minimum value between the SizeLimit specified
+    ## here and the sum of memory limits of all containers in a pod
+    ##
+    sizeLimit: 256Mi
+
+
+  datasources:
+    datasources.yaml:
+      apiVersion: 1
+      datasources:
+        - name: Prometheus
+          type: prometheus
+          url: http://monitoring-kube-prometheus-prometheus.monitoring:9090 #http://kube-prometheus-stack-prometheus:9090
+          access: proxy
+          # isDefault: true
+        - name: Loki
+          type: loki
+          url: http://loki-stack:3100
+          access: proxy
+
+  #sidecar:
+    # resources:
+    #   limits:
+    #     memory: 128Mi
+    #   requests:
+    #     cpu: 10m
+    #     memory: 64Mi
+
+    dashboards:
+      enabled: true
+      label: grafana_dashboard
+      resource: configmap
+      folderAnnotation: grafana.grafana.com/dashboards.target-directory
+      provider:
+        foldersFromFilesStructure: true
+      annotations:
+        grafana.grafana.com/dashboards.target-directory: "/tmp/dashboards/kubernetes"
+      searchNamespace: ALL
+
+
+  custom-dashboard:
+  #   # This is a path to a file inside the dashboards directory inside the chart directory
+  #   file: dashboards/router.json
+
+      extra:
+        pihole-overview:
+          gnetId: 10176
+          datasource: Prometheus
+        argocd-overview:
+          gnetId: 14584
+          datasource: Prometheus
+        cert-manager-overview:
+          gnetId: 11001
+          datasource: Prometheus
+        external-dns-overview:
+          gnetId: 15038
+          datasource: Prometheus
+        blackbox-exporter-overview:
+          gnetId: 5345
+          datasource: Prometheus
+
+
+  #envFromSecret: grafana-secret
+
+  grafana.ini:
+    server:
+      root_url: https://grafana.anotherlife.pl
+
+    log:
+      level: info
+
+    # auth.generic_oauth:
+    #   enabled: true
+    #   allow_sign_up: true
+    #   name: idm.anotherlife.pl
+    #   client_id: $__env{GRAFANA_SSO_CLIENT_ID}
+    #   client_secret: $__env{GRAFANA_SSO_CLIENT_SECRET}
+    #   scopes: openid profile email
+    #   auth_url: https://idm.anotherlife.pl/ui/oauth2
+    #   token_url: https://idm.anotherlife.pl/oauth2/token
+    #   api_url: https://idm.anotherlife.pl/oauth2/openid/grafana/userinfo
+    #   use_pkce: true
+    #   groups_attribute_path: scopes
+    #   name_attribute_path: preferred_username
+    #   role_attribute_path: contains(scopes[*], 'admin') && 'Admin' || 'Viewer'
+
+  serviceMonitor:
+    enabled: true
+    path: /metrics
+    labels:
+      release: monitoring
+
+kubelet:
+  enabled: true
+  serviceMonitor:
+    metricRelabelings:
+      - action: replace
+        sourceLabels:
+          - node
+        targetLabel: instance
+
+kubeApiServer:
+  enabled: true
+
+coreDns:
+  enabled: true
+  service:
+    selector:
+      k8s-app: kube-dns
+
+kubeEtcd:
+  enabled: true
+  endpoints: # ips of servers
+    - 192.168.40.110
+    # - 192.168.40.111
+    # - 192.168.40.112
+  service:
+    enabled: true
+    port: 2381
+    targetPort: 2381
+
+kubeScheduler:
+  enabled: true
+  endpoints: # ips of servers
+    - 192.168.40.110
+    # - 192.168.40.111
+    # - 192.168.40.112
+
+kubeProxy:
+  enabled: true
+  endpoints: # ips of servers
+    - 192.168.40.110
+    # - 192.168.40.111
+    # - 192.168.40.112
+
+kube-state-metrics:
+  fullnameOverride: kube-state-metrics
+  selfMonitor:
+    enabled: true
+  prometheus:
+    monitor:
+      enabled: true
+      relabelings:
+        - action: replace
+          regex: (.*)
+          replacement: $1
+          sourceLabels:
+            - __meta_kubernetes_pod_node_name
+          targetLabel: kubernetes_node
+
+nodeExporter:
+  enabled: true
+  serviceMonitor:
+    relabelings:
+      - action: replace
+        regex: (.*)
+        replacement: $1
+        sourceLabels:
+          - __meta_kubernetes_pod_node_name
+        targetLabel: kubernetes_node
+
+
+kubeControllerManager:
+  enabled: true
+  endpoints: # ips of servers
+    - 192.168.40.110
+    # - 192.168.40.111
+    # - 192.168.40.112
+
+prometheusOperator:
+  admissionWebhooks:
+    enabled: false
+  tls:
+    enabled: false
+  # prometheusConfigReloader:
+  #   resources:
+  #     requests:
+  #       cpu: 200m
+  #       memory: 50Mi
+  #     limits:
+  #       memory: 100Mi
+
+# prometheus-node-exporter:
+#   prometheus:
+#     monitor:
+#       enabled: true
+#       relabelings:
+#         - action: replace
+#           sourceLabels:
+#             - __meta_kubernetes_pod_node_name
+#           targetLabel: instance
+# ## smart disk data metrics
+# extraArgs:
+#   - --collector.filesystem.ignored-mount-points=^/(dev|proc|sys|var/lib/docker/.+|var/lib/kubelet/.+)($|/)
+#   - --collector.filesystem.ignored-fs-types=^(autofs|binfmt_misc|bpf|cgroup2?|configfs|debugfs|devpts|devtmpfs|fusectl|hugetlbfs|iso9660|mqueue|nsfs|overlay|proc|procfs|pstore|rpc_pipefs|securityfs|selinuxfs|squashfs|sysfs|tracefs)$
+#   # this is the new line
+#   - --collector.textfile.directory=/host/root/var/log/prometheus
+
+
+prometheus-node-exporter:
+  fullnameOverride: node-exporter
+  podLabels:
+    jobLabel: node-exporter
+  extraArgs:
+    - --collector.filesystem.mount-points-exclude=^/(dev|proc|sys|var/lib/docker/.+|var/lib/kubelet/.+)($|/)
+    - --collector.filesystem.fs-types-exclude=^(autofs|binfmt_misc|bpf|cgroup2?|configfs|debugfs|devpts|devtmpfs|fusectl|hugetlbfs|iso9660|mqueue|nsfs|overlay|proc|procfs|pstore|rpc_pipefs|securityfs|selinuxfs|squashfs|sysfs|tracefs)$
+    - --collector.textfile.directory=/host/root/var/log/prometheus
+
+  service:
+    portName: http-metrics
+  prometheus:
+    monitor:
+      enabled: true
+      relabelings:
+        - action: replace
+          regex: (.*)
+          replacement: $1
+          sourceLabels:
+            - __meta_kubernetes_pod_node_name
+          targetLabel: kubernetes_node
+  # resources:
+  #   requests:
+  #     memory: 512Mi
+  #     cpu: 250m
+  #   limits:
+  #     memory: 2048Mi
+
+prometheus:
+  prometheusSpec:
+    replicas: 1
+    retentionSize: 3GB
+    retention: 7d
+    ruleSelectorNilUsesHelmValues: true
+    serviceMonitorSelectorNilUsesHelmValues: true
+    podMonitorSelectorNilUsesHelmValues: true
+    probeSelectorNilUsesHelmValues: true
+    scrapeConfigSelectorNilUsesHelmValues: true
+    replicaExternalLabelName: "replica"
+    enableAdminAPI: true
+    walCompression: true
+
+    # resources:
+    #   requests:
+    #     cpu: 1
+    #     memory: 2Gi
+    #   limits:
+    #     cpu: 4
+    #     memory: 2.5Gi
+
+    storageSpec:
+      volumeClaimTemplate:
+        spec:
+          storageClassName: local-path #longhorn-retain
+          accessModes: ["ReadWriteOnce"]
+          resources:
+            requests:
+              storage: 5Gi
+
