@@ -150,21 +150,45 @@ grafana:
     #     cpu: 10m
     #     memory: 64Mi
 
+    # dashboards:
+    #   enabled: true
+    #   label: grafana_dashboard
+    #   resource: configmap
+    #   folderAnnotation: grafana.grafana.com/dashboards.target-directory
+    #   provider:
+    #     foldersFromFilesStructure: true
+    #   annotations:
+    #     grafana.grafana.com/dashboards.target-directory: "/tmp/dashboards/kubernetes"
+    #   searchNamespace: ALL
+
+
+  # custom-dashboard:
+  # #   # This is a path to a file inside the dashboards directory inside the chart directory
+  #   file: dashboards/router.json
+  #     extra:
+  #       pihole-overview:
+  #         gnetId: 10176
+  #         datasource: Prometheus
+  #       argocd-overview:
+  #         gnetId: 14584
+  #         datasource: Prometheus
+  #       cert-manager-overview:
+  #         gnetId: 11001
+  #         datasource: Prometheus
+  #       external-dns-overview:
+  #         gnetId: 15038
+  #         datasource: Prometheus
+  #       blackbox-exporter-overview:
+  #         gnetId: 5345
+  #         datasource: Prometheus
+
+    # Organise dashboards by provider, with the provider's name as the key.
     dashboards:
-      enabled: true
-      label: grafana_dashboard
-      resource: configmap
-      folderAnnotation: grafana.grafana.com/dashboards.target-directory
-      provider:
-        foldersFromFilesStructure: true
-      annotations:
-        grafana.grafana.com/dashboards.target-directory: "/tmp/dashboards/kubernetes"
-      searchNamespace: ALL
-
-
-  custom-dashboard:
-  #   # This is a path to a file inside the dashboards directory inside the chart directory
-    file: dashboards/router.json
+      default: # The "default" provider is defined below.
+        nginx-ingress-controller:
+          url: https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.48.1/deploy/grafana/dashboards/nginx.json
+        ingress-request-performance:
+          url: https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.48.1/deploy/grafana/dashboards/request-handling-performance.json
       extra:
         pihole-overview:
           gnetId: 10176
@@ -181,7 +205,35 @@ grafana:
         blackbox-exporter-overview:
           gnetId: 5345
           datasource: Prometheus
+        # thanos-overview:
+        #   gnetId: 12937
+        #   datasource: Thanos
 
+    # Configure dashboard providers.
+    # ref: http://docs.grafana.org/administration/provisioning/#dashboards
+    # `path` must be /var/lib/grafana/dashboards/<provider_name>
+    dashboardProviders:
+      dashboardproviders.yaml:
+        apiVersion: 1
+        providers:
+          - name: default
+            orgId: 1
+            folder: ""
+            type: file
+            disableDeletion: false
+            editable: true
+            allowUiUpdates: true
+            options:
+              path: /var/lib/grafana/dashboards/default
+          - name: "extra"
+            orgId: 1
+            folder: "Extra"
+            type: file
+            disableDeletion: true
+            editable: true
+            allowUiUpdates: true
+            options:
+              path: /var/lib/grafana/dashboards/extra
 
   #envFromSecret: grafana-secret
 
