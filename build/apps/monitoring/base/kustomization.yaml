@@ -17,21 +17,21 @@ helmCharts:
     valuesFile: values.yaml #values-test-from-old-cfg #values.yaml
     namespace: monitoring
 
-  # - name: prometheus-blackbox-exporter
-  #   version: 8.12.0
-  #   repo: https://prometheus-community.github.io/helm-charts
-  #   releaseName: monitoring
-  #   includeCRDs: false
-  #   valuesFile: blackbox-exporter-values.yaml
-  #   namespace: monitoring
+  - name: prometheus-blackbox-exporter
+    version: 8.12.0
+    repo: https://prometheus-community.github.io/helm-charts
+    releaseName: monitoring
+    includeCRDs: false
+    valuesFile: blackbox-exporter-values.yaml
+    namespace: monitoring
 
 
-  # - name: prometheus-smartctl-exporter
-  #   version: 0.7.1
-  #   repo: https://prometheus-community.github.io/helm-charts
-  #   releaseName: monitoring
-  #   valuesFile: smartctl-exporter-values.yaml
-  #   namespace: monitoring
+  - name: prometheus-smartctl-exporter
+    version: 0.7.1
+    repo: https://prometheus-community.github.io/helm-charts
+    releaseName: monitoring
+    valuesFile: smartctl-exporter-values.yaml
+    namespace: monitoring
 
 
 
@@ -51,7 +51,7 @@ resources:
   # - resources/temperature-prometheus-rules.yaml
   # - resources/alertmanager-secret.yaml
   # - resources/alertmanager-telegram-template.yaml
-  # - resources/grafana-admin-secret.yaml
+  - resources/grafana-admin-secret.yaml
   # - resources/grafana-secret.yaml
   # - resources/long-term-metrics/datasource-configmap.yaml
   # - resources/long-term-metrics/ingress.yaml

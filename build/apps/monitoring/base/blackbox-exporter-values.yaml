@@ -1,12 +1,9 @@
 fullnameOverride: blackbox-exporter
-
 replicas: 1
-
 securityContext:
   capabilities:
     add:
       - NET_RAW
-
 config:
   modules:
     http_2xx:
@@ -41,7 +38,6 @@ config:
         ip_protocol_fallback: false
         tls: false
       timeout: 15s
-
 serviceMonitor:
   enabled: true
   defaults:
@@ -49,7 +45,6 @@ serviceMonitor:
       release: monitoring
     interval: 30s
     scrapeTimeout: 10s
-
   targets:
     - module: http_2xx
       name: homepage.anotherlife.pl
@@ -60,39 +55,12 @@ serviceMonitor:
     - module: http_2xx
       name: hello.anotherlife.pl
       url: https://hello.anotherlife.pl
-  #   - module: http_2xx
-  #     name: www.mintpsicologia.es
-  #     url: https://www.mintpsicologia.es
-  #   - module: http_2xx
-  #     name: fame.grigri.cloud
-  #     url: https://fame.grigri.cloud
   #   - module: ping
   #     name: aerotherm
-  #     url: cz-taw1b.iot.grigri
-  #   - module: ping
-  #     name: su100-510-office-a
-  #     url: su100-510-office-a.iot.grigri
-  #   - module: ping
-  #     name: su100-510-bedroom
-  #     url: su100-510-bedroom.iot.grigri
-  #   - module: ping
-  #     name: su100-510-hall-kitchen
-  #     url: su100-510-hall-kitchen.iot.grigri
-  #   - module: ping
-  #     name: su100-510-office-t
-  #     url: su100-510-office-t.iot.grigri
-  #   - module: ping
-  #     name: shellyem-main
-  #     url: shellyem-main.iot.grigri
-  #   - module: ping
-  #     name: shellypmmini-servers
-  #     url: shellypmmini-servers.iot.grigri
-  #   - module: tcp_connect
-  #     name: rack-controller
-  #     url: rack-controller.iot.grigri:6053
+  #     url: cz-taw1b.iot
   #   - module: tcp_connect
   #     name: smart-plug-v2-snapmaker
-  #     url: smart-plug-v2-snapmaker.iot.grigri:6053
+  #     url: smart-plug-v2-snapmaker.iot:6053
 
 # resources:
 #   requests:
