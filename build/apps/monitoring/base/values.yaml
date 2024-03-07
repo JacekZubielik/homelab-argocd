@@ -878,7 +878,7 @@ grafana:
           folder: 'Devices Metrics'
           type: file
           disableDeletion: true
-          editable: false
+          editable: true
           options:
             path: /var/lib/grafana/dashboards/device
         - name: 'grafana-dashboards-kubernetes'
@@ -886,7 +886,7 @@ grafana:
           folder: 'Kubernetes'
           type: file
           disableDeletion: true
-          editable: false
+          editable: true
           options:
             path: /var/lib/grafana/dashboards/grafana-dashboards-kubernetes
 
@@ -1603,7 +1603,7 @@ prometheus:
           accessModes: ["ReadWriteOnce"]
           resources:
             requests:
-              storage: 40Gi
+              storage: 8Gi
     additionalScrapeConfigs:
       - job_name: 'asusrouter'
         scrape_interval: 5s
