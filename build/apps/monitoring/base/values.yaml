@@ -1567,8 +1567,8 @@ prometheus:
     replicaExternalLabelName: "replica"
     scrapeInterval: 15s
     scrapeConfigSelectorNilUsesHelmValues: true
-    retentionSize: 40GB
-    retention: 96d
+    retentionSize: 8GB
+    retention: 31d
     ruleSelectorNilUsesHelmValues: true
     # Watch all PrometheusRules in the cluster.
     ruleNamespaceSelector:
