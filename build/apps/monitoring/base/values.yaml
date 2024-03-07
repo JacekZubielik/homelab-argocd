@@ -766,7 +766,7 @@ grafana:
   # # To make Grafana persistent (Using Statefulset)
   persistence:
     enabled: true
-    type: sts
+    #type: sts
     storageClassName: "local-path"
     accessModes:
       - ReadWriteOnce
