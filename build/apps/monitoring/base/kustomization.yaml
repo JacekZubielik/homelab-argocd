@@ -54,14 +54,14 @@ resources:
   # - resources/grafana-admin-secret.yaml
   # - resources/grafana-secret.yaml
 
-# patches:
-#   - patch: |-
-#       - op: add
-#         path: "/metadata/annotations/argocd.argoproj.io~1sync-options"
-#         value: "Replace=true"
-#     target:
-#       group: apiextensions.k8s.io
-#       kind: CustomResourceDefinition
-#       name: prometheuses.monitoring.coreos.com
-#       version: v1
+patches:
+  - patch: |-
+      - op: add
+        path: "/metadata/annotations/argocd.argoproj.io~1sync-options"
+        value: "Replace=true"
+    target:
+      group: apiextensions.k8s.io
+      kind: CustomResourceDefinition
+      name: prometheuses.monitoring.coreos.com
+      version: v1
 
