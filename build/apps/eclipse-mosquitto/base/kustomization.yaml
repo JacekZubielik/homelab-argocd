@@ -24,4 +24,4 @@ configMapGenerator:
 
 resources:
 - resources/configmap.yaml
-- resources/sealed.secret.yaml
+- secrets/sealed.secret.yaml
