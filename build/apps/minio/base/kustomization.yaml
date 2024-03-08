@@ -14,6 +14,7 @@ helmCharts:
   version: 13.8.2
   repo: https://charts.bitnami.com/bitnami
   releaseName: minio
+  namespace: minio
   includeCRDs: false
   valuesFile: values.yaml
 
