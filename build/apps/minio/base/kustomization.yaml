@@ -27,8 +27,7 @@ resources:
 #- resources/statefulset.yaml
 #- resources/service.yaml
 - secrets/secret.yaml
-
-# - resources/ingressroute.yaml
+- resources/ingressroute.yaml
 # - secrets/sealed-sec.yaml
 #- resources/pvc.yaml
 # - resources/pv.yaml
