@@ -15,16 +15,16 @@ helmCharts:
   repo: https://charts.bitnami.com/bitnami
   releaseName: minio
   includeCRDs: false
-  #valuesFile: values.yaml
+  valuesFile: values.yaml
 
 configMapGenerator:
 - name: minio-time
   literals:
   - TZ=CET
 
-resources:
-- resources/statefulset.yaml
-- resources/service.yaml
+# resources:
+#- resources/statefulset.yaml
+#- resources/service.yaml
 # - resources/ingressroute.yaml
 # - secrets/sealed-sec.yaml
 #- resources/pvc.yaml
