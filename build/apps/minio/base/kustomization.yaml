@@ -22,9 +22,11 @@ configMapGenerator:
   literals:
   - TZ=CET
 
-# resources:
+resources:
 #- resources/statefulset.yaml
 #- resources/service.yaml
+- secrets/secret.yaml
+
 # - resources/ingressroute.yaml
 # - secrets/sealed-sec.yaml
 #- resources/pvc.yaml
