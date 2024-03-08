@@ -24,7 +24,7 @@ extraDeploy: []
 
 ## @param mode MinIO&reg; server mode (`standalone` or `distributed`)
 ## ref: https://docs.minio.io/docs/distributed-minio-quickstart-guide
-mode: distributed # distributed | standalone
+mode: standalone # distributed | standalone
 ## MinIO&reg; authentication parameters
 auth:
   ## @param auth.rootUser MinIO&reg; root username
@@ -81,18 +81,18 @@ terminationGracePeriodSeconds: ""
 ## MinIO&reg; deployment parameters
 ## Only when 'mode' is 'standalone'
 
-# deployment:
-#   ## @param deployment.updateStrategy.type Deployment strategy type
-#   ## ref: https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/#update-strategies
-#   ## e.g:
-#   ## updateStrategy:
-#   ##  type: RollingUpdate
-#   ##  rollingUpdate:
-#   ##    maxSurge: 25%
-#   ##    maxUnavailable: 25%
-#   ##
-#   updateStrategy:
-#     type: Recreate
+deployment:
+  ## @param deployment.updateStrategy.type Deployment strategy type
+  ## ref: https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/#update-strategies
+  ## e.g:
+  ## updateStrategy:
+  ##  type: RollingUpdate
+  ##  rollingUpdate:
+  ##    maxSurge: 25%
+  ##    maxUnavailable: 25%
+  ##
+  updateStrategy:
+    type: Recreate
 
 ## MinIO&reg; statefulset parameters
 ## Only when mode is 'distributed'
@@ -125,7 +125,8 @@ provisioning:
   schedulerName: ""
   ## @param provisioning.nodeSelector Node labels for pod assignment. Evaluated as a template.
   ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/assign-pods-nodes/
-  nodeSelector: {}
+  nodeSelector:
+    kubernetes.io/hostname: dev-k3s-master-0
   ## @param provisioning.podLabels Extra labels for provisioning pods
   ## Ref: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
   podLabels: {}
@@ -863,13 +864,14 @@ persistence:
   accessModes:
     - ReadWriteOnce
   ## @param persistence.size PVC Storage Request for MinIO&reg; data volume
-  size: 12Gi
+  size: 10Gi
   ## @param persistence.annotations Annotations for the PVC
   annotations: {}
   ## @param persistence.existingClaim Name of an existing PVC to use (only in `standalone` mode)
-  existingClaim: ""
-## @section Volume Permissions parameters
+  existingClaim: "minio-pv"
 
+
+## @section Volume Permissions parameters
 ## Init containers parameters:
 ## volumePermissions: Change the owner and group of the persistent volume mountpoint to runAsUser:fsGroup values from the securityContext section.
 volumePermissions:
@@ -962,20 +964,20 @@ metrics:
     ## @param metrics.serviceMonitor.scrapeTimeout Specify the timeout after which the scrape is ended
     scrapeTimeout: 30s
     ## @param metrics.serviceMonitor.metricRelabelings MetricRelabelConfigs to apply to samples before ingestion
-    metricRelabelings:
-      - action: keep
-        regex: kube_(daemonset|deployment|pod|namespace|node|statefulset).+
-        sourceLabels:
-          - __name__
+    metricRelabelings: {}
+      # - action: keep
+      #   regex: kube_(daemonset|deployment|pod|namespace|node|statefulset).+
+      #   sourceLabels:
+      #     - __name__
     ## @param metrics.serviceMonitor.relabelings Metrics relabelings to add to the scrape endpoint, applied before scraping
-    relabelings:
-      - action: replace
-        regex: ^(.*)$
-        replacement: $1
-        separator: ;
-        sourceLabels:
-          - __meta_kubernetes_pod_node_name
-        targetLabel: nodename
+    relabelings: {}
+      # - action: replace
+      #   regex: ^(.*)$
+      #   replacement: $1
+      #   separator: ;
+      #   sourceLabels:
+      #     - __meta_kubernetes_pod_node_name
+      #   targetLabel: nodename
     ## @param metrics.serviceMonitor.honorLabels Specify honorLabels parameter to add the scrape endpoint
     honorLabels: true
     ## @param metrics.serviceMonitor.selector Prometheus instance selector labels
