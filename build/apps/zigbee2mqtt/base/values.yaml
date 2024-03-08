@@ -50,7 +50,7 @@ securityContext:
 service:
   annotations:
     prometheus.io/scrape: "true"
-    prometheus.io/port: "9100"
+    prometheus.io/port: 9100
   labels: {}
   type: ClusterIP
   externalIPs: []
@@ -65,11 +65,13 @@ monitoring:
   enabled: true
   serviceMonitor:
     enabled: true
+    annotations:
+      prometheus.io/scrape: "true"
+      prometheus.io/port: 9100
     labels: {}
     honorLabels: true
     interval:      60s
     selector: {}
-    #namespace: monitoring
     scrapeTimeout: 10s
     scheme: http
     tlsConfig: {}
