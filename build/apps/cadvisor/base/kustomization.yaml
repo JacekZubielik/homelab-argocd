@@ -11,7 +11,7 @@ metadata:
 
 helmCharts:
 - name: cadvisor
-  version: 0.0.1
+  version: 0.0.2
   repo: https://jacekzubielik.github.io/helm-charts
   releaseName: cadvisor
   namespace: monitoring
