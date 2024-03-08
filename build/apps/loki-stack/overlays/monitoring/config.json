@@ -1,0 +1,15 @@
+{
+  "appName": "loki-stack",
+  "userGivenName": "loki-stack",
+  "destNamespace": "monitoring",
+  "destServer": "https://kubernetes.default.svc",
+  "srcPath": "build/apps/loki-stack/overlays/monitoring",
+  "srcRepoURL": "https://github.com/jacekzubielik/homelab-argocd.git",
+  "srcTargetRevision": "",
+  "syncWave": "4",
+  "appRole": "monitoring",
+  "labels": null,
+  "annotations": null,
+  "exclude": "",
+  "include": ""
+}
