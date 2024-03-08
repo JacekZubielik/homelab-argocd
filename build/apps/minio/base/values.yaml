@@ -690,7 +690,7 @@ ingress:
 apiIngress:
   ## @param apiIngress.enabled Enable ingress controller resource for MinIO API
   ##
-  enabled: true
+  enabled: false
   ## @param apiIngress.apiVersion Force Ingress API version (automatically detected if not set)
   ##
   apiVersion: ""
@@ -859,7 +859,7 @@ persistence:
   ## If undefined (the default) or set to null, no storageClassName spec is
   ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
   ##   GKE, AWS & OpenStack)
-  storageClass: "-"
+  storageClass: ""
   ## @param persistence.mountPath Data volume mount path
   mountPath: /bitnami/minio/data
   ## @param persistence.accessModes PVC Access Modes for MinIO&reg; data volume
@@ -948,7 +948,7 @@ metrics:
   ## Prometheus Operator ServiceMonitor configuration
   serviceMonitor:
     ## @param metrics.serviceMonitor.enabled If the operator is installed in your cluster, set to true to create a Service Monitor Entry
-    enabled: true
+    enabled: false
     ## @param metrics.serviceMonitor.namespace Namespace which Prometheus is running in
     namespace: "monitoring"
     ## @param metrics.serviceMonitor.labels Extra labels for the ServiceMonitor
