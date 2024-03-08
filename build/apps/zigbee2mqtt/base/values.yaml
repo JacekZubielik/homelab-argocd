@@ -48,9 +48,9 @@ securityContext:
   # runAsUser: 1000
 
 service:
-  annotations: {}
-    # prometheus.io/scrape: "false"
-    # prometheus.io/port: {{ .Values.service.metricsPort }}
+  annotations:
+    prometheus.io/scrape: "true"
+    prometheus.io/port: "9100"
   labels: {}
   type: ClusterIP
   externalIPs: []
