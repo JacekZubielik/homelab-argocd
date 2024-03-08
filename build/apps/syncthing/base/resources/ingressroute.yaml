@@ -22,7 +22,7 @@ spec:
           namespace: traefik
       services:
         - kind: TraefikService
-          name: syncthing
+          name: syncthing-web
           port: 8384
   tls:
     domains:
@@ -44,7 +44,7 @@ metadata:
 spec:
   weighted:
     services:
-      - name: syncthing
+      - name: syncthing-web
         port: 8384
         weight: 1
 
