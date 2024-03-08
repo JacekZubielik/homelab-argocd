@@ -1,0 +1,15 @@
+{
+  "appName": "syncthing",
+  "userGivenName": "syncthing",
+  "destNamespace": "backup",
+  "destServer": "https://kubernetes.default.svc",
+  "srcPath": "build/apps/syncthing/overlays/backup",
+  "srcRepoURL": "https://github.com/jacekzubielik/homelab-argocd.git",
+  "srcTargetRevision": "",
+  "syncWave": "4",
+  "appRole": "backup",
+  "labels": null,
+  "annotations": null,
+  "exclude": "",
+  "include": ""
+}
