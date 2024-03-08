@@ -9,7 +9,7 @@ metadata:
     #external-dns.alpha.kubernetes.io/target: infra.anotherlife.pl
     kubernetes.io/ingress.class: traefik-external
   labels:
-    app.kubernetes.io/name: syncthing
+    app.kubernetes.io/name: syncthing-web
   name: syncthing
 spec:
   entryPoints:
@@ -40,7 +40,7 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
     argocd.argoproj.io/sync-wave: "5"
-  name: syncthing
+  name: syncthing-web
 spec:
   weighted:
     services:
