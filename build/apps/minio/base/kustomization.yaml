@@ -15,7 +15,7 @@ helmCharts:
   repo: https://charts.bitnami.com/bitnami
   releaseName: minio
   includeCRDs: false
-  valuesFile: values.yaml
+  #valuesFile: values.yaml
 
 configMapGenerator:
 - name: minio-time
