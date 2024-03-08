@@ -23,7 +23,7 @@ configMapGenerator:
   - TZ=CET
 
 resources:
-# - resources/statefulset.yaml
+- resources/statefulset.yaml
 - resources/service.yaml
 # - resources/ingressroute.yaml
 # - secrets/sealed-sec.yaml
