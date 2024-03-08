@@ -1,0 +1,33 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+    argocd.argoproj.io/compare-options: IgnoreExtraneous
+  labels:
+    app.kubernetes.io/name: minio
+
+helmCharts:
+- name: minio
+  version: 13.8.2
+  repo: https://charts.bitnami.com/bitnami
+  releaseName: minio
+  includeCRDs: false
+  valuesFile: values.yaml
+
+configMapGenerator:
+- name: minio-time
+  literals:
+  - TZ=CET
+
+resources:
+- resources/statefulset.yaml
+- resources/service.yaml
+# - resources/ingressroute.yaml
+# - secrets/sealed-sec.yaml
+# - resources/pvc.yaml
+# - resources/pv.yaml
+# - resources/deployment.yaml
+# - resources/ingress.yaml
