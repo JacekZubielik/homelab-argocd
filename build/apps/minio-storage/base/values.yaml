@@ -479,8 +479,8 @@ networkPolicy:
   flavor: kubernetes
   allowExternal: true
   # only when using flavor: cilium
-  egressEntities:
-    - kube-apiserver
+  # egressEntities:
+  #   - kube-apiserver
 
 ## PodDisruptionBudget settings
 ## ref: https://kubernetes.io/docs/concepts/workloads/pods/disruptions/
