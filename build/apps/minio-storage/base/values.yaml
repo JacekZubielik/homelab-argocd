@@ -468,7 +468,7 @@ oidc:
   displayName: ""
 
 networkPolicy:
-  enabled: true
+  enabled: false
   # Specifies whether the policies created will be standard Network Policies (flavor: kubernetes)
   # or Cilium Network Policies (flavor: cilium)
   flavor: kubernetes
