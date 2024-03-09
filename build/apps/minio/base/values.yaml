@@ -78,9 +78,10 @@ schedulerName: ""
 ## @param terminationGracePeriodSeconds In seconds, time the given to the MinIO pod needs to terminate gracefully
 ## ref: https://kubernetes.io/docs/concepts/workloads/pods/pod/#termination-of-pods
 terminationGracePeriodSeconds: ""
+
+
 ## MinIO&reg; deployment parameters
 ## Only when 'mode' is 'standalone'
-
 deployment:
   ## @param deployment.updateStrategy.type Deployment strategy type
   ## ref: https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/#update-strategies
@@ -90,7 +91,6 @@ deployment:
   ##  rollingUpdate:
   ##    maxSurge: 25%
   ##    maxUnavailable: 25%
-  ##
   updateStrategy:
     type: Recreate
 
@@ -116,6 +116,7 @@ statefulset:
   zones: 1
   ## @param statefulset.drivesPerNode Number of drives attached to every node (only for MinIO&reg; distributed mode)
   drivesPerNode: 1
+
 ## MinIO&reg; provisioning
 provisioning:
   ## @param provisioning.enabled Enable MinIO&reg; provisioning Job
@@ -226,9 +227,9 @@ provisioning:
   ##   ##     disabled=false
   ##   ##     policies=readwrite,consoleAdmin,diagnostics
   ##   ##     setPolicies=false
-  usersExistingSecrets:
+  usersExistingSecrets: {}
     #- centralized-minio-users
-    - root-user
+    #- root-user
   ## @param provisioning.groups MinIO&reg; groups provisioning
   ## https://docs.min.io/docs/minio-admin-complete-guide.html#group
   ## e.g.
