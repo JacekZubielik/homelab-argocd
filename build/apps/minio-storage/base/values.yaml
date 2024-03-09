@@ -1,21 +1,12 @@
 ## Provide a name in place of minio for `app:` labels
-##
 nameOverride: ""
-
 ## Provide a name to substitute for the full names of resources
-##
 fullnameOverride: ""
-
 ## set kubernetes cluster domain where minio is running
-##
 clusterDomain: cluster.local
-
 ## Set default image, imageTag, and imagePullPolicy. mode is used to indicate the
-##
-
 imagePullSecrets: []
 # - name: "image-pull-secret"
-
 
 ## minio mode, i.e. standalone or distributed
 mode: distributed ## other supported values are "standalone"
@@ -134,7 +125,7 @@ persistence:
   ## A manually managed Persistent Volume and Claim
   ## Requires persistence.enabled: true
   ## If defined, PVC must be created manually before volume will be bound
-  existingClaim: ""
+  existingClaim: "minio-pv-claim"
 
   ## minio data Persistent Volume Storage Class
   ## If defined, storageClassName: <storageClass>
