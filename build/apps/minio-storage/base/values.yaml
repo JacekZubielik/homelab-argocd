@@ -9,7 +9,7 @@ imagePullSecrets: []
 # - name: "image-pull-secret"
 
 ## minio mode, i.e. standalone or distributed
-mode: distributed ## other supported values are "standalone"
+mode: standalone ## other supported values are "standalone"
 
 ## Additional labels to include with deployment or statefulset
 additionalLabels: {}
@@ -119,7 +119,7 @@ trustedCertsSecret: ""
 ## ref: http://kubernetes.io/docs/user-guide/persistent-volumes/
 ##
 persistence:
-  enabled: false
+  enabled: true
   annotations: {}
 
   ## A manually managed Persistent Volume and Claim
