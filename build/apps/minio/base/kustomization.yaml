@@ -18,10 +18,10 @@ helmCharts:
   includeCRDs: false
   valuesFile: values.yaml
 
-configMapGenerator:
-- name: minio-time
-  literals:
-  - TZ=CET
+# configMapGenerator:
+# - name: minio-time
+#   literals:
+#   - TZ=CET
 
 resources:
 #- resources/statefulset.yaml
