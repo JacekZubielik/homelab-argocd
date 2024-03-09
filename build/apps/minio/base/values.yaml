@@ -4,7 +4,7 @@ global:
   ## imagePullSecrets:
   ##   - myRegistryKeySecretName
   imagePullSecrets: []
-  storageClass: ""
+  storageClass: "-"
   ## Compatibility adaptations for Kubernetes platforms
   compatibility:
     ## Compatibility adaptations for Openshift
@@ -857,7 +857,7 @@ persistence:
   ## If undefined (the default) or set to null, no storageClassName spec is
   ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
   ##   GKE, AWS & OpenStack)
-  storageClass: ""
+  storageClass: "-"
   ## @param persistence.mountPath Data volume mount path
   mountPath: /bitnami/minio/data
   ## @param persistence.accessModes PVC Access Modes for MinIO&reg; data volume
