@@ -306,9 +306,9 @@ makePolicyJob:
     enabled: false
     runAsUser: 1000
     runAsGroup: 1000
-  # resources:
-  #   requests:
-  #     memory: 128Mi
+  resources:
+    requests:
+      memory: 128Mi
   # Command to run after the main command on exit
   exitCommand: ""
 
@@ -335,9 +335,9 @@ makeUserJob:
     enabled: false
     runAsUser: 1000
     runAsGroup: 1000
-  # resources:
-  #   requests:
-  #     memory: 128Mi
+  resources:
+    requests:
+      memory: 128Mi
   # Command to run after the main command on exit
   exitCommand: ""
 
@@ -374,9 +374,9 @@ makeServiceAccountJob:
     enabled: false
     runAsUser: 1000
     runAsGroup: 1000
-  # resources:
-  #   requests:
-  #     memory: 128Mi
+  resources:
+    requests:
+      memory: 128Mi
   # Command to run after the main command on exit
   exitCommand: ""
 
@@ -410,9 +410,9 @@ makeBucketJob:
     enabled: false
     runAsUser: 1000
     runAsGroup: 1000
-  # resources:
-  #   requests:
-  #     memory: 128Mi
+  resources:
+    requests:
+      memory: 128Mi
   # Command to run after the main command on exit
   exitCommand: ""
 
@@ -427,9 +427,9 @@ customCommandJob:
     enabled: false
     runAsUser: 1000
     runAsGroup: 1000
-  # resources:
-  #   requests:
-  #     memory: 128Mi
+  resources:
+    requests:
+      memory: 128Mi
   # Command to run after the main command on exit
   exitCommand: ""
 
