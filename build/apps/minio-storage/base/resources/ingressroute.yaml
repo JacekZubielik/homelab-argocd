@@ -16,7 +16,7 @@ spec:
     - websecure
   routes:
     - kind: Rule
-      match: Host(`minio.anotherlife.pl`)
+      match: Host(`console.minio.anotherlife.pl`)
       middlewares:
         - name: headers
           namespace: traefik
