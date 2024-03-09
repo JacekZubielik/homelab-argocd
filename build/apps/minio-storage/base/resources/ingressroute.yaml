@@ -9,8 +9,8 @@ metadata:
     #external-dns.alpha.kubernetes.io/target: infra.anotherlife.pl
     kubernetes.io/ingress.class: traefik-external
   labels:
-    app.kubernetes.io/name: minio
-  name: minio
+    app.kubernetes.io/name: minio-console
+  name: minio-console
 spec:
   entryPoints:
     - websecure
@@ -40,7 +40,7 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
     argocd.argoproj.io/sync-wave: "5"
-  name: minio
+  name: minio-console
 spec:
   weighted:
     services:
