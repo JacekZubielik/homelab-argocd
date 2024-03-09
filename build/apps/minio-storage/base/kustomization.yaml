@@ -26,9 +26,8 @@ helmCharts:
 resources:
 # #- resources/statefulset.yaml
 # #- resources/service.yaml
-- secrets/secret.yaml
 - resources/ingressroute.yaml
-# # - secrets/sealed-sec.yaml
+- secrets/sealed.secret.yaml
 # - resources/pvc.yaml
 # - resources/pv.yaml
 #- resources/deployment.yaml
