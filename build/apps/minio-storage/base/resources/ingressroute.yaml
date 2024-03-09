@@ -78,23 +78,23 @@ spec:
 #     domains:
 #       - main: anotherlife.pl
 #         sans:
-          - .anotherlife.pl
-    options:
-      name: tls-ver13
-      namespace: traefik
-    secretName: letsencrypt-production
+#           - .anotherlife.pl
+#     options:
+#       name: tls-ver13
+#       namespace: traefik
+#     secretName: letsencrypt-production
 
----
-apiVersion: traefik.io/v1alpha1
-kind: TraefikService
-metadata:
-  annotations:
-    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
-    argocd.argoproj.io/sync-wave: "5"
-  name: minio
-spec:
-  weighted:
-    services:
-      - name: minio
-        port: 9000
-        weight: 1
+# ---
+# apiVersion: traefik.io/v1alpha1
+# kind: TraefikService
+# metadata:
+#   annotations:
+#     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+#     argocd.argoproj.io/sync-wave: "5"
+#   name: minio
+# spec:
+#   weighted:
+#     services:
+#       - name: minio
+#         port: 9000
+#         weight: 1
