@@ -138,13 +138,11 @@ persistence:
 
   ## If subPath is set mount a sub folder of a volume instead of the root of the volume.
   ## This is especially handy for volume plugins that don't natively support sub mounting (like glusterfs).
-  ##
   subPath: ""
 
 ## Expose the MinIO service to be accessed from outside the cluster (LoadBalancer service).
 ## or access it from within the cluster (ClusterIP service). Set the service type and the port to serve it.
 ## ref: http://kubernetes.io/docs/user-guide/services/
-##
 service:
   type: ClusterIP
   clusterIP: ~
@@ -306,7 +304,6 @@ makePolicyJob:
   exitCommand: ""
 
 ## List of users to be created after minio install
-##
 users:
   ## Username, password and policy to be assigned to the user
   ## Default policies are [readonly|readwrite|writeonly|consoleAdmin|diagnostics]
@@ -335,7 +332,6 @@ makeUserJob:
   exitCommand: ""
 
 ## List of service accounts to be created after minio install
-##
 svcaccts: []
   ## accessKey, secretKey and parent user to be assigned to the service accounts
   ## Add new service accounts as explained here https://min.io/docs/minio/kubernetes/upstream/administration/identity-access-management/minio-user-management.html#service-accounts
@@ -374,7 +370,6 @@ makeServiceAccountJob:
   exitCommand: ""
 
 ## List of buckets to be created after minio install
-##
 buckets: []
   #   # Name of the bucket
   # - name: bucket1
