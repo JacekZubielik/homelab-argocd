@@ -4,9 +4,9 @@ kind: PersistentVolume
 metadata:
   # annotations:
   #   argocd.argoproj.io/sync-wave: "4"
-  labels:
-    #app.kubernetes.io/name: hello-world-frontend
-    type: local
+  # labels:
+  #   #app.kubernetes.io/name: hello-world-frontend
+  #   type: local
   name: minio-pv
 
 spec:
@@ -15,8 +15,8 @@ spec:
   capacity:
     storage: 10Gi
 
-  persistentVolumeReclaimPolicy: Retain
-  storageClassName: hostpath
+  #persistentVolumeReclaimPolicy: Retain
+  #storageClassName: hostpath
   hostPath:
     path: "/mnt/volume-0/PV/minio-pv-volume"
 
