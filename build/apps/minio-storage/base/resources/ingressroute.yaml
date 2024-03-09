@@ -96,6 +96,6 @@ metadata:
 spec:
   weighted:
     services:
-      - name: minio-api
+      - name: minio
         port: 9000
         weight: 1
