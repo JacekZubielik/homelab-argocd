@@ -514,9 +514,9 @@ metrics:
       #     action: labeldrop
     namespace: ~
     # Scrape interval, for example `interval: 30s`
-    interval: ~
+    interval: 30s
     # Scrape timeout, for example `scrapeTimeout: 10s`
-    scrapeTimeout: ~
+    scrapeTimeout: 10s
 
 ## ETCD settings: https://github.com/minio/minio/blob/master/docs/sts/etcd.md
 ## Define endpoints to enable this section.
