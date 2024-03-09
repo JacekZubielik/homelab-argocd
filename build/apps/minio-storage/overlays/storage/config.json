@@ -1,9 +1,9 @@
 {
   "appName": "minio",
-  "userGivenName": "minio",
+  "userGivenName": "minio-storage",
   "destNamespace": "minio",
   "destServer": "https://kubernetes.default.svc",
-  "srcPath": "build/apps/minio/overlays/storage",
+  "srcPath": "build/apps/minio-storage/overlays/storage",
   "srcRepoURL": "https://github.com/jacekzubielik/homelab-argocd.git",
   "srcTargetRevision": "",
   "syncWave": "5",
