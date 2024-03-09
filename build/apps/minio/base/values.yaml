@@ -4,7 +4,7 @@ global:
   ## imagePullSecrets:
   ##   - myRegistryKeySecretName
   imagePullSecrets: []
-  storageClass: "-"
+  storageClass: ""
   ## Compatibility adaptations for Kubernetes platforms
   compatibility:
     ## Compatibility adaptations for Openshift
