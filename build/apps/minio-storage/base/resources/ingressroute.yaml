@@ -60,8 +60,8 @@ metadata:
     #external-dns.alpha.kubernetes.io/target: infra.anotherlife.pl
     kubernetes.io/ingress.class: traefik-external
   labels:
-    app.kubernetes.io/name: minio-api
-  name: minio-api
+    app.kubernetes.io/name: minio
+  name: minio
 spec:
   entryPoints:
     - websecure
@@ -73,7 +73,7 @@ spec:
           namespace: traefik
       services:
         - kind: TraefikService
-          name: minio-api
+          name: minio
           port: 9000
   tls:
     domains:
@@ -92,7 +92,7 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
     argocd.argoproj.io/sync-wave: "5"
-  name: minio-api
+  name: minio
 spec:
   weighted:
     services:
