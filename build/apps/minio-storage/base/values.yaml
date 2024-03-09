@@ -499,7 +499,7 @@ serviceAccount:
 
 metrics:
   serviceMonitor:
-    enabled: false
+    enabled: true
     # scrape each node/pod individually for additional metrics
     includeNode: false
     public: true
