@@ -227,7 +227,7 @@ provisioning:
   ##   ##     policies=readwrite,consoleAdmin,diagnostics
   ##   ##     setPolicies=false
   usersExistingSecrets:
-    - centralized-minio-users
+    #- centralized-minio-users
     - root-user
   ## @param provisioning.groups MinIO&reg; groups provisioning
   ## https://docs.min.io/docs/minio-admin-complete-guide.html#group
