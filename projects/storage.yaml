@@ -115,7 +115,7 @@ spec:
         #- PrunePropagationPolicy=foreground
         - preserveResourcesOnDeletion=false
         - SkipDryRunOnMissingResource=true
-        - Replace=false
+        - Replace=true
         - ServerSideApply=true
         - ApplyOutOfSyncOnly=true
         - Validate=false
