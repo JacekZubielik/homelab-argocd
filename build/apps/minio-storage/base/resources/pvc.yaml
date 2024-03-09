@@ -13,5 +13,5 @@ spec:
   resources:
     # This is the request for storage. Should be available in the cluster.
     requests:
-      storage: 1Gi
+      storage: 10Gi
   volumeName: minio-pv
