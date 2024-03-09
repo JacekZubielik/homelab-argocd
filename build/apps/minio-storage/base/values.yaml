@@ -240,9 +240,9 @@ podLabels: {}
 ## Configure resource requests and limits
 ## ref: http://kubernetes.io/docs/user-guide/compute-resources/
 ##
-# resources:
-#   requests:
-#     memory: 16Gi
+resources:
+  requests:
+    memory: 1Gi
 
 ## List of policies to be created after minio install
 ##
