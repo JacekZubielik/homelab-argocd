@@ -67,8 +67,8 @@ runtimeClassName: ""
 ## rootUser and rootPassword is generated when not set
 ## Distributed MinIO ref: https://min.io/docs/minio/linux/operations/install-deploy-manage/deploy-minio-multi-node-multi-drive.html
 ##
-rootUser: "admin"
-rootPassword: "adminadmin"
+rootUser: ""
+rootPassword: ""
 
 ## Use existing Secret that store following variables:
 ##
@@ -80,7 +80,7 @@ rootPassword: "adminadmin"
 ## All mentioned variables will be ignored in values file.
 ## .data.rootUser and .data.rootPassword are mandatory,
 ## others depend on enabled status of corresponding sections.
-existingSecret: ""
+existingSecret: "root-user"
 
 ## Directory on the MinIO pof
 certsPath: "/etc/minio/certs/"
