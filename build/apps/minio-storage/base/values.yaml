@@ -55,18 +55,15 @@ statefulSetUpdate:
 
 ## Pod priority settings
 ## ref: https://kubernetes.io/docs/concepts/configuration/pod-priority-preemption/
-##
 priorityClassName: ""
 
 ## Pod runtime class name
 ## ref https://kubernetes.io/docs/concepts/containers/runtime-class/
-##
 runtimeClassName: ""
 
 ## Set default rootUser, rootPassword
 ## rootUser and rootPassword is generated when not set
 ## Distributed MinIO ref: https://min.io/docs/minio/linux/operations/install-deploy-manage/deploy-minio-multi-node-multi-drive.html
-##
 rootUser: ""
 rootPassword: ""
 
@@ -91,7 +88,6 @@ mountPath: "/export"
 ## Override the root directory which the minio server should serve from.
 ## If left empty, it defaults to the value of {{ .Values.mountPath }}
 ## If defined, it must be a sub-directory of the path specified in {{ .Values.mountPath }}
-##
 bucketRoot: ""
 
 # Number of drives attached to a node
@@ -121,7 +117,6 @@ trustedCertsSecret: ""
 persistence:
   enabled: true
   annotations: {}
-
   ## A manually managed Persistent Volume and Claim
   ## Requires persistence.enabled: true
   ## If defined, PVC must be created manually before volume will be bound
@@ -160,8 +155,6 @@ service:
   annotations: {}
 
 ## Configure Ingress based on the documentation here: https://kubernetes.io/docs/concepts/services-networking/ingress/
-##
-
 ingress:
   enabled: false
   ingressClassName: ~
@@ -480,7 +473,7 @@ oidc:
   displayName: ""
 
 networkPolicy:
-  enabled: false
+  enabled: true
   # Specifies whether the policies created will be standard Network Policies (flavor: kubernetes)
   # or Cilium Network Policies (flavor: cilium)
   flavor: kubernetes
