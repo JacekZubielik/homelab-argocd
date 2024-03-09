@@ -60,7 +60,7 @@ spec:
 #     kubernetes.io/ingress.class: traefik-external
 #   labels:
 #     app.kubernetes.io/name: minio
-#   name: minio
+#   name: api
 # spec:
 #   entryPoints:
 #     - traefik
@@ -72,7 +72,7 @@ spec:
 #           namespace: traefik
 #       services:
 #         - kind: TraefikService
-#           name: minio
+#           name: api
 #           port: 9000
 #   tls:
 #     domains:
@@ -91,7 +91,7 @@ spec:
 #   annotations:
 #     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 #     argocd.argoproj.io/sync-wave: "5"
-#   name: minio
+#   name: api
 # spec:
 #   weighted:
 #     services:

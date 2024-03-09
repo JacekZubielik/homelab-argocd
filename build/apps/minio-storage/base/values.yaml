@@ -494,9 +494,9 @@ serviceAccount:
 
 metrics:
   serviceMonitor:
-    enabled: true
+    enabled: false
     # scrape each node/pod individually for additional metrics
-    includeNode: false
+    includeNode: true
     public: true
     additionalLabels: {}
     annotations: {}
