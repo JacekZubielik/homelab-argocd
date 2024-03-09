@@ -294,7 +294,7 @@ policies: []
 ## Additional Annotations for the Kubernetes Job makePolicyJob
 makePolicyJob:
   securityContext:
-    enabled: true
+    enabled: false
     runAsUser: 1000
     runAsGroup: 1000
   resources:
@@ -360,7 +360,7 @@ svcaccts: []
 
 makeServiceAccountJob:
   securityContext:
-    enabled: true
+    enabled: false
     runAsUser: 1000
     runAsGroup: 1000
   resources:
