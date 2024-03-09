@@ -21,7 +21,7 @@ additionalAnnotations: {}
 ## So that when these change on a subsequent helm install, the deployment/statefulset
 ## is restarted. This can result in unnecessary restarts under GitOps tooling such as
 ## flux, so set to "true" to disable this behaviour.
-ignoreChartChecksums: false
+ignoreChartChecksums: true
 
 ## Additional arguments to pass to minio binary
 extraArgs: []
