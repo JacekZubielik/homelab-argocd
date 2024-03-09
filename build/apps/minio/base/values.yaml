@@ -850,14 +850,14 @@ networkPolicy:
 ##
 persistence:
   ## @param persistence.enabled Enable MinIO&reg; data persistence using PVC. If false, use emptyDir
-  enabled: true
+  enabled: false
   ## @param persistence.storageClass PVC Storage Class for MinIO&reg; data volume
   ## If defined, storageClassName: <storageClass>
   ## If set to "-", storageClassName: "", which disables dynamic provisioning
   ## If undefined (the default) or set to null, no storageClassName spec is
   ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
   ##   GKE, AWS & OpenStack)
-  storageClass: "-"
+  storageClass: ""
   ## @param persistence.mountPath Data volume mount path
   mountPath: /bitnami/minio/data
   ## @param persistence.accessModes PVC Access Modes for MinIO&reg; data volume
@@ -868,7 +868,7 @@ persistence:
   ## @param persistence.annotations Annotations for the PVC
   annotations: {}
   ## @param persistence.existingClaim Name of an existing PVC to use (only in `standalone` mode)
-  existingClaim: minio-pv #"data-minio-0"
+  existingClaim: "minio-pv" #"data-minio-0"
 
 
 ## @section Volume Permissions parameters
