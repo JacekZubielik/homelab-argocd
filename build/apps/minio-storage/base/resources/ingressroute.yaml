@@ -22,7 +22,7 @@ spec:
           namespace: traefik
       services:
         - kind: TraefikService
-          name: minio-console
+          name: console
           port: 9001
   tls:
     domains:
@@ -41,7 +41,7 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
     argocd.argoproj.io/sync-wave: "5"
-  name: minio-console
+  name: console
 spec:
   weighted:
     services:
