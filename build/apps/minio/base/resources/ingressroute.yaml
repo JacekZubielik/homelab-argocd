@@ -18,7 +18,7 @@ spec:
     - kind: Rule
       match: Host(`minio.anotherlife.pl`)
       middlewares:
-        - name: chain-traefik-dashboard
+        - name: headers
           namespace: traefik
       services:
         - kind: TraefikService
