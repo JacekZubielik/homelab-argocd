@@ -868,7 +868,7 @@ persistence:
   ## @param persistence.annotations Annotations for the PVC
   annotations: {}
   ## @param persistence.existingClaim Name of an existing PVC to use (only in `standalone` mode)
-  existingClaim: "data-minio-0"
+  existingClaim: minio-pv #"data-minio-0"
 
 
 ## @section Volume Permissions parameters
