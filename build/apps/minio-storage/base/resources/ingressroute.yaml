@@ -40,11 +40,11 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
     argocd.argoproj.io/sync-wave: "5"
-  name: minio-console
+  name: minio
 spec:
   weighted:
     services:
-      - name: minio
+      - name: minio-console
         port: 9001
         weight: 1
 
