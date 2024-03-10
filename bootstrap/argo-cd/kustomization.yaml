@@ -4,7 +4,7 @@ namespace: argocd
 configMapGenerator:
 - behavior: merge
   literals:
-  - kustomize.buildOptions="--enable-helm --enable-alpha-plugins" #--enable-alpha-plugins 
+  - kustomize.buildOptions="--enable-helm --enable-alpha-plugins"
   - |
     repository.credentials=- passwordSecret:
         key: git_token
@@ -20,19 +20,22 @@ configMapGenerator:
   name: argocd-cmd-params-cm
 
 resources:
-  - github.com/argoproj-labs/argocd-autopilot/manifests/base?ref=v0.4.17
-  - argocd-cm-cmp-kustomize-build-with-helm.yaml
-  - ingressroute-argocd.yaml
+- github.com/argoproj-labs/argocd-autopilot/manifests/base?ref=v0.4.17
+- argocd-cm-cmp-kustomize-build-with-helm.yaml
+- ingressroute-argocd.yaml
+- resources/argocd-applicationset-controller-metrics.yaml
+- resources/argocd-metrics.yaml
+- resources/argocd-repo-server-metrics.yaml
+- resources/argocd-server-metrics.yaml
 
 # - vs.yaml
 # patchesStrategicMerge:
 # - istio_patches.yaml
 
-
 patches:
-#   # Copy binaries from ArgoCD-image
-  # - path: patches/argocd-repo-copyutil-patch.yaml
-#   # Plugin to enable Kustomize with Helm
-  - path: patches/argocd-repo-server-plugin-sidecar-patch.yaml
-  # Traefik handles TLS
-  - path: patches/argocd-cmd-params-cm-server-insecure-patch.yaml
+# Copy binaries from ArgoCD-image
+# - path: patches/argocd-repo-copyutil-patch.yaml
+# Plugin to enable Kustomize with Helm
+- path: patches/argocd-repo-server-plugin-sidecar-patch.yaml
+# Traefik handles TLS
+- path: patches/argocd-cmd-params-cm-server-insecure-patch.yaml
