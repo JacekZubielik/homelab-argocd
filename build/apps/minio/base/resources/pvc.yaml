@@ -34,6 +34,6 @@ spec:
   storageClassName: "minio-pv-sc" #local-path
   # resources:
   #   # This is the request for storage. Should be available in the cluster.
-  #   requests:
-  #     storage: 16Gi
+    requests:
+      storage: 16Gi
   volumeName: minio-pv
