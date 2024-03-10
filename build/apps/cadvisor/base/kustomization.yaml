@@ -31,4 +31,4 @@ configMapGenerator:
 # - resources/serviceaccount.yaml
 # - resources/ingressroute.yaml
 # - secrets/secret.yaml
-# - secrets/sealed-sec.yaml
+# - secrets/sealed.secret.yaml
