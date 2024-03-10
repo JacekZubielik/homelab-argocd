@@ -28,7 +28,7 @@ resources:
 # #- resources/service.yaml
 - resources/ingressroute.yaml
 - secrets/sealed.secret.yaml
-# - resources/pvc.yaml
-# - resources/pv.yaml
+- resources/pvc.yaml
+- resources/pv.yaml
 #- resources/deployment.yaml
 # - resources/ingress.yaml
