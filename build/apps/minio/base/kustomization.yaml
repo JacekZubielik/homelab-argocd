@@ -11,8 +11,8 @@ metadata:
 
 helmCharts:
 - name: minio
-  version: 13.8.2
-  repo: https://charts.bitnami.com/bitnami
+  version: 5.1.0
+  repo: https://charts.min.io
   releaseName: minio
   namespace: minio
   includeCRDs: false
@@ -24,12 +24,11 @@ helmCharts:
 #   - TZ=CET
 
 resources:
-#- resources/statefulset.yaml
-#- resources/service.yaml
-- secrets/secret.yaml
+# #- resources/statefulset.yaml
+# #- resources/service.yaml
 - resources/ingressroute.yaml
-# - secrets/sealed-sec.yaml
-- resources/pvc.yaml
-- resources/pv.yaml
+- secrets/sealed.secret.yaml
+# - resources/pvc.yaml
+# - resources/pv.yaml
 #- resources/deployment.yaml
 # - resources/ingress.yaml
