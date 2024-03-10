@@ -13,7 +13,7 @@ resources:
 - resources/middlewares.yaml
 #- resources/namespace.yaml
 
-- resources/seal.secret.yaml
+- secrets/seal.secret.yaml
 - resources/servicemonitor.yaml
 - resources/tlsoption.yaml
 #- resources/tlsstore.yaml
