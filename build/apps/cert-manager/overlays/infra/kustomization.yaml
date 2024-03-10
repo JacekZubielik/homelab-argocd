@@ -11,7 +11,7 @@ resources:
 - resources/namespace.yaml # Do not set this - it will override roles for kube-system needed for leader election of cainjector
 - resources/letsencrypt-production.yaml
 - resources/letsencrypt-staging.yaml
-- resources/seal.secret.yaml
+- secrets/sealed-secret.yaml
 # - resources/default.svc-certificate.yaml
 # - resources/default.svc-issuer.yaml
 - resources/cert-production.yaml
