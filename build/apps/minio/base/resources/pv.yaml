@@ -37,4 +37,4 @@ spec:
             - key: kubernetes.io/hostname
               operator: In
               values:
-                - gauss
+                - dev-k3s-master-0
