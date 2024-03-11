@@ -17,8 +17,8 @@ helmCharts:
   namespace: minio
   includeCRDs: false
   valuesFile: values.yaml
-  insecure:
-  upsert:
+  # insecure:
+  # upsert:
 
 # configMapGenerator:
 # - name: minio-time
