@@ -9,7 +9,7 @@ imagePullSecrets: []
 # - name: "image-pull-secret"
 
 ## minio mode, i.e. standalone or distributed
-mode: distributed #standalone ## other supported values are "standalone"
+mode: standalone ## other supported values are "standalone"
 
 ## Additional labels to include with deployment or statefulset
 additionalLabels: {}
@@ -120,7 +120,7 @@ persistence:
   ## A manually managed Persistent Volume and Claim
   ## Requires persistence.enabled: true
   ## If defined, PVC must be created manually before volume will be bound
-  existingClaim: minio-pv-claim #"minio-pv"
+  existingClaim: minio-pv-claim
 
   ## minio data Persistent Volume Storage Class
   ## If defined, storageClassName: <storageClass>
