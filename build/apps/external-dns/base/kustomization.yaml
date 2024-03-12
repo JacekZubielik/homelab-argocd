@@ -22,9 +22,9 @@ configMapGenerator:
   literals:
   - TZ=CET
 
-# resources:
+resources:
 # - resources/configmap.yaml
-# - secrets/sealed.secret.yaml
+- secrets/sealed.secret.yaml
 
 
 # patches:
