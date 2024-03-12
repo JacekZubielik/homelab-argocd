@@ -1,0 +1,16 @@
+{
+  "appName": "external-dns",
+  "userGivenName": "external-dns",
+  "destNamespace": "dev",
+  "destServer": "https://kubernetes.default.svc",
+  "srcPath": "build/apps/external-dns/overlays/dev",
+  "srcRepoURL": "https://github.com/jacekzubielik/homelab-argocd.git",
+  "srcTargetRevision": "",
+  "syncWave": "4",
+  "appRole": "dev",
+  "labels": null,
+  "annotations": null,
+  "exclude": "",
+  "include": ""
+}
+
