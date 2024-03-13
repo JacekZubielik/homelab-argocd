@@ -202,7 +202,7 @@ policy: upsert-only
 # Valid values are `txt`, `aws-sd`, `dynamodb` & `noop`.
 registry: txt
 # -- (string) Specify an identifier for this instance of _ExternalDNS_ wWhen using a registry other than `noop`.
-txtOwnerId: #onprem-homelab
+txtOwnerId: anotherlife.pl
 # -- (string) Specify a prefix for the domain names of TXT records created for the `txt` registry.
 # Mutually exclusive with `txtSuffix`.
 txtPrefix: txt.
@@ -274,7 +274,7 @@ extraArgs:
 
 secretConfiguration:
   # -- If `true`, create a `Secret` to store sensitive provider configuration (**DEPRECATED**).
-  enabled: true
+  enabled: false
   # -- Mount path for the `Secret`, this can be templated.
   mountPath:
   # -- Sub-path for mounting the `Secret`, this can be templated.
