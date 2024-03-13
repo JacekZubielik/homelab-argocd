@@ -93,7 +93,7 @@ securityContext:
 # -- [Environment variables](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/) for the `external-dns` container.
 env:
   - name: AWS_DEFAULT_REGION
-    value: us-east-1
+    value: eu-central-1
   - name: AWS_SHARED_CREDENTIALS_FILE
     value: /.aws/credentials
 # -- [Liveness probe](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) configuration for the `external-dns` container.
