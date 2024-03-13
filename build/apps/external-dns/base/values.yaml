@@ -196,7 +196,7 @@ sources:
   - ingress
 
 # -- How DNS records are synchronized between sources and providers; available values are `sync` & `upsert-only`.
-policy: upsert-only
+policy: sync
 
 # -- Specify the registry for storing ownership and labels.
 # Valid values are `txt`, `aws-sd`, `dynamodb` & `noop`.
@@ -213,6 +213,7 @@ txtSuffix:
 ## - Limit possible target zones by domain suffixes.
 domainFilters:
 - anotherlife.pl
+- infra.anotherlife.pl
 provider:
   # -- _ExternalDNS_ provider name; for the available providers and how to configure them see [README](https://github.com/kubernetes-sigs/external-dns/blob/master/charts/external-dns/README.md#providers).
   name: aws
