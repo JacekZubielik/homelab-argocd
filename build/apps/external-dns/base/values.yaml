@@ -274,7 +274,7 @@ extraArgs:
 
 secretConfiguration:
   # -- If `true`, create a `Secret` to store sensitive provider configuration (**DEPRECATED**).
-  enabled: false
+  enabled: true
   # -- Mount path for the `Secret`, this can be templated.
   mountPath:
   # -- Sub-path for mounting the `Secret`, this can be templated.
