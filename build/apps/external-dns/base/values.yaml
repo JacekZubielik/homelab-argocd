@@ -53,7 +53,7 @@ podAnnotations: {}
 automountServiceAccountToken:
 
 # -- If `true`, the `Pod` will have [process namespace sharing](https://kubernetes.io/docs/tasks/configure-pod-container/share-process-namespace/) enabled.
-shareProcessNamespace: false
+shareProcessNamespace: true
 
 # -- [Pod security context](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.22/#podsecuritycontext-v1-core), this supports full customisation.
 # @default -- See _values.yaml_
