@@ -1,6 +1,6 @@
 
-crd:
-  create: true
+# crd:
+#   create: true
 ###########
 image:
   pullPolicy: IfNotPresent

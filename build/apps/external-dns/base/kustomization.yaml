@@ -14,7 +14,7 @@ helmCharts:
   version: 1.14.3
   repo: https://kubernetes-sigs.github.io/external-dns/
   releaseName: external-dns
-  includeCRDs: false
+  includeCRDs: true
   valuesFile: values.yaml
 
 configMapGenerator:
