@@ -6,8 +6,8 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
     argocd.argoproj.io/sync-wave: "4"
-    cert-manager.io/cluster-issuer: route53-letsencrypt-production #production
-    #external-dns.alpha.kubernetes.io/target: infra.anotherlife.pl
+    cert-manager.io/cluster-issuer: route53-letsencrypt-production
+    external-dns.alpha.kubernetes.io/target: infra.anotherlife.pl
     kubernetes.io/ingress.class: traefik-external
   labels:
     app.kubernetes.io/name: hello-world-frontend
@@ -17,7 +17,7 @@ spec:
     - websecure
   routes:
     - kind: Rule
-      match: Host(`hello.anotherlife.pl`) && (PathPrefix(`/`))
+      match: Host(`hello.infra.anotherlife.pl`) && (PathPrefix(`/`))
       middlewares:
         - name: chain-traefik-dashboard
           namespace: traefik
@@ -34,7 +34,7 @@ spec:
     options:
       name: tls-ver13
       namespace: traefik
-    secretName: letsencrypt-production #production
+    secretName: letsencrypt-production
     # stores:
     #   default:
     #     defaultCertificate:
