@@ -28,6 +28,7 @@ spec:
           port: 80
 
   tls:
+    namespace: traefik
     domains:
       - main: infra.anotherlife.pl
         sans:
