@@ -30,7 +30,7 @@ resources:
 # - resources/podsecuritypolicy.yaml
 # - resources/serviceaccount.yaml
 - resources/ingressroute.yaml
-- resources/pvc.yaml
+#- resources/pvc.yaml
 - resources/pv.yaml
 - resources/sc.yaml
 # - secrets/secret.yaml

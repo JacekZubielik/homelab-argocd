@@ -99,7 +99,7 @@ affinity: {}
 
 persistence:
   enabled: true
-  storageClass: ""
+  storageClass: local-storage
   accessMode: ReadWriteOnce
   size: 4Gi
   mountPath: /var/syncthing
