@@ -28,6 +28,9 @@ spec:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
   storageClassName: local-storage
+  claimRef:
+  name: syncthing-pv-claim
+  #namespace: foo
   local:
     path: "/mnt/volume-0/PV/syncthing-pv-volume"
   nodeAffinity:
