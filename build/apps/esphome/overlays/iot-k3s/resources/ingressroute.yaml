@@ -2,21 +2,22 @@
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
+  name: esphome
+  namespace: iot-k3s
   annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
     argocd.argoproj.io/sync-wave: "4"
     cert-manager.io/cluster-issuer: route53-letsencrypt-production
-    #external-dns.alpha.kubernetes.io/target: infra.anotherlife.pl
+    external-dns.alpha.kubernetes.io/target: iot.anotherlife.pl
     kubernetes.io/ingress.class: traefik-external
   labels:
     app.kubernetes.io/name: esphome
-  name: esphome
 spec:
   entryPoints:
     - websecure
   routes:
     - kind: Rule
-      match: Host(`esphome.anotherlife.pl`)
+      match: Host(`esphome.iot.anotherlife.pl`)
       middlewares:
         - name: chain-traefik-dashboard
           namespace: traefik
@@ -26,21 +27,24 @@ spec:
           port: 6052
   tls:
     domains:
-      - main: anotherlife.pl
+      - main: iot.anotherlife.pl
         sans:
-          - .anotherlife.pl
+          - .iot.anotherlife.pl
     options:
       name: tls-ver13
       namespace: traefik
-    secretName: letsencrypt-production
+    secretName: letsencrypt-iot
+
 ---
 apiVersion: traefik.io/v1alpha1
 kind: TraefikService
 metadata:
+  name: esphome
   annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
     argocd.argoproj.io/sync-wave: "4"
-  name: esphome
+  labels:
+    app.kubernetes.io/name: esphome
 spec:
   weighted:
     services:
