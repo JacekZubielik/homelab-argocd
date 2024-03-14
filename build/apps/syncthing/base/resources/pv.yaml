@@ -55,7 +55,7 @@ spec:
   persistentVolumeReclaimPolicy: Retain
   claimRef:
     name: syncthing-pv-claim
-    namespace: storage
+    #namespace: storage
   storageClassName: local-storage
   capacity:
     storage: 4Gi
