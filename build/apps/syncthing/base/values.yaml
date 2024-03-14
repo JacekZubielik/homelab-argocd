@@ -82,13 +82,28 @@ nodeSelector:
 tolerations: []
 affinity: {}
 
+# persistence:
+#   enabled: true
+#   storageClass: "local-path"
+#   accessMode: ReadWriteOnce
+#   size: 2Gi
+#   mountPath: /var/syncthing
+#   # existingClaim: ""
+#   extraVolumes: []
+#   # - name: files
+#   #   storageClass: ""
+#   #   size: 2Gi
+#   #   accessMode: ReadWriteOnce
+#   #   mountPath: /var/syncthing
+#   #   # existingClaim: ""
+
 persistence:
   enabled: true
-  storageClass: "local-path"
+  storageClass: ""
   accessMode: ReadWriteOnce
-  size: 2Gi
+  size: 4Gi
   mountPath: /var/syncthing
-  # existingClaim: ""
+  existingClaim: "syncthing-pv-claim"
   extraVolumes: []
   # - name: files
   #   storageClass: ""
