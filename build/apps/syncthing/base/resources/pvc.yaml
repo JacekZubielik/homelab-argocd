@@ -12,10 +12,10 @@ spec:
   accessModes:
     - ReadWriteOnce
   storageClassName: "" #local-path
-  resources:
-  #   # This is the request for storage. Should be available in the cluster.
-    requests:
-      storage: 4Gi
+  # resources:
+  # #   # This is the request for storage. Should be available in the cluster.
+  #   requests:
+  #     storage: 4Gi
   volumeName: syncthing-pv
 
 # ---
