@@ -14,7 +14,7 @@ helmCharts:
   version: 5.1.0
   repo: https://charts.min.io
   releaseName: minio
-  namespace: minio
+  namespace: storage
   includeCRDs: false
   valuesFile: values.yaml
   # insecure:
@@ -33,5 +33,6 @@ resources:
 - resources/pvc.yaml
 - resources/pv.yaml
 - resources/minio-pv-sc.yaml
+- resources/namespace.yaml
 #- resources/deployment.yaml
 # - resources/ingress.yaml

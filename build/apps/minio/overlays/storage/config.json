@@ -1,7 +1,7 @@
 {
   "appName": "minio",
   "userGivenName": "minio",
-  "destNamespace": "minio",
+  "destNamespace": "storage",
   "destServer": "https://kubernetes.default.svc",
   "srcPath": "build/apps/minio/overlays/storage",
   "srcRepoURL": "https://github.com/jacekzubielik/homelab-argocd.git",

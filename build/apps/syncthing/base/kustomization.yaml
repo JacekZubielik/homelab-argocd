@@ -14,7 +14,7 @@ helmCharts:
   version: 0.0.3
   repo: https://jacekzubielik.github.io/helm-charts
   releaseName: syncthing
-  namespace: backup
+  namespace: storage
   includeCRDs: false
   valuesFile: values.yaml
 
