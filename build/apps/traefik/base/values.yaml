@@ -371,7 +371,7 @@ serviceMonitor:
   # namespaceSelector: {}
 prometheusRule:
   additionalLabels: {}
-  namespace: "another-namespace"
+  namespace: "monitoring"
   rules:
     - alert: TraefikDown
       expr: up{job="traefik"} == 0
