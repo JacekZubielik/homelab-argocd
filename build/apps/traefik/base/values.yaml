@@ -131,7 +131,7 @@ livenessProbe:
 
 providers:
   kubernetesCRD:
-    enabled: false
+    enabled: true
     allowCrossNamespace: true
     allowExternalNameServices: true
     allowEmptyServices: true
@@ -164,7 +164,7 @@ providers:
 
 logs:
   general:
-    level: INFO # -- DEBUG, PANIC, FATAL, ERROR, WARN, and INFO.
+    level: DEBUG # -- DEBUG, PANIC, FATAL, ERROR, WARN, and INFO.
   access:
     enabled: true
     filters:
