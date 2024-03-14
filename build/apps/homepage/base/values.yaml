@@ -43,7 +43,7 @@ config:
               href: https://securityheaders.com/
 
     - Social:
-        - Reddit:
+        - X.com:
             - abbr: X
               href: https://x.com/
 
