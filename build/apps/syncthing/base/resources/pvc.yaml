@@ -15,7 +15,7 @@ spec:
   resources:
     requests:
       storage: 4Gi
-  #volumeName: syncthing-pv
+  volumeName: syncthing-pv
 
 # ---
 # apiVersion: v1
