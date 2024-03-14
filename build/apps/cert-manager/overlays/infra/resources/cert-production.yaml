@@ -8,7 +8,6 @@ metadata:
     argocd.argoproj.io/sync-wave: "0"
   labels:
     app.kubernetes.io/name: traefik
-
 spec:
   dnsNames:
   - 'anotherlife.pl'
@@ -30,7 +29,6 @@ metadata:
     argocd.argoproj.io/sync-wave: "0"
   labels:
     app.kubernetes.io/name: traefik
-
 spec:
   dnsNames:
   - 'infra.anotherlife.pl'
@@ -52,7 +50,6 @@ metadata:
     argocd.argoproj.io/sync-wave: "0"
   labels:
     app.kubernetes.io/name: traefik
-
 spec:
   dnsNames:
   - 'dev.anotherlife.pl'
@@ -69,12 +66,11 @@ apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
   name: letsencrypt-iot
-  namespace: traefik
+  namespace: iot-k3s
   annotations:
     argocd.argoproj.io/sync-wave: "0"
   labels:
     app.kubernetes.io/name: traefik
-
 spec:
   dnsNames:
   - 'iot.anotherlife.pl'
