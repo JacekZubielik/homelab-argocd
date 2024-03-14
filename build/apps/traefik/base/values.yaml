@@ -141,7 +141,7 @@ providers:
     #- "argocd,cert-manager,default,dev,monitoring,prod,traefik,infra,longhorn-system,media,iot,iot-k3s,backup,storage,minio"
 
   kubernetesIngress:
-    enabled: true
+    enabled: false
     allowExternalNameServices: true
     allowEmptyServices: true
     ingressClass: traefik-external
@@ -164,7 +164,7 @@ providers:
 
 logs:
   general:
-    level: DEBUG # -- DEBUG, PANIC, FATAL, ERROR, WARN, and INFO.
+    level: INFO # -- DEBUG, PANIC, FATAL, ERROR, WARN, and INFO.
   access:
     enabled: true
     filters:
