@@ -98,7 +98,7 @@ affinity: {}
 #   #   # existingClaim: ""
 
 persistence:
-  enabled: true
+  enabled: false
   storageClass: local-storage
   accessMode: ReadWriteOnce
   size: 4Gi
