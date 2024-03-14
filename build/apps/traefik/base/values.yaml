@@ -141,7 +141,7 @@ providers:
     #- "argocd,cert-manager,default,dev,monitoring,prod,traefik,infra,longhorn-system,media,iot,iot-k3s,backup,storage,minio"
 
   kubernetesIngress:
-    enabled: false
+    enabled: true
     allowExternalNameServices: true
     allowEmptyServices: true
     ingressClass: traefik-external
