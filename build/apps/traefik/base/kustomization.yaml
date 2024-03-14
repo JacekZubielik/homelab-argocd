@@ -20,7 +20,6 @@ helmCharts:
   includeCRDs: true
   valuesFile: values.yaml
 
-
 configMapGenerator:
 - name: traefik-config
   literals:
