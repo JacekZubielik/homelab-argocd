@@ -50,19 +50,16 @@ kind: PersistentVolume
 metadata:
   name: syncthing-pv
 spec:
-  capacity:
-    storage: 4Gi
-  volumeMode: Filesystem
   accessModes:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
-  storageClassName: local-storage
   claimRef:
-  name: syncthing-pv-claim
-  #namespace: foo
-  # mountOptions:
-  #   - hard
-  hostPath:
+    name: syncthing-pv-claim
+    namespace: storage
+  storageClassName: local-storage
+  capacity:
+    storage: 4Gi
+  local:
     path: "/mnt/volume-0/PV/syncthing-pv-volume"
   nodeAffinity:
     required:
