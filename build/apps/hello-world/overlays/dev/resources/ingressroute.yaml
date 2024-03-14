@@ -29,9 +29,9 @@ spec:
 
   tls:
     domains:
-      - main: anotherlife.pl
+      - main: infra.anotherlife.pl
         sans:
-          - .anotherlife.pl
+          - .infra.anotherlife.pl
     options:
       name: tls-ver13
       namespace: traefik
