@@ -11,11 +11,11 @@ spec:
   # Read more about access modes here: http://kubernetes.io/docs/user-guide/persistent-volumes/#access-modes
   accessModes:
     - ReadWriteOnce
-  storageClassName: "" #local-path
-  # resources:
-  # #   # This is the request for storage. Should be available in the cluster.
-  #   requests:
-  #     storage: 4Gi
+  storageClassName: "local-storage" #local-path
+  resources:
+  #   # This is the request for storage. Should be available in the cluster.
+    requests:
+      storage: 4Gi
   volumeName: syncthing-pv
 
 # ---
