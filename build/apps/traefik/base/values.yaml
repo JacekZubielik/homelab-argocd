@@ -131,7 +131,7 @@ livenessProbe:
 
 providers:
   kubernetesCRD:
-    enabled: true
+    enabled: false
     allowCrossNamespace: true
     allowExternalNameServices: true
     allowEmptyServices: true
