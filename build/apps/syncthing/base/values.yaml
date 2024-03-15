@@ -99,15 +99,13 @@ affinity: {}
 
 persistence:
   enabled: true
-  storageClass: #local-storage
-  accessMode: ReadWriteOnce
-  size: 4Gi
-  mountPath: /var/syncthing
-  existingClaim: #syncthing-pv #"syncthing-pv-claim"
-  extraVolumes: []
-  # - name: files
-  #   storageClass: ""
-  #   size: 2Gi
-  #   accessMode: ReadWriteOnce
-  #   mountPath: /var/syncthing
-  #   # existingClaim: ""
+  configstorage:
+    hostPath: /mnt/volume-0/apps/syncthing
+  pvc:
+    enabled: false
+    # accessModes:
+    #   - {}
+    # resources:
+    #   requests:
+    #     storage: 2Gi
+    # storageClassName: ""

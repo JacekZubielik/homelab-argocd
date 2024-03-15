@@ -11,7 +11,7 @@ metadata:
 
 helmCharts:
 - name: syncthing
-  version: 0.0.3
+  version: 0.0.4
   repo: https://jacekzubielik.github.io/helm-charts
   releaseName: syncthing
   namespace: storage
@@ -31,7 +31,7 @@ resources:
 # - resources/serviceaccount.yaml
 - resources/ingressroute.yaml
 # - resources/pvc.yaml
-- resources/pv.yaml
+#- resources/pv.yaml
 # - resources/sc.yaml
 # - secrets/secret.yaml
 # - secrets/sealed-sec.yaml
