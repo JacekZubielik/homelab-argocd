@@ -103,7 +103,7 @@ persistence:
   accessMode: ReadWriteOnce
   size: 4Gi
   mountPath: /var/syncthing
-  existingClaim: syncthing #"syncthing-pv-claim"
+  existingClaim: #syncthing-pv #"syncthing-pv-claim"
   extraVolumes: []
   # - name: files
   #   storageClass: ""
