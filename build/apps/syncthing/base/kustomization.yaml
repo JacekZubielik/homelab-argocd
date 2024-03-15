@@ -29,7 +29,7 @@ resources:
 # - resources/daemonset.yaml
 # - resources/podsecuritypolicy.yaml
 # - resources/serviceaccount.yaml
-# - resources/ingressroute.yaml
+- resources/ingressroute.yaml
 - resources/pvc.yaml
 - resources/pv.yaml
 # - resources/sc.yaml
