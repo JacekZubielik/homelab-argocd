@@ -53,10 +53,10 @@ spec:
   accessModes:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
-  claimRef:
-    name: syncthing-pv-claim
+  # claimRef:
+  #   name: syncthing-pv-claim
     #namespace: storage
-  storageClassName: local-path #local-storage
+  storageClassName: #local-path #local-storage
   capacity:
     storage: 4Gi
   local:
