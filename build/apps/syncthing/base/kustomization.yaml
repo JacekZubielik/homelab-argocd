@@ -23,7 +23,7 @@ configMapGenerator:
   literals:
   - TZ=CET
 
-resources:
+# resources:
 # - resources/clusterrole.yaml
 # - resources/clusterrolebinding.yaml
 # - resources/daemonset.yaml
