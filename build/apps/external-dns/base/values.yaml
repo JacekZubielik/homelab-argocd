@@ -96,6 +96,12 @@ env:
     value: eu-central-1
   - name: AWS_SHARED_CREDENTIALS_FILE
     value: /.aws/credentials
+  - name: AWS_CONFIG_FILE
+    value: /app/.aws/credentials
+  - name: AWS_HOSTED_ZONE_ID
+    value: Z08398941B204TVG99U4E
+
+
 # -- [Liveness probe](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) configuration for the `external-dns` container.
 # @default -- See _values.yaml_
 livenessProbe:
@@ -213,7 +219,7 @@ txtSuffix:
 ## - Limit possible target zones by domain suffixes.
 domainFilters:
 - anotherlife.pl
-- infra.anotherlife.pl
+#- infra.anotherlife.pl
 provider:
   # -- _ExternalDNS_ provider name; for the available providers and how to configure them see [README](https://github.com/kubernetes-sigs/external-dns/blob/master/charts/external-dns/README.md#providers).
   name: aws
