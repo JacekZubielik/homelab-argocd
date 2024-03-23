@@ -15,13 +15,13 @@ helmCharts:
   repo: https://kubernetes-sigs.github.io/external-dns/
   releaseName: external-dns
   namespace: external-dns
-  includeCRDs: false
+  #includeCRDs: false
   valuesFile: values.yaml
 
-configMapGenerator:
-- name: external-dns-timezone
-  literals:
-  - TZ=CET
+# configMapGenerator:
+# - name: external-dns-timezone
+#   literals:
+#   - TZ=CET
 
 resources:
 # - resources/configmap.yaml
