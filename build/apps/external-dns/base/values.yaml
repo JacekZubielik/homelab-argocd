@@ -15,7 +15,7 @@ serviceAccount:
   annotations: {}
   name:
   # -- Set this to `false` to [opt out of API credential automounting](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#opt-out-of-api-credential-automounting) for the `ServiceAccount`.
-  automountServiceAccountToken:
+  automountServiceAccountToken: "false"
 
 service:
   # -- Service annotations.
@@ -41,7 +41,7 @@ deploymentStrategy:
   type: Recreate
 
 # -- (int) Specify the number of old `ReplicaSets` to retain to allow rollback of the `Deployment``.
-revisionHistoryLimit:
+revisionHistoryLimit: 4
 
 # -- Labels to add to the `Pod`.
 podLabels: {}
