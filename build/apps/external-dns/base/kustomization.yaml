@@ -26,6 +26,7 @@ configMapGenerator:
 resources:
 # - resources/configmap.yaml
 - secrets/sealed.secret.yaml
+- resources/route53-sync.yaml
 
 
 # patches:
