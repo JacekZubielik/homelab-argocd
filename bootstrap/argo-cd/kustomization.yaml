@@ -27,6 +27,8 @@ resources:
 # - resources/argocd-metrics.yaml
 # - resources/argocd-repo-server-metrics.yaml
 # - resources/argocd-server-metrics.yaml
+- resources/namespace.yaml
+
 
 # - vs.yaml
 # patchesStrategicMerge:

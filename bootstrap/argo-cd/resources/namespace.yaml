@@ -1,0 +1,26 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  creationTimestamp: null
+  name: dev
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1"
+
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  creationTimestamp: null
+  name: iot-k3s
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1"
+
+# ---
+# apiVersion: v1
+# kind: Namespace
+# metadata:
+#   creationTimestamp: null
+#   name: dev
+#   annotations:
+#     argocd.argoproj.io/sync-wave: "-1"
