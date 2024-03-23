@@ -14,7 +14,7 @@ helmCharts:
   version: 2.14.2
   releaseName: sealed-secrets
   namespace: kube-system
-  includeCRDs: true
+  includeCRDs: false
   valuesFile: values.yaml
 
 configMapGenerator:
