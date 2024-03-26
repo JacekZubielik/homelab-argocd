@@ -1,0 +1,13 @@
+# Apply:
+#
+#   run: kubectl patch deploy external-dns --namespace external-dns --type json --patch "$(cat external-dns-deployment.patch.yaml)"
+
+---
+#- op: replace
+#  path: /spec/template/spec/containers/0/args/0
+#  value: --policy=sync  # XXX: Danger this could cause DELETION of existing DNS records in the zone
+
+# Option to configure Route53 DNS Zone as per the enviornment
+- op: add
+  path: /spec/template/spec/containers/0/args/1
+  value: --domain-filter=anotherlife.pl  # XXX: Edit  DEV.DOMAIN.COM
