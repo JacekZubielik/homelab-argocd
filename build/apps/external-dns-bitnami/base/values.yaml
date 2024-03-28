@@ -43,7 +43,7 @@ aws:
   ##
   credentials:
     secretKey: ""
-    accessKey: ""
+    accessKey: "1EIwYOKwsm3DO5GkHw10tN06N2L/hM/TCPKLgElb"
     ## Before external-dns 0.5.9 home dir should be `/root/.aws`
     ##
     mountPath: "/.aws"
@@ -68,7 +68,7 @@ aws:
       key: ""
   ## @param aws.region When using the AWS provider, `AWS_DEFAULT_REGION` to set in the environment (optional)
   ##
-  region: eu-west-2
+  region: eu-central-1
   ## @param aws.zoneType When using the AWS provider, filter for zones of this type (optional, options: public, private)
   ##
   zoneType: ""
