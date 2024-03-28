@@ -10,7 +10,7 @@ fullnameOverride:
 commonLabels: {}
 
 serviceAccount:
-  create: true
+  create: false
   labels: {}
   annotations: {}
   name:
